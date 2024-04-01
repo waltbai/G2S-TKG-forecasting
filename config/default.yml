@@ -1,14 +1,20 @@
-# Global settings
-data_path: /path/to/data
-workspace_path: /path/to/workspace
-# Preprocess settings
-preprocess:
-  components:
-    - name: component1
-      path: base.AbstractPreprocessComponent
-    - name: component2
-      path: base.AbstractPreprocessComponent
-      depends: [component1]
-    - name: component3
-      path: base.AbstractPreprocessCollector
-      depends: [component1, component2]
+data_dir: D:\Data\tkg_data
+datasets:
+  ICEWS05-15:
+    base_time: 2005-01-01
+    time_unit: day
+  ICEWS14s:
+    base_time: 2014-01-01
+    time_unit: day
+  ICEWS18:
+    base_time: 2018-01-01
+    time_unit: day
+  GDELT:
+    base_time:
+    time_unit: day
+  WIKI:
+    base_time:
+    time_unit: year
+  YAGO:
+    base_time:
+    time_unit: year

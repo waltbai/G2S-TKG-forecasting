@@ -1,22 +1,22 @@
-# Neural Network-based Experiment Template
-This is a template for neural network-based experiments.
+# Large Language Model for Temporal Knowledge Graph Reasoning
+This project aims to investigate how to utilize LLMs for TKG reasoning.
 
-Change ``package_name`` to your module name.
+## Installation
+[Optional] Create virtual environment:  
+```conda create -n llm4tkg python=3.10```
 
-## Usage
-Install dependency:  
+Install dependencies:  
 ```pip install -r requirements.txt```
 
-## preprocess
-Preprocess transform raw corpus or source data into model-readable data, i.e., tensors.
-It consists of a series of customized components, which will be run one-by-one.
+## Usage
+To be described.
 
-
-## TODO list
-- [x] config module
-  - [x] load config
-  - [x] import lib via path
-- [ ] preprocess module
-  - [x] preprocess pipeline
-  - [ ] single-processing component
-  - [ ] multi-processing component
+## Plan
+- [ ] Small-scale Preliminary Experiments
+  - [ ] Preprocess (2024.4.1~2024.4.7)
+    - [x] TKG data loader
+    - [ ] Anonymous methods
+    - [ ] LLM tokenization and indexing
+  - [ ] Data (2024.4.1~2024.4.7)
+  - [ ] Model
+  - [ ] Trainer
