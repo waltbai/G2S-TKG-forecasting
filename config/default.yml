@@ -1,0 +1,14 @@
+# Global settings
+data_path: /path/to/data
+workspace_path: /path/to/workspace
+# Preprocess settings
+preprocess:
+  components:
+    - name: component1
+      path: base.AbstractPreprocessComponent
+    - name: component2
+      path: base.AbstractPreprocessComponent
+      depends: [component1]
+    - name: component3
+      path: base.AbstractPreprocessCollector
+      depends: [component1, component2]
