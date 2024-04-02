@@ -10,11 +10,11 @@ datasets:
     base_time: 2018-01-01
     time_unit: day
   GDELT:
-    base_time:
-    time_unit: day
+    base_time: 2018-01-01
+    time_unit: 15min
   WIKI:
-    base_time:
+    base_time: 1786
     time_unit: year
   YAGO:
-    base_time:
+    base_time: 1830
     time_unit: year

@@ -1,5 +1,5 @@
 import os
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 from typing import List, Dict
 
 from pydantic import BaseModel
@@ -25,7 +25,8 @@ def read_index_file(fp: str) -> List[List[int]]:
     result = []
     with open(fp, 'r', encoding="utf-8") as f:
         for line in f:
-            result.append(list(map(int, line.split("\t"))))
+            item = list(map(int, line.split("\t")))
+            result.append(item[:4])     # Filter 5th column if exists
     return result
 
 
@@ -37,7 +38,7 @@ def read_dict_file(
     result = {}
     with open(fp, 'r', encoding="utf-8") as f:
         for line in f:
-            word, index = line.strip().split("\t")
+            word, index = line.strip().split("\t")[:2]
             if recover_space:
                 word = word.replace("_", " ")
             result.setdefault(int(index), word)
@@ -49,7 +50,7 @@ def idx2quadruples(
         id2entity: Dict[int, str],
         id2relation: Dict[int, str],
         base_time: str,
-        time_unit: str = "day"
+        time_unit: str = "day",
 ) -> List[Quadruple]:
     """Convert indices to quadruple."""
     result = []
@@ -58,9 +59,14 @@ def idx2quadruples(
         rel = id2relation[rel_idx]
         tail = id2entity[tail_idx]
         if time_unit == "day":
+            # starts from 1
             time = str(date.fromisoformat(base_time) + timedelta(days=time_idx - 1))
+        elif time_unit == "15min":
+            # starts from 0
+            time = str(datetime.fromisoformat(base_time) + timedelta(minutes=time_idx * 15))
         elif time_unit == "year":
-            time = str(int(base_time) + time_idx - 1)
+            # starts from 0
+            time = str(int(base_time) + time_idx)
         else:
             time = "unknown"
         quad = Quadruple(
@@ -106,6 +112,12 @@ class TemporalKG(BaseModel):
         test_set_idx = read_index_file(test_path)
         id2entity = read_dict_file(entity2id_path)
         id2relation = read_dict_file(relation2id_path)
+        if dataset_name == "GDELT":
+            # GDELT dataset use CAMEO event code as relation name
+            # Convert it back to actual relation name
+            cameo_config = load_config("config/cameo.yml")
+            for rid in id2relation.keys():
+                id2relation[rid] = cameo_config["event_code"][id2relation[rid]]
         entities = [_ for _ in id2entity.values()]
         relations = [_ for _ in id2relation.values()]
         # Convert indices to quadruples
