@@ -1,17 +1,48 @@
 import os
+import random
 from datetime import date, timedelta, datetime
-from typing import List, Dict
+from typing import List, Dict, Tuple
 
 from pydantic import BaseModel
 
 from llm4tkg.utils.config import load_config
 
 
-class Quadruple(BaseModel):
+__all__ = [
+    "Fact",
+    "TemporalKG",
+]
+
+
+class Fact(BaseModel):
+    # Fact part
     head: str
     rel: str
     tail: str
     time: str
+    # Index part
+    head_idx: int = None
+    rel_idx: int = None
+    tail_idx: int = None
+    time_idx: int = None
+
+    def quadruple(self) -> Tuple[str, str, str, str]:
+        """Quadruple representation."""
+        return (
+            self.head,
+            self.rel,
+            self.tail,
+            self.time,
+        )
+
+    def quadruple_idx(self) -> Tuple[int, int, int, int]:
+        """Quadruple index representation."""
+        return (
+            self.head_idx,
+            self.rel_idx,
+            self.tail_idx,
+            self.time_idx,
+        )
 
     def __str__(self):
         return (f"({self.head},"
@@ -20,7 +51,7 @@ class Quadruple(BaseModel):
                 f" {self.time})")
 
 
-def read_index_file(fp: str) -> List[List[int]]:
+def _read_index_file(fp: str) -> List[List[int]]:
     """Read index file."""
     result = []
     with open(fp, 'r', encoding="utf-8") as f:
@@ -30,7 +61,7 @@ def read_index_file(fp: str) -> List[List[int]]:
     return result
 
 
-def read_dict_file(
+def _read_dict_file(
         fp: str,
         recover_space: bool = True,
 ) -> Dict[int, str]:
@@ -45,13 +76,25 @@ def read_dict_file(
     return result
 
 
-def idx2quadruples(
+def _remove_brackets(ent: str) -> str:
+    """Remove brackets in entity name."""
+    # Simple strategy that cannot handle nested brackets,
+    # however, it seems enough.
+    start_idx = ent.find("(")
+    end_idx = ent.find(")")
+    if start_idx != -1 and end_idx != -1:
+        return ent.replace(ent[start_idx:end_idx+1], "").strip()
+    else:
+        return ent
+
+
+def _idx2facts(
         indices: List[List[int]],
         id2entity: Dict[int, str],
         id2relation: Dict[int, str],
         base_time: str,
         time_unit: str = "day",
-) -> List[Quadruple]:
+) -> List[Fact]:
     """Convert indices to quadruple."""
     result = []
     for head_idx, rel_idx, tail_idx, time_idx in indices:
@@ -69,14 +112,37 @@ def idx2quadruples(
             time = str(int(base_time) + time_idx)
         else:
             time = "unknown"
-        quad = Quadruple(
+        quad = Fact(
             head=head,
             rel=rel,
             tail=tail,
             time=time,
+            head_idx=head_idx,
+            rel_idx=rel_idx,
+            tail_idx=tail_idx,
+            time_idx=time_idx,
         )
         result.append(quad)
     return result
+
+
+def _check_fact(
+        fact: Fact,
+        entity: str,
+        relation: str,
+        time: str,
+        mode: List[str] = None,
+):
+    """Check if the fact is needed."""
+    flag = True
+    if "uni" in mode:
+        flag = flag and entity == fact.head
+    else:   # bi
+        flag = flag and (entity == fact.head or entity == fact.tail)
+    if "pair" in mode:
+        flag = flag and relation == fact.rel
+    flag = flag and (fact.time < time)
+    return flag
 
 
 class TemporalKG(BaseModel):
@@ -84,14 +150,66 @@ class TemporalKG(BaseModel):
     entities: List[str]
     relations: List[str]
     # Datasets
-    train_set: List[Quadruple]
-    valid_set: List[Quadruple]
-    test_set: List[Quadruple]
+    train_set: List[Fact]
+    valid_set: List[Fact]
+    test_set: List[Fact]
+    # Time information
+    base_time: str
+    time_unit: str
+
+    def construct_prompt(
+            self,
+            query: Fact,
+            anonymous: bool = False
+    ) -> str:
+        """Construct prompt for each query."""
+        return quadruple_prompt(
+            query=query,
+            history=self.find_one_hop_history(
+                query, history_len=10,
+            ),
+            anonymous=anonymous,
+        )
+
+    def find_one_hop_history(
+            self,
+            query: Fact,
+            history_len: int = None,
+            mode: str = "entity|uni",
+    ) -> List[Fact]:
+        """Find recent history by query."""
+        mode = mode.lower().split("|")
+        result = []
+        for fact in self.train_set + self.valid_set + self.test_set:
+            if _check_fact(fact, query.head, query.rel, query.time, mode):
+                result.append(fact)
+        if history_len is not None:
+            result = result[-history_len:]
+        return result
+
+    def statistic(self):
+        """Statistic dataset."""
+        num_entities = len(self.entities)
+        num_relations = len(self.relations)
+        num_train = len(self.train_set)
+        num_valid = len(self.valid_set)
+        num_test = len(self.test_set)
+        examples = random.sample(self.train_set, 10)
+        examples_str = "\n".join([str(_) for _ in examples])
+        report = (f"Total number of entities: {num_entities}\n"
+                  f"Total number of relations: {num_relations}\n"
+                  f"Total number of train facts: {num_train}\n"
+                  f"Total number of valid facts: {num_valid}\n"
+                  f"Total number of test facts: {num_test}\n\n"
+                  f"Some examples:\n"
+                  f"{examples_str}")
+        return report
 
     @classmethod
     def load(cls,
              dataset_name: str,
              data_dir: str=None,
+             verbose: bool = False,
     ):
         """Construct a temporal KG dataset."""
         # Load basic config
@@ -107,56 +225,76 @@ class TemporalKG(BaseModel):
         relation2id_path = os.path.join(dataset_dir, "relation2id.txt")
         # Load original files
         # In previous works, train/valid/test files are processed index files.
-        train_set_idx = read_index_file(train_path)
-        valid_set_idx = read_index_file(valid_path)
-        test_set_idx = read_index_file(test_path)
-        id2entity = read_dict_file(entity2id_path)
-        id2relation = read_dict_file(relation2id_path)
+        train_set_idx = _read_index_file(train_path)
+        valid_set_idx = _read_index_file(valid_path)
+        test_set_idx = _read_index_file(test_path)
+        id2entity = _read_dict_file(entity2id_path)
+        id2relation = _read_dict_file(relation2id_path)
         if dataset_name == "GDELT":
             # GDELT dataset use CAMEO event code as relation name
             # Convert it back to actual relation name
             cameo_config = load_config("config/cameo.yml")
             for rid in id2relation.keys():
                 id2relation[rid] = cameo_config["event_code"][id2relation[rid]]
+            for eid in id2entity.keys():
+                id2entity[eid] = _remove_brackets(id2entity[eid]).capitalize()
         entities = [_ for _ in id2entity.values()]
         relations = [_ for _ in id2relation.values()]
         # Convert indices to quadruples
         base_time = str(config["datasets"][dataset_name]["base_time"])
         time_unit = config["datasets"][dataset_name]["time_unit"]
-        train_set = idx2quadruples(
+        train_set = _idx2facts(
             indices=train_set_idx,
             id2entity=id2entity,
             id2relation=id2relation,
             base_time=base_time,
             time_unit=time_unit,
         )
-        valid_set = idx2quadruples(
+        valid_set = _idx2facts(
             indices=valid_set_idx,
             id2entity=id2entity,
             id2relation=id2relation,
             base_time=base_time,
             time_unit=time_unit,
         )
-        test_set = idx2quadruples(
+        test_set = _idx2facts(
             indices=test_set_idx,
             id2entity=id2entity,
             id2relation=id2relation,
             base_time=base_time,
             time_unit=time_unit,
         )
-        # Statictics
-        print(f"Totally {len(entities)} entities, {len(relations)} relations.")
-        print(f"Train set size: {len(train_set)}\n"
-              f"Valid set size: {len(valid_set)}\n"
-              f"Test set size: {len(test_set)}")
-        print(f"Some examples:")
-        for item in train_set[:10]:
-            print(item)
-        return cls(
+        obj = cls(
             entities=entities,
             relations=relations,
             train_set=train_set,
             valid_set=valid_set,
             test_set=test_set,
+            base_time=base_time,
+            time_unit=time_unit,
         )
+        if verbose:
+            print(obj.statistic())
+        return obj
 
+
+def quadruple_prompt(
+        query: Fact,
+        history: List[Fact],
+        anonymous: bool = False,
+) -> str:
+    """Construct quadruple-like prompt."""
+    result = ""
+    # Append historical facts
+    for fact in history:
+        # Append time
+        if anonymous:
+            result += f"{fact.time_idx}:[{fact.head_idx},{fact.rel_idx},{fact.tail_idx}]\n"
+        else:
+            result += f"{fact.time}:[{fact.head},{fact.rel},{fact.tail}]\n"
+    # Append query
+    if anonymous:
+        result += f"{query.time_idx}:[{query.head_idx},{query.rel_idx},"
+    else:
+        result += f"{query.time}:[{query.head},{query.rel},"
+    return result
