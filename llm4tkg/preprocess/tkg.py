@@ -5,50 +5,14 @@ from typing import List, Dict, Tuple
 
 from pydantic import BaseModel
 
+from llm4tkg.preprocess.fact import Fact
+from llm4tkg.preprocess.prompt import quadruple_prompt
 from llm4tkg.utils.config import load_config
 
 
 __all__ = [
-    "Fact",
     "TemporalKG",
 ]
-
-
-class Fact(BaseModel):
-    # Fact part
-    head: str
-    rel: str
-    tail: str
-    time: str
-    # Index part
-    head_idx: int = None
-    rel_idx: int = None
-    tail_idx: int = None
-    time_idx: int = None
-
-    def quadruple(self) -> Tuple[str, str, str, str]:
-        """Quadruple representation."""
-        return (
-            self.head,
-            self.rel,
-            self.tail,
-            self.time,
-        )
-
-    def quadruple_idx(self) -> Tuple[int, int, int, int]:
-        """Quadruple index representation."""
-        return (
-            self.head_idx,
-            self.rel_idx,
-            self.tail_idx,
-            self.time_idx,
-        )
-
-    def __str__(self):
-        return (f"({self.head},"
-                f" {self.rel},"
-                f" {self.tail},"
-                f" {self.time})")
 
 
 def _read_index_file(fp: str) -> List[List[int]]:
@@ -278,23 +242,3 @@ class TemporalKG(BaseModel):
         return obj
 
 
-def quadruple_prompt(
-        query: Fact,
-        history: List[Fact],
-        anonymous: bool = False,
-) -> str:
-    """Construct quadruple-like prompt."""
-    result = ""
-    # Append historical facts
-    for fact in history:
-        # Append time
-        if anonymous:
-            result += f"{fact.time_idx}:[{fact.head_idx},{fact.rel_idx},{fact.tail_idx}]\n"
-        else:
-            result += f"{fact.time}:[{fact.head},{fact.rel},{fact.tail}]\n"
-    # Append query
-    if anonymous:
-        result += f"{query.time_idx}:[{query.head_idx},{query.rel_idx},"
-    else:
-        result += f"{query.time}:[{query.head},{query.rel},"
-    return result
