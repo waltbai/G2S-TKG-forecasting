@@ -8,7 +8,7 @@ datasets:
     time_unit: day
   ICEWS18:
     base_time: 2018-01-01
-    time_unit: day
+    time_unit: hour
   GDELT:
     base_time: 2018-01-01
     time_unit: 15min

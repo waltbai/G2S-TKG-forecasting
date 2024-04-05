@@ -18,7 +18,7 @@ To be described.
     - [x] Find history method
     - [x] Construct prompt
       - [x] Anonymous methods
-      - [ ] remain some problems, need to run original code
+      - [x] remain some problems, need to run original code
     - [ ] LLM tokenization and indexing
   - [ ] Data (2024.4.1~2024.4.7)
   - [ ] Model

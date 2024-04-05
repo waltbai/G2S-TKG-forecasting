@@ -68,6 +68,8 @@ def _idx2facts(
         if time_unit == "day":
             # starts from 1
             time = str(date.fromisoformat(base_time) + timedelta(days=time_idx - 1))
+        elif time_unit == "hour":
+            time = str(date.fromisoformat(base_time) + timedelta(hours=time_idx))
         elif time_unit == "15min":
             # starts from 0
             time = str(datetime.fromisoformat(base_time) + timedelta(minutes=time_idx * 15))
@@ -124,15 +126,15 @@ class TemporalKG(BaseModel):
     def construct_prompt(
             self,
             query: Fact,
-            anonymous: bool = False
-    ) -> str:
+            **kwargs,
+    ) -> Tuple[str, Dict[int | str, str]]:
         """Construct prompt for each query."""
         return quadruple_prompt(
             query=query,
             history=self.find_one_hop_history(
-                query, history_len=10,
+                query, history_len=0,
             ),
-            anonymous=anonymous,
+            **kwargs,
         )
 
     def find_one_hop_history(
