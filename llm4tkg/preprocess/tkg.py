@@ -6,7 +6,6 @@ from typing import List, Dict, Tuple
 from pydantic import BaseModel
 
 from llm4tkg.preprocess.fact import Fact
-from llm4tkg.preprocess.prompt import quadruple_prompt
 from llm4tkg.utils.config import load_config
 
 
@@ -92,24 +91,6 @@ def _idx2facts(
     return result
 
 
-def _check_fact(
-        fact: Fact,
-        entity: str,
-        relation: str,
-        time: str,
-        mode: List[str] = None,
-):
-    """Check if the fact is needed."""
-    flag = True
-    if "uni" in mode:
-        flag = flag and entity == fact.head
-    else:   # bi
-        flag = flag and (entity == fact.head or entity == fact.tail)
-    if "pair" in mode:
-        flag = flag and relation == fact.rel
-    flag = flag and (fact.time < time)
-    return flag
-
 
 class TemporalKG(BaseModel):
     # Basic graph elements
@@ -122,36 +103,6 @@ class TemporalKG(BaseModel):
     # Time information
     base_time: str
     time_unit: str
-
-    def construct_prompt(
-            self,
-            query: Fact,
-            **kwargs,
-    ) -> Tuple[str, Dict[int | str, str]]:
-        """Construct prompt for each query."""
-        return quadruple_prompt(
-            query=query,
-            history=self.find_one_hop_history(
-                query, history_len=0,
-            ),
-            **kwargs,
-        )
-
-    def find_one_hop_history(
-            self,
-            query: Fact,
-            history_len: int = None,
-            mode: str = "entity|uni",
-    ) -> List[Fact]:
-        """Find recent history by query."""
-        mode = mode.lower().split("|")
-        result = []
-        for fact in self.train_set + self.valid_set + self.test_set:
-            if _check_fact(fact, query.head, query.rel, query.time, mode):
-                result.append(fact)
-        if history_len is not None:
-            result = result[-history_len:]
-        return result
 
     def statistic(self):
         """Statistic dataset."""
@@ -179,7 +130,7 @@ class TemporalKG(BaseModel):
     ):
         """Construct a temporal KG dataset."""
         # Load basic config
-        config = load_config("config/default.yml")
+        config = load_config("config/dataset.yml")
         if data_dir is None:
             data_dir = config["data_dir"]
         # Set paths
