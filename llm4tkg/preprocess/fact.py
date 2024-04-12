@@ -19,10 +19,21 @@ class Fact:
 
     def quadruple(
             self,
-            inverse: bool = False
+            _format: str = "normal"
     ) -> Tuple[str, str, str, str]:
-        """Quadruple representation."""
-        if inverse:
+        """Quadruple representation.
+
+        Args:
+            _format (str): select from ["normal", "inverse", "swap"]
+        """
+        if _format == "normal":
+            return (
+                self.head,
+                self.rel,
+                self.tail,
+                self.time,
+            )
+        elif _format == "inverse":
             return (
                 self.tail,
                 f"inverse {self.rel}",
@@ -31,13 +42,15 @@ class Fact:
             )
         else:
             return (
-                self.head,
-                self.rel,
                 self.tail,
+                self.rel,
+                self.head,
                 self.time,
             )
 
-    def quadruple_idx(self) -> Tuple[int, int, int, int]:
+    def quadruple_idx(
+            self,
+    ) -> Tuple[int, int, int, int]:
         """Quadruple index representation."""
         return (
             self.head_idx,
@@ -45,6 +58,26 @@ class Fact:
             self.tail_idx,
             self.time_idx,
         )
+
+    def prompt_quadruple(
+            self,
+            query_entity: str,
+            anonymous: bool = False,
+            anonymous_time: bool = True,
+    ) -> Tuple[str, str, str, str]:
+        """Quadruple representation for prompt."""
+        if anonymous:
+            head, rel, tail = self.head_idx, self.rel_idx, self.tail_idx
+        else:
+            head, rel, tail = self.head, self.rel, self.tail
+        if anonymous_time:
+            time = self.time_idx
+        else:
+            time = self.time
+        if query_entity == self.tail:
+            head, tail = tail, head
+        head, rel, tail, time = map(str, (head, rel, tail, time))
+        return head, rel, tail, time
 
     def __str__(self):
         return (f"({self.head},"

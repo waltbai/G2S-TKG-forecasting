@@ -111,15 +111,17 @@ class TemporalKG:
         num_train = len(self.train_set)
         num_valid = len(self.valid_set)
         num_test = len(self.test_set)
-        examples = random.sample(self.train_set, 10)
-        examples_str = "\n".join([str(_) for _ in examples])
-        report = (f"Total number of entities: {num_entities}\n"
-                  f"Total number of relations: {num_relations}\n"
-                  f"Total number of train facts: {num_train}\n"
-                  f"Total number of valid facts: {num_valid}\n"
-                  f"Total number of test facts: {num_test}\n\n"
-                  f"Some examples:\n"
-                  f"{examples_str}")
+        # examples = random.sample(self.train_set, 10)
+        # examples_str = "\n".join([str(_) for _ in examples])
+        report = (
+            f"Total number of entities: {num_entities}\n"
+            f"Total number of relations: {num_relations}\n"
+            f"Total number of train facts: {num_train}\n"
+            f"Total number of valid facts: {num_valid}\n"
+            f"Total number of test facts: {num_test}\n\n"
+            # f"Some examples:\n"
+            # f"{examples_str}"
+        )
         return report
 
     @classmethod
@@ -141,7 +143,7 @@ class TemporalKG:
         entity2id_path = os.path.join(dataset_dir, "entity2id.txt")
         relation2id_path = os.path.join(dataset_dir, "relation2id.txt")
         # Load original files
-        # In previous works, train/valid/test files are processed index files.
+        # In previous works, train/valid/unit_test files are processed index files.
         train_set_idx = _read_index_file(train_path)
         valid_set_idx = _read_index_file(valid_path)
         test_set_idx = _read_index_file(test_path)
