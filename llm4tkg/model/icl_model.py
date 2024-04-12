@@ -1,7 +1,6 @@
 from typing import Dict, Tuple, List, Any, Set
 
 import torch
-from pydantic import BaseModel
 from tqdm import tqdm
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
@@ -68,24 +67,21 @@ class InContextLearningModel:
             history_length: int = 30,
             history_type: str = "entity",
             history_direction: str = "uni",
-            top_k: int = 10,
+            top_k: int = 30,
             predict_head: bool = True,
     ):
         self.tokenizer = AutoTokenizer.from_pretrained(backbone)
-        self.tokenizer.pad_token_id = self.tokenizer.eos_token_id
         self.model = AutoModelForCausalLM.from_pretrained(
             backbone,
             torch_dtype=torch.float16 if fp16 else torch.float32,
-            device=device,
         )
+        self.model.to(device)
         self.device = device
         self.history_length = history_length
         self.history_type = history_type
         self.history_direction = history_direction
         self.top_k = top_k
         self.predict_head = predict_head
-
-
 
     def predict(
             self,
@@ -102,6 +98,7 @@ class InContextLearningModel:
             return_dict_in_generate=True,
             output_scores=True,
             renormalize_logits=True,
+            pad_token_id = tokenizer.eos_token_id
         )
         probs = outputs.scores[0]
         probs_idx = torch.argsort(probs, dim=-1, descending=True)
@@ -177,6 +174,8 @@ class InContextLearningModel:
                         "candidates": candidates,
                         "predictions": predictions,
                     })
+                metrics = metric(results)
+                pbar.set_description(f"Hit@10: {metrics['hit@10']:%}")
                 pbar.update()
         metrics = metric(results)
         print(metrics)

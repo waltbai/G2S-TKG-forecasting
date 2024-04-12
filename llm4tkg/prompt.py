@@ -34,7 +34,7 @@ def quadruple_prompt(
         anonymous_time: bool = True,
         shuffle: bool = False,
         query_target: str = "tail",
-) -> Tuple[str, Dict[int | str, str]]:
+) -> Tuple[str, Dict[str, str]]:
     """Construct quadruple-like prompt.
 
     This prompt is used in Lee, et al., emnlp, 2023.
@@ -92,5 +92,5 @@ def quadruple_prompt(
     rel_repr = query.rel_idx if anonymous else query.rel
     task_input += f"{time_repr}:[{ent_repr},{rel_repr},"
     # Prepare candidates:
-    candidates = {v: k for k, v in candidate_mapping.items()}
+    candidates = {str(v): k for k, v in candidate_mapping.items()}
     return task_input, candidates

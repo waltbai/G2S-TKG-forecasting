@@ -1,9 +1,8 @@
 import os
 import random
+from dataclasses import dataclass
 from datetime import date, timedelta, datetime
-from typing import List, Dict, Tuple
-
-from pydantic import BaseModel
+from typing import List, Dict
 
 from llm4tkg.preprocess.fact import Fact
 from llm4tkg.utils.config import load_config
@@ -91,8 +90,9 @@ def _idx2facts(
     return result
 
 
-
-class TemporalKG(BaseModel):
+@dataclass
+class TemporalKG:
+    """Universal class for Temporal Knowledge Graph."""
     # Basic graph elements
     entities: List[str]
     relations: List[str]

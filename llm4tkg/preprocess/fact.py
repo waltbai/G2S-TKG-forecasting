@@ -1,8 +1,11 @@
-from pydantic import BaseModel
+from dataclasses import dataclass
+
 from typing import Tuple
 
 
-class Fact(BaseModel):
+@dataclass
+class Fact:
+    """Universal class for temporal fact."""
     # Fact part
     head: str
     rel: str
@@ -16,10 +19,10 @@ class Fact(BaseModel):
 
     def quadruple(
             self,
-            reverse: bool = False
+            inverse: bool = False
     ) -> Tuple[str, str, str, str]:
         """Quadruple representation."""
-        if reverse:
+        if inverse:
             return (
                 self.tail,
                 f"inverse {self.rel}",

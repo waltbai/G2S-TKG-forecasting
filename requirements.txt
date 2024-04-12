@@ -1,3 +1,2 @@
 PyYAML
 torch
-pydantic
