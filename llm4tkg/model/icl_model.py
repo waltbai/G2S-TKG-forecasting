@@ -70,7 +70,10 @@ class InContextLearningModel:
             top_k: int = 30,
             predict_head: bool = True,
     ):
-        self.tokenizer = AutoTokenizer.from_pretrained(backbone)
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            backbone,
+            truncation_side="left",
+        )
         self.model = AutoModelForCausalLM.from_pretrained(
             backbone,
             torch_dtype=torch.float16 if fp16 else torch.float32,
@@ -91,7 +94,11 @@ class InContextLearningModel:
         """Predict a single sample."""
         model = self.model
         tokenizer = self.tokenizer
-        inputs = tokenizer(prompt, return_tensors="pt").to(self.device)
+        inputs = tokenizer(
+            prompt,
+            return_tensors="pt",
+            truncation=True,
+        ).to(self.device)
         outputs = model.generate(
             **inputs,
             max_new_tokens=1,
@@ -175,7 +182,7 @@ class InContextLearningModel:
                         "predictions": predictions,
                     })
                 metrics = metric(results)
-                pbar.set_description(f"Hit@10: {metrics['hit@10']:%}")
+                pbar.set_description(f"Hit@10: {metrics['hit@10']:.2%}")
                 pbar.update()
         metrics = metric(results)
         print(metrics)

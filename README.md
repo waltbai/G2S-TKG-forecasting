@@ -15,16 +15,18 @@ To be described.
 - [ ] Small-scale Preliminary Experiments on GPT2
   - [x] Preprocess (2024.4.1~2024.4.7)
     - [x] TKG data loader
-  - [x] Prompt
+  - [ ] Prompt
     - [x] Quadruple-style Prompt (2024.4.8~2024.4.14)
       - [x] Time anonymize
       - [x] Entity and Relation anonymize
+      - [ ] ***Code Review*** (2024.4.13-2024.4.14)
     - [ ] Natural Language-style Prompt
       - [ ] Time anonymize
       - [ ] Entity and Relation anonymize
   - [ ] Model
     - [x] In-Context Learning Model (2024.4.8~2024.4.14)
       - [x] Tokenization and indexing
+        - [ ] Batching
       - [x] Predict
       - [x] Evaluate
       - [x] Metric
