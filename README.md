@@ -10,6 +10,7 @@ Install dependencies:
 
 ## Usage
 To be described.
+Run unit test to ensure each module works.
 
 ## Plan
 - [ ] Small-scale Preliminary Experiments on GPT2

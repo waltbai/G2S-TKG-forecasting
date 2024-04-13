@@ -52,7 +52,6 @@ def quadruple_prompt(
     # Find history
     history = []
     query_entity = query.head if query_target == "tail" else query.tail
-    query_entity_idx = query.head_idx if query_target == "tail" else query.tail_idx
     for fact in facts:
         if _check_fact(
                 fact=fact,
