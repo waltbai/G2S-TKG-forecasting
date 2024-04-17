@@ -58,7 +58,7 @@ def metric(results: List[QueryResult]) -> Dict[str, float]:
                     hit1 += 1
                 if 0 <= rank < 3:
                     hit3 += 1
-                if 0<= rank < 10:
+                if 0 <= rank < 10:
                     hit10 += 1
         total += 1
     hit1 = hit1 / total

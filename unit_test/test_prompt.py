@@ -40,14 +40,13 @@ class TestQuadruplePrompt(unittest.TestCase):
 
     def test_entity_uni_strings_tail(self):
         query = Fact("A", "R1", "B", "2024-01-06", 0, 0, 1, 5)
-        facts = tkg.train_set + tkg.valid_set + tkg.test_set
         prompt, candidates = quadruple_prompt(
             query=query,
-            facts=facts,
+            tkg=tkg,
             history_type="entity",
             history_direction="uni",
-            anonymous=False,
-            anonymous_time=True,
+            anonymize=False,
+            anonymize_time=True,
             query_target="tail",
         )
         self.assertEqual(
@@ -68,14 +67,13 @@ class TestQuadruplePrompt(unittest.TestCase):
 
     def test_entity_uni_strings_head(self):
         query = Fact("A", "R1", "B", "2024-01-06", 0, 0, 1, 5)
-        facts = tkg.train_set + tkg.valid_set + tkg.test_set
         prompt, candidates = quadruple_prompt(
             query=query,
-            facts=facts,
+            tkg=tkg,
             history_type="entity",
             history_direction="uni",
-            anonymous=False,
-            anonymous_time=True,
+            anonymize=False,
+            anonymize_time=True,
             query_target="head",
         )
         self.assertEqual(
@@ -95,14 +93,13 @@ class TestQuadruplePrompt(unittest.TestCase):
 
     def test_entity_uni_indices(self):
         query = Fact("A", "R1", "B", "2024-01-06", 0, 0, 1, 5)
-        facts = tkg.train_set + tkg.valid_set + tkg.test_set
         prompt, candidates = quadruple_prompt(
             query=query,
-            facts=facts,
+            tkg=tkg,
             history_type="entity",
             history_direction="uni",
-            anonymous=True,
-            anonymous_time=True,
+            anonymize=True,
+            anonymize_time=True,
             query_target="tail",
         )
         self.assertEqual(

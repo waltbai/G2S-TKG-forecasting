@@ -9,27 +9,27 @@ Install dependencies:
 ```pip install -r requirements.txt```
 
 ## Usage
-To be described.
-Run unit test to ensure each module works.
+Run unit test to ensure each module works:
+```python -m unittest discover```
 
 ## Plan
 - [ ] Small-scale Preliminary Experiments on GPT2
-  - [x] Preprocess (2024.4.1~2024.4.7)
+  - [x] Preprocess
     - [x] TKG data loader
-  - [ ] Prompt
-    - [x] Quadruple-style Prompt (2024.4.8~2024.4.14)
+  - [ ] Quadruple Prompt
+    - [x] Quadruple-style Prompt
       - [x] Time anonymize
       - [x] Entity and Relation anonymize
-      - [ ] ***Code Review*** (2024.4.13-2024.4.14)
-    - [ ] Natural Language-style Prompt
-      - [ ] Time anonymize
-      - [ ] Entity and Relation anonymize
+      - [x] Unit test
+  - [ ] Natural Language-style Prompt
+    - [ ] Time anonymize
+    - [ ] Entity and Relation anonymize
+    - [ ] Unit test
   - [ ] Model
     - [x] In-Context Learning Model (2024.4.8~2024.4.14)
       - [x] Tokenization and indexing
-        - [ ] Batching
-      - [x] Predict
+      - [x] Predict: memory limit, do not use batching
       - [x] Evaluate
-      - [x] Metric
-        - [x] Time-Filter Hit@k
     - [ ] Fine-Tuning Model
+  - [x] Metric
+    - [x] Time-Filter Hit@k

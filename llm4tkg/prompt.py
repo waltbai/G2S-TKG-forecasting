@@ -2,6 +2,7 @@ import random
 from typing import List, Dict, Tuple
 
 from llm4tkg.preprocess.fact import Fact
+from llm4tkg.preprocess.tkg import TemporalKG
 
 
 def _check_fact(
@@ -36,12 +37,12 @@ def _check_fact(
 
 def quadruple_prompt(
         query: Fact,
-        facts: List[Fact],
+        tkg: TemporalKG,
         history_length: int = 30,
         history_type: str = "entity",
         history_direction: str = "uni",
-        anonymous: bool = False,
-        anonymous_time: bool = True,
+        anonymize: bool = False,
+        anonymize_time: bool = True,
         shuffle: bool = False,
         query_target: str = "tail",
 ) -> Tuple[str, Dict[str, str]]:
@@ -52,6 +53,12 @@ def quadruple_prompt(
     # Find history
     history = []
     query_entity = query.head if query_target == "tail" else query.tail
+    if history_direction == "bi":
+        facts = tkg.find_history_by_both(query_entity)
+    elif query_target == "tail":
+        facts = tkg.find_history_by_head(query_entity)
+    else:   # query_target == "head"
+        facts = tkg.find_history_by_tail(query_entity)
     for fact in facts:
         if _check_fact(
                 fact=fact,
@@ -65,8 +72,8 @@ def quadruple_prompt(
             history.append(
                 fact.prompt_quadruple(
                     query_entity=query_entity,
-                    anonymous=anonymous,
-                    anonymous_time=anonymous_time,
+                    anonymize=anonymize,
+                    anonymize_time=anonymize_time,
                 )
             )
     if history_length is not None:
@@ -94,10 +101,17 @@ def quadruple_prompt(
     # Append query
     head, rel, tail, time = query.prompt_quadruple(
         query_entity=query_entity,
-        anonymous=anonymous,
-        anonymous_time=anonymous_time,
+        anonymize=anonymize,
+        anonymize_time=anonymize_time,
     )
     task_input += f"{time}:[{head},{rel},"
     # Prepare candidates:
     candidates = {str(v): k for k, v in candidate_mapping.items()}
     return task_input, candidates
+
+
+def natural_language_prompt() -> str:
+    """Construct natural language prompt.
+
+    This prompt is used in Xia, et al., 2024."""
+

@@ -2,7 +2,7 @@ import os
 import random
 from dataclasses import dataclass
 from datetime import date, timedelta, datetime
-from typing import List, Dict
+from typing import List, Dict, Tuple
 
 from llm4tkg.preprocess.fact import Fact
 from llm4tkg.utils.config import load_config
@@ -103,6 +103,91 @@ class TemporalKG:
     # Time information
     base_time: str
     time_unit: str
+    # Dataset name
+    dataset_name: str = ""
+    # Inner indices for search
+    _head_history: Dict[str, List[Fact]] = None
+    _tail_history: Dict[str, List[Fact]] = None
+    _both_history: Dict[str, List[Fact]] = None
+    _head_rel_history: Dict[Tuple[str, str], List[Fact]] = None
+    _tail_rel_history: Dict[Tuple[str, str], List[Fact]] = None
+
+    def construct_indices(self) -> None:
+        """Construct indices for speedup."""
+        _head_history = {}
+        _tail_history = {}
+        _both_history = {}
+        _head_rel_history = {}
+        _tail_rel_history = {}
+        facts = self.train_set + self.valid_set + self.test_set
+        for fact in facts:
+            _head_history.setdefault(fact.head, []).append(fact)
+            _tail_history.setdefault(fact.tail, []).append(fact)
+            _both_history.setdefault(fact.head, []).append(fact)
+            _both_history.setdefault(fact.tail, []).append(fact)
+            _head_rel_history.setdefault((fact.head, fact.rel), []).append(fact)
+            _tail_rel_history.setdefault((fact.tail, fact.rel), []).append(fact)
+        self._head_history = _head_history
+        self._tail_history = _tail_history
+        self._both_history = _both_history
+        self._head_rel_history = _head_rel_history
+        self._tail_rel_history = _tail_rel_history
+
+    def clear_indices(self):
+        """Clear all indices."""
+        self._head_history = None
+        self._tail_history = None
+        self._both_history = None
+        self._head_rel_history = None
+        self._tail_rel_history = None
+
+    def find_history_by_head(self, head: str) -> List[Fact]:
+        """Find historical facts by head entity."""
+        if self._head_history is not None:
+            return self._head_history[head]
+        else:
+            facts = self.train_set + self.valid_set + self.test_set
+            return [_ for _ in facts if _.head == head]
+
+    def find_history_by_tail(self, tail: str) -> List[Fact]:
+        """Find historical facts by tail entity."""
+        if self._tail_history is not None:
+            return self._tail_history[tail]
+        else:
+            facts = self.train_set + self.valid_set + self.test_set
+            return [_ for _ in facts if _.tail == tail]
+
+    def find_history_by_both(self, ent: str) -> List[Fact]:
+        """Find historical facts by both head and tail entity."""
+        if self._both_history is not None:
+            return self._both_history[ent]
+        else:
+            facts = self.train_set + self.valid_set + self.test_set
+            return [_ for _ in facts if _.head == ent or _.tail == ent]
+
+    def find_history_by_head_rel(
+            self,
+            head: str,
+            rel: str,
+    ) -> List[Fact]:
+        """Find historical facts by head and relation."""
+        if self._head_rel_history is not None:
+            return self._head_rel_history[(head, rel)]
+        else:
+            facts = self.train_set + self.valid_set + self.test_set
+            return [_ for _ in facts if _.head == head and _.rel == rel]
+
+    def find_history_by_tail_rel(
+            self,
+            tail: str,
+            rel: str,
+    ) -> List[Fact]:
+        """Find historical facts by tail and relation."""
+        if self._tail_rel_history is not None:
+            return self._tail_rel_history[(tail, rel)]
+        else:
+            facts = self.train_set + self.valid_set + self.test_set
+            return [_ for _ in facts if _.tail == tail and _.rel == rel]
 
     def statistic(self):
         """Statistic dataset."""
@@ -162,6 +247,7 @@ class TemporalKG:
         # Convert indices to quadruples
         base_time = str(config["datasets"][dataset_name]["base_time"])
         time_unit = config["datasets"][dataset_name]["time_unit"]
+        # Construct datasets
         train_set = _idx2facts(
             indices=train_set_idx,
             id2entity=id2entity,
@@ -191,9 +277,9 @@ class TemporalKG:
             test_set=test_set,
             base_time=base_time,
             time_unit=time_unit,
+            dataset_name=dataset_name,
         )
+        obj.construct_indices()
         if verbose:
             print(obj.statistic())
         return obj
-
-

@@ -62,15 +62,15 @@ class Fact:
     def prompt_quadruple(
             self,
             query_entity: str,
-            anonymous: bool = False,
-            anonymous_time: bool = True,
+            anonymize: bool = False,
+            anonymize_time: bool = True,
     ) -> Tuple[str, str, str, str]:
         """Quadruple representation for prompt."""
-        if anonymous:
+        if anonymize:
             head, rel, tail = self.head_idx, self.rel_idx, self.tail_idx
         else:
             head, rel, tail = self.head, self.rel, self.tail
-        if anonymous_time:
+        if anonymize_time:
             time = self.time_idx
         else:
             time = self.time
