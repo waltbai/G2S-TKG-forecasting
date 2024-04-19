@@ -1,6 +1,6 @@
 import unittest
 
-from llm4tkg.preprocess.fact import Fact
+from src.preprocess.fact import Fact
 
 
 class TestFact(unittest.TestCase):

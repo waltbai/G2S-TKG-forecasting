@@ -1,7 +1,7 @@
 import unittest
 
-from llm4tkg.preprocess.fact import Fact
-from llm4tkg.preprocess.tkg import TemporalKG
+from src.preprocess.fact import Fact
+from src.preprocess.tkg import TemporalKG
 
 
 entities = ["A", "B", "C", "D"]
@@ -46,7 +46,9 @@ class TestTKG(unittest.TestCase):
             f"Total number of relations: 2\n"
             f"Total number of train facts: 5\n"
             f"Total number of valid facts: 4\n"
-            f"Total number of test facts: 3\n\n"
+            f"Total number of test facts: 3\n"
+            f"Total number of valid queries: 8\n"
+            f"Total number of test queries: 5\n\n"
         )
 
     def test_head_index(self):
@@ -128,9 +130,33 @@ class TestTKG(unittest.TestCase):
     def test_head_rel_index(self):
         """Check if tkg can correctly get history by
         head and relation (and via indices)."""
-        pass
+        tkg.clear_indices()
+        his1 = tkg.find_history_by_head_rel("A", "R2")
+        self.assertListEqual(
+            his1,
+            [
+                Fact("A", "R2", "B", "2024-01-01", 0, 1, 1, 0),
+                Fact("A", "R2", "C", "2024-01-04", 0, 1, 1, 3),
+                Fact("A", "R2", "B", "2024-01-05", 0, 1, 1, 4),
+            ]
+        )
+        tkg.construct_indices()
+        his2 = tkg.find_history_by_head_rel("A", "R2")
+        self.assertListEqual(his1, his2)
 
     def test_tail_rel_index(self):
         """Check if tkg can correctly get history by
         tail and relation (and via indices)."""
-        pass
+        tkg.clear_indices()
+        his1 = tkg.find_history_by_tail_rel("C", "R1")
+        self.assertListEqual(
+            his1,
+            [
+                Fact("A", "R1", "C", "2024-01-02", 0, 0, 2, 1),
+                Fact("A", "R1", "C", "2024-01-06", 0, 0, 2, 5),
+            ]
+        )
+        tkg.construct_indices()
+        his2 = tkg.find_history_by_tail_rel("C", "R1")
+        self.assertListEqual(his1, his2)
+

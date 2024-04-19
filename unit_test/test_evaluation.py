@@ -1,100 +1,119 @@
 import unittest
 
-from llm4tkg.evaluation import Prediction, QueryResult, metric
-from llm4tkg.preprocess.fact import Fact
+from src.evaluation import metric, Query
 
 
-class TestEvaluation(unittest.TestCase):
-    """Test evaluation functions."""
+class TestQuery(unittest.TestCase):
+    """Test query class."""
 
-    def test_query_result_filter(self):
-        predictions = [
-            Prediction("B", 0.9),
-            Prediction("C", 0.6),
-            Prediction("D", 0.3),
-            Prediction("E", 0.1),
-        ]
-        result = QueryResult(
-            query=Fact("A", "R1", "C", "0", 0, 0, 2, 0),
-            query_target="tail",
-            predictions=predictions,
-            candidates={"0": "B", "1": "C", "2": "D", "3": "E"},
-            prompt="",
-            answer="C",
+    def test_quadruple_prompt(self):
+        query = Query(
+            entity="A",
+            rel="R1",
+            answers=["B", "C"],
+            time="2024-01-01",
+            entity_idx=0,
+            rel_idx=0,
+            answers_idx=[1, 2],
+            time_idx=0,
+            direction="tail",
         )
-        time_filter_set = {
-            ("A", "R1", "B", "0"),
-            ("A", "R2", "C", "0"),
-            ("A", "R1", "D", "1")
-        }
-        result.time_filter(time_filter_set)
-        self.assertEqual(
-            result.predictions,
-            [
-                Prediction("C", 0.6),
-                Prediction("D", 0.3),
-                Prediction("E", 0.1),
-            ]
+        self.assertTupleEqual(
+            query.prompt_quadruple(anonymize=False, anonymize_time=False),
+            ("A", "R1", "2024-01-01")
+        )
+        self.assertTupleEqual(
+            query.prompt_quadruple(anonymize=False, anonymize_time=True),
+            ("A", "R1", "0")
+        )
+        self.assertTupleEqual(
+            query.prompt_quadruple(anonymize=True, anonymize_time=False),
+            ("0", "0", "2024-01-01")
+        )
+        self.assertTupleEqual(
+            query.prompt_quadruple(anonymize=True, anonymize_time=True),
+            ("0", "0", "0")
         )
 
-    def test_query_result_filter_head(self):
-        predictions = [
-            Prediction("B", 0.9),
-            Prediction("A", 0.6),
-            Prediction("D", 0.3),
-            Prediction("E", 0.1),
-        ]
-        result = QueryResult(
-            query=Fact("A", "R1", "C", "0", 0, 0, 2, 0),
-            query_target="head",
-            predictions=predictions,
-            candidates={"0": "B", "1": "A", "2": "D", "3": "E"},
-            prompt="",
-            answer="A",
+    def test_text_prompt(self):
+        query = Query(
+            entity="A",
+            rel="R1",
+            answers=["B", "C"],
+            time="2024-01-01",
+            entity_idx=0,
+            rel_idx=0,
+            answers_idx=[1, 2],
+            time_idx=0,
+            direction="tail",
         )
-        time_filter_set = {
-            ("B", "R1", "C", "0"),
-            ("A", "R2", "C", "0"),
-            ("A", "R1", "D", "1")
-        }
-        result.time_filter(time_filter_set)
-        self.assertEqual(
-            result.predictions,
-            [
-                Prediction("A", 0.6),
-                Prediction("D", 0.3),
-                Prediction("E", 0.1),
-            ]
+        self.assertTupleEqual(
+            query.prompt_text(anonymize=False, anonymize_time=False),
+            ("A", "R1", "2024-01-01")
+        )
+        self.assertTupleEqual(
+            query.prompt_text(anonymize=False, anonymize_time=True),
+            ("A", "R1", "0th")
+        )
+        self.assertTupleEqual(
+            query.prompt_text(anonymize=True, anonymize_time=False),
+            ("0", "0", "2024-01-01")
+        )
+        self.assertTupleEqual(
+            query.prompt_text(anonymize=True, anonymize_time=True),
+            ("0", "0", "0th")
         )
 
-    def test_metrics(self):
-        results = [
-            QueryResult(
-                query=Fact("A", "R1", "B", "0", 0, 0, 1, 0),
-                query_target="tail",
-                predictions=[
-                    Prediction("C", 0.9),
-                    Prediction("B", 0.6),
-                    Prediction("D", 0.3),
-                ],
-                candidates={"0": "B", "1": "C", "2": "D", "3": "E"},
-                prompt="",
-                answer="B",
-            ),
-            QueryResult(
-                query=Fact("A", "R2", "C", "0", 0, 1, 2, 0),
-                query_target="head",
-                predictions=[
-                    Prediction("A", 0.9),
-                    Prediction("B", 0.6),
-                    Prediction("D", 0.3),
-                ],
-                candidates={"0": "B", "1": "A", "2": "D", "3": "E"},
-                prompt="",
-                answer="A",
-            ),
-        ]
+
+queries = [
+    Query(
+        entity="A",
+        rel="R1",
+        answers=["B", "C"],
+        time="1",
+        direction="tail",
+        predictions=["B", "D", "E", "C"],
+    ),
+    Query(
+        entity="B",
+        rel="R1",
+        answers=["A"],
+        time="1",
+        direction="head",
+        predictions=["C", "A"],
+    ),
+    Query(
+        entity="C",
+        rel="R1",
+        answers=["A"],
+        time="1",
+        direction="head",
+        predictions=["A", "B"],
+    )
+]
+
+
+class TestMetric(unittest.TestCase):
+    """Test evaluation metric functions."""
+
+    def test_metric_raw(self):
+        metrics = metric(queries, time_filter=False)
         self.assertDictEqual(
-            metric(results=results),
-            {"hit@1": 0.5, "hit@3": 1.0, "hit@10": 1.0}
+            metrics,
+            {
+                "hit@1": 0.5,
+                "hit@3": 0.75,
+                "hit@10": 1.0
+            }
+        )
+
+    def test_metric_time_filter(self):
+        metrics = metric(queries, time_filter=True)
+        self.assertDictEqual(
+            metrics,
+            {
+                "hit@1": 0.5,
+                "hit@3": 1.0,
+                "hit@10": 1.0,
+            }
         )

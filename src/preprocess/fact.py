@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 
-from typing import Tuple
+from typing import Tuple, List
+
+from src.utils.common import card2ord
 
 
 @dataclass
@@ -65,7 +67,7 @@ class Fact:
             anonymize: bool = False,
             anonymize_time: bool = True,
     ) -> Tuple[str, str, str, str]:
-        """Quadruple representation for prompt."""
+        """Representation for quadruple prompt."""
         if anonymize:
             head, rel, tail = self.head_idx, self.rel_idx, self.tail_idx
         else:
@@ -78,6 +80,30 @@ class Fact:
             head, tail = tail, head
         head, rel, tail, time = map(str, (head, rel, tail, time))
         return head, rel, tail, time
+
+    def prompt_text(
+            self,
+            query_entity: str,
+            anonymize: bool = False,
+            anonymize_time: bool = True,
+    ) -> Tuple[str, str, str, str]:
+        """Representation for text prompt."""
+        if anonymize:
+            head, rel, tail = self.head_idx, self.rel_idx, self.tail_idx
+        else:
+            head, rel, tail = self.head, self.rel, self.tail
+        if anonymize_time:
+            time = card2ord(self.time_idx)
+        else:
+            time = self.time
+        if query_entity == self.tail:
+            head, tail = tail, head
+        head, rel, tail, time = map(str, (head, rel, tail, time))
+        # head = head.capitalize()
+        # rel = rel.lower()
+        # tail = tail.capitalize()
+        return head, rel, tail, time
+
 
     def __str__(self):
         return (f"({self.head},"

@@ -4,8 +4,9 @@ from dataclasses import dataclass
 from datetime import date, timedelta, datetime
 from typing import List, Dict, Tuple
 
-from llm4tkg.preprocess.fact import Fact
-from llm4tkg.utils.config import load_config
+from src.evaluation import Query
+from src.preprocess.fact import Fact
+from src.utils.config import load_config
 
 
 __all__ = [
@@ -67,6 +68,7 @@ def _idx2facts(
             # starts from 1
             time = str(date.fromisoformat(base_time) + timedelta(days=time_idx - 1))
         elif time_unit == "hour":
+            # starts from 0
             time = str(date.fromisoformat(base_time) + timedelta(hours=time_idx))
         elif time_unit == "15min":
             # starts from 0
@@ -90,27 +92,85 @@ def _idx2facts(
     return result
 
 
-@dataclass
+def _construct_queries(dataset: List[Fact]) -> List[Query]:
+    """Construct queries from dataset."""
+    query_dict = {}
+    for query_direction in ["tail", "head"]:
+        for fact in dataset:
+            query_rel = fact.rel
+            query_rel_idx = fact.rel_idx
+            query_time = fact.time
+            query_time_idx = fact.time_idx
+            if query_direction == "tail":
+                query_entity = fact.head
+                query_entity_idx = fact.head_idx
+                answer = fact.tail
+                answer_idx = fact.tail_idx
+            else:   # query_direction == "head"
+                query_entity = fact.tail
+                query_entity_idx = fact.tail_idx
+                answer = fact.head
+                answer_idx = fact.head_idx
+            key = (query_entity, query_rel, query_time, query_direction)
+            if key in query_dict:
+                query_dict[key].answers.append(answer)
+                query_dict[key].answers_idx.append(answer_idx)
+            else:
+                query_dict.setdefault(
+                    key,
+                    Query(
+                        entity=query_entity,
+                        rel=query_rel,
+                        answers=[answer],
+                        time=query_time,
+                        direction=query_direction,
+                        entity_idx=query_entity_idx,
+                        rel_idx=query_rel_idx,
+                        answers_idx=[answer_idx],
+                        time_idx=query_time_idx,
+                    )
+                )
+    # Sort queries by time
+    keys = sorted(query_dict.keys(), key=lambda x: x[2])
+    queries = [query_dict[key] for key in keys]
+    return queries
+
+
 class TemporalKG:
     """Universal class for Temporal Knowledge Graph."""
-    # Basic graph elements
-    entities: List[str]
-    relations: List[str]
-    # Datasets
-    train_set: List[Fact]
-    valid_set: List[Fact]
-    test_set: List[Fact]
-    # Time information
-    base_time: str
-    time_unit: str
-    # Dataset name
-    dataset_name: str = ""
-    # Inner indices for search
-    _head_history: Dict[str, List[Fact]] = None
-    _tail_history: Dict[str, List[Fact]] = None
-    _both_history: Dict[str, List[Fact]] = None
-    _head_rel_history: Dict[Tuple[str, str], List[Fact]] = None
-    _tail_rel_history: Dict[Tuple[str, str], List[Fact]] = None
+
+    def __init__(
+            self,
+            entities: List[str],
+            relations: List[str],
+            train_set: List[Fact],
+            valid_set: List[Fact],
+            test_set: List[Fact],
+            base_time: str,
+            time_unit: str,
+            dataset_name: str = "",
+            construct_indices: bool = True,
+    ):
+        # Assign Arguments
+        self.entities = entities
+        self.relations = relations
+        self.train_set = train_set
+        self.valid_set = valid_set
+        self.test_set = test_set
+        self.base_time = base_time
+        self.time_unit = time_unit
+        self.dataset_name = dataset_name
+        # Construct inner variables
+        self.valid_queries = _construct_queries(valid_set)
+        self.test_queries = _construct_queries(test_set)
+        # Inner indices for search
+        self._head_history = {}
+        self._tail_history = {}
+        self._both_history = {}
+        self._head_rel_history = {}
+        self._tail_rel_history = {}
+        if construct_indices:
+            self.construct_indices()
 
     def construct_indices(self) -> None:
         """Construct indices for speedup."""
@@ -135,15 +195,15 @@ class TemporalKG:
 
     def clear_indices(self):
         """Clear all indices."""
-        self._head_history = None
-        self._tail_history = None
-        self._both_history = None
-        self._head_rel_history = None
-        self._tail_rel_history = None
+        self._head_history = {}
+        self._tail_history = {}
+        self._both_history = {}
+        self._head_rel_history = {}
+        self._tail_rel_history = {}
 
     def find_history_by_head(self, head: str) -> List[Fact]:
         """Find historical facts by head entity."""
-        if self._head_history is not None:
+        if self._head_history:
             return self._head_history[head]
         else:
             facts = self.train_set + self.valid_set + self.test_set
@@ -151,7 +211,7 @@ class TemporalKG:
 
     def find_history_by_tail(self, tail: str) -> List[Fact]:
         """Find historical facts by tail entity."""
-        if self._tail_history is not None:
+        if self._tail_history:
             return self._tail_history[tail]
         else:
             facts = self.train_set + self.valid_set + self.test_set
@@ -159,7 +219,7 @@ class TemporalKG:
 
     def find_history_by_both(self, ent: str) -> List[Fact]:
         """Find historical facts by both head and tail entity."""
-        if self._both_history is not None:
+        if self._both_history:
             return self._both_history[ent]
         else:
             facts = self.train_set + self.valid_set + self.test_set
@@ -171,7 +231,7 @@ class TemporalKG:
             rel: str,
     ) -> List[Fact]:
         """Find historical facts by head and relation."""
-        if self._head_rel_history is not None:
+        if self._head_rel_history:
             return self._head_rel_history[(head, rel)]
         else:
             facts = self.train_set + self.valid_set + self.test_set
@@ -183,7 +243,7 @@ class TemporalKG:
             rel: str,
     ) -> List[Fact]:
         """Find historical facts by tail and relation."""
-        if self._tail_rel_history is not None:
+        if self._tail_rel_history:
             return self._tail_rel_history[(tail, rel)]
         else:
             facts = self.train_set + self.valid_set + self.test_set
@@ -196,16 +256,16 @@ class TemporalKG:
         num_train = len(self.train_set)
         num_valid = len(self.valid_set)
         num_test = len(self.test_set)
-        # examples = random.sample(self.train_set, 10)
-        # examples_str = "\n".join([str(_) for _ in examples])
+        num_valid_queries = len(self.valid_queries)
+        num_test_queries = len(self.test_queries)
         report = (
             f"Total number of entities: {num_entities}\n"
             f"Total number of relations: {num_relations}\n"
             f"Total number of train facts: {num_train}\n"
             f"Total number of valid facts: {num_valid}\n"
-            f"Total number of test facts: {num_test}\n\n"
-            # f"Some examples:\n"
-            # f"{examples_str}"
+            f"Total number of test facts: {num_test}\n"
+            f"Total number of valid queries: {num_valid_queries}\n"
+            f"Total number of test queries: {num_test_queries}\n\n"
         )
         return report
 
@@ -232,8 +292,14 @@ class TemporalKG:
         train_set_idx = _read_index_file(train_path)
         valid_set_idx = _read_index_file(valid_path)
         test_set_idx = _read_index_file(test_path)
-        id2entity = _read_dict_file(entity2id_path)
-        id2relation = _read_dict_file(relation2id_path)
+        id2entity = _read_dict_file(
+            entity2id_path,
+            recover_space=True,
+        )
+        id2relation = _read_dict_file(
+            relation2id_path,
+            recover_space=True,
+        )
         if dataset_name == "GDELT":
             # GDELT dataset use CAMEO event code as relation name
             # Convert it back to actual relation name
