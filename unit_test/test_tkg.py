@@ -32,6 +32,7 @@ tkg = TemporalKG(
     test_set=test_set,
     base_time="2024-01-01",
     time_unit="day",
+    valid_queries=True,
 )
 
 
@@ -42,13 +43,13 @@ class TestTKG(unittest.TestCase):
         """Check if tkg initializes well."""
         self.assertEqual(
             tkg.statistic(),
-            f"Total number of entities: 4\n"
-            f"Total number of relations: 2\n"
-            f"Total number of train facts: 5\n"
-            f"Total number of valid facts: 4\n"
-            f"Total number of test facts: 3\n"
-            f"Total number of valid queries: 8\n"
-            f"Total number of test queries: 5\n\n"
+            f"# entities      : 4\n"
+            f"# relations     : 2\n"
+            f"# train facts   : 5\n"
+            f"# valid facts   : 4\n"
+            f"# test facts    : 3\n"
+            f"# valid queries : 8\n"
+            f"# test queries  : 5\n"
         )
 
     def test_head_index(self):

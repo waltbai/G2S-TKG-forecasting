@@ -1,10 +1,14 @@
+import logging
+
 import torch
 from tqdm import tqdm
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from typing import Dict
 
 from src.evaluation import metric
 from src.preprocess.tkg import TemporalKG
 from src.prompt import quadruple_prompt
+from src.utils.common import format_params
 
 
 class InContextLearningModel:
@@ -17,7 +21,7 @@ class InContextLearningModel:
             self,
             backbone: str = "openai-community/gpt2",
             device: str = "cpu",
-            fp16: bool = False,
+            # fp16: bool = False,
             history_length: int = 30,
             history_type: str = "entity",
             history_direction: str = "uni",
@@ -26,18 +30,21 @@ class InContextLearningModel:
             anonymize: bool = False,
             anonymize_time: bool = True,
             time_filter: bool = False,
+            filter_duplicate: bool = False,
+            pbar: bool = True,
     ):
         self.tokenizer = AutoTokenizer.from_pretrained(
             backbone,
             truncation_side="left",
             # padding_side="left",
         )
-        self.tokenizer.pad_token = self.tokenizer.unk_token
+        # self.tokenizer.pad_token = self.tokenizer.unk_token
         self.model = AutoModelForCausalLM.from_pretrained(
             backbone,
-            torch_dtype=torch.float16 if fp16 else torch.float32,
+            # torch_dtype=torch.float16 if fp16 else torch.float32,
         )
         self.backbone = backbone
+        self.model_name = self.backbone.split("/")[-1] + "-ICL"
         self.model.to(device)
         self.device = device
         self.history_length = history_length
@@ -48,6 +55,39 @@ class InContextLearningModel:
         self.anonymize = anonymize
         self.anonymize_time = anonymize_time
         self.time_filter = time_filter
+        self.pbar = pbar
+        self.filter_duplicate = filter_duplicate
+        self.logger = logging.getLogger("ICLModel")
+
+    def experiment_settings(
+            self,
+            tkg: TemporalKG,
+    ) -> str:
+        """Experiment settings."""
+        params = [
+            ("Model", self.model_name),
+            ("Dataset", tkg.dataset_name),
+            ("Anonymize", self.anonymize),
+            ("Anonymize time", self.anonymize_time),
+            ("# Predictions", self.top_k),
+            ("History length", self.history_length),
+            ("History type", self.history_type),
+            ("History direction", self.history_length),
+            ("Time filter", self.time_filter),
+        ]
+        return format_params(params)
+
+    @staticmethod
+    def experiment_results(
+            metrics: Dict[str, float],
+    ) -> str:
+        """Experiment results."""
+        params = [
+            ("Hit@1", f"{metrics['hit@1']:.2%}"),
+            ("Hit@3", f"{metrics['hit@3']:.2%}"),
+            ("Hit@10", f"{metrics['hit@10']:.2%}"),
+        ]
+        return format_params(params)
 
     def evaluate(
             self,
@@ -56,10 +96,14 @@ class InContextLearningModel:
         """Evaluate on test set."""
         self.model.eval()
         # Prepare input
-        results = []
         tot_num = len(tkg.test_queries)
-        with tqdm(total=tot_num) as pbar:
-            pbar.set_description("Search history and construct prompt")
+        tqdm_params = {
+            "total": tot_num,
+            "ascii": True,
+            "disable": not self.pbar
+        }
+        self.logger.info("Search history and construct prompts.")
+        with tqdm(**tqdm_params) as pbar:
             for query in tkg.test_queries:
                 prompt, candidates = quadruple_prompt(
                     query=query,
@@ -75,11 +119,10 @@ class InContextLearningModel:
                 query.candidates = candidates
                 pbar.update()
         # Collect predictions
-        probs = []
-        probs_idx = []
-        with torch.no_grad(), tqdm(total=tot_num) as pbar:
-            pbar.set_description("Predict queries")
+        self.logger.info("Predict queries.")
+        with torch.no_grad(), tqdm(**tqdm_params) as pbar:
             for i in range(tot_num):
+                # Inference
                 inputs = self.tokenizer(
                     tkg.test_queries[i].prompt,
                     return_tensors="pt",
@@ -94,26 +137,19 @@ class InContextLearningModel:
                     renormalize_logits=True,
                     pad_token_id=self.tokenizer.eos_token_id
                 )
-                single_probs, single_probs_idx = torch.sort(
+                probs, probs_idx = torch.sort(
                     outputs.scores[0], dim=-1, descending=True
                 )
-                single_probs = single_probs[0, :self.top_k].to("cpu")
-                single_probs_idx = single_probs_idx[0, :self.top_k].to("cpu")
-                probs.append(single_probs)
-                probs_idx.append(single_probs_idx)
-                pbar.update()
-        # Decode predictions
-        filter_duplicate = False
-        with tqdm(total=tot_num) as pbar:
-            pbar.set_description("Decode results")
-            for i in range(tot_num):
+                probs = probs[0, :self.top_k]
+                probs_idx = probs_idx[0, :self.top_k]
+                # Decode predictions
                 predictions = []
                 scores = []
                 predict_ids = set()
-                for score, token_id in zip(probs[i], probs_idx[i]):
+                for score, token_id in zip(probs, probs_idx):
                     ent_id = self.tokenizer.decode(token_id).strip()
                     if ent_id in tkg.test_queries[i].candidates:
-                        if filter_duplicate and ent_id in predict_ids:
+                        if self.filter_duplicate and ent_id in predict_ids:
                             continue
                         predict_ids.add(ent_id)
                         entity = tkg.test_queries[i].candidates[ent_id]
@@ -129,19 +165,9 @@ class InContextLearningModel:
             queries=tkg.test_queries,
             time_filter=self.time_filter,
         )
-        print(f"Experiment settings:\n"
-              f"Model: {self.backbone}-ICL\n"
-              f"Dataset: {tkg.dataset_name}\n"
-              f"Prompt: quadruple\n"
-              f"Anonymize: {self.anonymize}\n"
-              f"Anonymize time: {self.anonymize_time}\n"
-              f"Predictions: {self.top_k}\n"
-              f"History length: {self.history_length}\n"
-              f"History type: {self.history_type}\n"
-              f"History direction: {self.history_direction}\n"
-              f"Time-filter: {self.time_filter}\n\n"
+        self.logger.info(
+            f"Experimental settings:\n{self.experiment_settings(tkg)}"
         )
-        print(f"Hit@1:  {metrics['hit@1']:.2%}\n"
-              f"Hit@3:  {metrics['hit@3']:.2%}\n"
-              f"Hit@10: {metrics['hit@10']:.2%}\n"
+        self.logger.info(
+            f"Experimental Results:\n{self.experiment_results(metrics)}"
         )

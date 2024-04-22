@@ -1,3 +1,4 @@
+import logging
 import os
 import random
 from dataclasses import dataclass
@@ -6,6 +7,7 @@ from typing import List, Dict, Tuple
 
 from src.evaluation import Query
 from src.preprocess.fact import Fact
+from src.utils.common import format_params
 from src.utils.config import load_config
 
 
@@ -149,7 +151,9 @@ class TemporalKG:
             base_time: str,
             time_unit: str,
             dataset_name: str = "",
-            construct_indices: bool = True,
+            indices: bool = True,
+            train_queries: bool = False,
+            valid_queries: bool = False,
     ):
         # Assign Arguments
         self.entities = entities
@@ -161,16 +165,23 @@ class TemporalKG:
         self.time_unit = time_unit
         self.dataset_name = dataset_name
         # Construct inner variables
-        self.valid_queries = _construct_queries(valid_set)
+        self.train_queries = None
+        self.valid_queries = None
         self.test_queries = _construct_queries(test_set)
+        if train_queries:
+            self.train_queries = _construct_queries(train_set)
+        if valid_queries:
+            self.valid_queries = _construct_queries(valid_set)
         # Inner indices for search
         self._head_history = {}
         self._tail_history = {}
         self._both_history = {}
         self._head_rel_history = {}
         self._tail_rel_history = {}
-        if construct_indices:
+        if indices:
             self.construct_indices()
+        # Logger
+        self.logger = logging.getLogger("TKG")
 
     def construct_indices(self) -> None:
         """Construct indices for speedup."""
@@ -251,31 +262,34 @@ class TemporalKG:
 
     def statistic(self):
         """Statistic dataset."""
-        num_entities = len(self.entities)
-        num_relations = len(self.relations)
-        num_train = len(self.train_set)
-        num_valid = len(self.valid_set)
-        num_test = len(self.test_set)
-        num_valid_queries = len(self.valid_queries)
-        num_test_queries = len(self.test_queries)
-        report = (
-            f"Total number of entities: {num_entities}\n"
-            f"Total number of relations: {num_relations}\n"
-            f"Total number of train facts: {num_train}\n"
-            f"Total number of valid facts: {num_valid}\n"
-            f"Total number of test facts: {num_test}\n"
-            f"Total number of valid queries: {num_valid_queries}\n"
-            f"Total number of test queries: {num_test_queries}\n\n"
-        )
-        return report
+        params = [
+            ("# entities", f"{len(self.entities):,}"),
+            ("# relations", f"{len(self.relations):,}"),
+            ("# train facts", f"{len(self.train_set):,}"),
+            ("# valid facts", f"{len(self.valid_set):,}"),
+            ("# test facts", f"{len(self.test_set):,}"),
+        ]
+        if self.train_queries is not None:
+            params.append(("# train queries", f"{len(self.train_queries):,}"))
+        else:
+            pass
+        if self.valid_queries is not None:
+            params.append(("# valid queries", f"{len(self.valid_queries):,}"))
+        else:
+            pass
+        params.append(("# test queries", f"{len(self.test_queries):,}"))
+        return format_params(params)
 
     @classmethod
     def load(cls,
              dataset_name: str,
              data_dir: str=None,
              verbose: bool = False,
+             train_queries: bool = False,
+             valid_queries: bool = False,
     ):
         """Construct a temporal KG dataset."""
+        logger = logging.getLogger("TKG.load")
         # Load basic config
         config = load_config("config/dataset.yml")
         if data_dir is None:
@@ -292,6 +306,8 @@ class TemporalKG:
         train_set_idx = _read_index_file(train_path)
         valid_set_idx = _read_index_file(valid_path)
         test_set_idx = _read_index_file(test_path)
+        if verbose:
+            logger.info("Facts loaded.")
         id2entity = _read_dict_file(
             entity2id_path,
             recover_space=True,
@@ -300,6 +316,8 @@ class TemporalKG:
             relation2id_path,
             recover_space=True,
         )
+        if verbose:
+            logger.info("Dicts loaded.")
         if dataset_name == "GDELT":
             # GDELT dataset use CAMEO event code as relation name
             # Convert it back to actual relation name
@@ -344,8 +362,10 @@ class TemporalKG:
             base_time=base_time,
             time_unit=time_unit,
             dataset_name=dataset_name,
+            train_queries=train_queries,
+            valid_queries=valid_queries,
         )
         obj.construct_indices()
         if verbose:
-            print(obj.statistic())
+            logger.info(f"TKG statistics:\n{obj.statistic()}")
         return obj

@@ -1,5 +1,5 @@
 import importlib
-from typing import Callable
+from typing import Callable, Dict, Tuple, List, Any
 
 
 def import_lib(path: str) -> Callable:
@@ -15,3 +15,13 @@ def card2ord(n: int) -> str:
     else:
         suffix = ["th", "st", "nd", "rd", "th"][min(n % 10, 4)]
     return f"{n}{suffix}"
+
+
+def format_params(params: List[Tuple[str, Any]]) -> str:
+    """Format parameter string."""
+    num_char_key = max([len(_[0]) for _ in params]) + 1
+    num_char_value = max([len(str(_[1])) for _ in params])
+    result = ""
+    for key, value in params:
+        result += f"{key.ljust(num_char_key)}: {str(value).rjust(num_char_value)}\n"
+    return result

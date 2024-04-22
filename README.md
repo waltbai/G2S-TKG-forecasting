@@ -33,3 +33,22 @@ Run unit test to ensure each module works:
     - [ ] Fine-Tuning Model
   - [x] Metric
     - [x] Time-Filter Hit@k
+
+## Anonymous Pretrain and Entity Assignment
+### Pretrain
+Learn variables and computations
+[ENT_0, REL_0, ENT_1, xxx]
+...
+
+### Fine-tune
+Baseline:  
+[China, agreement, Russia, xxx]
+[xxx]
+Russia 
+
+Assignment:  
+Map: ENT_0: China, ENT_1: Russia
+[ENT_0, REL_0, ENT_1, xxx]
+ENT_1 -> Russia
+
+[ENT_0: China, REL_0: make agreement, ENT_1: Russia, xxx]
