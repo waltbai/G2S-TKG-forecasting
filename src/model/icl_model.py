@@ -5,7 +5,7 @@ from tqdm import tqdm
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from typing import Dict
 
-from src.evaluation import metric
+from src.evaluation import metric, Query
 from src.preprocess.tkg import TemporalKG
 from src.prompt import quadruple_prompt
 from src.utils.common import format_params
@@ -27,8 +27,6 @@ class InContextLearningModel:
             history_direction: str = "uni",
             top_k: int = 30,
             predict_head: bool = True,
-            anonymize: bool = False,
-            anonymize_time: bool = True,
             time_filter: bool = False,
             filter_duplicate: bool = False,
             pbar: bool = True,
@@ -52,8 +50,6 @@ class InContextLearningModel:
         self.history_direction = history_direction
         self.top_k = top_k
         self.predict_head = predict_head
-        self.anonymize = anonymize
-        self.anonymize_time = anonymize_time
         self.time_filter = time_filter
         self.pbar = pbar
         self.filter_duplicate = filter_duplicate
@@ -67,8 +63,9 @@ class InContextLearningModel:
         params = [
             ("Model", self.model_name),
             ("Dataset", tkg.dataset_name),
-            ("Anonymize", self.anonymize),
-            ("Anonymize time", self.anonymize_time),
+            ("Anonymize entity", tkg.anon_entity),
+            ("Anonymize rel", tkg.anon_rel),
+            ("Anonymize time", tkg.anon_time),
             ("# Predictions", self.top_k),
             ("History length", self.history_length),
             ("History type", self.history_type),
@@ -89,6 +86,47 @@ class InContextLearningModel:
         ]
         return format_params(params)
 
+    def predict(
+            self,
+            query: Query,
+            tkg: TemporalKG,
+    ):
+        """Predict a query, fill in the predictions in-place."""
+        # Inference
+        inputs = self.tokenizer(
+            query.prompt,
+            return_tensors="pt",
+            truncation=True,
+        ).to(self.device)
+        outputs = self.model.generate(
+            **inputs,
+            max_new_tokens=1,
+            return_dict_in_generate=True,
+            output_scores=True,
+            renormalize_logits=True,
+            pad_token_id=self.tokenizer.eos_token_id
+        )
+        probs, probs_idx = torch.sort(
+            outputs.scores[0], dim=-1, descending=True
+        )
+        probs = probs[0, :self.top_k]
+        probs_idx = probs_idx[0, :self.top_k]
+        # Decode predictions
+        predictions = []
+        scores = []
+        predict_ids = set()
+        for score, token_id in zip(probs, probs_idx):
+            ent_id = self.tokenizer.decode(token_id).strip()
+            if ent_id in query.candidates:
+                if self.filter_duplicate and ent_id in predict_ids:
+                    continue
+                predict_ids.add(ent_id)
+                entity = tkg.deanonymize_entity(query.candidates[ent_id])
+                predictions.append(entity)
+                scores.append(score.item())
+        query.predictions = predictions
+        query.scores = scores
+
     def evaluate(
             self,
             tkg: TemporalKG,
@@ -100,7 +138,7 @@ class InContextLearningModel:
         tqdm_params = {
             "total": tot_num,
             "ascii": True,
-            "disable": not self.pbar
+            "disable": not self.pbar,
         }
         self.logger.info("Search history and construct prompts.")
         with tqdm(**tqdm_params) as pbar:
@@ -111,8 +149,6 @@ class InContextLearningModel:
                     history_length=self.history_length,
                     history_type=self.history_type,
                     history_direction=self.history_direction,
-                    anonymize=self.anonymize,
-                    anonymize_time=self.anonymize_time,
                     shuffle=False,
                 )
                 query.prompt = prompt
@@ -122,43 +158,7 @@ class InContextLearningModel:
         self.logger.info("Predict queries.")
         with torch.no_grad(), tqdm(**tqdm_params) as pbar:
             for i in range(tot_num):
-                # Inference
-                inputs = self.tokenizer(
-                    tkg.test_queries[i].prompt,
-                    return_tensors="pt",
-                    truncation=True,
-                    # padding=True,
-                ).to(self.device)
-                outputs = self.model.generate(
-                    **inputs,
-                    max_new_tokens=1,
-                    return_dict_in_generate=True,
-                    output_scores=True,
-                    renormalize_logits=True,
-                    pad_token_id=self.tokenizer.eos_token_id
-                )
-                probs, probs_idx = torch.sort(
-                    outputs.scores[0], dim=-1, descending=True
-                )
-                probs = probs[0, :self.top_k]
-                probs_idx = probs_idx[0, :self.top_k]
-                # Decode predictions
-                predictions = []
-                scores = []
-                predict_ids = set()
-                for score, token_id in zip(probs, probs_idx):
-                    ent_id = self.tokenizer.decode(token_id).strip()
-                    if ent_id in tkg.test_queries[i].candidates:
-                        if self.filter_duplicate and ent_id in predict_ids:
-                            continue
-                        predict_ids.add(ent_id)
-                        entity = tkg.test_queries[i].candidates[ent_id]
-                        if self.anonymize:
-                            entity = tkg.entities[int(entity)]
-                        predictions.append(entity)
-                        scores.append(score.item())
-                tkg.test_queries[i].predictions = predictions
-                tkg.test_queries[i].scores = scores
+                self.predict(tkg.test_queries[i], tkg)
                 pbar.update()
         # Compute metrics
         metrics = metric(

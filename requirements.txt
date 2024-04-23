@@ -1,2 +1,3 @@
 PyYAML
-torch
+torch==1.13.0
+transformers==4.39.3

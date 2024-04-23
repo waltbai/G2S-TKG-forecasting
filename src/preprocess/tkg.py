@@ -1,13 +1,11 @@
 import logging
 import os
-import random
-from dataclasses import dataclass
-from datetime import date, timedelta, datetime
-from typing import List, Dict, Tuple
+from datetime import timedelta, datetime
+from typing import List, Dict
 
 from src.evaluation import Query
 from src.preprocess.fact import Fact
-from src.utils.common import format_params
+from src.utils.common import format_params, card2ord
 from src.utils.config import load_config
 
 
@@ -16,13 +14,19 @@ __all__ = [
 ]
 
 
-def _read_index_file(fp: str) -> List[List[int]]:
+def _read_index_file(
+        fp: str,
+        adjust_time: bool = False,
+) -> List[List[int]]:
     """Read index file."""
     result = []
     with open(fp, 'r', encoding="utf-8") as f:
         for line in f:
             item = list(map(int, line.split("\t")))
-            result.append(item[:4])     # Filter 5th column if exists
+            head, rel, tail, time = item[:4]     # Filter 5th column if exists
+            if adjust_time:
+                time -= 1
+            result.append([head, rel, tail, time])
     return result
 
 
@@ -53,12 +57,37 @@ def _remove_brackets(ent: str) -> str:
         return ent
 
 
+def _str2datetime(
+        time_str: str,
+        time_precision: str = "day",
+) -> datetime:
+    """Convert time string to datetime object."""
+    if time_precision == "year":
+        return datetime.strptime(time_str, "%Y")
+    else:
+        return datetime.fromisoformat(time_str)
+
+
+def _datetime2str(
+        time: datetime,
+        time_precision: str = "day",
+) -> str:
+    """Convert datetime object to string."""
+    if time_precision == "year":
+        return str(time.year)
+    elif time_precision == "day":
+        return str(time.date())
+    else:
+        return str(time)
+
+
 def _idx2facts(
         indices: List[List[int]],
         id2entity: Dict[int, str],
         id2relation: Dict[int, str],
-        base_time: str,
-        time_unit: str = "day",
+        base_time: datetime,
+        time_unit: timedelta,
+        time_precision: str = "day",
 ) -> List[Fact]:
     """Convert indices to quadruple."""
     result = []
@@ -66,32 +95,31 @@ def _idx2facts(
         head = id2entity[head_idx]
         rel = id2relation[rel_idx]
         tail = id2entity[tail_idx]
-        if time_unit == "day":
-            # starts from 1
-            time = str(date.fromisoformat(base_time) + timedelta(days=time_idx - 1))
-        elif time_unit == "hour":
-            # starts from 0
-            time = str(date.fromisoformat(base_time) + timedelta(hours=time_idx))
-        elif time_unit == "15min":
-            # starts from 0
-            time = str(datetime.fromisoformat(base_time) + timedelta(minutes=time_idx * 15))
-        elif time_unit == "year":
-            # starts from 0
-            time = str(int(base_time) + time_idx)
-        else:
-            time = "unknown"
+        time = _datetime2str(
+            base_time + time_unit * time_idx,
+            time_precision=time_precision,
+        )
         quad = Fact(
             head=head,
             rel=rel,
             tail=tail,
             time=time,
-            head_idx=head_idx,
-            rel_idx=rel_idx,
-            tail_idx=tail_idx,
-            time_idx=time_idx,
         )
         result.append(quad)
     return result
+
+
+def _get_timedelta(time_unit: str) -> timedelta:
+    """Get time delta object by time_unit."""
+    # By default, time unit is 1 day.
+    ret_val = timedelta(days=1)
+    if time_unit == "year":
+        ret_val = timedelta(days=365)
+    elif time_unit == "hour":
+        ret_val = timedelta(hours=1)
+    elif time_unit == "15min":
+        ret_val = timedelta(minutes=15)
+    return ret_val
 
 
 def _construct_queries(dataset: List[Fact]) -> List[Query]:
@@ -100,23 +128,16 @@ def _construct_queries(dataset: List[Fact]) -> List[Query]:
     for query_direction in ["tail", "head"]:
         for fact in dataset:
             query_rel = fact.rel
-            query_rel_idx = fact.rel_idx
             query_time = fact.time
-            query_time_idx = fact.time_idx
             if query_direction == "tail":
                 query_entity = fact.head
-                query_entity_idx = fact.head_idx
                 answer = fact.tail
-                answer_idx = fact.tail_idx
             else:   # query_direction == "head"
                 query_entity = fact.tail
-                query_entity_idx = fact.tail_idx
                 answer = fact.head
-                answer_idx = fact.head_idx
             key = (query_entity, query_rel, query_time, query_direction)
             if key in query_dict:
                 query_dict[key].answers.append(answer)
-                query_dict[key].answers_idx.append(answer_idx)
             else:
                 query_dict.setdefault(
                     key,
@@ -126,10 +147,6 @@ def _construct_queries(dataset: List[Fact]) -> List[Query]:
                         answers=[answer],
                         time=query_time,
                         direction=query_direction,
-                        entity_idx=query_entity_idx,
-                        rel_idx=query_rel_idx,
-                        answers_idx=[answer_idx],
-                        time_idx=query_time_idx,
                     )
                 )
     # Sort queries by time
@@ -148,23 +165,36 @@ class TemporalKG:
             train_set: List[Fact],
             valid_set: List[Fact],
             test_set: List[Fact],
-            base_time: str,
-            time_unit: str,
+            base_time: datetime,
+            time_unit: timedelta,
+            time_precision: str = "day",
             dataset_name: str = "",
-            indices: bool = True,
+            anon_entity: str = None,
+            anon_rel: str = None,
+            anon_time: str = None,
+            search_indices: bool = True,
             train_queries: bool = False,
             valid_queries: bool = False,
+            entity2id: Dict[str, int] = None,
+            relation2id: Dict[str, int] = None,
     ):
         # Assign Arguments
         self.entities = entities
+        self.entity2id = entity2id or {v: k for k, v in enumerate(entities)}
         self.relations = relations
+        self.relation2id = relation2id or {v: k for k, v in enumerate(relations)}
         self.train_set = train_set
         self.valid_set = valid_set
         self.test_set = test_set
         self.base_time = base_time
         self.time_unit = time_unit
         self.dataset_name = dataset_name
-        # Construct inner variables
+        self.time_precision = time_precision
+        # Anonymization strategies
+        self.anon_entity = anon_entity
+        self.anon_rel = anon_rel
+        self.anon_time = anon_time
+        # Construct queries
         self.train_queries = None
         self.valid_queries = None
         self.test_queries = _construct_queries(test_set)
@@ -172,18 +202,72 @@ class TemporalKG:
             self.train_queries = _construct_queries(train_set)
         if valid_queries:
             self.valid_queries = _construct_queries(valid_set)
-        # Inner indices for search
+        # Search indices
         self._head_history = {}
         self._tail_history = {}
         self._both_history = {}
         self._head_rel_history = {}
         self._tail_rel_history = {}
-        if indices:
-            self.construct_indices()
+        if search_indices:
+            self.construct_search_indices()
         # Logger
         self.logger = logging.getLogger("TKG")
 
-    def construct_indices(self) -> None:
+    def anonymize_entity(
+            self,
+            entity: str,
+    ) -> str:
+        """Anonymize entity."""
+        if self.anon_entity == "index":
+            return str(self.entity2id[entity])
+        elif self.anon_entity == "prefix":
+            return f"ENT_{self.entity2id[entity]}"
+        else:
+            return entity
+
+    def deanonymize_entity(
+            self,
+            entity: str,
+    ) -> str:
+        """Deanonymize entity."""
+        if self.anon_entity == "index":
+            return self.entities[int(entity)]
+        elif self.anon_entity == "prefix":
+            return self.entities[int(entity.replace("ENT_", ""))]
+        else:
+            return entity
+
+    def anonymize_rel(
+            self,
+            rel: str
+    ) -> str:
+        """Anonymize relation."""
+        if self.anon_rel == "index":
+            return str(self.relation2id[rel])
+        elif self.anon_rel == "prefix":
+            return f"REL_{self.relation2id[rel]}"
+        else:
+            return rel
+
+    def anonymize_time(
+            self,
+            time: str,
+    ) -> str:
+        """Anonymize time."""
+        if self.anon_time == "index":
+            time = _str2datetime(time, time_precision=self.time_precision)
+            return str((time - self.base_time) // self.time_unit)
+        elif self.anon_time == "suffix":
+            time = _str2datetime(
+                time,
+                time_precision=self.time_precision,
+            )
+            time = card2ord((time - self.base_time) // self.time_unit)
+            return f"on the {time} {self.time_precision}"
+        else:
+            return time
+
+    def construct_search_indices(self) -> None:
         """Construct indices for speedup."""
         _head_history = {}
         _tail_history = {}
@@ -284,9 +368,11 @@ class TemporalKG:
     def load(cls,
              dataset_name: str,
              data_dir: str=None,
-             verbose: bool = False,
              train_queries: bool = False,
              valid_queries: bool = False,
+             anonymize_entity: str = None,
+             anonymize_rel: str = None,
+             anonymize_time: str = None,
     ):
         """Construct a temporal KG dataset."""
         logger = logging.getLogger("TKG.load")
@@ -303,21 +389,14 @@ class TemporalKG:
         relation2id_path = os.path.join(dataset_dir, "relation2id.txt")
         # Load original files
         # In previous works, train/valid/unit_test files are processed index files.
-        train_set_idx = _read_index_file(train_path)
-        valid_set_idx = _read_index_file(valid_path)
-        test_set_idx = _read_index_file(test_path)
-        if verbose:
-            logger.info("Facts loaded.")
-        id2entity = _read_dict_file(
-            entity2id_path,
-            recover_space=True,
-        )
-        id2relation = _read_dict_file(
-            relation2id_path,
-            recover_space=True,
-        )
-        if verbose:
-            logger.info("Dicts loaded.")
+        adjust_time = dataset_name in ["ICEWS14s", "ICEWS05-15"]
+        train_set_idx = _read_index_file(train_path, adjust_time=adjust_time)
+        valid_set_idx = _read_index_file(valid_path, adjust_time=adjust_time)
+        test_set_idx = _read_index_file(test_path, adjust_time=adjust_time)
+        logger.info("Facts loaded.")
+        id2entity = _read_dict_file(entity2id_path, recover_space=True)
+        id2relation = _read_dict_file(relation2id_path, recover_space=True)
+        logger.info("Dicts loaded.")
         if dataset_name == "GDELT":
             # GDELT dataset use CAMEO event code as relation name
             # Convert it back to actual relation name
@@ -326,11 +405,15 @@ class TemporalKG:
                 id2relation[rid] = cameo_config["event_code"][id2relation[rid]]
             for eid in id2entity.keys():
                 id2entity[eid] = _remove_brackets(id2entity[eid]).capitalize()
-        entities = [_ for _ in id2entity.values()]
-        relations = [_ for _ in id2relation.values()]
+        entities = [id2entity[_] for _ in range(len(id2entity))]
+        entity2id = {v: k for k, v in id2entity.items()}
+        relations = [id2relation[_] for _ in range(len(id2relation))]
+        relation2id = {v: k for k, v in id2relation.items()}
         # Convert indices to quadruples
-        base_time = str(config["datasets"][dataset_name]["base_time"])
-        time_unit = config["datasets"][dataset_name]["time_unit"]
+        dataset_config = config["datasets"][dataset_name]
+        time_precision = dataset_config["time_precision"]
+        base_time = _str2datetime(str(dataset_config["base_time"]))
+        time_unit = _get_timedelta(dataset_config["time_unit"])
         # Construct datasets
         train_set = _idx2facts(
             indices=train_set_idx,
@@ -338,6 +421,7 @@ class TemporalKG:
             id2relation=id2relation,
             base_time=base_time,
             time_unit=time_unit,
+            time_precision=time_precision,
         )
         valid_set = _idx2facts(
             indices=valid_set_idx,
@@ -345,6 +429,7 @@ class TemporalKG:
             id2relation=id2relation,
             base_time=base_time,
             time_unit=time_unit,
+            time_precision=time_precision,
         )
         test_set = _idx2facts(
             indices=test_set_idx,
@@ -352,6 +437,7 @@ class TemporalKG:
             id2relation=id2relation,
             base_time=base_time,
             time_unit=time_unit,
+            time_precision=time_precision,
         )
         obj = cls(
             entities=entities,
@@ -361,11 +447,16 @@ class TemporalKG:
             test_set=test_set,
             base_time=base_time,
             time_unit=time_unit,
+            time_precision=time_precision,
             dataset_name=dataset_name,
+            anon_entity=anonymize_entity,
+            anon_rel=anonymize_rel,
+            anon_time=anonymize_time,
             train_queries=train_queries,
             valid_queries=valid_queries,
+            entity2id=entity2id,
+            relation2id=relation2id,
         )
-        obj.construct_indices()
-        if verbose:
-            logger.info(f"TKG statistics:\n{obj.statistic()}")
+        obj.construct_search_indices()
+        logger.info(f"TKG statistics:\n{obj.statistic()}")
         return obj

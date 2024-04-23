@@ -17,3 +17,4 @@ class SupervisedFineTuneModel(InContextLearningModel):
             tkg: TemporalKG,
     ):
         """Train on train set."""
+        

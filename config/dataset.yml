@@ -3,18 +3,23 @@ datasets:
   ICEWS05-15:
     base_time: 2005-01-01
     time_unit: day
+    time_precision: day
   ICEWS14s:
     base_time: 2014-01-01
     time_unit: day
+    time_precision: day
   ICEWS18:
     base_time: 2018-01-01
     time_unit: hour
+    time_precision: day
   GDELT:
     base_time: 2018-01-01
     time_unit: 15min
+    time_precision: min
   WIKI:
     base_time: 1786
     time_unit: year
+    time_precision: year
   YAGO:
     base_time: 1830
     time_unit: year

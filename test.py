@@ -19,10 +19,12 @@ def get_args():
     parser.add_argument("--history_direction",
                         type=str, default="uni",
                         choices=["uni", "bi"])
-    parser.add_argument("--anonymize",
-                        type=bool, default=False)
+    parser.add_argument("--anonymize_entity",
+                        type=str, default=None)
+    parser.add_argument("--anonymize_rel",
+                        type=str, default=None)
     parser.add_argument("--anonymize_time",
-                        type=bool, default=True)
+                        type=str, default="index")
     parser.add_argument("--predictions",
                         type=int, default=30)
     parser.add_argument("--time_filter",
@@ -41,15 +43,15 @@ if __name__ == "__main__":
     )
     tkg = TemporalKG.load(
         args.dataset,
-        verbose=True,
+        anonymize_entity=args.anonymize_entity,
+        anonymize_rel=args.anonymize_rel,
+        anonymize_time=args.anonymize_time,
     )
     model = InContextLearningModel(
         backbone="/data/bailong/models/gpt2",
         device="cuda:0",
         history_type=args.history_type,
         history_direction=args.history_direction,
-        anonymize=args.anonymize,
-        anonymize_time=args.anonymize_time,
         time_filter=args.time_filter,
         pbar=args.pbar,
     )

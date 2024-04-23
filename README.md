@@ -3,35 +3,48 @@ This project aims to investigate how to utilize LLMs for TKG reasoning.
 
 ## Installation
 **[Optional]** Create virtual environment:  
-```conda create -n llm4tkg python=3.10```
+```shell
+conda create -n llm4tkg python=3.8
+```
 
 Install dependencies:  
-```pip install -r requirements.txt```
+```shell
+pip install -r requirements.txt
+```
 
 ## Usage
 Run unit test to ensure each module works:
-```python -m unittest discover```
+```shell
+python -m unittest discover
+```
+
+Evaluate in-context learning model:
+```shell
+scripts/run_icl.sh
+```
 
 ## Plan
 - [ ] Small-scale Preliminary Experiments on GPT2
   - [x] Preprocess
     - [x] TKG data loader
-  - [ ] Quadruple Prompt
+  - [x] Quadruple Prompt
     - [x] Quadruple-style Prompt
       - [x] Time anonymize
       - [x] Entity and Relation anonymize
       - [x] Unit test
-  - [ ] Natural Language-style Prompt
-    - [ ] Time anonymize
-    - [ ] Entity and Relation anonymize
-    - [ ] Unit test
   - [ ] Model
     - [x] In-Context Learning Model (2024.4.8~2024.4.14)
       - [x] Tokenization and indexing
       - [x] Predict: memory limit, do not use batching
       - [x] Evaluate
     - [ ] Fine-Tuning Model
+      - [ ] Train
+      - [ ] Checkpoint
+    - [ ] Preferece-Tuning Model
+      - [ ] Train
+      - [ ] Checkpoint
   - [x] Metric
+    - [x] Raw Hit@k
     - [x] Time-Filter Hit@k
 
 ## Anonymous Pretrain and Entity Assignment
