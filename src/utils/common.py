@@ -1,20 +1,27 @@
-import importlib
-from typing import Callable, Dict, Tuple, List, Any
+from typing import Dict, List, Tuple, Any
+
+from yaml import load, Loader
 
 
-def import_lib(path: str) -> Callable:
-    """Import function or class via path."""
-    module, target = path.rsplit(".", maxsplit=1)
-    return getattr(importlib.import_module(module), target)
+def load_config(
+        config_path: str,
+) -> Dict:
+    """Load config file."""
+    with open(config_path, "r") as f:
+        config = load(f, Loader=Loader)
+    return config
 
 
-def card2ord(n: int) -> str:
-    """Convert a cardinal number to ordinal number."""
-    if 11 <= (n % 100) <= 13:
-        suffix = "th"
+def remove_brackets(ent: str) -> str:
+    """Remove brackets in entity name."""
+    # Simple strategy that cannot handle nested brackets,
+    # however, it seems enough.
+    start_idx = ent.find("(")
+    end_idx = ent.find(")")
+    if start_idx != -1 and end_idx != -1:
+        return ent.replace(ent[start_idx:end_idx + 1], "").strip()
     else:
-        suffix = ["th", "st", "nd", "rd", "th"][min(n % 10, 4)]
-    return f"{n}{suffix}"
+        return ent
 
 
 def format_params(params: List[Tuple[str, Any]]) -> str:

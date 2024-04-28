@@ -1,68 +1,51 @@
 import unittest
 from datetime import datetime, timedelta
 
-from src.preprocess.fact import Fact
-from src.preprocess.tkg import TemporalKG
-
+from src.utils.fact import Fact
+from src.utils.tkg import TKG, construct_search_histories, construct_time_index
 
 entities = ["A", "B", "C", "D"]
+entity2id = {"A": 0, "B": 1, "C": 2, "D": 3}
 relations = ["R1", "R2"]
-train_set = [
+relation2id = {"R1": 0, "R2": 1}
+train_facts = [
     Fact("A", "R1", "B", "2024-01-01"),
     Fact("A", "R2", "B", "2024-01-01"),
     Fact("A", "R1", "C", "2024-01-02"),
     Fact("C", "R2", "B", "2024-01-02"),
     Fact("C", "R1", "D", "2024-01-03"),
 ]
-valid_set = [
+valid_facts = [
     Fact("A", "R1", "B", "2024-01-04"),
     Fact("A", "R2", "C", "2024-01-04"),
     Fact("A", "R1", "B", "2024-01-05"),
     Fact("A", "R2", "B", "2024-01-05"),
 ]
-test_set = [
+test_facts = [
     Fact("A", "R1", "B", "2024-01-06"),
     Fact("A", "R1", "C", "2024-01-06"),
     Fact("A", "R1", "D", "2024-01-07"),
 ]
-tkg = TemporalKG(
-    entities=entities,
-    relations=relations,
-    train_set=train_set,
-    valid_set=valid_set,
-    test_set=test_set,
-    base_time=datetime.fromisoformat("2024-01-01"),
-    time_unit=timedelta(days=1),
+base_time = datetime.fromisoformat("2024-01-01")
+time_unit = timedelta(days=1)
+search_history = construct_search_histories(
+    facts=train_facts + valid_facts + test_facts
+)
+time2id=construct_time_index(
+    facts=train_facts + valid_facts + test_facts,
+    base_time=base_time,
+    time_unit=time_unit,
     time_precision="day",
-    valid_queries=True,
-    anon_entity=None,
-    anon_rel=None,
-    anon_time=None,
 )
 
 
-class TestTKG(unittest.TestCase):
-    """Test TemporalKG class."""
+class TestSearchHistory(unittest.TestCase):
+    """Test search history function."""
 
-    def test_init(self):
-        """Check if tkg initializes well."""
-        self.assertEqual(
-            tkg.statistic(),
-            f"# entities      : 4\n"
-            f"# relations     : 2\n"
-            f"# train facts   : 5\n"
-            f"# valid facts   : 4\n"
-            f"# test facts    : 3\n"
-            f"# valid queries : 8\n"
-            f"# test queries  : 5\n"
-        )
-
-    def test_head_index(self):
-        """Check if tkg can correctly get history by head (and via indices)."""
-        tkg.clear_indices()
-        his1 = tkg.find_history_by_head("A")
+    def test_search_histories_head(self):
+        # Test head
         self.assertListEqual(
-            his1,
+            search_history["head"]["A"],
             [
                 Fact("A", "R1", "B", "2024-01-01"),
                 Fact("A", "R2", "B", "2024-01-01"),
@@ -76,31 +59,11 @@ class TestTKG(unittest.TestCase):
                 Fact("A", "R1", "D", "2024-01-07"),
             ]
         )
-        tkg.construct_search_indices()
-        his2 = tkg.find_history_by_head("A")
-        self.assertListEqual(his1, his2)
 
-    def test_head_index_2(self):
-        """Check if tkg can correctly get history by head (and via indices)."""
-        tkg.clear_indices()
-        his1 = tkg.find_history_by_head("C")
+    def test_search_histories_tail(self):
+        # Test tail
         self.assertListEqual(
-            his1,
-            [
-                Fact("C", "R2", "B", "2024-01-02"),
-                Fact("C", "R1", "D", "2024-01-03"),
-            ]
-        )
-        tkg.construct_search_indices()
-        his2 = tkg.find_history_by_head("C")
-        self.assertListEqual(his1, his2)
-
-    def test_tail_index(self):
-        """Check if tkg can correctly get history by tail (and via indices)."""
-        tkg.clear_indices()
-        his1 = tkg.find_history_by_tail("B")
-        self.assertListEqual(
-            his1,
+            search_history["tail"]["B"],
             [
                 Fact("A", "R1", "B", "2024-01-01"),
                 Fact("A", "R2", "B", "2024-01-01"),
@@ -111,16 +74,10 @@ class TestTKG(unittest.TestCase):
                 Fact("A", "R1", "B", "2024-01-06"),
             ]
         )
-        tkg.construct_search_indices()
-        his2 = tkg.find_history_by_tail("B")
-        self.assertListEqual(his1, his2)
 
-    def test_both_index(self):
-        """Check if tkg can correctly get history by entity (and via indices)."""
-        tkg.clear_indices()
-        his1 = tkg.find_history_by_both("C")
+    def test_search_histories_both(self):
         self.assertListEqual(
-            his1,
+            search_history["both"]["C"],
             [
                 Fact("A", "R1", "C", "2024-01-02"),
                 Fact("C", "R2", "B", "2024-01-02"),
@@ -129,89 +86,67 @@ class TestTKG(unittest.TestCase):
                 Fact("A", "R1", "C", "2024-01-06"),
             ]
         )
-        tkg.construct_search_indices()
-        his2 = tkg.find_history_by_both("C")
-        self.assertListEqual(his1, his2)
 
-    def test_head_rel_index(self):
-        """Check if tkg can correctly get history by
-        head and relation (and via indices)."""
-        tkg.clear_indices()
-        his1 = tkg.find_history_by_head_rel("A", "R2")
-        self.assertListEqual(
-            his1,
+    def test_search_histories_head_rel(self):
+        self.assertEqual(
+            search_history["head_rel"][("A", "R2")],
             [
                 Fact("A", "R2", "B", "2024-01-01"),
                 Fact("A", "R2", "C", "2024-01-04"),
                 Fact("A", "R2", "B", "2024-01-05"),
             ]
         )
-        tkg.construct_search_indices()
-        his2 = tkg.find_history_by_head_rel("A", "R2")
-        self.assertListEqual(his1, his2)
 
-    def test_tail_rel_index(self):
-        """Check if tkg can correctly get history by
-        tail and relation (and via indices)."""
-        tkg.clear_indices()
-        his1 = tkg.find_history_by_tail_rel("C", "R1")
+    def test_search_histories_tail_rel(self):
         self.assertListEqual(
-            his1,
+            search_history["tail_rel"][("B", "R2")],
+            [
+                Fact("A", "R2", "B", "2024-01-01"),
+                Fact("C", "R2", "B", "2024-01-02"),
+                Fact("A", "R2", "B", "2024-01-05"),
+            ]
+        )
+
+    def test_search_histories_both_rel(self):
+        self.assertListEqual(
+            search_history["both_rel"][("C", "R1")],
             [
                 Fact("A", "R1", "C", "2024-01-02"),
+                Fact("C", "R1", "D", "2024-01-03"),
                 Fact("A", "R1", "C", "2024-01-06"),
             ]
         )
-        tkg.construct_search_indices()
-        his2 = tkg.find_history_by_tail_rel("C", "R1")
-        self.assertListEqual(his1, his2)
 
-    def test_anonymize_entity(self):
-        """Check the anonymize entity method."""
+
+class TestTime2Id(unittest.TestCase):
+    def test_time2id(self):
         self.assertEqual(
-            tkg.anonymize_entity("A"),
-            "A"
+            time2id["2024-01-01"],
+            0
         )
-        tkg.anon_entity = "index"
         self.assertEqual(
-            tkg.anonymize_entity("A"),
-            "0",
-        )
-        tkg.anon_entity = "prefix"
-        self.assertEqual(
-            tkg.anonymize_entity("A"),
-            "ENT_0"
+            time2id["2024-01-05"],
+            4
         )
 
-    def test_anonymize_relation(self):
-        self.assertEqual(
-            tkg.anonymize_rel("R1"),
-            "R1"
-        )
-        tkg.anon_rel = "index"
-        self.assertEqual(
-            tkg.anonymize_rel("R1"),
-            "0"
-        )
-        tkg.anon_rel = "prefix"
-        self.assertEqual(
-            tkg.anonymize_rel("R1"),
-            "REL_0"
-        )
 
-    def test_anonymize_time(self):
-        self.assertEqual(
-            tkg.anonymize_time("2024-01-01"),
-            "2024-01-01",
+class TestTKG(unittest.TestCase):
+    def test_init(self):
+        tkg = TKG(
+            name="test",
+            train_facts=train_facts,
+            valid_facts=valid_facts,
+            test_facts=test_facts,
+            base_time=base_time,
+            time_unit=time_unit,
+            time_precision="day",
+            entities=entities,
+            entity2id=entity2id,
+            relations=relations,
+            relation2id=relation2id,
+            search_history=search_history,
+            time2id=time2id,
         )
-        tkg.anon_time = "index"
-        self.assertEqual(
-            tkg.anonymize_time("2024-01-01"),
-            "0"
-        )
-        tkg.anon_time = "suffix"
-        self.assertEqual(
-            tkg.anonymize_time("2024-01-02"),
-            "on the 1st day"
-        )
-
+        self.assertEqual(len(tkg.train_facts), 5)
+        self.assertEqual(len(tkg.valid_facts), 4)
+        self.assertEqual(len(tkg.test_facts), 3)

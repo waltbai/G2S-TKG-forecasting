@@ -1,6 +1,6 @@
 import unittest
 
-from src.preprocess.fact import Fact
+from src.utils.fact import Fact
 
 
 class TestFact(unittest.TestCase):
