@@ -19,7 +19,7 @@ def compute_rank(
     return rank
 
 
-def compute_metrics(
+def compute_hits(
         tot_preds: List[List[str]],
         tot_answers: List[str],
         tot_filters: List[List[str]],

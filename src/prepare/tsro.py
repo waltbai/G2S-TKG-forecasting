@@ -4,6 +4,7 @@ import argparse
 import json
 import logging
 import os
+import random
 
 from typing import List
 
@@ -147,8 +148,15 @@ def construct_prompt(
         rel = str(tkg.relation2id[rel])
     if anonymize_time:
         time = str(tkg.time2id[time])
+    # Avoid that answer is not in the candidate list
+    # candidate_mapping.setdefault(answer, len(candidate_mapping))
     prompt += f"{time}:[{entity},{rel},"
     candidates = {str(v): k for k, v in candidate_mapping.items()}
+    if answer not in candidate_mapping:
+        answer = str(len(candidates))
+        candidates.setdefault(answer, None)
+    else:
+        answer = str(candidate_mapping[answer])
     return {
         "prompt": prompt,
         "answer": answer,
@@ -157,57 +165,68 @@ def construct_prompt(
     }
 
 
-if __name__ == "__main__":
-    args = get_args()
-    logger = logging.getLogger("prepare.tsro")
+def prepare(
+        # Path arguments
+        dataset_dir: str = "data",
+        dataset: str = "ICEWS14",
+        prepare_dir: str = "prepare",
+        # Prompt arguments
+        anonymize_entity: bool = False,
+        anonymize_rel: bool = False,
+        anonymize_time: bool = True,
+        history_length: int = 30,
+        history_type: str = "entity",
+        history_direction: str = "uni",
+        do_train: bool = False,
+        do_eval: bool = False,
+        do_predict: bool = False,
+        # Other arguments
+        use_tqdm: bool = True,
+        logger: logging.Logger = None
+):
+    """Preparation function."""
+    if logger is None:
+        logger = logging.getLogger("Experiment.tsro.prepare")
     logger.info("Load TKG.")
-    tkg = TKG.load(
-        dataset_dir=args.dataset_dir,
-        dataset=args.dataset,
-    )
+    tkg = TKG.load(dataset_dir=dataset_dir, dataset=dataset)
     logger.info("Construct queries.")
     queries = {
-        "train": construct_queries(tkg.train_facts) if args.do_train else [],
-        "valid": construct_queries(tkg.valid_facts) if args.do_evaluate else [],
-        "test": construct_queries(tkg.test_facts) if args.do_predict else []
+        "train": construct_queries(tkg.train_facts) if do_train else [],
+        "valid": construct_queries(tkg.valid_facts) if do_eval else [],
+        "test": construct_queries(tkg.test_facts) if do_predict else []
     }
-    logger.info("Prepare inputs.")
+    logger.info("Construct datasets.")
     default_params = {
-        "history_length": args.history_length,
-        "history_type": args.history_type,
-        "history_direction": args.history_direction,
-        "anonymize_entity": args.anonymize_entity,
-        "anonymize_rel": args.anonymize_rel,
-        "anonymize_time": args.anonymize_time,
+        "history_length": history_length,
+        "history_type": history_type,
+        "history_direction": history_direction,
+        "anonymize_entity": anonymize_entity,
+        "anonymize_rel": anonymize_rel,
+        "anonymize_time": anonymize_time,
     }
-    use_tqdm = True
     tqdm_params = {
         "ascii": False, "disable": not use_tqdm
     }
-    dataset = {}
+    ds = {}     # dataset
     for key in queries:
         total_num = len(queries[key])
-        if total_num:
-            dataset[key] = {
-                "prompt": [],
-                "answer": [],
-                "filters": [],
-                "candidates": [],
-            }
-            with tqdm(total=total_num, **tqdm_params) as pbar:
-                pbar.set_description(f"Process {key} queries")
-                for query in queries[key]:
-                    result = construct_prompt(query, tkg, **default_params)
-                    dataset[key]["prompt"].append(result["prompt"])
-                    dataset[key]["answer"].append(result["answer"])
-                    dataset[key]["filters"].append(result["filters"])
-                    dataset[key]["candidates"].append(result["candidates"])
-                    pbar.update()
-    dataset_path = os.path.join(
-        args.output_dir,
-        f"{args.dataset}_TSRO.json"
-    )
-    os.makedirs(args.output_dir, exist_ok=True)
+        ds[key] = {
+            "prompt": [],
+            "answer": [],
+            "filters": [],
+            "candidates": [],
+        }
+        with tqdm(total=total_num, **tqdm_params) as pbar:
+            pbar.set_description(f"Process {key} queries")
+            for query in queries[key]:
+                result = construct_prompt(query, tkg, **default_params)
+                ds[key]["prompt"].append(result["prompt"])
+                ds[key]["answer"].append(result["answer"])
+                ds[key]["filters"].append(result["filters"])
+                ds[key]["candidates"].append(result["candidates"])
+                pbar.update()
+    dataset_path = os.path.join(prepare_dir, f"{dataset}_TSRO.json")
+    os.makedirs(prepare_dir, exist_ok=True)
     with open(dataset_path, "w") as f:
-        json.dump(dataset, f)
+        json.dump(ds, f)
     logger.info(f"Dataset save to {dataset_path}.")

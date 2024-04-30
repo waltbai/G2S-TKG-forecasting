@@ -1,4 +1,3 @@
-import logging
 import os
 from dataclasses import dataclass
 from datetime import datetime, timedelta
@@ -35,7 +34,6 @@ class TKG:
              dataset: str,
              ):
         """Load TKG from file."""
-        logger = logging.getLogger("TKG.load")
         # Load basic config
         config = load_config("config/dataset.yml")
         # Set paths
@@ -51,7 +49,6 @@ class TKG:
         train_set_idx = _read_index_file(train_path, adjust_time=adjust_time)
         valid_set_idx = _read_index_file(valid_path, adjust_time=adjust_time)
         test_set_idx = _read_index_file(test_path, adjust_time=adjust_time)
-        logger.info("Facts loaded.")
         if dataset == "GDELT":
             entity2id = _read_dict_file(
                 entity2id_path,
@@ -66,7 +63,6 @@ class TKG:
         else:
             entity2id = _read_dict_file(entity2id_path)
             relation2id = _read_dict_file(relation2id_path)
-        logger.info("Dicts loaded.")
         entities = [_[0] for _ in sorted(entity2id.items(), key=lambda x: x[1])]
         relations = [_[0] for _ in sorted(relation2id.items(), key=lambda x: x[1])]
         # Convert indices to facts
@@ -74,8 +70,7 @@ class TKG:
         base_time = _str2datetime(dataset_config["base_time"])
         time_unit = _get_timedelta(dataset_config["time_unit"])
         time_precision = dataset_config["time_precision"]
-        # Construct datasets
-        logger.info("Convert indices to facts.")
+        # Construct tkg
         train_facts = _idx2facts(
             indices=train_set_idx,
             entities=entities,

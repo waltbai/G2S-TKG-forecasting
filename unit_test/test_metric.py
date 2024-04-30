@@ -1,6 +1,6 @@
 import unittest
 
-from src.utils.metric import compute_rank, compute_metrics
+from src.utils.metric import compute_rank, compute_hits
 
 tot_preds = [
     ["B", "D", "E", "C"],
@@ -34,7 +34,7 @@ class TestMetric(unittest.TestCase):
         )
 
     def test_metric(self):
-        metrics = compute_metrics(tot_preds, tot_labels)
+        metrics = compute_hits(tot_preds, tot_labels)
         self.assertDictEqual(
             metrics,
             {
