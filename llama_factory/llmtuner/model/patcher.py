@@ -73,6 +73,9 @@ def patch_config(
             if "device_map" not in init_kwargs and model_args.device_map:
                 init_kwargs["device_map"] = model_args.device_map
 
+            print(init_kwargs)
+            print(model_args.device_map)
+
             if init_kwargs["device_map"] == "auto":
                 init_kwargs["offload_folder"] = model_args.offload_folder
 

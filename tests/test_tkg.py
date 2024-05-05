@@ -1,8 +1,8 @@
 import unittest
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from src.utils.fact import Fact
-from src.utils.tkg import TKG, construct_search_histories, construct_time_index
+from src.utils.tkg import TKG, construct_search_histories
 
 entities = ["A", "B", "C", "D"]
 entity2id = {"A": 0, "B": 1, "C": 2, "D": 3}
@@ -27,16 +27,18 @@ test_facts = [
     Fact("A", "R1", "D", "2024-01-07"),
 ]
 base_time = datetime.fromisoformat("2024-01-01")
-time_unit = timedelta(days=1)
-search_history = construct_search_histories(
-    facts=train_facts + valid_facts + test_facts
-)
-time2id=construct_time_index(
-    facts=train_facts + valid_facts + test_facts,
-    base_time=base_time,
-    time_unit=time_unit,
-    time_precision="day",
-)
+facts = train_facts + valid_facts + test_facts
+search_history = construct_search_histories(facts)
+time2id = {
+    "2024-01-01": 0,
+    "2024-01-02": 1,
+    "2024-01-03": 2,
+    "2024-01-04": 3,
+    "2024-01-05": 4,
+    "2024-01-06": 5,
+    "2024-01-07": 6,
+}
+id2time = {v: k for k, v in time2id.items()}
 
 
 class TestSearchHistory(unittest.TestCase):
@@ -118,18 +120,6 @@ class TestSearchHistory(unittest.TestCase):
         )
 
 
-class TestTime2Id(unittest.TestCase):
-    def test_time2id(self):
-        self.assertEqual(
-            time2id["2024-01-01"],
-            0
-        )
-        self.assertEqual(
-            time2id["2024-01-05"],
-            4
-        )
-
-
 class TestTKG(unittest.TestCase):
     def test_init(self):
         tkg = TKG(
@@ -138,14 +128,14 @@ class TestTKG(unittest.TestCase):
             valid_facts=valid_facts,
             test_facts=test_facts,
             base_time=base_time,
-            time_unit=time_unit,
-            time_precision="day",
+            time_unit="day",
             entities=entities,
             entity2id=entity2id,
             relations=relations,
             relation2id=relation2id,
             search_history=search_history,
             time2id=time2id,
+            id2time=id2time,
         )
         self.assertEqual(len(tkg.train_facts), 5)
         self.assertEqual(len(tkg.valid_facts), 4)

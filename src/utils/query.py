@@ -1,22 +1,26 @@
 from dataclasses import dataclass
-from datetime import datetime
 
-from typing import List, Dict
+from typing import List
 
 
 @dataclass
 class Query:
-    """Query class."""
+    """Query class.
+
+    Args:
+        entity (str): query entity.
+        rel (str): query relation.
+        answer (str): answer entity.
+        time (str): query time.
+        entity_role (str):
+            role type of query entity,
+            should be either "head" or "tail".
+        filters (List[str]):
+            entities that should be filtered in time-filter metrics.
+    """
     entity: str
     rel: str
     answer: str
     time: str
-    # Direction
-    entity_role: str
-    # Filter answers
+    entity_role: str = "head"
     filters: List[str] = None
-    # Predictions
-    prompt: str = ""
-    candidates: Dict[str, str] = None
-    predictions: List[str] = None
-    scores: List[float] = None

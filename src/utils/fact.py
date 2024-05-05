@@ -1,15 +1,39 @@
 from dataclasses import dataclass
 
-from typing import Tuple
+from typing import Tuple, List, Dict
 
 
 @dataclass
 class Fact:
-	"""Temporal fact class."""
+	"""Temporal fact class.
+
+	Args:
+		head (str): head entity.
+		rel (str): relation.
+		tail (str): tail entity.
+		time (str): time.
+	"""
 	head: str
 	rel: str
 	tail: str
 	time: str
+
+	@classmethod
+	def from_ids(
+			cls,
+			ids: List[int],
+			entities: List[str],
+			relations: List[str],
+			id2time: Dict[int, str],
+	):
+		"""Convert ids to fact."""
+		assert len(ids) >= 4, "Unable to unpack `ids` to fact!"
+		# Default ids in order: (head_id, rel_id, tail_id, time_id)
+		head = entities[ids[0]]
+		rel = relations[ids[1]]
+		tail = entities[ids[2]]
+		time = id2time[ids[3]]
+		return cls(head, rel, tail, time)
 
 	def quadruple(
 			self, 
