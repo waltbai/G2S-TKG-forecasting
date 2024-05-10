@@ -2,5 +2,4 @@ PyYAML
 torch==1.13.0
 transformers==4.39.3
 datasets
-nltk==3.8.1
-rouge-chinese==1.0.3
+matplotlib

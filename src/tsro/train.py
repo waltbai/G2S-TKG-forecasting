@@ -1,5 +1,6 @@
 import logging
 from dataclasses import dataclass
+from functools import partial
 
 import numpy as np
 from datasets import Dataset
@@ -64,40 +65,25 @@ class ComputeMetrics:
         return {k: float(np.mean(v)) for k, v in score_dict.items()}
 
 
-def preprocess_func(tokenizer: PreTrainedTokenizer) -> Callable:
-    """Wrap preprocess function."""
-    def func(sample):
-        """Main preprocess function."""
-        # Tokenize with truncation
-        result = tokenizer(
-            text=sample["prompt"],
-            text_target=sample["answer"],
-            truncation=True,
-        )
-        # Align the length of input_ids, attention_mask, and labels
-        # input_ids: input_len -> input_len + label_len, right pad with pad_token
-        # attention_mask: input_len -> input_len + label_len, right pad with 0
-        # labels: label_len -> input_len + label_len, left pad with -100
-        aligned_result = {"input_ids": [], "attention_mask": [], "labels": []}
-        for input_ids, attention_mask, labels in \
-                zip(result["input_ids"], result["attention_mask"], result["labels"]):
-            input_len = len(input_ids)
-            # Default to generate only 1 token
-            input_ids = input_ids + [tokenizer.pad_token_id]
-            attention_mask = attention_mask + [0]
-            labels = [-100] * input_len + labels[:1]
-            # Ensure the total length is less than max_seq_length
-            max_seq_length = tokenizer.model_max_length
-            if len(input_ids) > max_seq_length:
-                input_ids = input_ids[-max_seq_length:]
-                attention_mask = attention_mask[-max_seq_length:]
-                labels = labels[-max_seq_length:]
-            aligned_result["input_ids"].append(input_ids)
-            aligned_result["attention_mask"].append(attention_mask)
-            aligned_result["labels"].append(labels)
-        return aligned_result
-
-    return func
+def preprocess_func(
+        sample,
+        tokenizer: PreTrainedTokenizer,
+):
+    """Preprocess prompts and answers."""
+    texts = [
+        prompt + answer
+        for prompt, answer in zip(sample["prompt"], sample["answer"])
+    ]
+    results = tokenizer(texts, truncation=True)
+    aligned_results = {"input_ids": [], "attention_mask": [], "labels": []}
+    for input_ids, attention_mask in \
+            zip(results["input_ids"], results["attention_mask"]):
+        labels = [-100] * len(input_ids)
+        labels[-1] = input_ids[-1]
+        aligned_results["input_ids"].append(input_ids)
+        aligned_results["attention_mask"].append(attention_mask)
+        aligned_results["labels"].append(labels)
+    return aligned_results
 
 
 def train(
@@ -114,10 +100,12 @@ def train(
     # Tokenize and align inputs with labels
     logger.info("Process prepared data into training format.")
     tokenized_train_set = train_set.map(
-        preprocess_func(tokenizer), batched=True
+        partial(preprocess_func, tokenizer=tokenizer),
+        batched=True
     ).with_format("torch")
     tokenized_valid_set = valid_set.map(
-        preprocess_func(tokenizer), batched=True
+        partial(preprocess_func, tokenizer=tokenizer),
+        batched=True
     ).with_format("torch")
 
     # Data collator
@@ -133,6 +121,8 @@ def train(
 
     trainer = CustomSeq2SeqTrainer(
         model=model,
+        train_dataset=tokenized_train_set,
+        eval_dataset=tokenized_valid_set,
         args=training_args,
         finetuning_args=finetuning_args,
         tokenizer=tokenizer,

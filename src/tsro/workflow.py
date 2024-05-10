@@ -11,9 +11,10 @@ from transformers import (
 
 from llama_factory.llmtuner.hparams import FinetuningArguments
 from llama_factory.llmtuner.model import load_model
-from src.tsro.args import PrepareArguments, TsroModelArguments, postprocess_args
-from src.tsro.inference import evaluate
-from src.tsro.prepare import get_data_name, prepare
+from .args import PrepareArguments, TsroModelArguments, postprocess_args
+from .inference import evaluate
+from .prepare import get_data_name, prepare
+from .train import train
 from src.utils.metric import format_metrics
 
 logger = logging.getLogger(__name__)
@@ -66,10 +67,12 @@ if __name__ == "__main__":
         )
 
     # Load model and tokenizer
+    logger.info(f"Load tokenizer and model from {model_args.model_name_or_path}")
     tokenizer = AutoTokenizer.from_pretrained(
         model_args.model_name_or_path,
         truncation_side="left",
         padding_side="left",
+        model_max_length=1024,
     )
     tokenizer.pad_token_id = tokenizer.eos_token_id
     model_backbone = model_args.model_name_or_path.strip("/").split("/")[-1]
@@ -93,6 +96,16 @@ if __name__ == "__main__":
     # ===== Step 3: Training =====
     if training_args.do_train:
         logger.info("Start training.")
+        train(
+            train_set=train_set,
+            valid_set=valid_set,
+            model=model,
+            tokenizer=tokenizer,
+            prepare_args=prepare_args,
+            model_args=model_args,
+            training_args=training_args,
+            finetuning_args=finetuning_args,
+        )
 
     # ===== Step 4: Eval =====
     if training_args.do_eval:
