@@ -38,13 +38,20 @@ python -m unittest discover
 ## Project Structure
 ```
 root/
-|-- src/            # Source codes
-  |-- workflow/     # Experiment workflow control
-  |-- prepare/      # Data preparation
-  |-- train/        # Training
-  |-- inference/    # Evaluation and Prediction
-  |-- utils/        # Utility classes and functions
-|-- config/         # Configuration files
-|-- tests/          # Unit test cases
-|-- docs/           # Documents
+|-- src/              # Source codes
+  |-- tsro            # TSRO format experiment
+    |-- args.py       # Arguments
+    |-- workflow.py   # Workflow controller
+    |-- prepare.py    # Data preparation phase
+    |-- train.py      # Train phase
+    |-- inference.py  # Evaluation phase
+  |-- utils           # Common classes and functions
+    |-- fact.py       # Fact class
+    |-- tkg.py        # TKG class
+    |-- query.py      # Query class
+    |-- metric.py     # Metric functions
+    |-- common.py     # Common functions
+|-- config/           # Configuration files
+|-- tests/            # Unit test cases
+|-- docs/             # Documents
 ```
