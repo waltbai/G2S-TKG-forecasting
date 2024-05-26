@@ -1,6 +1,6 @@
 from typing import List, Dict
 
-from src.utils.common import format_params
+from old.utils import format_params
 
 
 def compute_rank(

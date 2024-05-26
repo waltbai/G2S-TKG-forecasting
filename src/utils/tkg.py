@@ -1,15 +1,15 @@
 import os
 from dataclasses import dataclass
-from datetime import datetime, timedelta, date
+from datetime import datetime, timedelta
 from typing import List, Dict, Any
 
-from src.utils.common import (
+from old.utils import (
     load_config,
     read_index_file,
     read_dict_file,
     time_id2str,
 )
-from src.utils.fact import Fact
+from old.utils import Fact
 
 
 @dataclass
@@ -28,8 +28,6 @@ class TKG:
             the start time of the TKG.
         time_unit (timedelta):
             the time granularity of raw data.
-        time_precision (str):
-            the time granularity of processed data.
         entities (List[str]):
             the list of entities.
         entity2id (Dict[str, int]):
@@ -42,6 +40,8 @@ class TKG:
             the indices to speed up searching,
         time2id (Dict[str, int]):
             mapping between time and ids.
+        id2time (Dict[int, str]):
+            mapping between ids and times.
     """
     name: str
     # Facts
@@ -63,10 +63,7 @@ class TKG:
     id2time: Dict[int, str]
 
     @classmethod
-    def load(cls,
-             dataset_dir: str,
-             dataset: str,
-             ):
+    def load(cls, dataset_dir: str, dataset: str):
         """Load TKG from file."""
         # Load basic config
         config = load_config("config/dataset.yml")
@@ -163,5 +160,3 @@ def construct_search_histories(
         search_history["both_rel"].setdefault((fact.head, fact.rel), []).append(fact)
         search_history["both_rel"].setdefault((fact.tail, fact.rel), []).append(fact)
     return search_history
-
-
