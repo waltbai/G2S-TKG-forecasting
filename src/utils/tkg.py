@@ -3,13 +3,13 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 from typing import List, Dict, Any
 
-from old.utils import (
+from src.utils.common import (
     load_config,
     read_index_file,
     read_dict_file,
     time_id2str,
 )
-from old.utils import Fact
+from src.utils.fact import Fact
 
 
 @dataclass

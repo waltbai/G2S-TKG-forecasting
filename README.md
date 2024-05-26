@@ -38,20 +38,29 @@ python -m unittest discover
 ## Project Structure
 ```
 root/
-|-- src/              # Source codes
-  |-- tsro            # TSRO format experiment
-    |-- args.py       # Arguments
-    |-- workflow.py   # Workflow controller
-    |-- prepare.py    # Data preparation phase
-    |-- train.py      # Train phase
-    |-- inference.py  # Evaluation phase
-  |-- utils           # Common classes and functions
-    |-- fact.py       # Fact class
-    |-- tkg.py        # TKG class
-    |-- query.py      # Query class
-    |-- metric.py     # Metric functions
-    |-- common.py     # Common functions
-|-- config/           # Configuration files
-|-- tests/            # Unit test cases
-|-- docs/             # Documents
+|-- src/                    # Source codes
+  |-- stage1                # Stage-1: anonymized training stage
+    |-- workflow.py         # Overall controller of stage-1
+    |-- prepare.py          # Data preparation process
+    |-- anonymizer.py       # Anonymize strategies
+    |-- time_processor.py   # Time process strategies
+    |-- prompt.py           # Prompt construct strategies 
+    |-- train.py            # Train process
+    |-- inference.py        # Valid and Test process
+  |-- stage2                # Stage-2: de-anonymized training stage
+  |-- utils                 # Common classes and functions
+    |-- fact.py             # Fact class
+    |-- tkg.py              # TKG class
+    |-- query.py            # Query class
+    |-- metric.py           # Metric functions
+    |-- common.py           # Common functions
+  |-- args.py               # Arguments
+|-- config/                 # Configuration files
+|-- tests/                  # Unit test cases
+|-- docs/                   # Documents
 ```
+
+## Dataset Statistics
+| Dataset | # Train facts | # Valid Facts | # Test Facts |
+| --- | --- | --- | --- |
+|

@@ -1,10 +1,10 @@
 import logging
-from typing import Dict
 
 import torch
 from datasets import Dataset
 from tqdm import tqdm
 from transformers import PreTrainedModel, PreTrainedTokenizer
+from typing import Dict
 
 from src.args import ModelArguments
 from src.utils.metric import compute_hits
