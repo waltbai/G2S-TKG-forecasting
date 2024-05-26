@@ -61,6 +61,10 @@ root/
 ```
 
 ## Dataset Statistics
-| Dataset | # Train facts | # Valid Facts | # Test Facts |
-| --- | --- | --- | --- |
-|
+| Dataset     |  # Train facts |  # Valid Facts |  # Test Facts |
+|:------------|---------------:|---------------:|--------------:|
+| ICEWS14     |         74,845 |          8,514 |         7,371 |
+| ICEWS18     |        373,018 |         45,995 |        49,545 |
+| ICEWS05-15  |        368,868 |         46,302 |        46,159 |
+| WIKI        |        539,286 |         67,538 |        63,110 |
+| YAGO        |        161,540 |         19,523 |        20,026 |
