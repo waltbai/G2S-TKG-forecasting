@@ -4,6 +4,7 @@ from datetime import datetime
 from src.utils.fact import Fact
 from src.utils.tkg import TKG, construct_search_histories
 
+
 entities = ["A", "B", "C", "D"]
 entity2id = {"A": 0, "B": 1, "C": 2, "D": 3}
 relations = ["R1", "R2"]

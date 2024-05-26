@@ -2,6 +2,7 @@ import unittest
 
 from src.utils.metric import compute_rank, compute_hits
 
+
 tot_preds = [
     ["B", "D", "E", "C"],
     ["B", "D", "E", "C"],
