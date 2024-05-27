@@ -1,6 +1,20 @@
+# Model
+model_name_or_path: /data/bailong/models/opt-350m
+num_predictions: 30
+remove_duplicates: false
+
+# Fine-tune
+stage: sft
+do_train: true
+do_eval: true
+do_predict: true
+finetuning_type: lora
+lora_target: q_proj,v_proj
+
 # Dataset setting
+preprocessing_num_workers: 4
 dataset_dir: /data/bailong/data/tkg_data
-train_dataset: ICEWS14
+train_dataset: ICEWS14,ICEWS18
 valid_dataset: ICEWS14
 test_dataset: ICEWS14
 history_type: entity
@@ -13,21 +27,16 @@ vague_time: false
 prompt_construct_strategy: inline
 
 # Output
-output_dir: /data/bailong/data/llm4tkg/outputs/opt-350m-icl
+output_dir: /data/bailong/data/llm4tkg/outputs/opt-350m-icews14-icews18-multi-sft
 prepare_dir: /data/bailong/data/llm4tkg/prepare
 logging_steps: 10
 save_steps: 500
 plot_loss: true
 overwrite_output_dir: true
 
-# Model
-model_name_or_path: /data/bailong/models/opt-350m
-num_predictions: 30
-remove_duplicates: false
-
 # Train
 per_device_train_batch_size: 1
-gradient_accumulation_steps: 8
+gradient_accumulation_steps: 2
 learning_rate: 0.0001
 num_train_epochs: 1.0
 lr_scheduler_type: cosine
@@ -36,13 +45,5 @@ fp16: true
 
 # Eval
 per_device_eval_batch_size: 1
-evaluation_strategy: steps
-eval_steps: 500
-
-# Fine-tune
-stage: sft
-do_train: false
-do_eval: true
-do_predict: true
-finetuning_type: lora
-lora_target: q_proj,v_proj
+#evaluation_strategy: steps
+#eval_steps: 500
