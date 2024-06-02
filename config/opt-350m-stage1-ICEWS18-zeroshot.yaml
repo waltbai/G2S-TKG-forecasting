@@ -1,8 +1,13 @@
+# Model
+model_name_or_path: /data/bailong/models/opt-350m
+num_predictions: 30
+remove_duplicates: false
+
 # Dataset setting
 dataset_dir: /data/bailong/data/tkg_data
-train_dataset: ICEWS14
-valid_dataset: ICEWS14
-test_dataset: ICEWS14
+train_dataset: ICEWS18
+valid_dataset: ICEWS18
+test_dataset: ICEWS18
 history_type: entity
 history_direction: uni
 history_length: 30
@@ -13,17 +18,12 @@ vague_time: false
 prompt_construct_strategy: inline
 
 # Output
-output_dir: /data/bailong/models/opt-350m
+output_dir: /data/bailong/data/llm4tkg/outputs/opt-350m-icews14-multi-sft
 prepare_dir: /data/bailong/data/llm4tkg/prepare
 logging_steps: 10
 save_steps: 500
 plot_loss: true
 overwrite_output_dir: true
-
-# Model
-model_name_or_path: /data/bailong/models/opt-350m
-num_predictions: 30
-remove_duplicates: false
 
 # Train
 per_device_train_batch_size: 1
