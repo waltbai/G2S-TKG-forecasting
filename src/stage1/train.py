@@ -1,68 +1,22 @@
+import json
 import logging
-from dataclasses import dataclass
+import os
+import sys
 from functools import partial
 
-from typing import Sequence, Union, Tuple, Dict
-
-import numpy as np
 from datasets import Dataset
-from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
-from rouge_chinese import Rouge
-from transformers import PreTrainedTokenizer, PreTrainedModel, DataCollatorForSeq2Seq
+from transformers import PreTrainedTokenizer, PreTrainedModel, DataCollatorForSeq2Seq, HfArgumentParser, AutoTokenizer
 
 from llama_factory.llmtuner.extras.callbacks import LogCallback
-from llama_factory.llmtuner.extras.constants import IGNORE_INDEX
 from llama_factory.llmtuner.extras.ploting import plot_loss
+from llama_factory.llmtuner.model import load_model
+from llama_factory.llmtuner.train.sft.metric import ComputeMetrics
 from llama_factory.llmtuner.train.sft.trainer import CustomSeq2SeqTrainer
-from src.args import AnonymizedDataArguments, ModelArguments, TrainingArguments, FinetuningArguments
-
+from src.args import AnonymizedDataArguments, ModelArguments, TrainingArguments, FinetuningArguments, \
+    GenerationArguments, post_process_args
+from src.stage1.prepare import prepare
 
 logger = logging.getLogger(__name__)
-
-
-@dataclass
-class ComputeMetrics:
-    r"""
-    Wraps the tokenizer into metric functions, used in Seq2SeqPeftTrainer.
-
-    Notice: modified since we do not need to handle Chinese word segmentation currently.
-    """
-
-    tokenizer: PreTrainedTokenizer
-
-    def __call__(self, eval_preds: Sequence[Union[np.ndarray, Tuple[np.ndarray]]]) -> Dict[str, float]:
-        r"""
-        Uses the model predictions to compute metrics.
-        """
-        preds, labels = eval_preds
-        score_dict = {"rouge-1": [], "rouge-2": [], "rouge-l": [], "bleu-4": []}
-
-        preds = np.where(preds != IGNORE_INDEX, preds, self.tokenizer.pad_token_id)
-        labels = np.where(labels != IGNORE_INDEX, labels, self.tokenizer.pad_token_id)
-
-        decoded_preds = self.tokenizer.batch_decode(preds, skip_special_tokens=True)
-        decoded_labels = self.tokenizer.batch_decode(labels, skip_special_tokens=True)
-
-        for pred, label in zip(decoded_preds, decoded_labels):
-            # hypothesis = list(jieba.cut(pred))
-            # reference = list(jieba.cut(label))
-            hypothesis = pred.split(" ")
-            reference = label.split(" ")
-
-            if len(" ".join(hypothesis).split()) == 0 or len(" ".join(reference).split()) == 0:
-                result = {"rouge-1": {"f": 0.0}, "rouge-2": {"f": 0.0}, "rouge-l": {"f": 0.0}}
-            else:
-                rouge = Rouge()
-                scores = rouge.get_scores(" ".join(hypothesis), " ".join(reference))
-                result = scores[0]
-
-            for k, v in result.items():
-                score_dict[k].append(round(v["f"] * 100, 4))
-
-            bleu_score = sentence_bleu([list(label)], list(pred), smoothing_function=SmoothingFunction().method3)
-            score_dict["bleu-4"].append(round(bleu_score * 100, 4))
-
-        return {k: float(np.mean(v)) for k, v in score_dict.items()}
 
 
 def preprocess_func(
@@ -104,11 +58,11 @@ def train(
         batched=True,
         remove_columns=["prompt", "label", "filters", "candidates"]
     ).with_format("torch")
-    tokenized_valid_set = valid_dataset.map(
-        partial(preprocess_func, tokenizer=tokenizer),
-        batched=True,
-        remove_columns=["prompt", "label", "filters", "candidates"]
-    ).with_format("torch")
+    # tokenized_valid_set = valid_dataset.map(
+    #     partial(preprocess_func, tokenizer=tokenizer),
+    #     batched=True,
+    #     remove_columns=["prompt", "label", "filters", "candidates"]
+    # ).with_format("torch")
 
     # Data collator
     data_collator = DataCollatorForSeq2Seq(
@@ -124,7 +78,7 @@ def train(
     trainer = CustomSeq2SeqTrainer(
         model=model,
         train_dataset=tokenized_train_set,
-        eval_dataset=tokenized_valid_set,
+        # eval_dataset=tokenized_valid_set,
         args=training_args,
         finetuning_args=finetuning_args,
         tokenizer=tokenizer,
@@ -140,4 +94,67 @@ def train(
     trainer.save_state()
     if trainer.is_world_process_zero() and finetuning_args.plot_loss:
         plot_loss(training_args.output_dir, keys=["loss", "eval_loss"])
+
+
+if __name__ == "__main__":
+    # Parse arguments from config file
+    config_path = sys.argv[1]
+    parser = HfArgumentParser([
+        AnonymizedDataArguments,
+        ModelArguments,
+        TrainingArguments,
+        FinetuningArguments,
+        GenerationArguments,
+    ])
+    data_args, model_args, training_args, finetuning_args, generation_args = \
+        parser.parse_yaml_file(os.path.abspath(config_path))
+    post_process_args(
+        data_args,
+        model_args,
+        training_args,
+        finetuning_args,
+        generation_args,
+    )
+
+    # Prepare
+    data_path = prepare(data_args)
+    with open(data_path, "r") as f:
+        dataset = json.load(f)
+    train_dataset = Dataset.from_dict(dataset["train"])
+    valid_dataset = Dataset.from_dict(dataset["valid"])
+    test_dataset = Dataset.from_dict(dataset["test"])
+
+    # Load model and backbone
+    logger.info(f"Load tokenizer and model from {model_args.model_name_or_path}")
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_args.model_name_or_path,
+        truncation_side="left",
+        padding_side="left",
+        model_max_length=1024,
+    )
+    tokenizer.pad_token_id = tokenizer.eos_token_id
+    model_backbone = model_args.model_name_or_path.strip("/").split("/")[-1]
+    model = load_model(
+        tokenizer=tokenizer,
+        model_args=model_args,
+        finetuning_args=finetuning_args,
+        is_trainable=training_args.do_train,
+    )
+    # hack here: make model compatible with prediction
+    if getattr(model, "is_quantized", False) and not training_args.do_train:
+        setattr(model, "_hf_peft_config_loaded", True)
+
+    # Train train_dataset
+    if training_args.do_train:
+        train(
+            train_dataset=train_dataset,
+            valid_dataset=valid_dataset,
+            model=model,
+            tokenizer=tokenizer,
+            data_args=data_args,
+            model_args=model_args,
+            training_args=training_args,
+            finetuning_args=finetuning_args,
+        )
+    
 
