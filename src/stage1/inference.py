@@ -65,7 +65,7 @@ def evaluate(
             for cand_id in results:
                 cand_id = cand_id.strip()
                 # Dataset will automatically align candidate IDs,
-                #   which may accidentally predict these IDs.
+                #   model may accidentally predict these IDs.
                 #   Thus, we remove these automatically aligned IDs.
                 if cand_id in candidates and candidates[cand_id] is not None:
                     if cand_id in duplicate_set and model_args.remove_duplicates:
