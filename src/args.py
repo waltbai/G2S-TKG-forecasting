@@ -40,8 +40,9 @@ class DeAnonymizedDataArguments(hp.DataArguments):
     history_length: int = 30
     anonymize_strategy: str = "global"
     anonymize_prefix: bool = False
-    time_process_strategy: str = "query"
+    time_process_strategy: str = "start"
     vague_time: bool = False
+    deanonymize_strategy: str = "fillin"
     prompt_construct_strategy: str = "inline"
 
 
