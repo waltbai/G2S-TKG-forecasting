@@ -49,7 +49,7 @@ def evaluate(
     tot_preds, tot_answers, tot_filters = [], [], []
     with distributed_state.split_between_processes(
             indices,
-            # apply_padding=True,
+            apply_padding=True,
     ) as parts:
         with torch.no_grad(), tqdm(
             total=len(parts),
