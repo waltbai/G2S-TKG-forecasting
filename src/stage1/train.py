@@ -14,7 +14,7 @@ from llama_factory.llmtuner.train.sft.metric import ComputeMetrics
 from llama_factory.llmtuner.train.sft.trainer import CustomSeq2SeqTrainer
 from src.args import AnonymizedDataArguments, ModelArguments, TrainingArguments, FinetuningArguments, \
     GenerationArguments, post_process_args
-from src.stage1.prepare import prepare
+from src.stage1.prepare import prepare, get_data_version
 
 logger = logging.getLogger(__name__)
 
@@ -42,7 +42,6 @@ def preprocess_func(
 
 def train(
         train_dataset: Dataset,
-        valid_dataset: Dataset,
         model: PreTrainedModel,
         tokenizer: PreTrainedTokenizer,
         data_args: AnonymizedDataArguments,
@@ -58,11 +57,6 @@ def train(
         batched=True,
         remove_columns=["prompt", "label", "filters", "candidates"]
     ).with_format("torch")
-    # tokenized_valid_set = valid_dataset.map(
-    #     partial(preprocess_func, tokenizer=tokenizer),
-    #     batched=True,
-    #     remove_columns=["prompt", "label", "filters", "candidates"]
-    # ).with_format("torch")
 
     # Data collator
     data_collator = DataCollatorForSeq2Seq(
@@ -78,7 +72,6 @@ def train(
     trainer = CustomSeq2SeqTrainer(
         model=model,
         train_dataset=tokenized_train_set,
-        # eval_dataset=tokenized_valid_set,
         args=training_args,
         finetuning_args=finetuning_args,
         tokenizer=tokenizer,
@@ -116,13 +109,12 @@ if __name__ == "__main__":
         generation_args,
     )
 
-    # Prepare
-    data_path = prepare(data_args)
+    # Load prepared data
+    datafile_name = get_data_version(data_args) + ".json"
+    data_path = os.path.join(data_args.prepare_dir, datafile_name)
     with open(data_path, "r") as f:
         dataset = json.load(f)
     train_dataset = Dataset.from_dict(dataset["train"])
-    valid_dataset = Dataset.from_dict(dataset["valid"])
-    test_dataset = Dataset.from_dict(dataset["test"])
 
     # Load model and backbone
     logger.info(f"Load tokenizer and model from {model_args.model_name_or_path}")
@@ -130,7 +122,7 @@ if __name__ == "__main__":
         model_args.model_name_or_path,
         truncation_side="left",
         padding_side="left",
-        model_max_length=1024,
+        model_max_length=data_args.cutoff_len,
     )
     tokenizer.pad_token_id = tokenizer.eos_token_id
     model_backbone = model_args.model_name_or_path.strip("/").split("/")[-1]
@@ -148,7 +140,6 @@ if __name__ == "__main__":
     if training_args.do_train:
         train(
             train_dataset=train_dataset,
-            valid_dataset=valid_dataset,
             model=model,
             tokenizer=tokenizer,
             data_args=data_args,
@@ -156,5 +147,3 @@ if __name__ == "__main__":
             training_args=training_args,
             finetuning_args=finetuning_args,
         )
-    
-

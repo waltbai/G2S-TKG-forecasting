@@ -1,10 +1,10 @@
 import unittest
 from datetime import datetime
 
-from src.stage1.anonymizer import get_anonymizer
+from src.utils.anonymizer import get_anonymizer
 from src.stage1.prepare import construct_queries, construct_history
 from src.stage1.prompt import get_prompt_constructor
-from src.stage1.time_processor import get_time_processor
+from src.utils.time_processor import get_time_processor
 from src.utils.fact import Fact
 from src.utils.tkg import construct_search_histories, TKG
 

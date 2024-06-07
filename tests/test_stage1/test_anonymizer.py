@@ -2,7 +2,7 @@ import random
 import unittest
 from datetime import datetime
 
-from src.stage1.anonymizer import get_anonymizer
+from src.utils.anonymizer import get_anonymizer
 from src.stage1.prepare import construct_queries, construct_history
 from src.utils.fact import Fact
 from src.utils.tkg import construct_search_histories, TKG
