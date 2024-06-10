@@ -1,10 +1,12 @@
 import json
 import logging
 import os
+import sys
 
 from typing import List, Dict, Any
 
 from tqdm import tqdm
+from transformers import HfArgumentParser
 
 from src.args import  DeAnonymizedDataArguments
 from src.stage2.prompt import get_prompt_constructor
@@ -263,3 +265,12 @@ def prepare(
         json.dump(data, f)
     logger.info(f"Dataset save to {data_path}")
     return data_path
+
+
+if __name__ == "__main__":
+    # Parse arguments from config file
+    config_path = sys.argv[1]
+    parser = HfArgumentParser([DeAnonymizedDataArguments])
+    data_args, = parser.parse_yaml_file(os.path.abspath(config_path))
+    # Prepare
+    prepare(data_args)

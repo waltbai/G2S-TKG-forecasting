@@ -156,10 +156,13 @@ class InlinePromptConstructStrategy(PromptConstructStrategy):
         query.prompt = prompt
         query.candidates = candidates
         query.label = label
-        query.anonymous_filters = [
-            query.entity_mapping[ent] for ent in query.filters
-            if ent in query.entity_mapping
-        ]
+        if self.deanonymize_strategy == "fillin":
+            query.anonymous_filters = query.filters
+        else:
+            query.anonymous_filters = [
+                query.entity_mapping[ent] for ent in query.filters
+                if ent in query.entity_mapping
+            ]
 
 
 class QAPromptConstructStrategy(PromptConstructStrategy):
@@ -223,10 +226,13 @@ class QAPromptConstructStrategy(PromptConstructStrategy):
         query.prompt = prompt
         query.candidates = candidates
         query.label = label
-        query.anonymous_filters = [
-            query.entity_mapping[ent] for ent in query.filters
-            if ent in query.entity_mapping
-        ]
+        if self.deanonymize_strategy == "fillin":
+            query.anonymous_filters = query.filters
+        else:
+            query.anonymous_filters = [
+                query.entity_mapping[ent] for ent in query.filters
+                if ent in query.entity_mapping
+            ]
 
 
 def get_prompt_constructor(
