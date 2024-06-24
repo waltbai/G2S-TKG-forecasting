@@ -11,3 +11,4 @@ time_process_strategy: query
 vague_time: false
 deanonymize_strategy: map
 prompt_construct_strategy: inline
+candidate_relabel: true

@@ -5,6 +5,7 @@ remove_duplicates: false
 
 # Fine-tune
 stage: sft
+template: default
 finetuning_type: lora
 lora_target: q_proj,v_proj
 
@@ -22,9 +23,11 @@ anonymize_prefix: false
 time_process_strategy: query
 vague_time: false
 prompt_construct_strategy: inline
+candidate_relabel: true
+cutoff_len: 1024
 
 # Train
-output_dir: /data/bailong/data/llm4tkg/outputs/opt-350m-icews14-stage1-sft
+output_dir: /data/bailong/data/llm4tkg/saves/opt-350m-icews14-stage1-sft
 overwrite_output_dir: true
 do_train: true
 do_eval: false

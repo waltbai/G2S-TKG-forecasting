@@ -150,6 +150,8 @@ def get_data_version(args: DeAnonymizedDataArguments):
         name += "_vague"
     name += f"-{args.deanonymize_strategy}"
     name += f"-{args.prompt_construct_strategy}"
+    if args.candidate_relabel:
+        name += f"-relabel"
     return name
 
 

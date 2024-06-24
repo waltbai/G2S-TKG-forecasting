@@ -10,13 +10,10 @@ from accelerate import PartialState
 from accelerate.utils import gather_object
 from datasets import Dataset
 from tqdm import tqdm
-from transformers import PreTrainedModel, PreTrainedTokenizer, HfArgumentParser, AutoTokenizer, AutoModelForCausalLM
+from transformers import PreTrainedModel, PreTrainedTokenizer, AutoTokenizer, AutoModelForCausalLM
 
-from src.args import (
-    ModelArguments,
-    DeAnonymizedDataArguments,
-    TrainingArguments,
-)
+from llamafactory.model import load_model
+from src.args import get_infer_args, ModelArguments
 from src.stage2.prepare import get_data_version
 from src.utils.metric import compute_hits, format_metrics
 
@@ -108,15 +105,8 @@ def evaluate(
 
 if __name__ == "__main__":
     # Parse arguments from config file
-    config_path = sys.argv[1]
-    parser = HfArgumentParser([
-        DeAnonymizedDataArguments,
-        ModelArguments,
-        TrainingArguments,
-    ])
-    data_args, model_args, training_args = \
-        parser.parse_yaml_file(os.path.abspath(config_path))
-    transformers.set_seed(training_args.seed)
+    model_args, data_args, training_args, finetuning_args, generating_args = \
+        get_infer_args(sys.argv[1], "stage2")
 
     # Prepare
     datafile_name = get_data_version(data_args) + ".json"

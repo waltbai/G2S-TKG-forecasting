@@ -1,21 +1,12 @@
 # Large Language Model for Temporal Knowledge Graph Reasoning
 This project aims to investigate how to utilize LLMs for TKG reasoning.
 
-## Requirements
-DCU requirements:
-- DTK==22.10
-- python==3.8
-- torch==1.13.0
-- transformers==4.39.3
-- datasets==2.19.0
-- llama_factory>=0.7.0
-- tqdm
-
-Ideal requirements:
+## Develop platform
+- cuda==12.2
 - python==3.10
-- torch>=2.2
-- transformers>=4.40
-- datasets>=2.19
+- torch==2.3.0
+- transformers==4.41.2
+- datasets==2.19.2
 - llama_factory>=0.7.0
 - tqdm
 

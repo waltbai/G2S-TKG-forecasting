@@ -154,6 +154,8 @@ def get_data_version(args: AnonymizedDataArguments):
     if args.vague_time:
         name += "_vague"
     name += f"-{args.prompt_construct_strategy}"
+    if args.candidate_relabel:
+        name += f"-relabel"
     return name
 
 
@@ -190,16 +192,18 @@ def prepare(
 
     # Get strategies
     anonymizer = get_anonymizer(
-        args.anonymize_strategy,
-        use_tqdm,
+        strategy=args.anonymize_strategy,
+        use_tqdm=use_tqdm,
     )
     time_processor = get_time_processor(
-        args.time_process_strategy,
-        use_tqdm,
+        strategy=args.time_process_strategy,
+        use_tqdm=use_tqdm,
     )
     prompt_constructor = get_prompt_constructor(
-        args.prompt_construct_strategy,
-        use_tqdm,
+        strategy=args.prompt_construct_strategy,
+        prefix=args.anonymize_prefix,
+        cand_relabel=args.candidate_relabel,
+        use_tqdm=use_tqdm,
     )
 
     # Prepare datasets

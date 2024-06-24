@@ -5,21 +5,20 @@ import sys
 from functools import partial
 
 from datasets import Dataset
-from transformers import PreTrainedTokenizer, PreTrainedModel, DataCollatorForSeq2Seq, HfArgumentParser, AutoTokenizer
-
-from llama_factory.llmtuner.extras.callbacks import LogCallback
-from llama_factory.llmtuner.extras.ploting import plot_loss
-from llama_factory.llmtuner.model import load_model
-from llama_factory.llmtuner.train.sft.metric import ComputeMetrics
-from llama_factory.llmtuner.train.sft.trainer import CustomSeq2SeqTrainer
-from src.args import (
-    DeAnonymizedDataArguments,
-    ModelArguments,
-    TrainingArguments,
-    FinetuningArguments,
-    GenerationArguments,
-    post_process_args,
+from transformers import (
+    PreTrainedTokenizer,
+    PreTrainedModel,
+    DataCollatorForSeq2Seq,
 )
+
+from llamafactory.extras.callbacks import LogCallback
+from llamafactory.extras.ploting import plot_loss
+from llamafactory.model import load_model, load_tokenizer
+from llamafactory.model.loader import TokenizerModule
+from llamafactory.train.sft.metric import ComputeMetrics
+from llamafactory.train.sft.trainer import CustomSeq2SeqTrainer
+
+from src.args import get_train_args, AnonymizedDataArguments, ModelArguments, TrainingArguments, FinetuningArguments
 from src.stage2.prepare import get_data_version
 
 logger = logging.getLogger(__name__)
@@ -49,8 +48,8 @@ def preprocess_func(
 def train(
         train_dataset: Dataset,
         model: PreTrainedModel,
-        tokenizer: PreTrainedTokenizer,
-        data_args: DeAnonymizedDataArguments,
+        tokenizer_module: TokenizerModule,
+        data_args: AnonymizedDataArguments,
         model_args: ModelArguments,
         training_args: TrainingArguments,
         finetuning_args: FinetuningArguments,
@@ -80,10 +79,10 @@ def train(
         train_dataset=tokenized_train_set,
         args=training_args,
         finetuning_args=finetuning_args,
-        tokenizer=tokenizer,
         data_collator=data_collator,
         callbacks=callbacks,
         compute_metrics=ComputeMetrics(tokenizer) if training_args.predict_with_generate else None,
+        **tokenizer_module,
     )
 
     train_result = trainer.train(resume_from_checkpoint=training_args.resume_from_checkpoint)
@@ -97,23 +96,8 @@ def train(
 
 if __name__ == "__main__":
     # Parse arguments from config file
-    config_path = sys.argv[1]
-    parser = HfArgumentParser([
-        DeAnonymizedDataArguments,
-        ModelArguments,
-        TrainingArguments,
-        FinetuningArguments,
-        GenerationArguments,
-    ])
-    data_args, model_args, training_args, finetuning_args, generation_args = \
-        parser.parse_yaml_file(os.path.abspath(config_path))
-    post_process_args(
-        data_args,
-        model_args,
-        training_args,
-        finetuning_args,
-        generation_args,
-    )
+    model_args, data_args, training_args, finetuning_args, generating_args = \
+        get_train_args(sys.argv[1], "stage2")
 
     # Load prepared data
     datafile_name = get_data_version(data_args) + ".json"
@@ -124,13 +108,8 @@ if __name__ == "__main__":
 
     # Load model and backbone
     logger.info(f"Load tokenizer and model from {model_args.model_name_or_path}")
-    tokenizer = AutoTokenizer.from_pretrained(
-        model_args.model_name_or_path,
-        truncation_side="left",
-        padding_side="left",
-        model_max_length=data_args.cutoff_len,
-    )
-    tokenizer.pad_token_id = tokenizer.eos_token_id
+    tokenizer_module = load_tokenizer(model_args)
+    tokenizer = tokenizer_module["tokenizer"]
     model_backbone = model_args.model_name_or_path.strip("/").split("/")[-1]
     model = load_model(
         tokenizer=tokenizer,
@@ -138,16 +117,26 @@ if __name__ == "__main__":
         finetuning_args=finetuning_args,
         is_trainable=training_args.do_train,
     )
-    # hack here: make model compatible with prediction
+
+    if training_args.predict_with_generate:
+        tokenizer.padding_side = "left"
     if getattr(model, "is_quantized", False) and not training_args.do_train:
         setattr(model, "_hf_peft_config_loaded", True)
+
+    # Override the decoding parameters of Seq2SeqTrainer
+    training_args.generation_max_length = \
+        training_args.generation_max_length or data_args.cutoff_len
+    training_args.generation_num_beams = \
+        data_args.eval_num_beams or training_args.generation_num_beams
+    training_args.remove_unused_columns = \
+        False if model_args.visual_inputs else training_args.remove_unused_columns
 
     # Train train_dataset
     if training_args.do_train:
         train(
             train_dataset=train_dataset,
             model=model,
-            tokenizer=tokenizer,
+            tokenizer_module=tokenizer_module,
             data_args=data_args,
             model_args=model_args,
             training_args=training_args,

@@ -7,14 +7,47 @@ from tqdm import tqdm
 from src.utils.query import Query
 
 
+def relabel_candidates(his_quads: List[List[str]]) -> Dict[str, str]:
+    """Relabel candidates by frequency."""
+    # Count candidate frequency and sort
+    candidate_freq = {}
+    for quad in his_quads:
+        candidate_freq.setdefault(quad[2], 0)
+        candidate_freq[quad[2]] += 1
+    candidate_sorted = list(
+        sorted(candidate_freq.items(), key=lambda x: x[1], reverse=True)
+    )
+
+    # Relabel candidates to IDs, start from 0
+    cand_mapping = {}
+    for i, (entity, _) in enumerate(candidate_sorted):
+        cand_mapping[entity] = str(i)
+
+    return cand_mapping
+
+
+def original_id(entity_mapping: Dict[str, str]) -> Dict[str, str]:
+    """Use original id."""
+    cand_mapping = {}
+    # Use original id and remove prefix
+    for value in entity_mapping.values():
+        cand_mapping[value] = value.replace("ENT_", "")
+
+    return cand_mapping
+
+
 class PromptConstructStrategy(ABC):
     """Prompt construct strategy base class."""
 
     def __init__(
             self,
+            prefix: bool = False,
+            cand_relabel: bool = True,
             deanonymize_strategy: str = "fillin",
             use_tqdm: bool = False
     ):
+        self.prefix = prefix
+        self.cand_relabel = cand_relabel
         self.deanonymize_strategy = deanonymize_strategy
         self.use_tqdm = use_tqdm
 
@@ -86,19 +119,11 @@ class PromptConstructStrategy(ABC):
                 quad = [quad[2], quad[1], quad[0], quad[3]]
             his_quads.append(quad)
 
-        # Count candidate frequency and sort
-        candidate_freq = {}
-        for quad in his_quads:
-            candidate_freq.setdefault(quad[2], 0)
-            candidate_freq[quad[2]] += 1
-        candidate_sorted = list(
-            sorted(candidate_freq.items(), key=lambda x: x[1], reverse=True)
-        )
-
-        # Re-map candidates to IDs, start from 0
-        cand_mapping = {}
-        for i, (entity, _) in enumerate(candidate_sorted):
-            cand_mapping[entity] = str(i)
+        # Candidate mapping
+        if self.cand_relabel:
+            cand_mapping = relabel_candidates(his_quads)
+        else:
+            cand_mapping = original_id(query.entity_mapping)
 
         return query_quad, his_quads, cand_mapping
 
@@ -144,7 +169,10 @@ class InlinePromptConstructStrategy(PromptConstructStrategy):
         # Construct prompt: History and query part
         for quad in his_quads:
             head, rel, tail, time = quad
-            prompt += f"{time}:[{head}{sep}{rel}{sep}{cand_mapping[tail]}.{tail}]\n"
+            if self.cand_relabel:
+                prompt += f"{time}:[{head}{sep}{rel}{sep}{cand_mapping[tail]}.{tail}]\n"
+            else:
+                prompt += f"{time}:[{head}{sep}{rel}{sep}{tail}]\n"
         prompt += f"{query_time}:[{query_entity}{sep}{query_rel}{sep}"
         candidates = {str(v): k for k, v in cand_mapping.items()}
         if query_answer not in cand_mapping:
@@ -212,7 +240,10 @@ class QAPromptConstructStrategy(PromptConstructStrategy):
         prompt += "### History ###\n"
         for quad in his_quads:
             head, rel, tail, time = quad
-            prompt += f"{time}:[{head}{sep}{rel}{sep}{cand_mapping[tail]}.{tail}]\n"
+            if self.cand_relabel:
+                prompt += f"{time}:[{head}{sep}{rel}{sep}{cand_mapping[tail]}.{tail}]\n"
+            else:
+                prompt += f"{time}:[{head}{sep}{rel}{sep}{tail}]\n"
         prompt += f"\n### Query ###\n"
         prompt += f"{query_time}:[{query_entity}{sep}{query_rel}{sep}?]\n"
         prompt += f"\n### Answer ###\n"

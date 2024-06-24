@@ -1,5 +1,5 @@
 # Model
-model_name_or_path: /data/bailong/models/opt-350m
+model_name_or_path: /data/bailong/models/opt-350m-icews14-stage1-sft
 num_predictions: 30
 remove_duplicates: false
 
@@ -23,9 +23,10 @@ vague_time: false
 deanonymize_strategy: map
 prompt_construct_strategy: inline
 candidate_relabel: true
+cutoff_len: 1024
 
 # Train
-output_dir: /data/bailong/data/llm4tkg/outputs/opt-350m-icews14-stage2-sft
+output_dir: /data/bailong/data/llm4tkg/saves/opt-350m-icews14-stage1-stage2-sft
 overwrite_output_dir: true
 do_train: true
 do_eval: false
