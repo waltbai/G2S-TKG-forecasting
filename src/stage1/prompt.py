@@ -214,6 +214,64 @@ class QAPromptConstructStrategy(PromptConstructStrategy):
         ]
 
 
+class InlineRelMapPromptConstructStrategy(PromptConstructStrategy):
+    """Query is given inline, no special strings for history and query.
+
+    Example:
+        ### Relation mapping ###
+        0: make a visit
+        ...
+        t_i:[s_i,r_i,o_i]
+        ...
+        t_q:[s_q,r_q,
+    """
+
+    def construct_prompt(
+            self,
+            query_quad: List[str],
+            his_quads: List[List[str]],
+            cand_mapping: Dict[str, str],
+            query: Query,
+            sep: str = ",",
+    ):
+        query_entity, query_rel, query_answer, query_time = query_quad
+
+        # Construct prompt: De-anonymized part
+        prompt = ""
+        prompt += "### Relation Mapping ###\n"
+        rel_maps = list(
+            sorted(query.rel_mapping.items(), key=lambda x: x[1])
+        )
+        for k, v in rel_maps:
+            prompt += f"{v}:{k}\n"
+        prompt += "\n"
+
+        # Construct prompt
+        for quad in his_quads:
+            head, rel, tail, time = quad
+            if self.cand_relabel:
+                prompt += f"{time}:[{head}{sep}{rel}{sep}{cand_mapping[tail]}.{tail}]\n"
+            else:
+                prompt += f"{time}:[{head}{sep}{rel}{sep}{tail}]\n"
+        prompt += f"{query_time}:[{query_entity}{sep}{query_rel}{sep}"
+        if self.prefix:
+            prompt += "ENT_"
+        candidates = {str(v): k for k, v in cand_mapping.items()}
+        if query_answer not in cand_mapping:
+            label = str(len(candidates))
+            candidates.setdefault(label, None)
+        else:
+            label = cand_mapping[query_answer]
+
+        query.prompt = prompt
+        query.candidates = candidates
+        query.label = label
+        query.anonymous_filters = [
+            query.entity_mapping[ent] for ent in query.filters
+            if ent in query.entity_mapping
+        ]
+
+
 def get_prompt_constructor(
         strategy: str,
         prefix: bool = False,
@@ -223,6 +281,12 @@ def get_prompt_constructor(
     """Get prompt constructor by name."""
     if strategy == "inline":
         return InlinePromptConstructStrategy(
+            prefix=prefix,
+            cand_relabel=cand_relabel,
+            use_tqdm=use_tqdm,
+        )
+    elif strategy == "inline-rel":
+        return InlineRelMapPromptConstructStrategy(
             prefix=prefix,
             cand_relabel=cand_relabel,
             use_tqdm=use_tqdm,
