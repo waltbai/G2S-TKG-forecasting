@@ -14,7 +14,7 @@ from transformers import PreTrainedModel, PreTrainedTokenizer, AutoTokenizer, Au
 
 from llamafactory.model import load_model
 from src.args import get_infer_args, ModelArguments
-from src.stage1.prepare import prepare, get_data_version
+from src.stage2.prepare import get_data_version
 from src.utils.metric import compute_hits, format_metrics
 
 logger = logging.getLogger(__name__)
@@ -46,7 +46,6 @@ def evaluate(
     if distributed_state.is_main_process:
         logger.info("Start Evaluation")
     tot_preds, tot_answers, tot_filters = [], [], []
-    cands = []
     with distributed_state.split_between_processes(
             indices,
             apply_padding=True,
@@ -91,12 +90,6 @@ def evaluate(
                             continue
                         duplicate_set.add(cand_id)
                         preds.append(candidates[cand_id])
-
-                if len(preds) > 0:
-                    cands.append(preds[0])
-                else:
-                    cands.append("")
-
                 answer = candidates[label]
                 tot_preds.extend([preds])
                 tot_answers.extend([answer])
@@ -107,16 +100,13 @@ def evaluate(
     tot_answers = gather_object(tot_answers)[:num_samples]
     tot_filters = gather_object(tot_filters)[:num_samples]
 
-    cands = gather_object(cands)[:num_samples]
-    # logger.info(f"Total counts: {len([_ for _ in cands if _ == '0'])}")
-
     return compute_hits(tot_preds, tot_answers, tot_filters)
 
 
 if __name__ == "__main__":
     # Parse arguments from config file
     model_args, data_args, training_args, finetuning_args, generating_args = \
-        get_infer_args(sys.argv[1], "stage1")
+        get_infer_args(sys.argv[1], "stage2")
 
     # Prepare
     datafile_name = get_data_version(data_args) + ".json"

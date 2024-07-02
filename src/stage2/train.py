@@ -19,7 +19,7 @@ from llamafactory.train.sft.metric import ComputeMetrics
 from llamafactory.train.sft.trainer import CustomSeq2SeqTrainer
 
 from src.args import get_train_args, AnonymizedDataArguments, ModelArguments, TrainingArguments, FinetuningArguments
-from src.stage1.prepare import get_data_version
+from src.stage2.prepare import get_data_version
 
 logger = logging.getLogger(__name__)
 
@@ -97,7 +97,7 @@ def train(
 if __name__ == "__main__":
     # Parse arguments from config file
     model_args, data_args, training_args, finetuning_args, generating_args = \
-        get_train_args(sys.argv[1], "stage1")
+        get_train_args(sys.argv[1], "stage2")
 
     # Load prepared data
     datafile_name = get_data_version(data_args) + ".json"
@@ -110,7 +110,6 @@ if __name__ == "__main__":
     logger.info(f"Load tokenizer and model from {model_args.model_name_or_path}")
     tokenizer_module = load_tokenizer(model_args)
     tokenizer = tokenizer_module["tokenizer"]
-    tokenizer.model_max_length = data_args.cutoff_len
     model_backbone = model_args.model_name_or_path.strip("/").split("/")[-1]
     model = load_model(
         tokenizer=tokenizer,

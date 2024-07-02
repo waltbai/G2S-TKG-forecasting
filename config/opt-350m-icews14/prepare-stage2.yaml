@@ -1,0 +1,14 @@
+# Dataset setting
+dataset_dir: /data/bailong/data/tkg_data
+prepare_dir: /data/bailong/data/llm4tkg/prepare
+dataset: ICEWS14
+history_type: entity
+history_direction: uni
+history_length: 30
+anonymize_strategy: session
+anonymize_prefix: false
+time_process_strategy: query
+vague_time: false
+deanonymize_strategy: map
+prompt_construct_strategy: inline
+candidate_relabel: true

@@ -1,0 +1,30 @@
+# Model
+model_name_or_path: /home/bingxing2/home/scx6592/bailong/models/llama3-icews14-stage1-sft
+num_predictions: 30
+remove_duplicates: false
+
+# Dataset setting
+dataset_dir: /home/bingxing2/home/scx6592/bailong/data/tkg_data
+prepare_dir: /home/bingxing2/home/scx6592/bailong/data/llm4tkg/prepare
+train_dataset: ICEWS14
+valid_dataset: ICEWS14
+test_dataset: ICEWS14
+history_type: entity
+history_direction: uni
+history_length: 30
+anonymize_strategy: session
+anonymize_prefix: false
+time_process_strategy: query
+vague_time: false
+prompt_construct_strategy: inline-rel
+candidate_relabel: false
+cutoff_len: 2048
+
+# Train
+output_dir: /home/bingxing2/home/scx6592/bailong/data/llm4tkg/outputs/llama3-icews14-stage1-sft
+do_train: false
+do_eval: true
+do_predict: true
+fp16: true
+template: default
+finetuning_type: lora

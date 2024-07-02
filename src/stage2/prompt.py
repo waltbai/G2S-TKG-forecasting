@@ -43,10 +43,12 @@ class PromptConstructStrategy(ABC):
             self,
             prefix: bool = False,
             cand_relabel: bool = True,
+            deanonymize_strategy: str = "fillin",
             use_tqdm: bool = False
     ):
         self.prefix = prefix
         self.cand_relabel = cand_relabel
+        self.deanonymize_strategy = deanonymize_strategy
         self.use_tqdm = use_tqdm
 
     def __call__(
@@ -72,21 +74,43 @@ class PromptConstructStrategy(ABC):
 
     def construct(self, query: Query, sep: str = ","):
         """Construct prompt for each query."""
-        # Query
-        query_entity = query.entity_mapping[query.entity]
-        query_rel = query.rel_mapping[query.rel]
-        query_answer = query.entity_mapping[query.answer] \
-            if query.answer in query.entity_mapping else None
-        query_time = query.time_mapping[query.time]
+        query_quad, his_quads, cand_mapping = self.prepare_elements(query)
+        self.construct_prompt(
+            query_quad=query_quad,
+            his_quads=his_quads,
+            cand_mapping=cand_mapping,
+            query=query,
+            sep=sep,
+        )
+
+    def prepare_elements(self, query: Query):
+        """Prepare elements in prompt."""
+        if self.deanonymize_strategy == "fillin":
+            query_entity = query.entity
+            query_rel = query.rel
+            query_answer = query.answer
+            query_time = query.time
+            map_quad = lambda x: [
+                x.head,
+                x.rel,
+                x.tail,
+                x.time,
+            ]
+        else:
+            query_entity = query.entity_mapping[query.entity]
+            query_rel = query.rel_mapping[query.rel]
+            query_answer = query.entity_mapping[query.answer] \
+                if query.answer in query.entity_mapping else None
+            query_time = query.time_mapping[query.time]
+            map_quad = lambda x: [
+                query.entity_mapping[x.head],
+                query.rel_mapping[x.rel],
+                query.entity_mapping[x.tail],
+                query.time_mapping[x.time]
+            ]
         query_quad = [query_entity, query_rel, query_answer, query_time]
 
-        # Historical facts
-        map_quad = lambda x: [
-            query.entity_mapping[x.head],
-            query.rel_mapping[x.rel],
-            query.entity_mapping[x.tail],
-            query.time_mapping[x.time]
-        ]
+        # Convert historical facts into quadruples
         his_quads = []
         for fact in query.history:
             quad = map_quad(fact)
@@ -101,14 +125,7 @@ class PromptConstructStrategy(ABC):
         else:
             cand_mapping = original_id(query.entity_mapping)
 
-        # Construct prompt
-        self.construct_prompt(
-            query_quad=query_quad,
-            his_quads=his_quads,
-            cand_mapping=cand_mapping,
-            query=query,
-            sep=sep,
-        )
+        return query_quad, his_quads, cand_mapping
 
 
 class InlinePromptConstructStrategy(PromptConstructStrategy):
@@ -129,11 +146,27 @@ class InlinePromptConstructStrategy(PromptConstructStrategy):
             query: Query,
             sep: str = ",",
     ):
-        """Main func of prompt construction."""
         query_entity, query_rel, query_answer, query_time = query_quad
 
-        # Construct prompt
+        # Construct prompt: De-anonymized part
         prompt = ""
+        if self.deanonymize_strategy == "map":
+            prompt += "### Entity Mapping ###\n"
+            ent_maps = list(
+                sorted(query.entity_mapping.items(), key=lambda x: x[1])
+            )
+            for k, v in ent_maps:
+                prompt += f"{v}:{k}\n"
+            prompt += "\n"
+            prompt += "### Relation Mapping ###\n"
+            rel_maps = list(
+                sorted(query.rel_mapping.items(), key=lambda x: x[1])
+            )
+            for k, v in rel_maps:
+                prompt += f"{v}:{k}\n"
+            prompt += "\n"
+
+        # Construct prompt: History and query part
         for quad in his_quads:
             head, rel, tail, time = quad
             if self.cand_relabel:
@@ -141,8 +174,6 @@ class InlinePromptConstructStrategy(PromptConstructStrategy):
             else:
                 prompt += f"{time}:[{head}{sep}{rel}{sep}{tail}]\n"
         prompt += f"{query_time}:[{query_entity}{sep}{query_rel}{sep}"
-        if self.prefix:
-            prompt += "ENT_"
         candidates = {str(v): k for k, v in cand_mapping.items()}
         if query_answer not in cand_mapping:
             label = str(len(candidates))
@@ -153,10 +184,13 @@ class InlinePromptConstructStrategy(PromptConstructStrategy):
         query.prompt = prompt
         query.candidates = candidates
         query.label = label
-        query.anonymous_filters = [
-            query.entity_mapping[ent] for ent in query.filters
-            if ent in query.entity_mapping
-        ]
+        if self.deanonymize_strategy == "fillin":
+            query.anonymous_filters = query.filters
+        else:
+            query.anonymous_filters = [
+                query.entity_mapping[ent] for ent in query.filters
+                if ent in query.entity_mapping
+            ]
 
 
 class QAPromptConstructStrategy(PromptConstructStrategy):
@@ -182,11 +216,28 @@ class QAPromptConstructStrategy(PromptConstructStrategy):
             query: Query,
             sep: str = ",",
     ):
-        """Main func of prompt construction."""
         query_entity, query_rel, query_answer, query_time = query_quad
 
-        # Construct prompt
-        prompt = "### History ###\n"
+        # Construct prompt: De-anonymized part
+        prompt = ""
+        if self.deanonymize_strategy == "map":
+            prompt += "### Entity Mapping ###\n"
+            ent_maps = list(
+                sorted(query.entity_mapping.items(), key=lambda x: x[1])
+            )
+            for k, v in ent_maps:
+                prompt += f"{v}:{k}\n"
+            prompt += "\n"
+            prompt += "### Relation Mapping ###\n"
+            rel_maps = list(
+                sorted(query.rel_mapping.items(), key=lambda x: x[1])
+            )
+            for k, v in rel_maps:
+                prompt += f"{v}:{k}\n"
+            prompt += "\n"
+
+        # Construct prompt: History and query part
+        prompt += "### History ###\n"
         for quad in his_quads:
             head, rel, tail, time = quad
             if self.cand_relabel:
@@ -196,8 +247,6 @@ class QAPromptConstructStrategy(PromptConstructStrategy):
         prompt += f"\n### Query ###\n"
         prompt += f"{query_time}:[{query_entity}{sep}{query_rel}{sep}?]\n"
         prompt += f"\n### Answer ###\n"
-        if self.prefix:
-            prompt += "ENT_"
         candidates = {str(v): k for k, v in cand_mapping.items()}
         if query_answer not in cand_mapping:
             label = str(len(candidates))
@@ -208,92 +257,27 @@ class QAPromptConstructStrategy(PromptConstructStrategy):
         query.prompt = prompt
         query.candidates = candidates
         query.label = label
-        query.anonymous_filters = [
-            query.entity_mapping[ent] for ent in query.filters
-            if ent in query.entity_mapping
-        ]
-
-
-class InlineRelMapPromptConstructStrategy(PromptConstructStrategy):
-    """Query is given inline, no special strings for history and query.
-
-    Example:
-        ### Relation mapping ###
-        0: make a visit
-        ...
-        t_i:[s_i,r_i,o_i]
-        ...
-        t_q:[s_q,r_q,
-    """
-
-    def construct_prompt(
-            self,
-            query_quad: List[str],
-            his_quads: List[List[str]],
-            cand_mapping: Dict[str, str],
-            query: Query,
-            sep: str = ",",
-    ):
-        query_entity, query_rel, query_answer, query_time = query_quad
-
-        # Construct prompt: De-anonymized part
-        prompt = ""
-        prompt += "### Relation Mapping ###\n"
-        rel_maps = list(
-            sorted(query.rel_mapping.items(), key=lambda x: x[1])
-        )
-        for k, v in rel_maps:
-            prompt += f"{v}:{k}\n"
-        prompt += "\n"
-
-        # Construct prompt
-        for quad in his_quads:
-            head, rel, tail, time = quad
-            if self.cand_relabel:
-                prompt += f"{time}:[{head}{sep}{rel}{sep}{cand_mapping[tail]}.{tail}]\n"
-            else:
-                prompt += f"{time}:[{head}{sep}{rel}{sep}{tail}]\n"
-        prompt += f"{query_time}:[{query_entity}{sep}{query_rel}{sep}"
-        if self.prefix:
-            prompt += "ENT_"
-        candidates = {str(v): k for k, v in cand_mapping.items()}
-        if query_answer not in cand_mapping:
-            label = str(len(candidates))
-            candidates.setdefault(label, None)
+        if self.deanonymize_strategy == "fillin":
+            query.anonymous_filters = query.filters
         else:
-            label = cand_mapping[query_answer]
-
-        query.prompt = prompt
-        query.candidates = candidates
-        query.label = label
-        query.anonymous_filters = [
-            query.entity_mapping[ent] for ent in query.filters
-            if ent in query.entity_mapping
-        ]
+            query.anonymous_filters = [
+                query.entity_mapping[ent] for ent in query.filters
+                if ent in query.entity_mapping
+            ]
 
 
 def get_prompt_constructor(
-        strategy: str,
-        prefix: bool = False,
-        cand_relabel: bool = True,
+        prompt_construct_strategy: str,
+        deanonymize_strategy: str = "fillin",
         use_tqdm: bool = False,
 ) -> PromptConstructStrategy:
     """Get prompt constructor by name."""
-    if strategy == "inline":
+    if prompt_construct_strategy == "inline":
         return InlinePromptConstructStrategy(
-            prefix=prefix,
-            cand_relabel=cand_relabel,
-            use_tqdm=use_tqdm,
-        )
-    elif strategy == "inline-rel":
-        return InlineRelMapPromptConstructStrategy(
-            prefix=prefix,
-            cand_relabel=cand_relabel,
-            use_tqdm=use_tqdm,
+            deanonymize_strategy, use_tqdm
         )
     else:   # strategy == "qa"
         return QAPromptConstructStrategy(
-            prefix=prefix,
-            cand_relabel=cand_relabel,
-            use_tqdm=use_tqdm,
+            deanonymize_strategy,
+            use_tqdm
         )

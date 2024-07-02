@@ -8,12 +8,12 @@ from typing import List, Dict, Any
 from tqdm import tqdm
 from transformers import HfArgumentParser
 
-from src.args import AnonymizedDataArguments
+from src.args import  DeAnonymizedDataArguments
+from src.stage2.prompt import get_prompt_constructor
 from src.utils.anonymizer import get_anonymizer
-from src.stage1.prompt import get_prompt_constructor
-from src.utils.time_processor import get_time_processor
 from src.utils.fact import Fact
 from src.utils.query import Query
+from src.utils.time_processor import get_time_processor
 from src.utils.tkg import TKG
 
 logger = logging.getLogger(__name__)
@@ -133,16 +133,11 @@ def construct_history(
             pbar.update()
 
 
-def get_data_version(args: AnonymizedDataArguments):
+def get_data_version(args: DeAnonymizedDataArguments):
     """Get data name."""
-    name = "stage1"
-    if args.train_dataset:
-        name += "-train_" + args.train_dataset.replace(",", "_")
-    if args.valid_dataset:
-        name += "-valid_" + args.valid_dataset.replace(",", "_")
-    if args.test_dataset:
-        name += "-test_" + args.test_dataset.replace(",", "_")
-    name += (
+    name = (
+        "stage2"
+        f"-{args.dataset}"
         f"-{args.history_type}"
         f"-{args.history_direction}"
         f"-{args.history_length}"
@@ -153,6 +148,7 @@ def get_data_version(args: AnonymizedDataArguments):
     name += f"-{args.time_process_strategy}"
     if args.vague_time:
         name += "_vague"
+    name += f"-{args.deanonymize_strategy}"
     name += f"-{args.prompt_construct_strategy}"
     if args.candidate_relabel:
         name += f"-relabel"
@@ -171,7 +167,7 @@ def convert_queries(queries: List[Query]) -> Dict[str, Any]:
 
 
 def prepare(
-        args: AnonymizedDataArguments,
+        args: DeAnonymizedDataArguments,
         use_tqdm: bool = True,
 ) -> str:
     """Main data preparation function for stage-1."""
@@ -192,94 +188,74 @@ def prepare(
 
     # Get strategies
     anonymizer = get_anonymizer(
-        strategy=args.anonymize_strategy,
-        use_tqdm=use_tqdm,
+        args.anonymize_strategy,
+        use_tqdm,
     )
     time_processor = get_time_processor(
-        strategy=args.time_process_strategy,
-        use_tqdm=use_tqdm,
+        args.time_process_strategy,
+        use_tqdm,
     )
     prompt_constructor = get_prompt_constructor(
-        strategy=args.prompt_construct_strategy,
-        prefix=args.anonymize_prefix,
-        cand_relabel=args.candidate_relabel,
-        use_tqdm=use_tqdm,
+        args.prompt_construct_strategy,
+        args.deanonymize_strategy,
+        use_tqdm,
     )
 
     # Prepare datasets
-    train_datasets = [dataset for dataset in args.train_dataset.split(",") if dataset]
-    valid_datasets = [dataset for dataset in args.valid_dataset.split(",") if dataset]
-    test_datasets = [dataset for dataset in args.test_dataset.split(",") if dataset]
-    datasets = list(set(train_datasets + valid_datasets + test_datasets))
-    train_queries, valid_queries, test_queries = [], [], []
-    for dataset in datasets:
-        # Load TKG
-        logger.info(f"Loading TKG {dataset}")
-        tkg = TKG.load(dataset_dir, dataset)
+    dataset = args.dataset
+    # Load TKG
+    logger.info(f"Loading TKG {dataset}")
+    tkg = TKG.load(dataset_dir, dataset)
 
-        # Construct queries
-        logger.info("Construct queries")
-        if dataset in train_datasets:
-            temp_train_queries = construct_queries(
-                tkg.train_facts,
-                use_tqdm=use_tqdm,
-            )
-        else:
-            temp_train_queries = []
-        if dataset in valid_datasets:
-            temp_valid_queries = construct_queries(
-                tkg.valid_facts,
-                use_tqdm=use_tqdm,
-            )
-        else:
-            temp_valid_queries = []
-        if dataset in test_datasets:
-            temp_test_queries = construct_queries(
-                tkg.test_facts,
-                use_tqdm=use_tqdm,
-            )
-        else:
-            temp_test_queries = []
-        # num_train = len(temp_train_queries)
-        # num_valid = len(temp_valid_queries)
-        # num_test = len(temp_test_queries)
-        queries = temp_train_queries + temp_valid_queries + temp_test_queries
+    # Construct queries
+    logger.info("Construct queries")
+    train_queries = construct_queries(
+        tkg.train_facts,
+        use_tqdm=use_tqdm,
+    )
+    valid_queries = construct_queries(
+        tkg.valid_facts,
+        use_tqdm=use_tqdm,
+    )
+    test_queries = construct_queries(
+        tkg.test_facts,
+        use_tqdm=use_tqdm,
+    )
+    # num_train = len(temp_train_queries)
+    # num_valid = len(temp_valid_queries)
+    # num_test = len(temp_test_queries)
+    queries = train_queries + valid_queries + test_queries
 
-        # Construct history
-        logger.info("Construct history")
-        construct_history(
-            queries=queries,
-            tkg=tkg,
-            history_length=args.history_length,
-            history_type=args.history_type,
-            history_direction=args.history_direction,
-            use_tqdm=use_tqdm,
-        )
+    # Construct history
+    logger.info("Construct history")
+    construct_history(
+        queries=queries,
+        tkg=tkg,
+        history_length=args.history_length,
+        history_type=args.history_type,
+        history_direction=args.history_direction,
+        use_tqdm=use_tqdm,
+    )
 
-        # Anonymize queries
-        logger.info("Anonymize queries")
-        anonymizer(
-            queries=queries,
-            tkg=tkg,
-            prefix=args.anonymize_prefix
-        )
+    # Anonymize queries
+    logger.info("Anonymize queries")
+    anonymizer(
+        queries=queries,
+        tkg=tkg,
+        prefix=args.anonymize_prefix
+    )
 
-        # Process time
-        logger.info("Process time")
-        time_processor(
-            queries=queries,
-            tkg=tkg,
-            vague=args.vague_time
-        )
+    # Process time
+    logger.info("Process time")
+    time_processor(
+        queries=queries,
+        tkg=tkg,
+        vague=args.vague_time
+    )
 
-        # Construct anonymized prompt
-        logger.info("Construct anonymized prompt")
-        prompt_constructor(queries=queries)
-
-        # Split queries and append
-        train_queries.extend(temp_train_queries)
-        valid_queries.extend(temp_valid_queries)
-        test_queries.extend(temp_test_queries)
+    # Construct anonymized prompt
+    logger.info("Construct de-anonymized prompt")
+    prompt_constructor(queries=queries)
 
     # Save data
     data = {
@@ -296,7 +272,7 @@ def prepare(
 if __name__ == "__main__":
     # Parse arguments from config file
     config_path = sys.argv[1]
-    parser = HfArgumentParser([AnonymizedDataArguments])
+    parser = HfArgumentParser([DeAnonymizedDataArguments])
     data_args, = parser.parse_yaml_file(os.path.abspath(config_path))
     # Prepare
     prepare(data_args)

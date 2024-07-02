@@ -1,0 +1,28 @@
+# Model
+model_name_or_path: /data/bailong/data/llm4tkg/outputs/opt-350m-icews14-stage2-sft
+num_predictions: 30
+remove_duplicates: false
+
+# Dataset setting
+dataset_dir: /data/bailong/data/tkg_data
+prepare_dir: /data/bailong/data/llm4tkg/prepare
+dataset: ICEWS14
+history_type: entity
+history_direction: uni
+history_length: 30
+anonymize_strategy: session
+anonymize_prefix: false
+time_process_strategy: query
+vague_time: false
+deanonymize_strategy: map
+prompt_construct_strategy: inline
+candidate_relabel: true
+
+# Train
+output_dir: /data/bailong/data/llm4tkg/outputs/opt-350m-icews14-stage2-sft
+do_train: false
+do_eval: true
+do_predict: true
+fp16: true
+template: default
+finetuning_type: lora
