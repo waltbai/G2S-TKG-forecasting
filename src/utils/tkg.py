@@ -1,5 +1,5 @@
 import os
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from typing import List, Dict, Any
 
@@ -7,7 +7,7 @@ from src.utils.common import (
     load_config,
     read_index_file,
     read_dict_file,
-    time_id2str,
+    time_id2str, read_rule_file,
 )
 from src.utils.fact import Fact
 
@@ -61,6 +61,7 @@ class TKG:
     search_history: Dict[str, Any]
     time2id: Dict[str, int]
     id2time: Dict[int, str]
+    rules: Dict[str, Any] = field(default_factory=dict)
 
     @classmethod
     def load(cls, dataset_dir: str, dataset: str):
@@ -74,6 +75,7 @@ class TKG:
         test_path = os.path.join(dataset_path, "test.txt")
         entity2id_path = os.path.join(dataset_path, "entity2id.txt")
         relation2id_path = os.path.join(dataset_path, "relation2id.txt")
+        rule_path = os.path.join(f"data/{dataset}-rules.json")
         # Load original files
         # In previous works, train/valid/unit_test files are processed index files.
         train_set_idx = read_index_file(train_path)
@@ -95,6 +97,7 @@ class TKG:
             relation2id = read_dict_file(relation2id_path)
         entities = [_[0] for _ in sorted(entity2id.items(), key=lambda x: x[1])]
         relations = [_[0] for _ in sorted(relation2id.items(), key=lambda x: x[1])]
+        rules = read_rule_file(rule_path)
         # Normalize time and record time indices
         dataset_config = config[dataset]
         time_unit = dataset_config["time_unit"]
@@ -135,6 +138,7 @@ class TKG:
             search_history=search_history,
             time2id=time2id,
             id2time=id2time,
+            rules=rules
         )
 
 

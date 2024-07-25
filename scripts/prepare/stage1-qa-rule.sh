@@ -8,7 +8,7 @@ python -m src.stage1.prepare \
   --train_dataset ICEWS14 \
   --valid_dataset ICEWS14 \
   --test_dataset ICEWS14 \
-  --history_finder 1-hop \
+  --history_finder rule \
   --history_type entity \
   --history_direction uni \
   --history_length 0 \
