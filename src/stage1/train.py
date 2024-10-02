@@ -4,6 +4,7 @@ import os
 import sys
 from functools import partial
 
+from accelerate import accelerator
 from datasets import Dataset
 from transformers import (
     PreTrainedTokenizer,
@@ -18,8 +19,9 @@ from llamafactory.model.loader import TokenizerModule
 from llamafactory.train.sft.metric import ComputeMetrics
 from llamafactory.train.sft.trainer import CustomSeq2SeqTrainer
 
-from src.args import get_train_args, AnonymizedDataArguments, ModelArguments, TrainingArguments, FinetuningArguments
 from src.stage1.prepare import get_data_version
+from src.utils.args import AnonymizedDataArguments, ModelArguments, TrainingArguments, FinetuningArguments, \
+    get_train_args
 
 logger = logging.getLogger(__name__)
 
@@ -57,6 +59,7 @@ def train(
     """Train on train and valid set."""
     # Tokenize and align inputs with labels
     logger.info("Process prepared data into training format.")
+    accelerator.wait_for_everyone()
     tokenized_train_set = train_dataset.map(
         partial(preprocess_func, tokenizer=tokenizer),
         batched=True,
@@ -97,7 +100,7 @@ def train(
 if __name__ == "__main__":
     # Parse arguments from config file
     model_args, data_args, training_args, finetuning_args, generating_args = \
-        get_train_args(sys.argv[1], "stage1")
+        get_train_args("stage1")
 
     # Load prepared data
     datafile_name = get_data_version(data_args) + ".json"
@@ -107,11 +110,14 @@ if __name__ == "__main__":
     train_dataset = Dataset.from_dict(dataset["train"])
 
     # Load model and backbone
+    accelerator.wait_for_everyone()
     logger.info(f"Load tokenizer and model from {model_args.model_name_or_path}")
     tokenizer_module = load_tokenizer(model_args)
     tokenizer = tokenizer_module["tokenizer"]
+    tokenizer.pad_token_id = tokenizer.bos_token_id
     tokenizer.model_max_length = data_args.cutoff_len
     model_backbone = model_args.model_name_or_path.strip("/").split("/")[-1]
+    accelerator.wait_for_everyone()
     model = load_model(
         tokenizer=tokenizer,
         model_args=model_args,

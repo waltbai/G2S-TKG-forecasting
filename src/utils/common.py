@@ -1,3 +1,4 @@
+import json
 from datetime import datetime, timedelta
 from typing import Dict, List, Tuple, Any
 
@@ -47,6 +48,13 @@ def read_dict_file(
                 word = word.capitalize()
             result.setdefault(word, int(index))
     return result
+
+
+def read_rule_file(fp: str) -> Dict[str, Any]:
+    """Load rule file and convert indices into strings."""
+    with open(fp, "r") as f:
+        rules = json.load(f)
+    return rules
 
 
 # ===== String functions =====
