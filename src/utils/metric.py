@@ -1,7 +1,5 @@
 from typing import List, Dict
 
-from src.utils.common import format_params
-
 
 def compute_rank(
         preds: List[str],
@@ -19,14 +17,15 @@ def compute_rank(
     return rank
 
 
-def compute_hits(
+def compute_metrics(
         tot_preds: List[List[str]],
         tot_answers: List[str],
         tot_filters: List[List[str]],
 ) -> Dict[str, float]:
-    """Compute metrics.
+    """
+    Compute metrics.
 
-    Since MRR is not applicable, we only compute Hit@k.
+    Currently, we only compute hits@K.
     """
     raw_hit1, raw_hit3, raw_hit10 = 0, 0, 0
     filter_hit1, filter_hit3, filter_hit10 = 0, 0, 0
@@ -59,14 +58,15 @@ def compute_hits(
     }
 
 
-def format_metrics(metrics: Dict[str, float]) -> str:
-    """Format metrics into string."""
-    params = [
-        ("raw hit@1", f"{metrics['raw hit@1']:.2%}"),
-        ("raw hit@3", f"{metrics['raw hit@3']:.2%}"),
-        ("raw hit@10", f"{metrics['raw hit@10']:.2%}"),
-        ("filter hit@1", f"{metrics['filter hit@1']:.2%}"),
-        ("filter hit@3", f"{metrics['filter hit@3']:.2%}"),
-        ("filter hit@10", f"{metrics['filter hit@10']:.2%}"),
-    ]
-    return format_params(params)
+def format_metrics(
+        metrics: Dict[str, float],
+) -> str:
+    """Format metrics."""
+    pairs = [(k, f"{v:.2%}") for k, v in metrics.items()]
+    pairs = sorted(pairs, key=lambda x: x[0])
+    key_len = max([len(_[0]) for _ in pairs])
+    value_len = max([len(_[1]) for _ in pairs])
+    result = ""
+    for k, v in pairs:
+        result += f"{k.ljust(key_len)}: {v.rjust(value_len)}\n"
+    return result
