@@ -26,21 +26,21 @@ python -m unittest tests
 ## Project Structure
 ```
 root/
+|-- config/                 # Configuraions
+  |-- stage2/               # Stage-2 configurations
 |-- data/                   # Dataset directory
   |-- ICWES05-15/
   |-- ICEWS14/
   |-- ICEWS18/
   |-- rules/                # Rules from TLogic
-    |-- ICEWS14.json
-    |-- ICEWS18.json
   |-- README.md             # Dataset descriptions
 |-- src/                    # Source codes
   |-- stage1/               # Stage-2: dataset adaptation 
     |-- args.py             # Arguments
+    |-- eval.py             # Evaluation process
     |-- prepare.py          # Data preparation process
     |-- prompt.py           # Prompt construct strategies 
     |-- train.py            # Train process
-    |-- inference.py        # Valid and Test process
   |-- utils/                # Common classes and functions
     |-- data/               # Data classes
       |-- fact.py           # Fact class

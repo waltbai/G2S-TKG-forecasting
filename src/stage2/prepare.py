@@ -59,7 +59,14 @@ def prepare(data_args: DataArguments):
 
     data = {}
     for part in ["train", "valid", "test"]:
-        data.setdefault(part, [query.dict() for query in queries[part]])
+        data.setdefault(part, {})
+        for query in queries[part]:
+            data[part].setdefault("prompt", []).append(query.prompt)
+            data[part].setdefault("label", []).append(query.label)
+            data[part].setdefault("filters", []).append(query.filters)
+            data[part].setdefault("id2entity", []).append(
+                {v: k for k, v in query.entity_mapping.items()}
+            )
     with open(data_path, "w") as f:
         json.dump(data, f)
     logger.info(f"Dataset save to {data_path}.")

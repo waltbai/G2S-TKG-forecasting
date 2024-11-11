@@ -40,7 +40,7 @@ class TKG:
         test_path = os.path.join(dataset_path, "test.txt")
         entity2id_path = os.path.join(dataset_path, "entity2id.txt")
         relation2id_path = os.path.join(dataset_path, "relation2id.txt")
-        rule_path = os.path.join("config", "rules", f"{dataset}.json")
+        rule_path = os.path.join(dataset_dir, "rules", f"{dataset}.json")
 
         # Load original files
         train_idx = read_index_file(train_path)
@@ -131,7 +131,7 @@ class TKG:
         """
         Find history for query.
         """
-        if strategy == "rule":
+        if strategy == "rule" and len(self.rules):
             query.history = self._find_history_by_rule(query)
         elif strategy == "hop":
             query.history = self._find_history_by_hop(query)

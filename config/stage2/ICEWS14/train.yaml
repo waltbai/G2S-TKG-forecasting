@@ -13,7 +13,7 @@ dataset: ICEWS14
 prepare_dir: prepare
 template: default
 cutoff_len: 1024
-history_strategy: hop
+history_strategy: rule
 history_length: 30
 entity: false
 relation: false

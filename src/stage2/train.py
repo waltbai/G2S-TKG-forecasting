@@ -4,6 +4,7 @@ import os
 import sys
 from functools import partial
 
+import transformers
 from accelerate import accelerator
 from datasets import Dataset
 from llamafactory.extras.ploting import plot_loss
@@ -89,7 +90,7 @@ def train(
         metric_module["compute_metrics"] = ComputeAccuracy()
         metric_module["preprocess_logits_for_metrics"] = eval_logit_processor
 
-    callbacks = [LogCallback(training_args.output_dir)]
+    callbacks = []
     trainer = CustomSeq2SeqTrainer(
         model=model,
         train_dataset=tokenized_train_set,
@@ -119,7 +120,7 @@ if __name__ == "__main__":
     data_path = os.path.join(data_args.prepare_dir, datafile_name)
     with open(data_path, "r") as f:
         dataset = json.load(f)
-    train_dataset = Dataset.from_dict(dataset)
+    train_dataset = Dataset.from_dict(dataset["train"])
 
     # Training
     training_args.do_train = True

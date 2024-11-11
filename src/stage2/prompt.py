@@ -58,7 +58,13 @@ class PromptConstructor:
         # Entity mapping part
         if map_entity:
             prompt += "### Entities ###\n"
-            ids = sorted(query.entity_mapping.items(), key=lambda x:int(x[1]))
+            # Notice: don't add answer id here! It will cause information leakage.
+            ids = set()
+            for fact in query.history:
+                ids.add((fact.head, ent_func(fact.head)))
+                ids.add((fact.tail, ent_func(fact.tail)))
+            ids.add((query.entity, ent_func(query.entity)))
+            ids = sorted(ids, key=lambda x: int(x[1]))
             for word, i in ids:
                 prompt += f"{i}:{word}\n"
             prompt += "\n"

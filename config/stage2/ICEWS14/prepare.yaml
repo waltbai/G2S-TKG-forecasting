@@ -4,7 +4,7 @@ dataset: ICEWS14
 prepare_dir: prepare
 
 # Process options
-history_strategy: hop
+history_strategy: rule
 history_length: 30
 entity: false
 relation: false

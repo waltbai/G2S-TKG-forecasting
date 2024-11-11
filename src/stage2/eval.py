@@ -122,6 +122,7 @@ def evaluate(
 if __name__ == "__main__":
     data_args, model_args, training_args, finetuning_args, generation_args = (
         get_train_args(sys.argv[1]))
+    logging.getLogger("transformers").setLevel(logging.ERROR)
 
     # Load prepared data
     datafile_name = data_args.get_data_version() + ".json"

@@ -132,7 +132,8 @@ dmypy.json
 .idea/
 
 # Temporary files
-temp/ 
+temp/
+.Trash-0/
 
 # VS code
 .vscode/
