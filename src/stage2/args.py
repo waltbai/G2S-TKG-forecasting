@@ -29,6 +29,8 @@ class DataArguments(hparams.DataArguments):
     history_length: int = 30
     entity: bool = False
     relation: bool = False
+    map_strategy: str = "global"
+    time: str = "global"
 
     def get_data_version(self) -> str:
         """
@@ -40,6 +42,8 @@ class DataArguments(hparams.DataArguments):
             f"{dataset}"
             f"-{self.history_strategy}"
             f"-{self.history_length}"
+            f"-{self.map_strategy}"
+            f"-{self.time}"
         )
         if self.entity:
             version += "-ent"

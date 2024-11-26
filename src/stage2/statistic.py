@@ -1,4 +1,3 @@
-import json
 import logging
 import os
 import sys
@@ -10,7 +9,7 @@ from src.utils.data.tkg import TKG
 logger = logging.getLogger(__name__)
 
 
-def statistic(data_args: DataArguments):
+def prepare(data_args: DataArguments):
     """
     Prepare dataset.
     """
@@ -62,23 +61,24 @@ def statistic(data_args: DataArguments):
         for part in ["train", "valid", "test"]:
             queries[part].extend(tmp_queries[part])
 
-    data = {}
-    for part in ["train", "valid", "test"]:
-        data.setdefault(part, {})
-        for query in queries[part]:
-            data[part].setdefault("prompt", []).append(query.prompt)
-            data[part].setdefault("label", []).append(query.label)
-            data[part].setdefault("filters", []).append(query.filters)
-            data[part].setdefault("id2entity", []).append(
-                {v: k for k, v in query.entity_mapping.items()}
-            )
-    with open(data_path, "w") as f:
-        json.dump(data, f)
-    logger.info(f"Dataset save to {data_path}.")
-
-    return data_path
+    test_queries = queries["test"]
+    hit, total = 0, 0
+    tot_len = 0
+    for query in test_queries:
+        label = query.label
+        ids = set()
+        for fact in query.history:
+            ids.add(query.entity_mapping[fact.head])
+            ids.add(query.entity_mapping[fact.tail])
+        ids.add(query.entity_mapping[query.entity])
+        if label in ids:
+            hit += 1
+        total += 1
+        tot_len += len(query.history)
+    logger.info(f"{hit} out of {total} ({hit/total:.2%}) queries has hit the answer.")
+    logger.info(f"Average history length: {tot_len/total:.2f}")
 
 
 if __name__ == "__main__":
     data_args, = get_prepare_args(sys.argv[1])
-    statistic(data_args)
+    prepare(data_args)

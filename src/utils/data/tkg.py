@@ -127,14 +127,30 @@ class TKG:
         queries = sorted(queries, key=lambda q: q.time)
         return queries
 
-    def find_history(self, query: Query, strategy="rule"):
+    def find_history(
+            self,
+            query: Query,
+            strategy: str = "rule",
+            history_length: int = 50,
+    ):
         """
         Find history for query.
         """
         if strategy == "rule" and len(self.rules):
-            query.history = self._find_history_by_rule(query)
+            query.history = self._find_history_by_rule(
+                query=query,
+                history_length=history_length,
+            )
         elif strategy == "hop":
-            query.history = self._find_history_by_hop(query)
+            query.history = self._find_history_by_hop(
+                query=query,
+                history_length=history_length,
+            )
+        elif strategy == "rule_plus":
+            query.history = self._find_history_by_rule_plus(
+                query=query,
+                history_length=history_length,
+            )
         else:
             raise ValueError(f"Unknown strategy '{strategy}'.")
 
@@ -182,5 +198,47 @@ class TKG:
             ]
             history = temp_history + history
         history = history[-history_length:]
+        history = sorted(history, key=lambda x: x.time)
+        return history
+
+    def _find_history_by_rule_plus(
+            self,
+            query: Query,
+            history_length: int = 50,
+    ) -> List[Fact]:
+        """
+        Find history by hop.
+        """
+        rule_head = query.rel
+        if rule_head in self.rules:
+            rule_bodies = sorted(
+                self.rules[rule_head].items(),
+                key=lambda x: x[1],
+                reverse=True
+            )
+        else:
+            rule_bodies = []
+        history = []
+        for rule_body, confidence in rule_bodies:
+            key1 = f"{query.role}+rel"
+            key2 = (query.entity, rule_body)
+            if key2 in self.index[key1]:
+                temp_history = self.index[key1][key2]
+            else:
+                temp_history = []
+            temp_history = [
+                fact for fact in temp_history
+                if fact.time < query.time
+            ]
+            history = temp_history + history
+        # If there is still space, add recent historical facts
+        if len(history) < history_length:
+            facts = self.index[query.role][query.entity]
+            facts = [fact for fact in facts if fact.time < query.time]
+            for fact in facts[::-1]:
+                if len(history) < history_length and fact not in history:
+                    history.append(fact)
+        else:
+            history = history[-history_length:]
         history = sorted(history, key=lambda x: x.time)
         return history

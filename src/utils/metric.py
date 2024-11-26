@@ -63,7 +63,15 @@ def format_metrics(
 ) -> str:
     """Format metrics."""
     pairs = [(k, f"{v:.2%}") for k, v in metrics.items()]
-    pairs = sorted(pairs, key=lambda x: x[0])
+    order = [
+        "raw hit@1",
+        "raw hit@3",
+        "raw hit@10",
+        "filter hit@1",
+        "filter hit@3",
+        "filter hit@10",
+    ]
+    pairs = sorted(pairs, key=lambda x: order.index(x[0]))
     key_len = max([len(_[0]) for _ in pairs])
     value_len = max([len(_[1]) for _ in pairs])
     result = ""

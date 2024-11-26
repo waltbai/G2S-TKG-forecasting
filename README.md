@@ -4,10 +4,10 @@ This project aims to investigate how to utilize LLMs for TKG reasoning.
 ## Develop platform
 - cuda==12.2
 - python==3.10
-- llama_factory==0.9.0
+- llama_factory==0.9.1dev
 - tqdm
 
-## Usage
+## Install
 **[Optional]** Create virtual environment:  
 ```shell
 conda create -n llm4tkg python=3.10
@@ -23,32 +23,20 @@ Run unit tests to ensure each module works:
 python -m unittest tests
 ```
 
-## Project Structure
+## Use
+Data preparation:
+```shell
+bash scripts/stage2/icews14/prepare.sh
 ```
-root/
-|-- config/                 # Configuraions
-  |-- stage2/               # Stage-2 configurations
-|-- data/                   # Dataset directory
-  |-- ICWES05-15/
-  |-- ICEWS14/
-  |-- ICEWS18/
-  |-- rules/                # Rules from TLogic
-  |-- README.md             # Dataset descriptions
-|-- src/                    # Source codes
-  |-- stage1/               # Stage-2: dataset adaptation 
-    |-- args.py             # Arguments
-    |-- eval.py             # Evaluation process
-    |-- prepare.py          # Data preparation process
-    |-- prompt.py           # Prompt construct strategies 
-    |-- train.py            # Train process
-  |-- utils/                # Common classes and functions
-    |-- data/               # Data classes
-      |-- fact.py           # Fact class
-      |-- query.py          # Query class
-      |-- tkg.py            # TKG class
-    |-- common.py           # Common functions
-    |-- metric.py           # Metric functions
-|-- tests/                  # Unit test cases
+
+Supervised Fine-tuning (default 2 GPUs):
+```shell
+bash scripts/stage2/icews14/train.sh
+```
+
+Evaluation (default 2 GPUs):
+```shell
+bash scripts/stage2/icews14/eval.sh
 ```
 
 ## Dataset Statistics
@@ -59,3 +47,4 @@ root/
 | ICEWS05-15 |       368,868 |        46,302 |       46,159 |
 | WIKI       |       539,286 |        67,538 |       63,110 |
 | YAGO       |       161,540 |        19,523 |       20,026 |
+

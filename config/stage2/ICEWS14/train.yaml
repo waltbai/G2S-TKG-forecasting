@@ -1,5 +1,5 @@
 ### model
-model_name_or_path: meta-llama/Meta-Llama-3-8B-Instruct
+model_name_or_path: meta-llama/Meta-Llama-3-8B
 
 ### method
 stage: sft
@@ -13,10 +13,12 @@ dataset: ICEWS14
 prepare_dir: prepare
 template: default
 cutoff_len: 1024
-history_strategy: rule
+history_strategy: rule_plus
 history_length: 30
-entity: false
-relation: false
+map_strategy: global
+time: global
+entity: true
+relation: true
 
 ### output
 output_dir: models/icews14

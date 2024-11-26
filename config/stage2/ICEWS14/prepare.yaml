@@ -4,7 +4,9 @@ dataset: ICEWS14
 prepare_dir: prepare
 
 # Process options
-history_strategy: rule
+history_strategy: rule_plus
 history_length: 30
-entity: false
-relation: false
+map_strategy: global
+time: global
+entity: true
+relation: true

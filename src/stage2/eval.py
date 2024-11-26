@@ -106,10 +106,12 @@ def evaluate(
                         duplicate_set.add(ent_id)
                         preds.append(id2entity[ent_id])
 
-                answer = label
-                tot_preds.extend([preds])
-                tot_answers.extend([answer])
-                tot_filters.extend([filters])
+                tot_preds.append(preds)
+                if label != "None":
+                    tot_answers.append(id2entity[label])
+                else:
+                    tot_answers.append(None)
+                tot_filters.append(filters)
                 pbar.update()
 
     tot_preds = gather_object(tot_preds)[:num_samples]
@@ -133,6 +135,7 @@ if __name__ == "__main__":
     test_dataset = Dataset.from_dict(dataset["test"])
 
     # Valid
+    model_args.adapter_name_or_path = [training_args.output_dir]
     training_args.do_train = False
     metrics = evaluate(
         eval_dataset=valid_dataset,
