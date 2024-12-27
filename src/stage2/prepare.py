@@ -1,6 +1,11 @@
+"""
+Llama-factory-like data format.
+"""
+
 import json
 import logging
 import os
+import random
 import sys
 
 from src.stage2.args import get_prepare_args, DataArguments
@@ -8,40 +13,39 @@ from src.stage2.prompt import PromptConstructor
 from src.utils.data.tkg import TKG
 
 logger = logging.getLogger(__name__)
+RANDOM_SEED = 42
 
 
-def statistic(data_args: DataArguments):
+def main():
     """
     Prepare dataset.
     """
+    data_args, = get_prepare_args(sys.argv[1])
+
     # Prepare and check paths
     prepare_dir = data_args.prepare_dir
     dataset_dir = data_args.dataset_dir
     os.makedirs(prepare_dir, exist_ok=True)
-    datafile_name = data_args.get_data_version() + ".json"
-    data_path = os.path.join(prepare_dir, datafile_name)
-    if os.path.exists(data_path) and not data_args.overwrite_cache:
-        logger.info(f"Overwrite existing dataset.")
-        return data_path
-    else:
-        logger.info(f"Prepare dataset.")
 
     # Construct samples
-    queries = {"train": [], "valid": [], "test": []}
     prompt_func = PromptConstructor()
+    version_suffix = data_args.version_suffix()
     for dataset in data_args.dataset:
         logger.info(f"Load TKG {dataset}.")
         tkg = TKG.load(dataset_dir, dataset)
         # Construct queries
         logger.info(f"Construct queries.")
-        tmp_queries = {}
+        queries = {}
         for part in ["train", "valid", "test"]:
-            tmp_queries.setdefault(part, tkg.construct_queries(part))
-            logger.info(f"Construct {len(tmp_queries[part])} {dataset} {part} queries.")
+            queries.setdefault(part, tkg.construct_queries(part))
+            if data_args.max_samples is not None and part == "train":
+                random.seed(RANDOM_SEED)
+                queries["train"] = random.choices(queries["train"], k=data_args.max_samples)
+            logger.info(f"Construct {len(queries[part])} {dataset} {part} queries.")
         # Find history
         for part in ["train", "valid", "test"]:
             logger.info(f"Find history for {dataset} {part} queries.")
-            for query in tmp_queries[part]:
+            for query in queries[part]:
                 tkg.find_history(
                     query=query,
                     strategy=data_args.history_strategy,
@@ -50,7 +54,7 @@ def statistic(data_args: DataArguments):
         # Construct prompts
         for part in ["train", "valid", "test"]:
             logger.info(f"Construct {dataset} {part} prompts.")
-            for query in tmp_queries[part]:
+            for query in queries[part]:
                 prompt_func(
                     query=query,
                     tkg=tkg,
@@ -59,26 +63,45 @@ def statistic(data_args: DataArguments):
                     map_entity=data_args.entity,
                     map_relation=data_args.relation,
                 )
+
+        # Dump file
         for part in ["train", "valid", "test"]:
-            queries[part].extend(tmp_queries[part])
+            # Write dataset
+            dataset_name = f"{dataset}-{part}-{version_suffix}"
+            if part == "train":
+                dataset_name = f"{dataset_name}-{data_args.max_samples}"
+            filename = f"{dataset_name}.json"
+            data_path = os.path.join(prepare_dir, filename)
+            if os.path.exists(data_path) and not data_args.overwrite_cache:
+                logger.info(f"Dataset {filename} exists.")
+                continue
+            data = []
+            for query in queries[part]:
+                data.append({
+                    "instruction": "",
+                    "input": query.prompt,
+                    "output": query.label,
+                    "filters": query.filters,
+                    "id2entity": {v: k for k, v in query.entity_mapping.items()},
+                })
+            with open(data_path, "w") as f:
+                json.dump(data, f)
 
-    data = {}
-    for part in ["train", "valid", "test"]:
-        data.setdefault(part, {})
-        for query in queries[part]:
-            data[part].setdefault("prompt", []).append(query.prompt)
-            data[part].setdefault("label", []).append(query.label)
-            data[part].setdefault("filters", []).append(query.filters)
-            data[part].setdefault("id2entity", []).append(
-                {v: k for k, v in query.entity_mapping.items()}
-            )
-    with open(data_path, "w") as f:
-        json.dump(data, f)
-    logger.info(f"Dataset save to {data_path}.")
-
-    return data_path
+            # Update dataset_info
+            dataset_info_path = os.path.join(prepare_dir, "dataset_info.json")
+            if os.path.exists(dataset_info_path):
+                with open(dataset_info_path, "r") as f:
+                    dataset_info = json.load(f)
+            else:
+                dataset_info = {}
+            dataset_info.update({
+                dataset_name: {
+                    "file_name": filename,
+                }
+            })
+            with open(dataset_info_path, "w") as f:
+                json.dump(dataset_info, f)
 
 
 if __name__ == "__main__":
-    data_args, = get_prepare_args(sys.argv[1])
-    statistic(data_args)
+    main()

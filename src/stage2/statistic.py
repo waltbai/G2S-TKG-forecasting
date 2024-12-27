@@ -2,17 +2,18 @@ import logging
 import os
 import sys
 
-from src.stage2.args import get_prepare_args, DataArguments
+from src.stage2.args import get_prepare_args
 from src.stage2.prompt import PromptConstructor
 from src.utils.data.tkg import TKG
 
 logger = logging.getLogger(__name__)
 
 
-def prepare(data_args: DataArguments):
+def main():
     """
     Prepare dataset.
     """
+    data_args, = get_prepare_args(sys.argv[1])
     # Prepare and check paths
     prepare_dir = data_args.prepare_dir
     dataset_dir = data_args.dataset_dir
@@ -80,5 +81,4 @@ def prepare(data_args: DataArguments):
 
 
 if __name__ == "__main__":
-    data_args, = get_prepare_args(sys.argv[1])
-    prepare(data_args)
+    main()

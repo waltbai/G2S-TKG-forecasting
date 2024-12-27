@@ -1,0 +1,24 @@
+### model
+model_name_or_path: models/stage1-deanonym
+adapter_name_or_path: outputs/fs-icews14-from-stage1-deanonym
+infer_backend: huggingface
+
+### method
+stage: sft
+finetuning_type: lora
+lora_target: all
+
+### dataset
+dataset_dir: prepare
+dataset: ICEWS14
+template: empty
+cutoff_len: 1024
+preprocessing_num_workers: 8
+
+# Process options
+history_strategy: hop
+history_length: 50
+map_strategy: global
+time: session
+entity: true
+relation: true

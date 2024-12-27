@@ -1,0 +1,11 @@
+### model
+model_name_or_path: /home/gomall/models/llama3_8b
+adapter_name_or_path: outputs/stage1-deanonym
+template: empty
+finetuning_type: lora
+
+### export
+export_dir: models/stage1-deanonym
+export_size: 5
+export_device: cpu
+export_legacy_format: false

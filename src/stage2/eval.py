@@ -4,21 +4,16 @@ import os
 import sys
 
 import torch
-from accelerate import PartialState, accelerator
+from accelerate import PartialState
 from accelerate.utils import gather_object
 from datasets import Dataset
-from typing import Dict
+from typing import Dict, Any, List
 
 from llamafactory.model import load_tokenizer, load_model
 from tqdm import tqdm
+from transformers import PreTrainedTokenizer, PreTrainedModel
 
-from src.stage2.args import (
-    get_train_args,
-    DataArguments,
-    ModelArguments,
-    FinetuningArguments,
-    TrainingArguments,
-)
+from src.stage2.args import get_eval_args, DataArguments, ModelArguments, FinetuningArguments
 from src.utils.metric import format_metrics, compute_metrics
 
 logger = logging.getLogger(__name__)
@@ -26,35 +21,20 @@ logger = logging.getLogger(__name__)
 
 def evaluate(
         eval_dataset: Dataset,
-        data_args: DataArguments,
-        model_args: ModelArguments,
-        training_args: TrainingArguments,
-        finetuning_args: FinetuningArguments,
+        tokenizer: PreTrainedTokenizer,
+        model: PreTrainedModel,
+        distributed_state: PartialState,
+        num_predictions: int = 30,
 ) -> Dict[str, float]:
     """
     Evaluate function.
     """
-    distributed_state = PartialState()
-
-    # Load model and tokenizer
-    distributed_state.wait_for_everyone()
-    if distributed_state.is_main_process:
-        logger.info(f"Load tokenizer and model from {model_args.model_name_or_path}")
-    tokenizer_module = load_tokenizer(model_args)
-    tokenizer = tokenizer_module["tokenizer"]
-    tokenizer.truncation_side = "left"
-    tokenizer.padding_side = "left"
-    tokenizer.pad_token_id = tokenizer.bos_token_id
-    tokenizer.model_max_length = data_args.cutoff_len
-    accelerator.wait_for_everyone()
-    model = load_model(tokenizer, model_args, finetuning_args, training_args.do_train)
-
     # Tokenize dataset
     distributed_state.wait_for_everyone()
     if distributed_state.is_main_process:
         logger.info("Process prepared data into evaluation format")
     eval_dataset = eval_dataset.map(
-        lambda x: tokenizer(x["prompt"], truncation=True),
+        lambda x: tokenizer(x["input"], truncation=True),
         batched=True,
     ).with_format("torch")
 
@@ -64,6 +44,7 @@ def evaluate(
     indices = list(range(num_samples))
     if distributed_state.is_main_process:
         logger.info("Start Evaluation")
+    distributed_state.wait_for_everyone()
     tot_preds, tot_answers, tot_filters = [], [], []
     with distributed_state.split_between_processes(
             indices,
@@ -79,7 +60,7 @@ def evaluate(
                     distributed_state.device)
                 attention_mask = sample["attention_mask"].unsqueeze(0).to(
                     distributed_state.device)
-                label = sample["label"]
+                label = sample["output"]
                 filters = sample["filters"]
                 id2entity = sample["id2entity"]
 
@@ -92,7 +73,7 @@ def evaluate(
                     output_scores=True,
                 )
                 _, probs_idx = torch.sort(outputs.scores[0], dim=-1, descending=True)
-                probs_idx = probs_idx[0, :model_args.num_predictions].unsqueeze(1)
+                probs_idx = probs_idx[0, :num_predictions].unsqueeze(1)
                 results = tokenizer.batch_decode(probs_idx)
 
                 # Decode predictions
@@ -121,39 +102,104 @@ def evaluate(
     return compute_metrics(tot_preds, tot_answers, tot_filters)
 
 
-if __name__ == "__main__":
-    data_args, model_args, training_args, finetuning_args, generation_args = (
-        get_train_args(sys.argv[1]))
+def convert_dataset(eval_dataset: List[Dict[str, Any]]) -> Dataset:
+    """
+    Convert dict dataset to Dataset format.
+    """
+    dataset = {
+        "instruction": [],
+        "input": [],
+        "output": [],
+        "filters": [],
+        "id2entity": [],
+    }
+    for item in eval_dataset:
+        dataset["instruction"].append(item["instruction"])
+        dataset["input"].append(item["input"])
+        dataset["output"].append(item["output"])
+        dataset["filters"].append(item["filters"])
+        dataset["id2entity"].append(item["id2entity"])
+    return Dataset.from_dict(dataset)
+
+
+def main():
     logging.getLogger("transformers").setLevel(logging.ERROR)
+    logging.getLogger("datasets").setLevel(logging.ERROR)
+    data_args, model_args, finetuning_args = get_eval_args(sys.argv[1])
+    logger.addHandler(logging.FileHandler("eval.log"))
 
-    # Load prepared data
-    datafile_name = data_args.get_data_version() + ".json"
-    data_path = os.path.join(data_args.prepare_dir, datafile_name)
-    with open(data_path, "r") as f:
-        dataset = json.load(f)
-    valid_dataset = Dataset.from_dict(dataset["valid"])
-    test_dataset = Dataset.from_dict(dataset["test"])
+    distributed_state = PartialState()
 
-    # Valid
-    model_args.adapter_name_or_path = [training_args.output_dir]
-    training_args.do_train = False
-    metrics = evaluate(
-        eval_dataset=valid_dataset,
-        data_args=data_args,
-        model_args=model_args,
-        training_args=training_args,
-        finetuning_args=finetuning_args,
-    )
-    output = format_metrics(metrics)
-    logger.info(f"Results:\n{output}")
+    if finetuning_args.checkpoint is None:
+        # Evaluate all checkpoints
+        adapter_base_path = model_args.adapter_name_or_path[0]
+        adapter_paths = []
+        for d in os.listdir(adapter_base_path):
+            if d.startswith("checkpoint-"):
+                adapter_paths.append(os.path.join(adapter_base_path, d))
+    else:
+        # Evaluate certain checkpoint
+        adapter_path = os.path.join(
+            model_args.adapter_name_or_path[0],
+            f"checkpoint-{finetuning_args.checkpoint}",
+        )
+        if not os.path.exists(adapter_path):
+            raise ValueError(f"'{adapter_path}' not found!")
+        adapter_paths = [adapter_path]
+    adapter_paths = sorted(adapter_paths)
 
-    # Test
-    metrics = evaluate(
-        eval_dataset=test_dataset,
-        data_args=data_args,
-        model_args=model_args,
-        training_args=training_args,
-        finetuning_args=finetuning_args,
-    )
-    output = format_metrics(metrics)
-    logger.info(f"Results:\n{output}")
+    # Load tokenizer and model
+    for adapter_path in adapter_paths:
+        distributed_state.wait_for_everyone()
+        model_args.adapter_name_or_path = [adapter_path]
+        if distributed_state.is_main_process:
+            logger.info(f"===== Evaluating adapter {adapter_path} =====")
+            logger.info(f"Load tokenizer and model from {model_args.model_name_or_path}")
+            logger.info(f"Load adapter from {model_args.adapter_name_or_path}")
+        tokenizer_module = load_tokenizer(model_args)
+        tokenizer = tokenizer_module["tokenizer"]
+        tokenizer.truncation_side = "left"
+        tokenizer.padding_side = "left"
+        tokenizer.pad_token_id = tokenizer.bos_token_id
+        tokenizer.model_max_length = data_args.cutoff_len
+        model = load_model(tokenizer, model_args, finetuning_args, is_trainable=False)
+
+        for dataset in data_args.dataset:
+            # Load prepared data
+            version_suffix = data_args.version_suffix()
+            valid_path = os.path.join(data_args.prepare_dir, f"{dataset}-valid-{version_suffix}.json")
+            test_path = os.path.join(data_args.prepare_dir, f"{dataset}-test-{version_suffix}.json")
+            with open(valid_path, "r") as f:
+                valid_dataset = convert_dataset(json.load(f))
+            with open(test_path, "r") as f:
+                test_dataset = convert_dataset(json.load(f))
+
+            # Valid
+            metrics = evaluate(
+                eval_dataset=valid_dataset,
+                tokenizer=tokenizer,
+                model=model,
+                num_predictions=model_args.num_predictions,
+                distributed_state=distributed_state,
+            )
+            output = format_metrics(metrics)
+            distributed_state.wait_for_everyone()
+            if distributed_state.is_main_process:
+                logger.info(f"{dataset} Valid Set Results:\n{output}")
+
+            # Test
+            metrics = evaluate(
+                eval_dataset=test_dataset,
+                tokenizer=tokenizer,
+                model=model,
+                num_predictions=model_args.num_predictions,
+                distributed_state=distributed_state,
+            )
+            output = format_metrics(metrics)
+            distributed_state.wait_for_everyone()
+            if distributed_state.is_main_process:
+                logger.info(f"{dataset} Test Set Results:\n{output}")
+
+
+if __name__ == "__main__":
+    main()
