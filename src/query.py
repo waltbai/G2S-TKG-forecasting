@@ -2,7 +2,7 @@ from dataclasses import dataclass, field
 
 from typing import List, Dict, Tuple, Any
 
-from src.utils.data.fact import Fact
+from src.fact import Fact
 
 
 @dataclass
@@ -23,6 +23,7 @@ class Query:
     prompt: str = ""
     label: str = ""
     filters: List[str] = field(default_factory=list)
+    out_of_history: bool = True
 
     @classmethod
     def from_fact(cls, fact: Fact, role: str):

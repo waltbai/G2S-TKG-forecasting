@@ -1,5 +1,5 @@
 ### model
-model_name_or_path: models/stage1-deanonym
+model_name_or_path: /home/gomall/models/llama3_8b
 
 ### method
 stage: sft
@@ -9,13 +9,13 @@ lora_target: all
 
 ### dataset
 dataset_dir: prepare
-dataset: ICEWS14-train-hop-50-global-session-ent-rel-1024
+dataset: ICEWS14-train-hop-50-global-session-ent-rel
 template: empty
 cutoff_len: 1024
 preprocessing_num_workers: 8
 
 ### output
-output_dir: outputs/fs-icews14-from-stage1-deanonym
+output_dir: outputs/stage2-icews14-from-pt
 logging_steps: 10
 save_steps: 1000
 plot_loss: true

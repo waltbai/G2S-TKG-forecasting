@@ -1,8 +1,8 @@
 import unittest
 
-from src.utils.data.query import Query
-from src.utils.data.tkg import TKG
-from src.stage2.prompt import PromptConstructor
+from src.query import Query
+from src.tkg import TKG
+from src.old.stage2 import PromptConstructor
 
 
 class TestPromptConstructor(unittest.TestCase):

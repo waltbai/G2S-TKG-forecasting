@@ -1,6 +1,6 @@
 import unittest
 
-from src.utils.metric import compute_metrics
+from src.metric import compute_metrics
 
 
 class TestMetric(unittest.TestCase):

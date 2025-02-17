@@ -1,2 +1,2 @@
-# Anonymized ver.
-python -m src.stage2.prepare config/stage2/prepare-full.yaml
+# De-Anonymized ver.
+python -m src.prepare config/stage2/prepare-full.yaml

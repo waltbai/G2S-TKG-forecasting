@@ -11,9 +11,9 @@ import sys
 from tqdm import tqdm
 from transformers import HfArgumentParser
 
-from src.stage1.args import DataArguments
-from src.stage1.prompt import PromptConstructor
-from src.utils.data.tkg import TKG
+from src.old.stage1.args import DataArguments
+from src.old.stage1.prompt import PromptConstructor
+from src.tkg import TKG
 
 logger = logging.getLogger(__name__)
 RANDOM_SEED = 42

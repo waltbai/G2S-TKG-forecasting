@@ -2,6 +2,7 @@
 dataset_dir: /home/gomall/datasets/TKG-forecast
 dataset: ICEWS14,ICEWS18,GDELT
 prepare_dir: prepare
+partition: valid,test
 
 # Process options
 history_strategy: hop
@@ -10,4 +11,4 @@ map_strategy: global
 time: session
 entity: true
 relation: true
-max_samples: 1024
+max_samples:

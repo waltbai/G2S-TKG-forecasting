@@ -2,6 +2,7 @@
 dataset_dir: /home/gomall/datasets/TKG-forecast
 dataset: GDELT
 prepare_dir: prepare
+partition: train
 
 # Process options
 history_strategy: hop

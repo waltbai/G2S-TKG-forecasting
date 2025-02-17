@@ -1,7 +1,7 @@
-from typing import Tuple, Dict
+import random
 
-from src.utils.data.query import Query
-from src.utils.data.tkg import TKG
+from src.query import Query
+from src.tkg import TKG
 
 
 class PromptConstructor:
@@ -23,6 +23,8 @@ class PromptConstructor:
             self._mapping_global(query, tkg)
         elif map_strategy == "session":
             self._mapping_session(query, tkg)
+        elif map_strategy == "random":
+            self._mapping_random(query, tkg)
         else:
             raise ValueError(f"Unknown map_strategy: {map_strategy}")
 
@@ -74,9 +76,38 @@ class PromptConstructor:
 
         # Re-map as session IDs
         ent_mapping = {ent: idx for idx, (ent, freq) in enumerate(ent_sorted)}
-        if query.answer not in ent_mapping:
+        if query.out_of_history:
             ent_mapping.setdefault(query.answer, None)
         rel_mapping = {rel: idx for idx, (rel, freq) in enumerate(rel_sorted)}
+        query.entity_mapping = ent_mapping
+        query.rel_mapping = rel_mapping
+
+    @staticmethod
+    def _mapping_random(
+            query: Query,
+            tkg: TKG,
+    ):
+        # Shuffle entity and relation list
+        ents = {query.entity}
+        rels = {query.rel}
+        for fact in query.history:
+            ents.add(fact.head)
+            ents.add(fact.tail)
+            rels.add(fact.rel)
+        ent_list = list(sorted(ents))
+        random.shuffle(ent_list)
+        ent_mapping = {}
+        for idx, ent in enumerate(ent_list):
+            ent_mapping.setdefault(ent, idx)
+        rel_list = list(sorted(rels))
+        random.shuffle(rel_list)
+        rel_mapping = {}
+        for idx, rel in enumerate(rel_list):
+            rel_mapping.setdefault(rel, idx)
+
+        # Re-map as session IDs
+        if query.out_of_history:
+            ent_mapping.setdefault(query.answer, None)
         query.entity_mapping = ent_mapping
         query.rel_mapping = rel_mapping
 
@@ -162,5 +193,6 @@ class PromptConstructor:
         prompt += "\n"
         # Answer part
         prompt += "### Answer ###\n"
-        query.label += f"{ent_func(query.answer)}"
+        label = f"{ent_func(query.answer)}"
         query.prompt = prompt
+        query.label = label

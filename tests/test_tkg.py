@@ -1,8 +1,8 @@
 import unittest
 
-from src.utils.data.fact import Fact
-from src.utils.data.query import Query
-from src.utils.data.tkg import TKG
+from src.fact import Fact
+from src.query import Query
+from src.tkg import TKG
 
 
 class TestTKG(unittest.TestCase):

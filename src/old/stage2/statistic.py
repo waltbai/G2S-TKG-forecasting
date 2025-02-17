@@ -2,9 +2,9 @@ import logging
 import os
 import sys
 
-from src.stage2.args import get_prepare_args
-from src.stage2.prompt import PromptConstructor
-from src.utils.data.tkg import TKG
+from src.old.stage2.args import get_prepare_args
+from src.old.stage2.prompt import PromptConstructor
+from src.tkg import TKG
 
 logger = logging.getLogger(__name__)
 

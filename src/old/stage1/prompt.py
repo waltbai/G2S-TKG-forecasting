@@ -1,7 +1,5 @@
-from typing import Tuple, Dict
-
-from src.utils.data.query import Query
-from src.utils.data.tkg import TKG
+from src.query import Query
+from src.tkg import TKG
 
 
 class PromptConstructor:
@@ -162,6 +160,5 @@ class PromptConstructor:
         prompt += "\n"
         # Answer part
         prompt += "### Answer ###\n"
-        label = f"{ent_func(query.answer)}"
+        query.label += f"{ent_func(query.answer)}"
         query.prompt = prompt
-        query.label = label

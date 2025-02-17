@@ -2,19 +2,18 @@ import json
 import logging
 import os
 import sys
+from typing import Dict, Any, List
 
 import torch
 from accelerate import PartialState
 from accelerate.utils import gather_object
 from datasets import Dataset
-from typing import Dict, Any, List
-
 from llamafactory.model import load_tokenizer, load_model
 from tqdm import tqdm
 from transformers import PreTrainedTokenizer, PreTrainedModel
 
-from src.stage2.args import get_eval_args, DataArguments, ModelArguments, FinetuningArguments
-from src.utils.metric import format_metrics, compute_metrics
+from src.args import get_eval_args
+from src.metric import format_metrics, compute_metrics
 
 logger = logging.getLogger(__name__)
 
@@ -25,6 +24,7 @@ def evaluate(
         model: PreTrainedModel,
         distributed_state: PartialState,
         num_predictions: int = 30,
+        remove_out_of_history: bool = False,
 ) -> Dict[str, float]:
     """
     Evaluate function.
@@ -67,14 +67,13 @@ def evaluate(
                 # Generate output
                 outputs = model.generate(
                     input_ids=input_ids,
-                    max_new_tokens=1,
+                    max_new_tokens=2,
+                    num_beams=num_predictions,
+                    num_return_sequences=num_predictions,
                     pad_token_id=tokenizer.eos_token_id,
-                    return_dict_in_generate=True,
-                    output_scores=True,
                 )
-                _, probs_idx = torch.sort(outputs.scores[0], dim=-1, descending=True)
-                probs_idx = probs_idx[0, :num_predictions].unsqueeze(1)
-                results = tokenizer.batch_decode(probs_idx)
+                new_tokens = outputs[0][:, len(input_ids):]
+                results = tokenizer.batch_decode(new_tokens, skip_special_tokens=True)
 
                 # Decode predictions
                 preds = []
@@ -106,19 +105,13 @@ def convert_dataset(eval_dataset: List[Dict[str, Any]]) -> Dataset:
     """
     Convert dict dataset to Dataset format.
     """
-    dataset = {
-        "instruction": [],
-        "input": [],
-        "output": [],
-        "filters": [],
-        "id2entity": [],
-    }
+    dataset = {}
     for item in eval_dataset:
-        dataset["instruction"].append(item["instruction"])
-        dataset["input"].append(item["input"])
-        dataset["output"].append(item["output"])
-        dataset["filters"].append(item["filters"])
-        dataset["id2entity"].append(item["id2entity"])
+        dataset.setdefault("instruction", []).append(item["instruction"])
+        dataset.setdefault("input", []).append(item["input"])
+        dataset.setdefault("output", []).append(item["output"])
+        dataset.setdefault("filters", []).append(item["filters"])
+        dataset.setdefault("id2entity", []).append(item["id2entity"])
     return Dataset.from_dict(dataset)
 
 

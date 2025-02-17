@@ -8,9 +8,9 @@ import os
 import random
 import sys
 
-from src.stage2.args import get_prepare_args, DataArguments
-from src.stage2.prompt import PromptConstructor
-from src.utils.data.tkg import TKG
+from src.args import get_prepare_args
+from src.prompt import PromptConstructor
+from src.tkg import TKG
 
 logger = logging.getLogger(__name__)
 RANDOM_SEED = 42
@@ -33,28 +33,35 @@ def main():
     for dataset in data_args.dataset:
         logger.info(f"Load TKG {dataset}.")
         tkg = TKG.load(dataset_dir, dataset)
-        # Construct queries
-        logger.info(f"Construct queries.")
-        queries = {}
-        for part in ["train", "valid", "test"]:
-            queries.setdefault(part, tkg.construct_queries(part))
-            if data_args.max_samples is not None and part == "train":
+        for part in data_args.partition:
+            # Check dataset existence
+            dataset_name = f"{dataset}-{part}-{version_suffix}"
+            filename = f"{dataset_name}.json"
+            data_path = os.path.join(prepare_dir, filename)
+            if os.path.exists(data_path) and not data_args.overwrite_cache:
+                logger.info(f"Dataset {filename} exists.")
+                continue
+
+            # Construct queries
+            logger.info(f"Construct queries.")
+            queries = tkg.construct_queries(part)
+            if data_args.max_samples is not None:
                 random.seed(RANDOM_SEED)
-                queries["train"] = random.choices(queries["train"], k=data_args.max_samples)
-            logger.info(f"Construct {len(queries[part])} {dataset} {part} queries.")
-        # Find history
-        for part in ["train", "valid", "test"]:
+                queries = random.choices(queries, k=data_args.max_samples)
+            logger.info(f"Construct {len(queries)} {dataset} {part} queries.")
+
+            # Find history
             logger.info(f"Find history for {dataset} {part} queries.")
-            for query in queries[part]:
+            for query in queries:
                 tkg.find_history(
                     query=query,
                     strategy=data_args.history_strategy,
                     history_length=data_args.history_length,
                 )
-        # Construct prompts
-        for part in ["train", "valid", "test"]:
+
+            # Construct prompts
             logger.info(f"Construct {dataset} {part} prompts.")
-            for query in queries[part]:
+            for query in queries:
                 prompt_func(
                     query=query,
                     tkg=tkg,
@@ -64,19 +71,9 @@ def main():
                     map_relation=data_args.relation,
                 )
 
-        # Dump file
-        for part in ["train", "valid", "test"]:
-            # Write dataset
-            dataset_name = f"{dataset}-{part}-{version_suffix}"
-            if part == "train":
-                dataset_name = f"{dataset_name}-{data_args.max_samples}"
-            filename = f"{dataset_name}.json"
-            data_path = os.path.join(prepare_dir, filename)
-            if os.path.exists(data_path) and not data_args.overwrite_cache:
-                logger.info(f"Dataset {filename} exists.")
-                continue
+            # Dump file
             data = []
-            for query in queries[part]:
+            for query in queries:
                 data.append({
                     "instruction": "",
                     "input": query.prompt,

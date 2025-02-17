@@ -9,7 +9,7 @@ lora_target: all
 
 ### dataset
 dataset_dir: prepare
-dataset: ICEWS14-train-stage2-hop-50-global-session-ent-rel-1024
+dataset: ICEWS14-train-hop-50-global-session-ent-rel-1024
 template: empty
 cutoff_len: 1024
 preprocessing_num_workers: 8
