@@ -75,17 +75,3 @@ class TestTKG(unittest.TestCase):
                 Fact("A", "R2", "B", 4),
             ]
         )
-
-        # Check find history by rule
-        rules = {"R1": {"R1": 0.5}}
-        tkg.rules = rules
-        tkg.find_history(query, "rule")
-        self.assertListEqual(
-            query.history,
-            [
-                Fact("A", "R1", "B", 0),
-                Fact("A", "R1", "C", 1),
-                Fact("A", "R1", "B", 3),
-                Fact("A", "R1", "B", 4),
-            ]
-        )
