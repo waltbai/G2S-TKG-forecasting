@@ -71,9 +71,9 @@ bash scripts/specific_learning/low-resource/run-ICEWS14-05-FID.sh
 
 ## Dataset Statistics
 | Dataset | Schema   | # Entities | # Relations | # Train facts | # Valid Facts | # Test Facts | Time Granularity |
-| :------ | -------- | ---------: | ----------: | ------------: | ------------: | -----------: | ---------------- |
-| ICEWS14 | CAMEO    |      7,128 |         230 |        74,845 |         8,514 |        7,371 | 1 day            |
-| ICEWS18 | CAMEO    |     23,033 |         256 |       373,018 |        45,995 |       49,545 | 1 day            |
-| YAGO    | YAGO     |     10,623 |          10 |       161,540 |        19,523 |       20,026 | 1 year           |
-| GDELT   | CAMEO    |      7,691 |         240 |     1,734,399 |       238,765 |      305,241 | 15 min           |
-| WIKI    | Wikidata |     12,554 |          24 |       539,286 |        67,538 |       63,110 | 1 year           |
+| :------ | -------- | ---------: | ----------: | ------------: | ------------: | -----------: | ---------------: |
+| ICEWS14 | CAMEO    |      7,128 |         230 |        74,845 |         8,514 |        7,371 |            1 day |
+| ICEWS18 | CAMEO    |     23,033 |         256 |       373,018 |        45,995 |       49,545 |            1 day |
+| YAGO    | YAGO     |     10,623 |          10 |       161,540 |        19,523 |       20,026 |           1 year |
+| GDELT   | CAMEO    |      7,691 |         240 |     1,734,399 |       238,765 |      305,241 |           15 min |
+| WIKI    | Wikidata |     12,554 |          24 |       539,286 |        67,538 |       63,110 |           1 year |
