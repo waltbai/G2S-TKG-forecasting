@@ -2,7 +2,7 @@ import unittest
 
 from src.query import Query
 from src.tkg import TKG
-from src.old.stage2 import PromptConstructor
+from src.prompt import PromptConstructor
 
 
 class TestPromptConstructor(unittest.TestCase):

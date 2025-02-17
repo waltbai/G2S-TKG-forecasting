@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 Run unit tests to ensure each module works:
 ```shell
-python -m unittest tests
+python -m unittest discover tests
 ```
 
 ### General Learning Stage
