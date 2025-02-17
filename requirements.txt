@@ -1,5 +1,4 @@
 PyYAML
 urllib3<2
-llamafactory==0.9.0
+llamafactory==0.9.1.dev0
 matplotlib
-joblib

@@ -1,0 +1,14 @@
+# Paths
+dataset_dir: data
+dataset: GDELT
+prepare_dir: processed
+partition: train
+
+# Process options
+history_strategy: hop
+history_length: 50
+map_strategy: FID
+time: session
+entity: true
+relation: true
+max_samples: 100000

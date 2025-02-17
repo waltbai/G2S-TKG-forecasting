@@ -1,0 +1,24 @@
+### model
+model_name_or_path: models/GL-GDELT-WIKI-130k-RID
+adapter_name_or_path: outputs/SL-ST-ICEWS14-GID-without-ent-rel
+infer_backend: huggingface
+
+### method
+stage: sft
+finetuning_type: lora
+lora_target: all
+
+### dataset
+dataset_dir: processed
+dataset: ICEWS14
+template: empty
+cutoff_len: 1024
+preprocessing_num_workers: 8
+
+### Process options
+history_strategy: hop
+history_length: 50
+map_strategy: GID
+time: session
+entity: false
+relation: false

@@ -1,0 +1,7691 @@
+Egypt	0
+Imam	1
+President	2
+Nigeria	3
+Administration	4
+Government	5
+Minist	6
+Activist	7
+Detainee	8
+Governor	9
+Demonstrator	10
+Philippine	11
+Mindanao	12
+Davao	13
+Palestine	14
+Prime Minister	15
+Palestinian	16
+Mayor	17
+West Bank	18
+Ruler	19
+Authorities	20
+Media	21
+Mexico	22
+Sunni	23
+Nigerian	24
+Ambassador	25
+American	26
+United States	27
+Denver	28
+Colorado	29
+Interior Minist	30
+Militant	31
+Insurgency	32
+Premier	33
+Romanian	34
+Cabinet	35
+Romania	36
+Saudi	37
+Chief Executive	38
+Singapore	39
+Intelligence	40
+Syrian	41
+Syria	42
+Lawmaker	43
+British	44
+Theresa May	45
+Business	46
+Diplomat	47
+Africa	48
+Prince	49
+Australia	50
+Attorney General	51
+Industry	52
+Companies	53
+Canada	54
+United Kingdom	55
+Home Minist	56
+China	57
+Britain	58
+Moscow	59
+Russia	60
+Los Angeles	61
+Hillary Clinton	62
+Margaret Thatcher	63
+London	64
+Criminal	65
+Regime	66
+Iran	67
+Iranian	68
+Mashhad	69
+Israel	70
+Jewish	71
+Advocate	72
+House Of Assembly	73
+Indonesian	74
+Election Commission	75
+Congo	76
+Firefighter	77
+Neighborhood	78
+Tourist	79
+Residents	80
+Community	81
+School	82
+Secretariat	83
+Vatican	84
+Denmark	85
+The Un	86
+Israeli	87
+Jerusalem	88
+Lawyer	89
+Kenya	90
+Military	91
+Oslo	92
+Village	93
+Settlement	94
+Protester	95
+Azerbaijani	96
+Semi Official	97
+Hassan	98
+Tehran	99
+Mullah	100
+Police	101
+Civilian	102
+The Us	103
+Jordan	104
+Italian	105
+Company	106
+Italy	107
+Rome	108
+Honduras	109
+Mahmoud Abbas	110
+Qatar	111
+Rwanda	112
+Settler	113
+Damascus	114
+Journalist	115
+Guatemala	116
+Hospital	117
+Deputy	118
+Doctor	119
+Seattle	120
+The Pope	121
+Rights Activist	122
+Kananga	123
+Democratic Republic Of The Congo	124
+Indonesia	125
+The European Union	126
+Albania	127
+Jean Claude Juncker	128
+Minist Of Communication	129
+South African	130
+Tibetan	131
+Development Council	132
+Department Of Education	133
+Obama	134
+Brigadier General	135
+State Media	136
+Security Official	137
+Islamic	138
+United Nations	139
+Un General Assembly	140
+Dictator	141
+Lebanon	142
+Television	143
+Azerbaijan	144
+The Security Council	145
+North Korea	146
+World Bank	147
+Ecowas	148
+Engineer	149
+Nato	150
+Washington	151
+Al Qaeda	152
+Al Qaida	153
+Beirut	154
+Rebel	155
+Maharashtra	156
+Uttarakhand	157
+Worker	158
+Hebei	159
+Newspaper	160
+Airline	161
+Publication	162
+Peru	163
+Corporation	164
+Canadian	165
+Peruvian	166
+Belgium	167
+Mormon	168
+Lutheran	169
+Student	170
+Kinshasa	171
+Security Force	172
+Reuters	173
+Tasmania	174
+Melbourne	175
+Diocese	176
+Christian	177
+Cologne	178
+Actor	179
+Brazil	180
+Polish	181
+Afghanistan	182
+Osama Bin Laden	183
+Japan	184
+Argentine	185
+Queensland	186
+Male	187
+Magazine	188
+Spokesman	189
+Warsaw	190
+Senate	191
+Employee	192
+Farmer	193
+The White House	194
+Security Council	195
+Pyongyang	196
+John Howard	197
+New Zealand	198
+Baku	199
+Danish	200
+Asylum Seeker	201
+Pilgrim	202
+Germany	203
+Gang	204
+Migrant	205
+German	206
+Angela Merkel	207
+Refugee	208
+Egyptian	209
+Sinai	210
+Retired	211
+Thai	212
+Europe	213
+France	214
+Dubai	215
+Sydney	216
+Paris	217
+Bank	218
+Bertel Haarder	219
+Christianity	220
+Islam	221
+Professor	222
+Florida	223
+Deputies	224
+Gunman	225
+Police Chief	226
+Orlando	227
+Idaho	228
+Perpetrator	229
+Shoplifter	230
+Police Officer	231
+Non Resident	232
+Prison	233
+Army	234
+Australian	235
+Beijing	236
+Immigrant	237
+Voter	238
+State Leader	239
+Citizen	240
+Indiana	241
+New Jersey	242
+Mississippi	243
+Costa Rican	244
+Costa Rica	245
+Local Media	246
+Laura Chinchilla	247
+Abbot	248
+Thailand	249
+Bangkok	250
+Gunmen	251
+Turkey	252
+Malaysia	253
+Saudi Arabia	254
+Amman	255
+Kuala Lumpur	256
+Terrorist	257
+Las Vegas	258
+Taiwan	259
+Victoria	260
+Paramilitary	261
+Returnee	262
+Hamas	263
+Priest	264
+Ukranian	265
+Saint	266
+Opposition Leader	267
+Vladimir	268
+Health Minist	269
+Russian	270
+Pennsylvania	271
+Houston	272
+California	273
+Wisconsin	274
+Massachusetts	275
+Minnesota	276
+New York	277
+Associated Press	278
+Louisiana	279
+North America	280
+Correspondent	281
+Sioux	282
+Richard Nixon	283
+Barack Obama	284
+Ukraine	285
+University	286
+Oregon	287
+Michigan	288
+Boston	289
+King	290
+Population	291
+Judge	292
+Alabama	293
+Supreme Court	294
+Judiciary	295
+Rhode Island	296
+South Korea	297
+Senator	298
+Congress	299
+Piedmont	300
+Atlanta	301
+Boss	302
+Website	303
+Opposition Party	304
+South Korean	305
+Customs Official	306
+Governance	307
+House Speaker	308
+Democratic Party	309
+Mexico City	310
+Commander	311
+Ibadan	312
+Pakistan	313
+News Organization	314
+National Guard	315
+Counsel	316
+Chief Justice	317
+Federal Court	318
+Attorney	319
+Appeals Court	320
+Panama	321
+Manila	322
+Filipino	323
+Pilipinas	324
+Heritage Foundation	325
+Milano	326
+Defector	327
+Catholic	328
+Gaza	329
+South Carolina	330
+Foreign Minist	331
+National Security Adviser	332
+Lagos	333
+Senate President	334
+Abuja	335
+Bhp Billiton	336
+Investor	337
+Petrobras	338
+Argentina	339
+Hewlett Packard	340
+Cairo	341
+Religion	342
+Shia	343
+Kabul	344
+Google	345
+Human Rights Watch	346
+The Netherland	347
+Human Rights Activist	348
+Red Crescent	349
+Red Cross	350
+Kano	351
+Auckland	352
+Main Opposition	353
+Shiite	354
+Indigenous People	355
+Hindu	356
+Brac	357
+Bangladesh	358
+Pole	359
+Politician	360
+Honda	361
+Khaleda Zia	362
+Police Personnel	363
+Muslim	364
+Niger	365
+Cyprus	366
+Portuguese	367
+Portugal	368
+Cypriot	369
+Kingdom	370
+Writer	371
+Vladimir Putin	372
+St Petersburg	373
+Us Ambassador	374
+Uprising	375
+Political Prisoner	376
+Rebellion	377
+Constitution State	378
+Bishop	379
+Villager	380
+Blog	381
+Murray	382
+Prosecutor	383
+Mamata Banerjee	384
+Blogger	385
+Irish	386
+Aussie	387
+International Crisis Group	388
+Morocco	389
+News Agency	390
+Tony Blair	391
+Cleveland	392
+Superior Court	393
+Connecticut	394
+Wyoming	395
+Kiribati	396
+American Samoa	397
+Parliament	398
+Zimbabwe	399
+Nama	400
+Nashville	401
+Tennessee	402
+Niagara Falls	403
+South Dakota	404
+New York State	405
+New Orleans	406
+Burglar	407
+Gazette	408
+Legislature	409
+Magistrate	410
+Harare	411
+Ministry	412
+Hawaiian	413
+Legislator	414
+Jacob Zuma	415
+Puerto Rico	416
+Samoa	417
+Taipei	418
+Lawrence	419
+Dallas	420
+Kentucky	421
+Kansas	422
+Kansas City	423
+Montana	424
+Producer	425
+Kuwait	426
+Shinto	427
+Operative	428
+Tonga	429
+Smyrna	430
+Security Officer	431
+Edinburgh	432
+Cultivator	433
+Texas	434
+Crook	435
+Small Town	436
+Virginia	437
+Charlotte	438
+Mcgill	439
+Chinese	440
+Vancouver	441
+Smuggler	442
+Health Department	443
+Arkansas	444
+Zambia	445
+Nebraska	446
+Emmerson Mnangagwa	447
+Ghana	448
+Sabah	449
+Narayanganj	450
+Convicts	451
+Soto	452
+Bangalore	453
+Illinois	454
+Jamaica	455
+Rio De Janeiro	456
+Regulator	457
+Employer	458
+Sylhet	459
+Tribunal	460
+Prisoner	461
+Government Official	462
+Jaipur	463
+Wolfgang Schaeuble	464
+Liverpool	465
+Paedophile	466
+The Associated Press	467
+Zimbabwean	468
+Kashmiri	469
+Inspector General	470
+Surgeon	471
+Party Member	472
+Coptic Orthodox	473
+Botswana	474
+Berlin	475
+Nicosia	476
+The Pm	477
+Conservationist	478
+Bern	479
+East Indian	480
+Iowa	481
+San Diego	482
+First Lady	483
+Cuba	484
+Chief Minister	485
+Trooper	486
+Director General	487
+Cape York	488
+Gambia	489
+Cameroon	490
+Delhi	491
+Generals	492
+House Of Representatives	493
+Representatives	494
+A Cabinet Meeting	495
+Republic Of Korea	496
+European	497
+Spain	498
+Japanese	499
+Air Force	500
+Phoenix	501
+New York City	502
+Intellectual	503
+French	504
+Special Operations	505
+Netflix	506
+Netherlands	507
+Tara	508
+Junta	509
+Political Parties	510
+Envoy	511
+Vietnam	512
+Western Cape	513
+North Korean	514
+Pailin	515
+Presbyterian	516
+Greek	517
+Defence Minist	518
+Cote D'Ivoire	519
+Methodist Church	520
+Toronto	521
+Buffalo	522
+Congolese	523
+Dr Congo	524
+Jalalabad	525
+Afghan	526
+Taliban	527
+Freemason	528
+Cuban	529
+Belize	530
+Scientist	531
+Benin	532
+Lieutenant	533
+Opposition Parties	534
+Ywca	535
+Raul Castro	536
+Havana	537
+Armenia	538
+North Carolina	539
+Ymca	540
+Police Force	541
+Sikh	542
+South East Asia	543
+Abdullah	544
+Militia	545
+Turkish	546
+Pakistani	547
+West Virginia	548
+Coca Cola	549
+News Station	550
+Istanbul	551
+Chamber	552
+Radio Station	553
+Web Site	554
+National Assembly	555
+Seoul	556
+Arcadia	557
+Navy	558
+Citigroup	559
+Goldman Sachs	560
+Macedonian	561
+Thessaloniki	562
+Admiral	563
+Air Marshal	564
+Colonel	565
+Isnilon	566
+Bulawayo	567
+Libya	568
+Laos	569
+Jersey	570
+District Court	571
+Staff Member	572
+Bursa	573
+Political Party	574
+Preacher	575
+Oklahoma	576
+Clergymen	577
+Cleric	578
+Clergyman	579
+Archbishop	580
+Suicide Bomber	581
+Extremist	582
+Johannesburg	583
+Sanaa	584
+Hanoi	585
+Nasa	586
+Tamil	587
+Asean	588
+Lisbon	589
+Right Wing Coalition	590
+Islamabad	591
+Phnom Penh	592
+Cambodia	593
+The Opposition	594
+Malaysian	595
+Party President	596
+Rawalpindi	597
+Garrison	598
+Crown Prince	599
+Homs	600
+Port Of Spain	601
+Bahrain	602
+Tanker	603
+Chile	604
+Military Police	605
+Reformist	606
+Military Judge	607
+Wpp Plc	608
+Toyota	609
+Iron Mountain Incorporated	610
+Delaware	611
+Worshipper	612
+Coast Guard	613
+Mexican	614
+Acapulco	615
+Infantry	616
+Greece	617
+Amit	618
+Wellington	619
+Hit Man	620
+Yemen	621
+Maine	622
+Portland	623
+Austin	624
+College	625
+Myanmar	626
+Mandalay	627
+City Mayor	628
+Saga	629
+Sydney Sekeramayi	630
+Navajo	631
+Scottish	632
+Education Secretary	633
+Philadelphia	634
+Valparaiso	635
+Alaska	636
+Terrorist Organization	637
+Terrorist Group	638
+Cargo Vessel	639
+Rochester	640
+Chicago	641
+Calif	642
+Welsh	643
+Runner	644
+Galan	645
+Cartel	646
+Fire Department	647
+Pupil	648
+Nasser	649
+Spanish	650
+Austria	651
+Voreqe Bainimarama	652
+Fijian	653
+Albert	654
+Neighbourhood	655
+Haiti	656
+Landowner	657
+Merchant	658
+Boeing	659
+Business Leader	660
+Belgian	661
+Albanian	662
+Police Commissioner	663
+Rustler	664
+Assailant	665
+Battalion	666
+Xinjiang	667
+Ottawa	668
+House Of Commons	669
+Suez Canal	670
+Calais	671
+Corsica	672
+Tel Aviv Jaffa	673
+Gilad Erdan	674
+Rabbi	675
+Minneapolis	676
+Congressman	677
+Speaker Of The House	678
+Ireland	679
+Pirate	680
+Bureaucracy	681
+State Governor	682
+Champagne	683
+The Eu	684
+Scotland	685
+Labour Minist	686
+Georgetown	687
+Budapest	688
+Hungary	689
+Hungarian	690
+Believer	691
+Assam	692
+Namibia	693
+Party Leader	694
+Sovereign	695
+Tanzania	696
+Minist Of Finance	697
+Foreign Secretary	698
+Army Unit	699
+Entrepreneur	700
+Christine Lagarde	701
+Chancellor	702
+Science Congress	703
+Catalonia	704
+Brussels	705
+Nawaz Sharif	706
+Economist	707
+Guyana	708
+Coup Plotter	709
+Ruling Party	710
+Civil Servant	711
+World Health Organization	712
+Karachi	713
+Public Sector	714
+Bucaramanga	715
+Haitian	716
+Bahama	717
+Croat	718
+Uganda	719
+Lahore	720
+Fire Marshal	721
+Srinagar	722
+Breton	723
+Democratic Republic Of Congo	724
+High Priest	725
+Palace Of Versailles	726
+Kidnapper	727
+Niamey	728
+Kigali	729
+Manufacturer	730
+Switzerland	731
+Policemen	732
+Jammu And Kashmir	733
+Drug Dealer	734
+South Australia	735
+Colombian	736
+Brazilian	737
+Colombia	738
+Hunter	739
+National Police	740
+Vienna	741
+Law Enforcement Agencies	742
+Presidential Candidate	743
+Southeast Asia	744
+Afar	745
+Ohio	746
+Border Security	747
+Public Radio	748
+Alexandria	749
+International Monetary Fund	750
+Hassan Latheef	751
+Banco Santander	752
+Worshiper	753
+Killers	754
+Appellate Court	755
+Minist For Petroleum	756
+Port Harcourt	757
+Government Forces	758
+Publisher	759
+Joint Chiefs	760
+Commentator	761
+Manchester	762
+Mugger	763
+Army Chief	764
+Ousted Prime Minister	765
+Opposition Supporter	766
+Upper House	767
+Bhopal	768
+Mumbai	769
+Gujarat	770
+Gwalior	771
+Vadodara	772
+New Delhi	773
+Christmas Island	774
+Transport Worker	775
+Khaw Boon Wan	776
+Electoral Commission	777
+Paul Robertson	778
+Constable	779
+Nevada	780
+Milwaukee	781
+Poland	782
+Detroit	783
+Catalan	784
+Indigenous	785
+Farm Worker	786
+Columbus	787
+Miami	788
+Education Department	789
+Fire Fighter	790
+Alexander Downer	791
+Kordofan	792
+Qamar Zaman Kaira	793
+A Us	794
+Maryland	795
+Fighter	796
+Thief	797
+Fire Service	798
+Bihar	799
+Marines	800
+Trader	801
+Nepal	802
+Tokyo	803
+Brisbane	804
+Perth	805
+European Parliament	806
+Pearl River	807
+Wuhan	808
+Dhaka	809
+Lebanese	810
+Policeman	811
+Minist Of Civil	812
+Papua New Guinea	813
+Rajkot	814
+Limerick	815
+Ethiopian	816
+Ethiopia	817
+Glasgow	818
+Athens	819
+Scot	820
+David Cameron	821
+Hazara	822
+Federal Executive Council	823
+Telecom	824
+Molotov	825
+Lieutenant General	826
+Carrier	827
+Captain	828
+Hinduism	829
+Panamanian	830
+Peshawar	831
+United Arab Emirates	832
+Brookings Institut	833
+Unions	834
+Liberia	835
+Un Bodies	836
+Persian	837
+Us Official	838
+Prisoner Of War	839
+Sacramento	840
+Latinos	841
+Armed Group	842
+Rakhine State	843
+Maiduguri	844
+Briton	845
+Djibouti	846
+Marine Corp	847
+Airway	848
+Amritsar	849
+Tycoon	850
+Fighter Jet	851
+Hiroshima	852
+Laconia	853
+Taiwanese	854
+Kerala	855
+Cork	856
+Interpol	857
+Labor Department	858
+National Bank	859
+Finance Minist	860
+Nuremberg	861
+Newmont Mining	862
+Lorraine	863
+World Community	864
+Grenoble	865
+Dublin	866
+Cabinet Minister	867
+Lawbreaker	868
+Disasters Emergency Committee	869
+Mali	870
+Niger Delta	871
+Military Officer	872
+Karnataka	873
+Joint Chiefs Of Staff	874
+Counselor	875
+Equatorial Guinea	876
+Iraqi	877
+Army Staff	878
+Tijuana	879
+Shona	880
+Suva	881
+Utah	882
+Press Association	883
+Milan	884
+Memphis	885
+Providence	886
+Granite State	887
+Vermont	888
+Lanzhou	889
+Virginia Beach	890
+Border Patrol Agent	891
+Dane	892
+Deutsche	893
+Backpacker	894
+Frankfurt	895
+Brahmanbaria	896
+Law Minist	897
+Bara	898
+Monk	899
+Guatemalan	900
+Religious Group	901
+General Assembly	902
+Galway	903
+Uttar Pradesh	904
+Asean Defense Ministers	905
+Opec	906
+Oval Office	907
+Fiji	908
+Armed Forces	909
+Auditor General	910
+Foreign Office	911
+Jessore	912
+Greenville	913
+Gabon	914
+Chad	915
+Armed Men	916
+Zaire	917
+Robber	918
+Traveler	919
+Czech	920
+Slovak	921
+Detective	922
+Chamber Of Commerce	923
+Bolivia	924
+Paraguay	925
+Buddhist	926
+Bangladeshi	927
+Methodist	928
+Yoruba	929
+Katsina	930
+Manitoba	931
+High Court	932
+Manchuria	933
+Episcopal	934
+Aare	935
+Property Owner	936
+Sudanese	937
+Mercenary	938
+Canton	939
+Osce	940
+American Troops	941
+Repatriate	942
+Uighur	943
+Foreign National	944
+Lithuania	945
+Kazakhstan	946
+International Committee Of The Red Cross	947
+Madagascar	948
+World Economic Forum	949
+Kaduna	950
+Orthodox Christian	951
+Tamil Nadu	952
+Dakota	953
+Guamanian	954
+Holland	955
+Telugu	956
+Nzema	957
+Asante	958
+Nelson Mandela	959
+George Bush	960
+District Of Columbia	961
+Iraq	962
+State Hospital	963
+Kampala	964
+State Attorney General	965
+Chhattisgarh	966
+Energy Minist	967
+Richmond	968
+World Food Program	969
+Jakarta	970
+Defense Secretary	971
+Malabo	972
+John Mahama	973
+John Dramani Mahama	974
+Ghanaian	975
+Secretary Of State	976
+Parliamentarian	977
+Minist Of Foreign Affairs	978
+News Corp	979
+Thomson Reuters	980
+Public Prosecutor	981
+Cartagena	982
+Libyan	983
+Muammar Gaddafi	984
+Kenyan	985
+Bamako	986
+Caribbean Community	987
+Islamic Cleric	988
+Khmer	989
+Disney	990
+British Virgin Islands	991
+Naval	992
+Major General	993
+Commandant	994
+Minist For Local Government	995
+Musharraf	996
+The International Community	997
+Educational Institution	998
+Member Nation	999
+Ankara	1000
+Yemeni	1001
+International Atomic Energy Agency	1002
+Unhcr	1003
+Tuscany	1004
+Chea Sophara	1005
+Lima	1006
+Senate Delegation	1007
+United States Of America	1008
+Osaka	1009
+Cargo Ship	1010
+Akita	1011
+Dutch	1012
+Nakuru	1013
+Ontario	1014
+San Francisco	1015
+Defence Force	1016
+Lusaka	1017
+Cherokee	1018
+Rana	1019
+Sudan	1020
+Ivory Coast	1021
+Al Jazeera	1022
+Law Enforcement Officer	1023
+Paul Kagame	1024
+Rwandan	1025
+Mecca	1026
+Liberation Army	1027
+Barcelona	1028
+Hartford	1029
+Minist Of Commerce	1030
+Minist Of Health	1031
+State Minist	1032
+Minist For Communications	1033
+Rhodes	1034
+Hanover	1035
+Cayman Island	1036
+Holding Company	1037
+Persian Gulf	1038
+Guangzhou	1039
+Michael Gove	1040
+Sweden	1041
+Akihito	1042
+Kampong Speu	1043
+Hippo	1044
+Outlaw	1045
+Drug Peddler	1046
+Minist Of Interior	1047
+Bermuda	1048
+Christian Church	1049
+Lloyds Banking	1050
+Iceland	1051
+Expatriate	1052
+Aircraft Carrier	1053
+Turkmen	1054
+Aleppo	1055
+Slovak Republic	1056
+Oil Tanker	1057
+Field Marshal	1058
+Arizona	1059
+Africans	1060
+Black Panthers	1061
+Nokia	1062
+Yoweri Museveni	1063
+Panama City	1064
+Delegate	1065
+Judicial Branch	1066
+Minorities	1067
+Hawaii	1068
+New Hampshire	1069
+Nurse	1070
+African Development Bank	1071
+Civil Society	1072
+Frankfort	1073
+Constituent	1074
+Defense Department	1075
+Xi Jinping	1076
+Unesco	1077
+Turkmenistan	1078
+Nepalese	1079
+Qatari	1080
+Singaporean	1081
+Meghalaya	1082
+Stephenson	1083
+Hun Sen	1084
+Department Of Defense	1085
+Lunda	1086
+St Vincent	1087
+North Dakota	1088
+Lausanne	1089
+Gibraltar	1090
+Abductor	1091
+West Bengal	1092
+Private Citizen	1093
+Icrc	1094
+Goodluck Jonathan	1095
+Vaclav Havel	1096
+Muscat	1097
+Medina	1098
+Kimberley	1099
+Police Constable	1100
+Rebel Group	1101
+Maltese	1102
+Security Personnel	1103
+Police Post	1104
+Rasht	1105
+Committee To Protect Journalists	1106
+Fresno	1107
+Undercover Agent	1108
+Ogoni	1109
+Uzbekistan	1110
+Uzbek	1111
+South Sudan	1112
+Salva Kiir	1113
+South Asia	1114
+Dissident	1115
+Southeast Asian Countries	1116
+Official Source	1117
+Chechen	1118
+Culprit	1119
+Asean Countries	1120
+Madrid	1121
+Tripura	1122
+Canberra	1123
+Insurgent	1124
+Durango	1125
+Li Keqiang	1126
+Burundian	1127
+Pierre Nkurunziza	1128
+Spokesmen	1129
+Minist Of Trade	1130
+Constitutional Court	1131
+Jerusalem Post	1132
+Autocrat	1133
+Chennai	1134
+Physician	1135
+Environment Minist	1136
+Lilongwe	1137
+Muslim Migrant	1138
+Aotearoa	1139
+Ellen Johnson Sirleaf	1140
+Assemblies	1141
+Legislative Body	1142
+Assur	1143
+State College	1144
+George W. Bush	1145
+Bergen	1146
+Tabloid	1147
+Accra	1148
+Ku Klux Klan	1149
+Somalia	1150
+Somali	1151
+Salt Lake City	1152
+Dakar	1153
+Revolt	1154
+Joe Clark	1155
+Tourism Industry	1156
+Brazzaville	1157
+Atiku Abubakar	1158
+Rights Group	1159
+Wales	1160
+British Columbia	1161
+New South Wales	1162
+Governor General	1163
+Paramount Ruler	1164
+Venezuela	1165
+Minist Of Defence	1166
+Unicef	1167
+Bali	1168
+Paul Keating	1169
+Malawi	1170
+Moroccan	1171
+Sarawak	1172
+Nepali	1173
+Binh Duong	1174
+Ithaca	1175
+Naha	1176
+Kurd	1177
+Kono	1178
+Samsung	1179
+Tartu	1180
+Central Election Commission	1181
+Dealer	1182
+Reykjavik	1183
+Shanghai	1184
+Sadc	1185
+The Poor	1186
+Britannia	1187
+Rakhine	1188
+Fisher	1189
+State Owned	1190
+Hubei	1191
+Madurai	1192
+Oman	1193
+Coimbatore	1194
+Swaziland	1195
+Okinawa	1196
+Shinzo Abe	1197
+Gulf Arab State	1198
+Telecommunications Minist	1199
+Bashar Al Assad	1200
+Malta	1201
+Exxon	1202
+Airasia	1203
+Maldive	1204
+Nova Scotia	1205
+Bimstec	1206
+Caloocan	1207
+Palestinian Liberation Organization	1208
+Girija Prasad Koirala	1209
+Separatist	1210
+Judaism	1211
+Jordanian	1212
+Latvia	1213
+Federal Judiciary	1214
+Hafiz Saeed	1215
+City Manager	1216
+Assamese	1217
+International Criminal Court	1218
+Ararat	1219
+Ukrainian	1220
+Neva	1221
+Criminal Police	1222
+Native American	1223
+Dominican Republic	1224
+Elector	1225
+Central African Republic	1226
+Guatemala City	1227
+Abu Dhabi	1228
+Bujumbura	1229
+Belizean	1230
+Dean Barrow	1231
+Kolkata	1232
+Rajasthan	1233
+Maldivian	1234
+State Commission	1235
+Spaniard	1236
+Teimumu Kepa	1237
+Kaski	1238
+External Affairs Minist	1239
+Sinai Peninsula	1240
+Columnist	1241
+Pakistan Ranger	1242
+Chief Of The Army	1243
+Tampa	1244
+Wall Street Journal	1245
+Military Adviser	1246
+Raymond James Financial	1247
+Molina Healthcare	1248
+Military Commission	1249
+Comcast	1250
+Army Reserve	1251
+Caracas	1252
+Benedict Xvi	1253
+Guam	1254
+Pittsburgh	1255
+Embassy	1256
+Chaldean	1257
+Regulatory Body	1258
+Liu Yandong	1259
+Missouri	1260
+State Official	1261
+Castile	1262
+Swiss	1263
+Kevin Rudd	1264
+Defense Force	1265
+Group Of Eight	1266
+Securities And Exchange Commission	1267
+Sena	1268
+Securities Exchange	1269
+Empress	1270
+Head Of State	1271
+Barbados	1272
+Ayatollah Khamenei	1273
+Education Minist	1274
+Labor Minist	1275
+Exporter	1276
+Polonnaruwa	1277
+Maithripala Sirisena	1278
+Armed Gang	1279
+Hyundai	1280
+Regiment	1281
+Odessa	1282
+Correctional Institution	1283
+Ground Forces	1284
+Servicemen	1285
+Border Guard	1286
+Riyadh	1287
+Intelligence Community	1288
+Minist Of Tourism	1289
+Harari	1290
+Mountain State	1291
+Anti Defamation League	1292
+St. Louis	1293
+Jimmy Carter	1294
+Durban	1295
+Credit Suisse	1296
+Cruiser	1297
+Special Court	1298
+Sri Lanka	1299
+Multan	1300
+Kurdistan	1301
+Department Of Tourism	1302
+Dalit	1303
+Queen Elizabeth Ii	1304
+Argentinian	1305
+Northern Irishman	1306
+Brunei	1307
+Bruneian	1308
+Apache	1309
+Belarus	1310
+Local Press	1311
+Indianapolis	1312
+Trinidad	1313
+Avon Products	1314
+Kedah	1315
+Selangor	1316
+Legislative Assembly	1317
+Johor	1318
+Military Personnel	1319
+Companhia Paranaense De Energia	1320
+Deutsche Bank	1321
+Lockheed Martin	1322
+Panasonic	1323
+Wells Fargo	1324
+Philip Morris	1325
+Santiago	1326
+Tunisian	1327
+Tunisia	1328
+Starbucks	1329
+Brunei Darussalam	1330
+Calgary	1331
+Minsk	1332
+Walgreen	1333
+Sir Richard Gozney	1334
+Trinidad And Tobago	1335
+Undersecretary	1336
+Un Security Council	1337
+Jain	1338
+Food Minist	1339
+Bulgarian	1340
+Bulgaria	1341
+Central Bank	1342
+Judicial System	1343
+Gauteng	1344
+Rotary International	1345
+Zambian	1346
+Yaounde	1347
+Viacom	1348
+Association Of Southeast Asian Nations	1349
+Yoga	1350
+Social Worker	1351
+Putrajaya	1352
+Veracruz	1353
+Felipe Calderon	1354
+Sociedad Quimica Y Minera	1355
+Whirlpool Corporation	1356
+Bristol Myers Squibb	1357
+State Supreme Court	1358
+Royal Palace	1359
+Croatia	1360
+Chamber Of Commerce And Industry	1361
+St Lucia	1362
+A. Rehman Malik	1363
+Parliament House	1364
+Defense Attorney	1365
+Siem Reap	1366
+Unsc	1367
+Leila De Lima	1368
+Failed State	1369
+Ethnic Minority	1370
+Aqaba	1371
+Dissenter	1372
+Illegal Immigrant	1373
+Madras	1374
+Caregiver	1375
+European Commission	1376
+Drug Trafficker	1377
+Mafia	1378
+Habiganj	1379
+Leipzig	1380
+Bucharest	1381
+Czech Republic	1382
+Rosario	1383
+Cape Town	1384
+North West	1385
+Bolivian	1386
+Davos	1387
+Felon	1388
+Stockholm	1389
+Jinja	1390
+Medical Association	1391
+Rebel Leader	1392
+Secretary Of Defense	1393
+Minist Of Works	1394
+Tourism Minist	1395
+Murkowski	1396
+Legislative Council	1397
+Bureaucrat	1398
+Liberian	1399
+Busan	1400
+Kurunegala	1401
+Cabinet Of Ministers	1402
+Civil Service	1403
+Morgan Stanley	1404
+Jaffna	1405
+Champika Ranawaka	1406
+Non Governmental Organisation	1407
+Greensboro	1408
+Malays	1409
+Baloch	1410
+Ho Chi Minh City	1411
+Marseille	1412
+Kingston	1413
+Colonist	1414
+Manipur	1415
+Colombo	1416
+Agriculture Minist	1417
+Raytheon	1418
+Mosul	1419
+Eli Lilly	1420
+Northrop Grumman	1421
+Fyrom	1422
+Voice Of America	1423
+Exiled Government	1424
+Lenape	1425
+Tamale	1426
+Recep Tayyip Erdogan	1427
+Komi	1428
+Minist Of Agriculture	1429
+Benin City	1430
+Human Rights Commission	1431
+Peter Costello	1432
+Baghdad	1433
+Piper Jaffray	1434
+Mauritania	1435
+Burkina Faso	1436
+Kagoshima	1437
+Firebug	1438
+Estonia	1439
+Cambodian	1440
+Uhuru Kenyatta	1441
+Quezon	1442
+Landlord	1443
+United Church Of Christ	1444
+Intelligence Service	1445
+Saint Lucia	1446
+Nitish Kumar	1447
+Pune	1448
+Lucknow	1449
+Patna	1450
+Mayan	1451
+Honduran	1452
+Ceos	1453
+Finland	1454
+Toledo	1455
+West Germany	1456
+Academics	1457
+Political Wing	1458
+Islamic World	1459
+Daniel Ortega	1460
+Greenpeace	1461
+Mitsubishi	1462
+Kriti	1463
+Wildlife Trust	1464
+Trade Minist	1465
+World Wildlife Fund	1466
+Sony	1467
+Police Officials	1468
+Haryana	1469
+Paul Martin	1470
+High Commission	1471
+Vientiane	1472
+Burundi	1473
+Defence Secretary	1474
+Principe	1475
+Bharat	1476
+Justice Minister	1477
+Siberia	1478
+Caritas	1479
+Tajikistan	1480
+Kikuyu	1481
+Amos Kimunya	1482
+Mauritius	1483
+Mozambique	1484
+Bank Of America	1485
+Burma	1486
+Serbia	1487
+Museveni	1488
+Gulu	1489
+Ugandan	1490
+Sheffield	1491
+Sikkim	1492
+Greenland	1493
+Calcutta	1494
+Development Agenc	1495
+Interior Secretary	1496
+Himachal Pradesh	1497
+Croatian	1498
+Kayah State	1499
+Ultra Orthodox	1500
+Riot Police	1501
+Clergy	1502
+New Mexico	1503
+San Antonio	1504
+Public Television	1505
+Unitarian	1506
+Infirmary	1507
+Rancher	1508
+Lee Hsien Loong	1509
+Cincinnati	1510
+Guan	1511
+Piyasena Gamage	1512
+Great Britain	1513
+Kelantan	1514
+Al Mezan	1515
+Ashraf Ghani	1516
+Eritrean	1517
+Ebro	1518
+Traveller	1519
+Collegian	1520
+Andhra Pradesh	1521
+Caesarea	1522
+Urdu	1523
+Umbanda	1524
+Xuzhou	1525
+Drug Enforcement	1526
+S. Korea	1527
+Editor In Chief	1528
+Reinsurance Group Of America	1529
+Ishares	1530
+Royal Dutch Shell	1531
+Keycorp	1532
+Nuveen	1533
+Infosys	1534
+Kuwaiti	1535
+Military Rule	1536
+Minist Of Justice	1537
+Constantine	1538
+Fulani	1539
+Vietnamese	1540
+Solomon Island	1541
+Bandit	1542
+Hudson Bay	1543
+Patrick Chinamasa	1544
+Gideon Saar	1545
+Birmingham	1546
+Paul Biyoghe Mba	1547
+Planning Commission	1548
+Minist Delegation	1549
+Morang	1550
+Bob Hawke	1551
+National Electoral Commission	1552
+Sihanoukville	1553
+Ariel Sharon	1554
+Haredi	1555
+Municipal Court	1556
+Louisville	1557
+State Secretary	1558
+Charles Murray	1559
+Maryknoll	1560
+Gulf Cooperation Council	1561
+Antonio Guterres	1562
+Hamid Karzai	1563
+Manama	1564
+Deputy Prime Minister	1565
+Minist Of Natural Resources	1566
+Health Personnel	1567
+Bengali	1568
+Presidential Aide	1569
+Delphi	1570
+Rio Tinto	1571
+Microsoft	1572
+Conocophillips	1573
+Seville	1574
+Bombay	1575
+Lashkar E Taiba	1576
+Freedom House	1577
+New Caledonian	1578
+Military Force	1579
+President Of The Senate	1580
+Raleigh	1581
+Liepaja	1582
+Ground Troop	1583
+Edison International	1584
+Sergey Kislyak	1585
+Western Australia	1586
+Frederick Chiluba	1587
+Igbo	1588
+Saudi Arabian	1589
+Border Patrol	1590
+Zhejiang	1591
+Fang	1592
+Thiruvananthapuram	1593
+Taranaki	1594
+West Indies	1595
+Kanpur	1596
+Monger	1597
+Jidda	1598
+Honiara	1599
+Tibetan Buddhism	1600
+Hamzah	1601
+Fars News	1602
+Virbhadra Singh	1603
+New Caledonia	1604
+French Polynesia	1605
+Environmentalist	1606
+Opposition Forces	1607
+Almaty	1608
+Chabad	1609
+Yuli Edelstein	1610
+Archer Daniels Midland	1611
+Corvette	1612
+Algerian	1613
+Algeria	1614
+Bill Clinton	1615
+Binali Yildirim	1616
+Tibet	1617
+Ottawa River	1618
+Naga	1619
+Ethnic Group	1620
+Nacimiento	1621
+General Electric	1622
+Head Of Government	1623
+Shipping Minist	1624
+Madhya Pradesh	1625
+Tenants	1626
+Glatfelter	1627
+Qualcomm	1628
+Mafioso	1629
+Mahmoud Ahmadinejad	1630
+Great Barrier Reef	1631
+N. Korea	1632
+Santo Domingo	1633
+Richmont Mines	1634
+Arabian Sea	1635
+Jamaican	1636
+Hawaiian Airlines	1637
+South Sudanese	1638
+Reformer	1639
+Waitress	1640
+Vijayawada	1641
+Paul Biya	1642
+Jerez	1643
+Antigua And Barbuda	1644
+Energy Secretary	1645
+Minist Of Education	1646
+Norway	1647
+Caroline Spelman	1648
+Sardis	1649
+Marauder	1650
+Papua New Guinean	1651
+Cebu	1652
+Liberation Movement	1653
+Natal	1654
+Dong	1655
+Newspaper Editor	1656
+American Civil Liberties Union	1657
+Kimco Realty	1658
+Cordillera	1659
+Norodom Sihanouk	1660
+Basel	1661
+Yisrael Katz	1662
+Arunachal Pradesh	1663
+Free State	1664
+World Council Of Churches	1665
+Quaker	1666
+Moron	1667
+Nanjing	1668
+Chief Of Staff	1669
+Northern Territory	1670
+Scholar	1671
+Mongolia	1672
+Tigre	1673
+Leeds	1674
+Treasury Secretary	1675
+Minist For Education	1676
+Health Official	1677
+Minist Of Information	1678
+Abidjan	1679
+The Drc	1680
+European Union	1681
+Aerospace	1682
+Blackrock	1683
+Human Rights Group	1684
+Reserve Bank	1685
+Nairobi	1686
+S Korea	1687
+Nagpur	1688
+Milf	1689
+Tel Aviv	1690
+American Electric Power Company	1691
+Surabaya	1692
+Royal Bank Of Canada	1693
+Exxon Mobil	1694
+Assemblage	1695
+Member Of Parliament	1696
+Lower House Of Parliament	1697
+Republic Of Georgia	1698
+National Security Advisor	1699
+Buddhist Monk	1700
+Creativity	1701
+Mujahideen	1702
+Kiev	1703
+Shenyang	1704
+Barbadian	1705
+Nassau	1706
+Thieves	1707
+John Major	1708
+Downing Street	1709
+Nile	1710
+San Sebastian	1711
+Ecuador	1712
+Catholic Bishop	1713
+Resistance Group	1714
+Doha	1715
+Darfur	1716
+Charles Schwab	1717
+Monarch	1718
+Pervez Musharraf	1719
+Gyeongsang	1720
+Beja	1721
+Washoe	1722
+Yamaguchi	1723
+Zurich	1724
+Aden	1725
+Prostitute	1726
+Ilham Aliyev	1727
+Montreal	1728
+Stephen Harper	1729
+Congresswoman	1730
+Honorary Consul	1731
+Nationals	1732
+Angolan	1733
+Jinan	1734
+Branch Davidians	1735
+Petrochina	1736
+Nagaland	1737
+Sumatra	1738
+Non Government Organization	1739
+Dubrovnik	1740
+Dresden	1741
+Norwegian	1742
+Waterloo	1743
+Emperor	1744
+Gwangju	1745
+Jeolla	1746
+Puebla	1747
+Azores	1748
+N Korea	1749
+National Security Council	1750
+Reporters Without Borders	1751
+Nustar Energy	1752
+Santa Cruz	1753
+Juba	1754
+Khartoum	1755
+Arsonist	1756
+Army Officer	1757
+Volta	1758
+Hindustan	1759
+Eritrea	1760
+Anglican	1761
+Myanmarese	1762
+Bale	1763
+Luxembourg	1764
+Chengdu	1765
+Equality Now	1766
+Labor Union	1767
+Anadarko Petroleum	1768
+Pedophile	1769
+Arab League	1770
+State News Agency	1771
+Government Spokesman	1772
+Turin	1773
+Southern African Development Community	1774
+Lesotho	1775
+Hani	1776
+Tyler Technologies	1777
+Ruling Parties	1778
+Togo	1779
+Military Tribunal	1780
+Dayak	1781
+Health Care Provider	1782
+Benghazi	1783
+International Court Of Justice	1784
+Non Governmental Organization	1785
+S. Arabia	1786
+Tesco	1787
+Rolls Royce	1788
+Protest Leader	1789
+Church Of Christ	1790
+Displaced Residents	1791
+Rabat	1792
+Fortis	1793
+Special Forces	1794
+Geneva	1795
+Circuit Court Of Appeals	1796
+Amhara	1797
+Limpopo	1798
+Ghent	1799
+Protestant	1800
+Sex Worker	1801
+Serial Killer	1802
+Cannes	1803
+Nurul Islam Nahid	1804
+Sofia	1805
+Chandigarh	1806
+Shop Owner	1807
+Asian Development Bank	1808
+Public Relations Officer	1809
+Nicolas Sarkozy	1810
+State Owned Television	1811
+Waterford	1812
+Guangdong	1813
+Anjou	1814
+Angola	1815
+John Anderson	1816
+Ali Abdullah Saleh	1817
+Opposition Activist	1818
+Hitman	1819
+Al Hudaydah	1820
+Fire Brigade	1821
+Barrister	1822
+Zagreb	1823
+Yisrael	1824
+Court Judge	1825
+Amgen Inc	1826
+Carnival Corporation	1827
+Kashmir Liberation Front	1828
+Jammu Kashmir Liberation Front	1829
+The Carter Center	1830
+Naples	1831
+Igad	1832
+Sergey Shoygu	1833
+Presidential Palace	1834
+Tanzanian	1835
+Faroe Islands	1836
+Bhutanese	1837
+National Council	1838
+Bhutan	1839
+Serbs	1840
+Estonian	1841
+Chilean	1842
+Chukha	1843
+Charles Taylor	1844
+Home Affairs Minist	1845
+Solicitor General	1846
+Ford Foundation	1847
+Andreas Van Agt	1848
+Lincoln National Corp	1849
+Digital Realty Trust	1850
+Prosecuting Attorney	1851
+Oromo	1852
+Mari	1853
+El Salvador	1854
+Guerrilla	1855
+Sierra Leone	1856
+Donbas	1857
+Danube River	1858
+Innsbruck	1859
+Venezuelan	1860
+Guinea	1861
+Finnish	1862
+Consul General	1863
+Crimea	1864
+Law Enforcement Authorities	1865
+Michel Aoun	1866
+Honeywell International Inc	1867
+Nanny	1868
+Omar Al Bashir	1869
+Kailali	1870
+Petronas	1871
+Islamic Front	1872
+Lula Da Silva	1873
+Reuven Rivlin	1874
+Tampere	1875
+Jklf	1876
+Armenian	1877
+Wayne Swan	1878
+Steelmaker	1879
+Cree	1880
+Lee Myung Bak	1881
+Maasai	1882
+Automaker	1883
+Zulu	1884
+Minist Of Telecommunication	1885
+Doctoral Student	1886
+Gambian	1887
+Lecturer	1888
+Dacoit	1889
+African Union	1890
+Military Base	1891
+Nakhon Ratchasima	1892
+Hollander	1893
+Abdul Qadir	1894
+Entebbe	1895
+Nara	1896
+Credit Union	1897
+Zanzibar	1898
+Gdansk	1899
+Riga	1900
+Senegal	1901
+Senegalese	1902
+Kwazulu Natal	1903
+Monaco	1904
+Nagano	1905
+International Organization For Migration	1906
+Synovus Financial	1907
+Sufi	1908
+Passenger Jet	1909
+Intelligence Chief	1910
+Mogadishu	1911
+Displaced Person	1912
+Cheyenne	1913
+Dprk	1914
+Addis Ababa	1915
+Ariana	1916
+Arms Dealer	1917
+Organized Crime	1918
+Glaxosmithkline	1919
+Nuclear Suppliers Group	1920
+Farc	1921
+American Express Company	1922
+Tripoli	1923
+Siachen Glacier	1924
+Minist Of Defense	1925
+Sicilian	1926
+Regional Governor	1927
+Information Office	1928
+Jeremy Hunt	1929
+Manmohan Singh	1930
+Copenhagen	1931
+Yukon	1932
+Verizon	1933
+Military Official	1934
+Abdallah Ii	1935
+Raider	1936
+Marie Stopes	1937
+Khulna	1938
+Bougainville	1939
+District Commissioner	1940
+Finn	1941
+Micronesia	1942
+Ryanair	1943
+Lombardia	1944
+Incheon	1945
+Agence France Press	1946
+Prudential Financial	1947
+Humana Inc	1948
+Phuket	1949
+Iglesia Ni Cristo	1950
+Port Moresby	1951
+Michael Somare	1952
+Giza	1953
+Police Captain	1954
+Freedom Fighter	1955
+Consulate	1956
+Eaton Vance	1957
+Abu Sayyaf	1958
+Human Rights Organization	1959
+New Brunswick	1960
+Zsolt Semjen	1961
+Kaysone Phomvihane	1962
+Herero	1963
+Minist Of Economy And Planning	1964
+Sami	1965
+Rajasthani	1966
+Savannakhet	1967
+Namibian	1968
+Kachin	1969
+American Geophysical Union	1970
+Cefic	1971
+Kochi	1972
+Malayalam	1973
+Bhubaneswar	1974
+Rioter	1975
+Shan State	1976
+Gendarmerie	1977
+Brunswick	1978
+Mombasa	1979
+Eastern Cape	1980
+Abdullah Ii	1981
+Health Professional	1982
+Embraer	1983
+Rasuwa	1984
+Sindhi	1985
+Vmware	1986
+Abc Radio	1987
+Catholic Priest	1988
+Eshaq Jahangiri	1989
+Constantinople	1990
+Crete	1991
+Department Of Agriculture	1992
+Roman Catholic	1993
+Brookfield Asset Management	1994
+Zeti Akhtar Aziz	1995
+Malaga	1996
+Tyrant	1997
+Kamla Persad Bissessar	1998
+Tobago	1999
+Tim Gopeesingh	2000
+News Outlet	2001
+Amsterdam	2002
+Special Olympics	2003
+Leiden	2004
+Astana	2005
+Alberto Fujimori	2006
+Banco De Chile	2007
+Seamen	2008
+Military Group	2009
+Armed Force	2010
+Tirana	2011
+State Prison	2012
+Munich	2013
+Buganda	2014
+Commando	2015
+Antwerp	2016
+Cape Horn	2017
+Falkland Islands	2018
+Daewoo	2019
+Bari	2020
+Us Government	2021
+Dutchman	2022
+Bhilai	2023
+Volgograd	2024
+Opposition Mp	2025
+Simon Wiesenthal Center	2026
+Oviedo	2027
+Osage	2028
+Ashanti	2029
+Waiter	2030
+Valencia	2031
+Sierra Nevada	2032
+Adelaide	2033
+Teekay Lng	2034
+Ludhiana	2035
+Dravidian	2036
+Shiraz	2037
+Mohawk	2038
+Basque	2039
+Luanda	2040
+Bonn	2041
+Brest	2042
+Container Ship	2043
+Bogra	2044
+Lampang	2045
+Okinawan	2046
+Sierra Club	2047
+Justice System	2048
+Democracy Activist	2049
+Mende	2050
+Republic Of South Africa	2051
+Sana	2052
+Minist Of Irrigation	2053
+Coast Guard Patrols	2054
+Frigate	2055
+Philip Hammond	2056
+Inner Mongolia	2057
+Tiruchir	2058
+Police District	2059
+Business Executive	2060
+Chevron	2061
+Lome	2062
+U. S.	2063
+Trade Union	2064
+Munda	2065
+Constituent Assembly	2066
+Fighter Plane	2067
+Ambassador To U	2068
+Sangay	2069
+Surat	2070
+Sirajganj	2071
+Alaska Air Group	2072
+Rajshahi	2073
+Carrie Lam Cheng Yuet Ngor	2074
+Singtel	2075
+Rangpur	2076
+Lone Star State	2077
+Catholic Charismatic Renewal	2078
+Naqshbandi	2079
+Kayin	2080
+Idexx Laboratories	2081
+Marche	2082
+Rostov	2083
+Army Chief Of Staff	2084
+Rayong	2085
+Echelon	2086
+Skopje	2087
+Macedonia	2088
+Mount Ararat	2089
+Separatist Rebel	2090
+Nagasaki	2091
+Catholic Saint	2092
+Jerry John Rawlings	2093
+Asmara	2094
+Atheist	2095
+Reliance Industries	2096
+Jharkhand	2097
+Commerce Minist	2098
+Hatha Yoga	2099
+Minist For The Environment	2100
+Kabyle	2101
+Education Official	2102
+Advocate General	2103
+Hannover	2104
+Abdelaziz Bouteflika	2105
+Spiritualism	2106
+Puerto Rican	2107
+Mutineer	2108
+Filipina	2109
+Gorkha	2110
+Communist Rebel	2111
+Fanatic	2112
+Brindisi	2113
+Commanding General	2114
+House Of Representative	2115
+Tendai	2116
+Paramilitary Force	2117
+Consul	2118
+Brothel	2119
+Kharkiv	2120
+Migrant Worker	2121
+Halle	2122
+Transport Minist	2123
+Tanga	2124
+Ali Mohamed Shein	2125
+Blackbaud Inc	2126
+Susa	2127
+Hodeida	2128
+League Of Women Voters	2129
+Peter Mutharika	2130
+Barclays Plc	2131
+Jet Fighter	2132
+Federal Judge	2133
+Juarez	2134
+Congo Kinshasa	2135
+Minist Of State	2136
+Fire Company	2137
+Moldova	2138
+Religious Organization	2139
+Defense Minist	2140
+Group Of Seven	2141
+World Vision	2142
+Organization For Security And Cooperation In Europe	2143
+Actium	2144
+Wilfred Elrington	2145
+World Trade Organisation	2146
+Displaced People	2147
+Ecuadorian	2148
+Human Trafficker	2149
+Hambantota	2150
+Kouame Lougue	2151
+Organization Of American States	2152
+Server	2153
+Liam Fox	2154
+Combatant	2155
+Cato Institute	2156
+Molson Coors	2157
+Southwest Airlines	2158
+Bank Of Montreal	2159
+Ali Abdullah	2160
+European Bank For Reconstruction And Development	2161
+Minist For Defence	2162
+Doris	2163
+Army Patrol	2164
+Alberta	2165
+State Assembly	2166
+Second Lieutenant	2167
+Quintana Roo	2168
+Naval Ship	2169
+Seventh Day Adventist Church	2170
+Police Deputy Commissioner	2171
+John Pombe Magufuli	2172
+Law Enforcement Agency	2173
+Wspa	2174
+Ahmed Abdullah	2175
+Mongolian	2176
+Lenovo	2177
+Government Organization	2178
+Internal Revenue Service	2179
+Harry Reid	2180
+Gobi	2181
+Cardiff	2182
+Minist Of Industry	2183
+Cadiz	2184
+Prague	2185
+Port Louis	2186
+Minist For Defense	2187
+Telecom Argentina	2188
+Oran	2189
+Kasai	2190
+Mennonite Central Committee	2191
+Lyon	2192
+Thimphu	2193
+Military Regime	2194
+Conservation International	2195
+Amnesty International	2196
+San Salvador	2197
+Military Led	2198
+Us Leader	2199
+Jesuits	2200
+Uruguayan	2201
+Uruguay	2202
+Center For Human Rights	2203
+Drug Gang	2204
+Minist Of Transport	2205
+V. Sreenivasa Prasad	2206
+Fire Chief	2207
+Kim Jong Il	2208
+Minist Of Planning	2209
+Maputo	2210
+Playboy Enterprises	2211
+Choctaw	2212
+Mano	2213
+Shiga	2214
+Joe Biden	2215
+The West African Country	2216
+Trial Lawyer	2217
+Black African	2218
+The Au	2219
+Minist Of Economic Affairs	2220
+Shanxi	2221
+Edmonton	2222
+Government Troops	2223
+Sofa Landver	2224
+George Soros	2225
+Russian Federation	2226
+Seychelles	2227
+Amish	2228
+Minist Of Labour	2229
+Government Delegation	2230
+Minist Of The Interior	2231
+Fundamentalist Muslim	2232
+National Press	2233
+Terrorist Leader	2234
+Secret Police	2235
+Mae Hong Son	2236
+Valletta	2237
+Caretaker Government	2238
+Reconstructionist Judaism	2239
+Charedi	2240
+Teheran	2241
+Ijaw	2242
+Bahraini	2243
+Ivorian	2244
+Public Works Minist	2245
+Minist Of Food	2246
+The Hague	2247
+Observers In	2248
+Yanzhou Coal Mining Company	2249
+Shriners	2250
+Mennonite	2251
+Anabaptists	2252
+Sevilla	2253
+Dagestan	2254
+Plunderer	2255
+Druze	2256
+Associate Justice	2257
+Tainan	2258
+Weight Watchers International	2259
+Anglican Communion	2260
+Grenada	2261
+First State	2262
+Water Resources Minist	2263
+Ahmedabad	2264
+Allahabad	2265
+Bhojpuri	2266
+Jamshedpur	2267
+Tata Steel	2268
+Zikri	2269
+Cochin	2270
+Binyamin Netanyahu	2271
+Binh Dinh	2272
+Kiwi	2273
+Mattel	2274
+Chandpur	2275
+Xiamen	2276
+Zhongshan	2277
+Business Tycoon	2278
+Orissa	2279
+Dominican	2280
+David Anderson	2281
+Court Of Appeals	2282
+Brian Mulroney	2283
+Makkah	2284
+Kathmandu	2285
+Kyiv	2286
+Minist Of Water	2287
+Blackmailer	2288
+Bratislava	2289
+Samara	2290
+Romina	2291
+Robert Fico	2292
+Nguyen Thi Kim Ngan	2293
+Royal Caribbean	2294
+Khmer Rouge	2295
+Gjorge Ivanov	2296
+Stuttgart	2297
+Saint Petersburg	2298
+Kirkuk	2299
+Maori	2300
+Insurgent Group	2301
+Syro Malabar Church	2302
+Midwife	2303
+Trafficker	2304
+Erivan	2305
+Kumasi	2306
+Bruno Le Maire	2307
+Advisory Board	2308
+Moro	2309
+Indea	2310
+Christian Clergy	2311
+Emirati	2312
+International Union Of Architects	2313
+Guy Verhofstadt	2314
+Lund	2315
+Mercenaries	2316
+Ehud Barak	2317
+Special Envoy	2318
+Marathi	2319
+Industry Minist	2320
+Bhola	2321
+Mark Carney	2322
+Jp Morgan Chase	2323
+Harbin	2324
+Shirin Ebadi	2325
+Conservative Judaism	2326
+First Lieutenant	2327
+Arrow Electronics	2328
+Jeddah	2329
+Resistance Movement	2330
+Michael Oren	2331
+Peasant	2332
+Buccaneer	2333
+Tegucigalpa	2334
+Fidel Castro	2335
+Cornish	2336
+Sao Paulo	2337
+Daniel Antonio	2338
+J P Morgan Chase	2339
+Rebel Army	2340
+Pranab Mukherjee	2341
+Minist For Water	2342
+Council Of Europe	2343
+Minist For Information	2344
+Raila Odinga	2345
+Venkaiah Naidu	2346
+Strathclyde	2347
+Private Bank	2348
+Soledad	2349
+Empire State	2350
+Chevron Corp	2351
+Belarusian	2352
+Terengganu	2353
+Chancery	2354
+Kunming	2355
+Peter Shanel	2356
+Xaverian Brothers	2357
+Cotonou	2358
+Nicaraguan	2359
+Jacksonville	2360
+Juan Manuel Santos	2361
+Varna	2362
+China Mobile	2363
+Leningrad	2364
+Moussa Faki Mahamat	2365
+Machu Picchu	2366
+International Community	2367
+Dortmund	2368
+Gangster	2369
+Nijmegen	2370
+Hausa	2371
+Minist Of Foreign	2372
+Burgundy	2373
+Lashkar E Toiba	2374
+Kolhapur	2375
+Miscreant	2376
+Turk	2377
+Minist Of Economy	2378
+Hamburg	2379
+Terepai Maoate	2380
+Chadian	2381
+Military Government	2382
+Chittagong	2383
+Cook Islands	2384
+Kyrgyzstan	2385
+Las Vegas Sands	2386
+Nauru	2387
+Helen Clark	2388
+Warship	2389
+Finance Official	2390
+Ranchi	2391
+Essen	2392
+Conglomerate	2393
+Austrian	2394
+Brasil	2395
+John Turner	2396
+Hitachi	2397
+Stryker Corporation	2398
+Xerox	2399
+Karbala	2400
+Armed Bandit	2401
+Vilnius	2402
+Central Java	2403
+Sicily	2404
+Basra	2405
+Punjabi	2406
+Merchant Vessel	2407
+Dow Chemical Company	2408
+Banjul	2409
+Freetown	2410
+Galilee	2411
+Ghulam Nabi Azad	2412
+Saskatchewan	2413
+Palestine Liberation Organization	2414
+Madhesi	2415
+Gandaki	2416
+Esfahan	2417
+Directv	2418
+Netumbo Nandi Ndaitwah	2419
+Military Authorities	2420
+Torino	2421
+Tivoli	2422
+Margrethe Ii	2423
+Pope Benedict	2424
+Department Of Foreign Affairs	2425
+Surat Thani	2426
+Don Pramudwinai	2427
+Privy Council	2428
+Agriculture Secretary	2429
+Unidentified Gunmen	2430
+China Telecom	2431
+Calabarzon	2432
+K. Shanmugam	2433
+Perak	2434
+Vanuatu	2435
+Avalonbay Communities	2436
+Armed Troops	2437
+Prince Norodom Ranariddh	2438
+Haifa	2439
+Minist For Agriculture	2440
+Jewish National Fund	2441
+Kaohsiung	2442
+Helsinki	2443
+News Editor	2444
+Islamist Cleric	2445
+Looter	2446
+Lulzim Basha	2447
+Bundestag	2448
+Pabna	2449
+Elvin Nimrod	2450
+Perry Christie	2451
+Hubert Minnis	2452
+Barbuda	2453
+Dominica	2454
+Armed Police	2455
+Kyoto	2456
+Kingstown	2457
+Grenadines	2458
+France Telecom	2459
+Der Spiegel	2460
+International Physicians For The Prevention Of Nuclear War	2461
+Napoli	2462
+George Town	2463
+John Hancock	2464
+Uniting Church In Australia	2465
+Vodafone	2466
+Gent	2467
+Jiangxi	2468
+Rotary Club	2469
+Franciscans	2470
+East Germany	2471
+Algiers	2472
+Archdiocese	2473
+Hartford Financial Services Group	2474
+Calabria	2475
+Tabasco	2476
+Mount Carmel	2477
+Islamic Development Bank	2478
+Students And Teacher	2479
+Meredith Corporation	2480
+Aurangabad	2481
+Mallikarjun Kharge	2482
+Interim President	2483
+Brasilia	2484
+Brian Mc	2485
+Yosemite	2486
+Sri Lankan	2487
+St. Petersburg	2488
+News Corporation	2489
+Goiania	2490
+Trincomalee	2491
+New Zealander	2492
+Isfahan	2493
+Douala	2494
+Sao Tome And Principe	2495
+Douglas Emmett	2496
+North American Energy Partners	2497
+Andrew Holness	2498
+Chiba	2499
+Inuit	2500
+Richard Perle	2501
+Dilma Rousseff	2502
+Antigua	2503
+Paula Bennett	2504
+Law Enforcing Agencies	2505
+Shaanxi	2506
+Energy Corp	2507
+Tomsk	2508
+Bloemfontein	2509
+Susan Rice	2510
+Chisinau	2511
+Moldovan	2512
+Omar Bongo	2513
+Nunavut	2514
+Yukon Territory	2515
+Trades Union	2516
+Minist Of Fisheries	2517
+Tunis	2518
+Rebel Force	2519
+Td Ameritrade	2520
+Avigdor Lieberman	2521
+Motorola	2522
+Extortionist	2523
+Council Of Ministers	2524
+Social Welfare Minist	2525
+Bibi Netanyahu	2526
+Shan	2527
+Santa Ana	2528
+Rand Corporation	2529
+Austrailia	2530
+Kingdom Of Cambodia	2531
+St Kitts And Nevis	2532
+Jetblue	2533
+Reserve Officer	2534
+Chinook	2535
+Usaid	2536
+Anguilla	2537
+Royal Bank Of Scotland	2538
+Sar Kheng	2539
+Taubman Centers	2540
+French Polynesian	2541
+Provincial Officials	2542
+Sharad Pawar	2543
+Department Of Commerce	2544
+Tyre	2545
+Niigata	2546
+Corelogic	2547
+Protesting Student	2548
+Granger	2549
+International Union For Conservation Of Nature	2550
+Greenhill	2551
+Hailemariam Desalegn	2552
+Liberation Front	2553
+Gangwon	2554
+Chernobyl	2555
+Novartis	2556
+The Land Of The Rising Sun	2557
+Parbat	2558
+Arun Shourie	2559
+Medico	2560
+Mauritian	2561
+Counsellor	2562
+Minist For Interior	2563
+State Run Media	2564
+Sempra Energy	2565
+Miao	2566
+Catholicism	2567
+Viktor Orban	2568
+Christian Science	2569
+U.S.	2570
+Alliance Data Systems	2571
+Commercial Bank	2572
+Yangon	2573
+Vladivostok	2574
+Narcotics Anonymous	2575
+Caddo	2576
+Magazine Editor	2577
+Bruno Rodriguez Parrilla	2578
+Yogyakarta	2579
+Nigerien	2580
+Wrongdoer	2581
+Electoral Alliance	2582
+World Trade Organization	2583
+Undp	2584
+Riviera	2585
+Pondicherry	2586
+Nicaragua	2587
+Broadcasting Corp	2588
+Andaman And Nicobar Islands	2589
+Waikato	2590
+St Helena	2591
+Gujarati	2592
+Nung	2593
+Pawan Kumar Bansal	2594
+Hiker	2595
+Kalimantan	2596
+Si Sa Ket	2597
+National Grid Transco	2598
+Law Officer	2599
+Ouagadougou	2600
+Alcoholics Anonymous	2601
+Zhuhai	2602
+Dar Es Salaam	2603
+Association Of Southeast Asia Nations	2604
+Mines Minist	2605
+Yerevan	2606
+Monastery	2607
+Farm Labourer	2608
+Prosecuting Officer	2609
+Henan	2610
+Luoyang	2611
+Katowice	2612
+Tourism Department	2613
+Omar Abdullah	2614
+Unification Minist	2615
+Anti Terrorism Court	2616
+Luzon	2617
+Sango	2618
+Uyghur	2619
+State Owned Enterprise	2620
+Transportation Minist	2621
+Minist For Health	2622
+Whorehouse	2623
+Southafrica	2624
+Neapolitan	2625
+Lesvos	2626
+Shimon Peres	2627
+World Jewish Congress	2628
+Zamboanga	2629
+Cameroonian	2630
+Ismail Khan	2631
+Military Advisor	2632
+Joseph Boakai	2633
+Kilifi	2634
+Policewoman	2635
+Covenant House	2636
+Kapstone Paper And Packaging	2637
+Rautahat	2638
+Operation Smile	2639
+President Nixon	2640
+Aichi	2641
+Madi	2642
+Kisii	2643
+Rhone	2644
+Guinean	2645
+Conakry	2646
+Mohamed Ali Mohamed	2647
+Zhang Dejiang	2648
+Pepsico	2649
+Senior Intelligence Officer	2650
+Executive Department	2651
+Manus	2652
+Infospace Inc	2653
+Skorea	2654
+Nkorea	2655
+Standing Army	2656
+Michael Barone	2657
+Saint Vincent	2658
+Saint Vincent And The Grenadines	2659
+Bogota	2660
+Antioch	2661
+Whore	2662
+Khieu Kanharith	2663
+Prosecutor General	2664
+Minist For Housing	2665
+Workers Organization	2666
+Official News Agency	2667
+Guyanese	2668
+Shenzhen	2669
+Nakhon Si Thammarat	2670
+Cibc	2671
+Majuro	2672
+Otago	2673
+Chamorro	2674
+Windhoek	2675
+Robert Mugabe	2676
+Palau	2677
+Ceylon	2678
+Golden State	2679
+Marshall Islands	2680
+Hamelin	2681
+South And North Korea	2682
+Insurrectionist	2683
+San Pedro Sula	2684
+Aceh	2685
+Kumari Selja	2686
+Broadcasting Company	2687
+Minist For International Cooperation	2688
+Dz Bank	2689
+Khalsa	2690
+Tanganyika	2691
+Tama	2692
+Iroquois	2693
+Phu Yen	2694
+Icai	2695
+Federated Investors Inc	2696
+Pervert	2697
+Occupied Territories	2698
+Intrahealth International	2699
+Minist For Home	2700
+Tata Motors	2701
+Natives	2702
+Jabalpur	2703
+Quang Binh	2704
+Hoa Binh	2705
+Pangasinan	2706
+Welshman Ncube	2707
+Top Executive	2708
+Opposition Faction	2709
+Milos Zeman	2710
+Car Maker	2711
+Naija	2712
+Yahya Jammeh	2713
+Drug Syndicate	2714
+Savoy	2715
+Bhaktapur	2716
+Moravia	2717
+Tianjin	2718
+Nyala	2719
+Central Africa Republic	2720
+Refugee Returnee	2721
+Army National Guard	2722
+Frelimo	2723
+Intelligence Officer	2724
+Liaoning	2725
+Gauhati	2726
+Sadhu	2727
+Information Committee	2728
+Pretoria	2729
+Chechnya	2730
+Tashkent	2731
+Abu Bakar	2732
+Tierra Del Fuego	2733
+Urumqi	2734
+Transport Authority	2735
+Herat	2736
+Bathabile Dlamini	2737
+Iraqi Kurdistan	2738
+Mahinda Rajapakse	2739
+Court Official	2740
+Luhya	2741
+Brahmin	2742
+Maneka Gandhi	2743
+Utrecht	2744
+Islamic Militant	2745
+Jigme Khesar Namgyel Wangchuck	2746
+Paris Club	2747
+Shavkat Mirziyayev	2748
+Harold Lovell	2749
+Kandahar	2750
+Air Unit	2751
+Kachin State	2752
+Salisbury	2753
+Soweto	2754
+David Frum	2755
+Reservist	2756
+Malawian	2757
+Spy Plane	2758
+Minist For Foreign	2759
+Lam Dong	2760
+Higher Education Minist	2761
+National Airline	2762
+Macquarie Infrastructure	2763
+Comilla	2764
+Sunamganj	2765
+Doris Leuthard	2766
+Habitat For Humanity	2767
+Xian	2768
+Tallinn	2769
+Technology Minist	2770
+Minist Of Internal Affairs	2771
+Ritchie Bros	2772
+Opposition Coalition	2773
+Krasnodar	2774
+Mohamed Nasheed	2775
+Despot	2776
+Legislative Chamber	2777
+Court Of Chancery	2778
+Shizuoka	2779
+Mzansi	2780
+Thermo Fisher	2781
+Pnc Bank Corp	2782
+Minist Of Law	2783
+Sharecropper	2784
+Roma	2785
+Pahang	2786
+Carmaker	2787
+Polity	2788
+Mbabane	2789
+Intelligence Apparatus	2790
+Lithuanian	2791
+Carnegie Endowment For International Peace	2792
+Pusan	2793
+Lille	2794
+International Advertising Association	2795
+Pimco	2796
+Slovakia	2797
+Phitsanulok	2798
+Texaco	2799
+Tennessee Valley Authority	2800
+Cemex	2801
+Channel Island	2802
+Isle Of Man	2803
+Franklin Covey	2804
+Baroda	2805
+Bank Of Nova Scotia	2806
+Mosaic Company	2807
+Iaea	2808
+Creole	2809
+Mizoram	2810
+Papal States	2811
+Objector	2812
+Sagarmatha	2813
+Ahmadiyya	2814
+Commanding Officer	2815
+Company Owner	2816
+Satmar	2817
+Sidon	2818
+Us State Department	2819
+Rafael Correa	2820
+Ashgabat	2821
+Justice Of The Peace	2822
+Mauritanian	2823
+Military Spokesman	2824
+Central Fund Of Canada Limited	2825
+Mark Rutte	2826
+Minist Of Home Affairs	2827
+Nogales	2828
+Andres Manuel Lopez Obrador	2829
+Nabil Shaath	2830
+Visayas	2831
+Morobe	2832
+Central Bank Governor	2833
+Scott Gottlieb	2834
+Minist Of Oil	2835
+Ahmad Zahid Hamidi	2836
+Qingdao	2837
+Nineveh	2838
+Kevin Hassett	2839
+Lake Geneva	2840
+Michel Temer	2841
+Bank Of China	2842
+Prairie State	2843
+Twin Falls	2844
+Order Of Malta	2845
+Luxemburg	2846
+Lasalle Hotel Properties	2847
+Pebblebrook Hotel Trust	2848
+Kannada	2849
+Aarhus	2850
+Northern Irish	2851
+Chamber Of Deputies	2852
+Buenos Aires	2853
+National Organization For Women	2854
+Friends Of The Earth	2855
+Illegal Migrant	2856
+Kaliningrad	2857
+Peapack Gladstone	2858
+Forum For The Future	2859
+Reactionaries	2860
+Earthjustice	2861
+Atal Bihari Vajpayee	2862
+Omani	2863
+Lumad	2864
+Jing	2865
+Casablanca	2866
+Jimmie Rodgers	2867
+Elbit Systems	2868
+General Contractor	2869
+Suncor Energy	2870
+Gothenburg	2871
+Federal Police	2872
+National News Agency	2873
+Constab	2874
+Burmese	2875
+Kofi Annan	2876
+Vedanta	2877
+Galician	2878
+French Development Agency	2879
+Michaelle Jean	2880
+La Francophonie	2881
+Aruba	2882
+Christchurch	2883
+Bay Of Plenty	2884
+Tottori	2885
+Sisters Of Charity	2886
+Lubumbashi	2887
+Syriac Orthodox	2888
+Guerilla	2889
+Autism Speaks	2890
+Registered Nurse	2891
+Aid Group	2892
+The Wb	2893
+Lombardy	2894
+Veneto	2895
+Icelander	2896
+Ethopia	2897
+Nanchang	2898
+Commercial Metals Company	2899
+Bhumibol Adulyadej	2900
+Tajik	2901
+Lofoten	2902
+Uzbekistani	2903
+Kazakhstani	2904
+Shavkat Mirziyoyev	2905
+Viet Nam	2906
+Al Mukalla	2907
+Jodhpur	2908
+Labaran Maku	2909
+United Sates	2910
+Ormat Technologies	2911
+Saida	2912
+Kanagawa	2913
+Mozambican	2914
+Ramakrishna Math	2915
+Mcgraw Hill	2916
+Barranquilla	2917
+Blantyre	2918
+International Criminal Police Organization	2919
+Minist Of Labor	2920
+Office Depot Inc	2921
+Saratov	2922
+Crime Syndicate	2923
+Foreign Affairs Minist	2924
+Nkosazana Dlamini Zuma	2925
+Chitwan	2926
+Faure Gnassingbe	2927
+Serviceman	2928
+Chief Engineer	2929
+State Owned News Agency	2930
+Economic Expert	2931
+Cordoba	2932
+Islamic Council	2933
+Sian	2934
+Minist Of Mines	2935
+Vince Cable	2936
+Governing Party	2937
+Zions Bancorp	2938
+Chun Yung Woo	2939
+State Duma	2940
+Mississippi River	2941
+Astrakhan	2942
+Philip Ruddock	2943
+Shandong	2944
+Porto	2945
+Minist For Fisheries	2946
+Minist Of Industry And Trade	2947
+Lee Kuan Yew	2948
+Military Dictator	2949
+Telecom Italia	2950
+Macao	2951
+Buffalo Wild Wings	2952
+Anheuser Busch	2953
+Latvija	2954
+Timor Leste	2955
+East Timor	2956
+Timor	2957
+Ruling Coalition	2958
+Foreign Affairs Ministry	2959
+Conservatory	2960
+Idex Corporation	2961
+Ana Maria	2962
+Secretary Of Education	2963
+Minist Of Higher Education	2964
+State Run Television	2965
+The Christian Community	2966
+Mukalla	2967
+S. Africa	2968
+Pedro Pablo Kuczynski	2969
+Tutsi	2970
+American Association Of University Women	2971
+Gates Foundation	2972
+Battle Tank	2973
+Xavier Bertrand	2974
+Laurent Wauquiez	2975
+Publishing Company	2976
+Steinhoff International	2977
+Hormel Foods	2978
+Macky Sall	2979
+Ashraf Jehangir Qazi	2980
+Press Agency	2981
+Natural Resources Defense Council	2982
+Bermudian	2983
+Guadeloupe	2984
+Stalingrad	2985
+Morgan Tsvangirai	2986
+Allen Chastanet	2987
+Tendai Biti	2988
+Rahmatullah Nabil	2989
+International Institute For Applied Systems Analysis	2990
+Ayatollah Ruhollah Khomeini	2991
+Ultrapetrol	2992
+Attack Helicopters	2993
+Abu Salem	2994
+Swede	2995
+Donetsk	2996
+Kinmen County	2997
+Oklahoma City	2998
+Buddhist Clergy	2999
+Monsanto	3000
+Paraguayan	3001
+Bjarni Benediktsson	3002
+Prince Edward Island	3003
+Rite Aid Corporation	3004
+T. Rowe Price	3005
+Matiur Rahman Nizami	3006
+State Security Council	3007
+Internet Site	3008
+Minist For Planning And Development	3009
+National Economic Council	3010
+Patuakhali	3011
+Public Defender	3012
+Falun Gong	3013
+Lalitpur	3014
+Ahvaz	3015
+Xekong	3016
+Bahai Faith	3017
+Fortress Investment Group	3018
+Lisboa	3019
+Ilir Meta	3020
+Military Intelligence	3021
+Crusader	3022
+Ambassador At	3023
+Monrovia	3024
+Minist For Finance	3025
+Mayanmar	3026
+Embassy In A	3027
+Gough Whitlam	3028
+Gambari	3029
+Saint Lawrence River	3030
+Larry Anthony	3031
+Chongqing	3032
+Radio Free Asia	3033
+Snatcher	3034
+Alawi	3035
+Orleans	3036
+Limousin	3037
+Luxor	3038
+Odesa	3039
+Prithviraj Chavan	3040
+Rotterdam	3041
+Beehive State	3042
+Islamic Extremist Group	3043
+Guadalcanal	3044
+Inovio Pharmaceuticals	3045
+Protalix Biotherapeutics	3046
+Zapatista Army Of National Liberation	3047
+Security Check	3048
+Negev Desert	3049
+Naval Base	3050
+Invesco	3051
+Naturalized	3052
+Xining	3053
+Nusa Tenggara	3054
+Monte Carlo	3055
+Brescia	3056
+David Thompson	3057
+Mandar	3058
+American Association For The Advancement Of Science	3059
+Hardeep Singh Puri	3060
+Anti Government Force	3061
+Nvidia	3062
+Broadridge Financial Solutions	3063
+Tim Hortons	3064
+Ehud Olmert	3065
+Immigration Minist	3066
+Malvinas	3067
+Bavaria	3068
+Rashtriya Swayamsevak Sangh	3069
+Falklands	3070
+Ruhr	3071
+Taoism	3072
+Sunbelt	3073
+Apple Inc	3074
+Monterrey	3075
+Galapagos Islands	3076
+Non Government Organisation	3077
+Polen	3078
+Health Facility	3079
+Landing Ship	3080
+Vijay Goel	3081
+International Commission Of Jurists	3082
+Mapuche	3083
+Perkinelmer	3084
+Saint Kitts And Nevis	3085
+St Kitts Nevis	3086
+Abila	3087
+Junior Officer	3088
+Bandung	3089
+Naval Officer	3090
+World Resources Institute	3091
+Continental Resources Inc	3092
+Servicem	3093
+Student Army	3094
+Goodyear Tire	3095
+Kongo	3096
+Merchant Ship	3097
+Temuco	3098
+Isreali	3099
+Corsican	3100
+Fujian	3101
+Separatist Leader	3102
+Siam	3103
+Corinth	3104
+United Liberation Front Of Assam	3105
+La Paz	3106
+Evo Morales	3107
+Exiled Opposition	3108
+Hokkaido	3109
+Venetia	3110
+Oxfam	3111
+Rent A Center	3112
+The Asia Society	3113
+Aercap Holdings	3114
+Costco	3115
+Robert Gates	3116
+Newfoundland And Labrador	3117
+Landholder	3118
+Presidium	3119
+Medical Institution	3120
+Minist For Civil	3121
+St Kitts	3122
+World Tourism Organization	3123
+Monegasque	3124
+Aswan	3125
+Burger King	3126
+Lieutenant Colonel	3127
+Baja California	3128
+Shire Plc	3129
+Manaus	3130
+Michael Scott	3131
+Minister Plenipotentiary	3132
+Grece	3133
+Sinhalese	3134
+Rebel Source	3135
+Goteborg	3136
+On Track Innovations Ltd	3137
+Ernest Bai Koroma	3138
+Religious Affairs Minist	3139
+Doctors Without Borders	3140
+Bnp Paribas	3141
+Och Ziff	3142
+Soe Myint	3143
+Ibrahim Boubacar Keita	3144
+Jacques Fame Ndongo	3145
+Al Qaeda In Iraq	3146
+Whole Foods Market	3147
+Grand Rapids	3148
+Manulife	3149
+Al Haq	3150
+Toronto Dominion	3151
+Anand Sharma	3152
+Peoples Bank	3153
+Defense Contractor	3154
+Valeant Pharmaceuticals	3155
+Aragon	3156
+Evangelical Free Church	3157
+Guizhou	3158
+Concerned Christians	3159
+Border Patrol Police	3160
+Al Gore	3161
+Gayo	3162
+Latter Day Saints	3163
+American Enterprise Institute	3164
+Torreon	3165
+Commerce Department	3166
+Guernsey	3167
+Minist For Science	3168
+Khalifa Bin Salman Al Khalifa	3169
+Katrin Jakobsdottir	3170
+Uygur	3171
+Hamgyong	3172
+Mikhail Gorbachev	3173
+Western Sahara	3174
+Lord Resistance Army	3175
+Pzena Investment Management	3176
+Pfizer	3177
+Mexicali	3178
+Managing Editor	3179
+Santiago De Cuba	3180
+Olympus	3181
+Keith Mitchell	3182
+James Ryan	3183
+Government Representative	3184
+Reformed Church	3185
+Public Service Commission	3186
+Militant Movement	3187
+Samoan	3188
+Tuilaepa Sailele Malielegaoi	3189
+Medical Practitioner	3190
+Zaidi	3191
+Teva Pharmaceutical	3192
+Formosa	3193
+Native People	3194
+West Java	3195
+Quanex Building Products	3196
+Harlot	3197
+Manuel Noriega	3198
+Moro Islamic Liberation Front	3199
+Promulgator	3200
+Raven Industries	3201
+Food And Agriculture Organization	3202
+Lenin Moreno	3203
+Chukchi	3204
+David Petraeus	3205
+Rockefeller Foundation	3206
+Hasbro	3207
+Guayaquil	3208
+Minist Of Energy	3209
+Jorge Glas	3210
+Defense Lawyer	3211
+Quito	3212
+Grand Canyon	3213
+Varian Medical Systems	3214
+Military Delegation	3215
+Commerce Secretary	3216
+Student Protester	3217
+Bank Of The Ozarks	3218
+Arapaho	3219
+Taif	3220
+Cebuano	3221
+Toulon	3222
+Agnostic	3223
+Bharrat Jagdeo	3224
+Hyatt Hotels	3225
+Bahamian	3226
+Beti	3227
+Military Wing	3228
+Martinique	3229
+Saigon	3230
+Medical Building	3231
+Non Natives	3232
+Centre For Human Rights	3233
+Lattice Semiconductor Corp	3234
+Ituri	3235
+Grozny	3236
+Penza	3237
+Torpedo Boat	3238
+Weatherford International	3239
+Minist Of Environment	3240
+Demerara	3241
+Macuata	3242
+Isreal	3243
+Manuel Zelaya	3244
+Spy Ship	3245
+Freedom From Religion Foundation	3246
+Humane Society Of The United States	3247
+Buddhism	3248
+Kuwait City	3249
+Angora	3250
+Moneygram International	3251
+Bay State	3252
+Ragusa	3253
+Exiles	3254
+Mahendra Chaudhry	3255
+Protesting Worker	3256
+Intel Corporation	3257
+Children International	3258
+Land Of Lincoln	3259
+Agriculturalist	3260
+The Iu	3261
+International Rescue Committee	3262
+Bemba	3263
+Secretary Of The Interior	3264
+Military Junta	3265
+Minist For Home Affairs	3266
+United Church Of Canada	3267
+Yang Jiechi	3268
+Social Reformer	3269
+Rebel Commander	3270
+Lim Keng Yaik	3271
+American Physical Society	3272
+Land Force	3273
+Amrc	3274
+Occidental Petroleum	3275
+Zapotec	3276
+Xcel Energy	3277
+Michael Graham	3278
+Mam Bun Heng	3279
+Banteay Meanchey	3280
+National Space Society	3281
+Syngenta	3282
+Mafia Boss	3283
+Lesbos	3284
+International Labor Organization	3285
+Politburo Member	3286
+Gordon Brown	3287
+Delta Sigma Theta	3288
+Carl Bildt	3289
+Salvadoran	3290
+Barrick Gold Corporation	3291
+Phalanx	3292
+Said Musa	3293
+Freighter	3294
+Minist Of Housing	3295
+Perlis	3296
+Ingersoll Rand	3297
+Gerdau	3298
+Corrections Corporation Of America	3299
+Corinthian Colleges	3300
+Evergreen State	3301
+Kazachstan	3302
+Peter Oneill	3303
+New River	3304
+Hindu Pilgrim	3305
+Minist Of Science	3306
+Space Agency	3307
+Delta Kappa Gamma	3308
+Matthew Cheung Kin Chung	3309
+Confucianism	3310
+Gifu	3311
+Annapurna	3312
+National Court	3313
+Violent Group	3314
+Mesopotamia	3315
+Nursultan Nazarbayev	3316
+Westpac Banking Corporation	3317
+Procuratorate	3318
+Zaragoza	3319
+Assyria	3320
+Audley Shaw	3321
+Saarc	3322
+Anthony Albanese	3323
+Argentinean	3324
+Montego Bay	3325
+Energy Transfer Partners	3326
+Dana Rohrabacher	3327
+Choi Kyung Hwan	3328
+Khasi	3329
+Shared Interest	3330
+Destroyer	3331
+Dhankuta	3332
+Lawman	3333
+Fireman	3334
+Juan Carlos Varela	3335
+Southeast Asian Nations	3336
+General Mills	3337
+Kula	3338
+Republic Of The Congo	3339
+Tesol	3340
+Combat Aircraft	3341
+Wurzburg	3342
+David Gibbons	3343
+Monacan	3344
+Noh Omar	3345
+Attaur Rehman	3346
+Majorca	3347
+Susu	3348
+Columbia River	3349
+Anhui	3350
+Publishing House	3351
+Aqua America	3352
+Un Envoy	3353
+Department Of Civil Aviation	3354
+Scotsman	3355
+Baya	3356
+Ken Clarke	3357
+Liow Tiong Lai	3358
+Switzer	3359
+Catholic Relief Services	3360
+Global Witness	3361
+Faysal	3362
+Prisons Department	3363
+Kriya Yoga	3364
+Primorsky	3365
+Haikou	3366
+Angie Motshekga	3367
+Ungarn	3368
+Gunrunner	3369
+Political Detainee	3370
+Yupik	3371
+Genworth Financial	3372
+Dalian	3373
+Civic Group	3374
+Daejeon	3375
+Heilongjiang	3376
+Phang Nga	3377
+Udayapur	3378
+Minist Of National Development	3379
+Ppg Industries	3380
+Peter Smith	3381
+Louise Arbour	3382
+Muslim Cleric	3383
+Eyre	3384
+State Run Tv	3385
+Goma	3386
+Quaid E Azam	3387
+Pinnacle Financial Partners	3388
+San Luis Potosi	3389
+Lal Masjid	3390
+Parsa	3391
+Bodo	3392
+Angelino Alfano	3393
+Indore	3394
+Moravian Church	3395
+Law Enforcement Authority	3396
+Jerome Walcott	3397
+Sunshine State	3398
+Krasnoyarsk	3399
+American Friends Service Committee	3400
+Social Watch	3401
+Altrusa	3402
+Stabroek	3403
+Kisumu	3404
+Medical Specialist	3405
+Legate	3406
+Henri Eyebe Ayissi	3407
+Apartment Investment And Management Company	3408
+Brno	3409
+Minist Of Local Government	3410
+Savings And Loan	3411
+Delta Air Lines	3412
+Jaap De Hoop Scheffer	3413
+Minist Of Women	3414
+Ambassador To The U	3415
+Jaroslaw Kaczynski	3416
+Iban	3417
+Anti Graft Court	3418
+Atheism	3419
+Army Intelligence	3420
+Quang Nam	3421
+High Official	3422
+Telecommunication Minist	3423
+Ningbo	3424
+Oita	3425
+Turncoat	3426
+Anyang Nyongo	3427
+Peter Anyang Nyongo	3428
+Ethnic Rebel	3429
+Mahakali	3430
+Terai	3431
+Gangland	3432
+Kanchanaburi	3433
+Basotho	3434
+Minist For Justice	3435
+Permanent Representative To The United Nations	3436
+Soka Gakkai	3437
+Aomori	3438
+Gyeonggi	3439
+Datong	3440
+Politburo	3441
+Manx	3442
+Military Patrol	3443
+Sind	3444
+Semarang	3445
+Lusitania	3446
+Pyuthan	3447
+Aliran	3448
+Helmut Kohl	3449
+Ewald Nowotny	3450
+Iranian Oil Company	3451
+Caterpillar Inc	3452
+Harkat Ul Mujahideen	3453
+Nelson Chamisa	3454
+Swahili	3455
+Galicia	3456
+Agriculturist	3457
+Slavic	3458
+Lang Son	3459
+Nguyen Xuan Phuc	3460
+Welfare Minist	3461
+Robin Yearwood	3462
+Meerut	3463
+Fikile Mbalula	3464
+Central African	3465
+Asustek Computer	3466
+Lindiwe Sisulu	3467
+Minist Of International Cooperation	3468
+Yamagata	3469
+Gansu	3470
+George Osborne	3471
+Hugo Chavez	3472
+Petroleo Brasileiro	3473
+Nawabganj	3474
+Montevideo	3475
+Benjamin Mkapa	3476
+Telecom Firm	3477
+Drug Kingpin	3478
+Culebra	3479
+Businessperson	3480
+Dr Pepper Snapple	3481
+Golden Star Resources	3482
+Apia	3483
+Dushanbe	3484
+Aleph	3485
+Astrazeneca	3486
+Ayeyarwady	3487
+Mullaitivu	3488
+Moshe Kahlon	3489
+Liberation Tigers Of Tamil Eelam	3490
+Rajitha Senaratne	3491
+Investigative Agency	3492
+Sichuan	3493
+Baffin Island	3494
+Fisheries And Livestock Minist	3495
+Backward Classes	3496
+Resistance Leader	3497
+Ofid	3498
+Rangoon	3499
+Huambo	3500
+Trade Official	3501
+Clorox Company	3502
+Uppsala	3503
+Ford Motor	3504
+Fortaleza	3505
+Maseru	3506
+Letsie Iii	3507
+Manuel Roxas	3508
+Dogras	3509
+The Local Church	3510
+Irishman	3511
+Organized Labor	3512
+Zaria	3513
+Sightseer	3514
+Graeme Wheeler	3515
+Munshiganj	3516
+Weimar	3517
+Bishkek	3518
+Jiangsu	3519
+Mikheil Saakashvili	3520
+Economy Secretary	3521
+Pashtun	3522
+Kadazan	3523
+Shafie Apdal	3524
+Den Haag	3525
+Kasuri	3526
+Dijon	3527
+Mario Draghi	3528
+Council Of The Union	3529
+Antalya	3530
+Louise Mushikiwabo	3531
+Kemet Corporation	3532
+Alexion Pharmaceutical	3533
+Italia	3534
+Mastercard	3535
+Latvian	3536
+Commonwealth Of Independent States	3537
+Webster Shamu	3538
+Parallel Government	3539
+Narcotics Officer	3540
+Anders Fogh Rasmussen	3541
+Minist Of Presidential Affairs	3542
+Mihai Ghimpu	3543
+Wizo	3544
+Heifer International	3545
+Tasman	3546
+Tenant Farmer	3547
+Airman	3548
+Mpumalanga	3549
+Polynesian	3550
+International Labour Organization	3551
+Donald Tusk	3552
+Actionaid	3553
+Ferrara	3554
+Maronite	3555
+Boat People	3556
+Danish Refugee Council	3557
+Care International	3558
+Scana Corp	3559
+Alsace	3560
+Reuel Marc Gerecht	3561
+World Energy Council	3562
+Papuan	3563
+Joseph Smith	3564
+Abkhazians	3565
+Papua	3566
+Torchmark Corporation	3567
+Blade Nzimande	3568
+Edirne	3569
+Construction Minist	3570
+Counterfeiter	3571
+Liechtenstein	3572
+First Midwest Bancorp	3573
+Jeune Afrique	3574
+Scientology	3575
+Leon Panetta	3576
+Regina Ip	3577
+Shijiazhuang	3578
+Suriname	3579
+Rheinland	3580
+Muslim Doctor	3581
+Chandrika Kumaratunga	3582
+Labor Secretary	3583
+Academician	3584
+Irrigation Minist	3585
+Sinclair Broadcast Group	3586
+Ixia	3587
+Displaced Families	3588
+Englishman	3589
+Elvira Nabiullina	3590
+Limnos	3591
+Us Treasury	3592
+Andrew Smith	3593
+Minist For Commerce	3594
+Intelligence Information	3595
+Malian	3596
+Mongol	3597
+Kamchatka	3598
+Treasury Minist	3599
+Faroe	3600
+Guinea Bissau	3601
+Bissau	3602
+Tourism Office	3603
+Rebel Soldier	3604
+San Marino	3605
+Andalucia	3606
+Tooro	3607
+Zhengzhou	3608
+Salzburg	3609
+International Energy Agency	3610
+Center For Security Policy	3611
+Khovsgol	3612
+Minist For Planning	3613
+Gaziantep	3614
+Richard Burton	3615
+Siemens Ag	3616
+Pearnel Charles	3617
+Roh Moo Hyun	3618
+Joseph Estrada	3619
+Attack Craft	3620
+Paul Gallagher	3621
+Minist For Social Welfare	3622
+Yuval Steinitz	3623
+Lower Saxony	3624
+Thomas De Maiziere	3625
+Tagalog	3626
+Monmouth Real Estate Investment	3627
+Brassil	3628
+Matamoros	3629
+Gomorrah	3630
+Northern Cape	3631
+Patrick Manning	3632
+Nathi Mthethwa	3633
+Dien Bien	3634
+Peace Action	3635
+Dullas Alahapperuma	3636
+Great Wall	3637
+Combat Helicopter	3638
+Civil Courts	3639
+Chiang Rai	3640
+Mncs	3641
+Harmony Gold Mining	3642
+Viktor Medvedchuk	3643
+Andalusia	3644
+Posse	3645
+Palastine	3646
+Yashwant Sinha	3647
+Williams Sonoma	3648
+Qinghai	3649
+Bridgetown	3650
+Hangzhou	3651
+Philip Alston	3652
+Lichtenstein	3653
+Holy See	3654
+Striking Worker	3655
+Foreign Relations Committee	3656
+Ensign	3657
+Elected Bodies	3658
+Negeri Sembilan	3659
+Minist Of Production	3660
+Sierra Leonean	3661
+Hefei	3662
+Dusseldorf	3663
+Industries Minist	3664
+Nagoya	3665
+Spy Agency	3666
+Death Squad	3667
+Montserrat	3668
+Teodoro Obiang Nguema	3669
+Black River	3670
+Grenadian	3671
+Royal Court	3672
+Government Soldier	3673
+Wael Abu Faour	3674
+Outaouais	3675
+American Humanist Association	3676
+Government In Exile	3677
+Yantai	3678
+Murmansk	3679
+International Civil Aviation Organization	3680
+Untouchables	3681
+Salish	3682
+Togolese	3683
+Minister Without Portfolio	3684
+Henry Oryem Okello	3685
+Secretary Of Labour	3686
+Kazan	3687
+Secretary Of Labor	3688
+Hindu Munnani	3689
+Deobandi	3690
+Ahmadiyya Muslim Community	3691
+Treasure State	3692
+Economic Community Of West African States	3693
+Mekong River Commission	3694
+Ioannis Kasoulides	3695
+China Railway Construction Corp	3696
+Kishoreganj	3697
+Didier Reynders	3698
+Organisation For Economic Cooperation And Development	3699
+Mohammed Vi	3700
+Ministers Of State	3701
+National Security Service	3702
+Ural Mountains	3703
+James R. Clapper	3704
+Ohio River	3705
+Shanghai Cooperation Organization	3706
+Maniema	3707
+Barisal	3708
+Mental Institution	3709
+Merchandiser	3710
+Ruling Faction	3711
+Petroleum Minist	3712
+Hosni Mubarak	3713
+Nantes	3714
+Manikganj	3715
+Bandar Seri Begawan	3716
+Joyce Banda	3717
+Bruce Lindsey	3718
+John Boehner	3719
+Speaker Of Parliament	3720
+Commerce Bancshares Inc	3721
+Lions Club International	3722
+Missouri River	3723
+Lari	3724
+Umbria	3725
+Paul Boateng	3726
+Bayan Palace	3727
+Kyrgyz	3728
+Hecla Mining Company	3729
+Rabble	3730
+Marta Lucia Ramirez	3731
+Rabobank	3732
+Bremen	3733
+Church Of South India	3734
+Community Of Christ	3735
+Fukui	3736
+Secretary Of The Treasury	3737
+Vincentian	3738
+Saboto Caesar	3739
+Roseau	3740
+Minist Of The Presidency	3741
+Minist Of National Security	3742
+Shaivism	3743
+Hillenbrand Inc	3744
+Credit Agricole	3745
+Poona	3746
+Kapil Sibal	3747
+Michael Smith	3748
+Plan International	3749
+Judges	3750
+Simbu	3751
+Thokozani Khupe	3752
+Workers Federation	3753
+Ann Peters	3754
+Vishwa Hindu Parishad	3755
+Director General Of Civil Aviation	3756
+Pilsen	3757
+Saint Lawrence	3758
+Secretary Of Commerce	3759
+Franklin Templeton	3760
+Burkinabe	3761
+International Union For The Conservation Of Nature	3762
+Gopalganj	3763
+Sumitomo Mitsui	3764
+Guadalajara	3765
+Bancorpsouth	3766
+Suntrust Banks	3767
+Army Rangers	3768
+Natan Sharansky	3769
+Banten	3770
+Gunslinger	3771
+Cape Verde	3772
+Garifuna	3773
+Un Mission	3774
+Chuck Hagel	3775
+Flag Officer	3776
+Miguel Vargas	3777
+Singh Sidhu	3778
+Herman Miller	3779
+Guttmacher Institute	3780
+Hamad Bin Khalifa Al Thani	3781
+John Delaney	3782
+Minist For Transport	3783
+Ishikawa	3784
+Anthony Martinez	3785
+Startek Inc	3786
+Teso	3787
+Schoolhouse	3788
+Immigrants	3789
+Asuncion	3790
+Digitalglobe	3791
+Thein Zaw	3792
+Military Intelligence Agency	3793
+Wagram	3794
+Privateer	3795
+Haida	3796
+Swiss French	3797
+Ukrainian Catholic Church	3798
+Nile River	3799
+Kansas City Southern	3800
+Perou	3801
+University Park	3802
+Merrill Lynch	3803
+New Hebrides	3804
+Port Vila	3805
+Dion Foulkes	3806
+Swazi	3807
+Ibrahim Al Jaafari	3808
+Union Pacific	3809
+Fresenius Medical	3810
+Tupperware	3811
+Swizerland	3812
+Boston Scientific Corporation	3813
+Pursat	3814
+Battambang	3815
+Organization For Security And Co Operation In Europe	3816
+Center For Strategic And International Studies	3817
+Lomaiviti	3818
+Nanning	3819
+Sitiveni Rabuka	3820
+Carmelites	3821
+Rafsanjani	3822
+Shaw Communications	3823
+Administrative Body	3824
+Hishammuddin Tun Hussein	3825
+Colac	3826
+Julius Maada Bio	3827
+Linz	3828
+Accenture Plc	3829
+Alejandro Toledo	3830
+Prelate	3831
+Wendy Sherman	3832
+Minist For Public Health	3833
+James Moore	3834
+Unitedhealth Group Incorporated	3835
+Felesteen	3836
+Latakia	3837
+Yoweri Kaguta Museveni	3838
+Svalbard	3839
+Pablo Martinez	3840
+Lloyds Tsb	3841
+Leona Aglukkaq	3842
+Fukushima	3843
+Caseworker	3844
+Car Manufacturer	3845
+Nstar	3846
+Allergan Inc	3847
+Janet Napolitano	3848
+Minist For Law	3849
+Eamon Ryan	3850
+Flds	3851
+Moslem	3852
+Syed Ashraful Islam	3853
+Us Student	3854
+Minist Of Social Welfare	3855
+Imperial Oil	3856
+Northwest Territories	3857
+Newspaper Publisher	3858
+Raymond Benjamin	3859
+Makonde	3860
+Champasak	3861
+Minist Of The Environment	3862
+Sayyid Badr Bin Saud Bin Harib Al Busaidi	3863
+Susil Premajayantha	3864
+Isa Yuguda	3865
+Parnassus	3866
+Cameroun	3867
+Alleged Militants	3868
+Ruby Tuesday	3869
+Koninklijke Philips	3870
+Pickpocket	3871
+Abdollah Ramezanzadeh	3872
+Diosdado Cabello	3873
+The Usa	3874
+Anti Government Activist	3875
+Lubeck	3876
+Kidnaper	3877
+Labour Activist	3878
+Versailles	3879
+Binh Thuan	3880
+Trinidadian	3881
+Novaya Zemlya	3882
+Kandy	3883
+Pedro Rossello	3884
+James Robertson	3885
+Intelligence Agent	3886
+Government Run Firm	3887
+Homel	3888
+Temotu	3889
+Hai Duong	3890
+Drug Mule	3891
+Joinville	3892
+Michael Cullen	3893
+Chon Buri	3894
+Liege	3895
+Party Alliance	3896
+Lamba	3897
+Ma Ying Jeou	3898
+Kandal	3899
+Minist Of Religious Affairs	3900
+Rosalinda Baldoz	3901
+Oaxaca	3902
+Changhua County	3903
+Tyumen	3904
+Thabo Mbeki	3905
+Aftab Ahmad Khan Sherpao	3906
+Toulouse	3907
+Niue	3908
+Sirius Xm	3909
+Halliburton	3910
+Chios	3911
+Tarawa	3912
+Hewitt Associates	3913
+Hu Jintao	3914
+Aruba Networks	3915
+Ministers And Mps	3916
+Managua	3917
+Guerrilla Leader	3918
+Bugis	3919
+Manipuri	3920
+Spiritualist	3921
+Mossi	3922
+Yunnan	3923
+Rogers Communication	3924
+Newspaperman	3925
+Somalian	3926
+Private Army	3927
+Paul Mashatile	3928
+Maite Nkoana Mashabane	3929
+Weyerhaeuser Company	3930
+Akka	3931
+Bantu	3932
+Kavango	3933
+Hindalco Industries	3934
+Auto Manufacturer	3935
+Vieques	3936
+Timken Company	3937
+Leucadia National Corp	3938
+Kalasin	3939
+Zaza	3940
+Republic Of Belarus	3941
+Miguel Oyono Ndong	3942
+Teodoro Nguema Obiang	3943
+Yim Tae Hee	3944
+Ohchr	3945
+Mohammad Yasin Malik	3946
+Research Institution	3947
+Micronesian	3948
+American Jewish World Service	3949
+Kurgan	3950
+Tarai	3951
+Pendukeni Iivula Ithana	3952
+Trial Attorney	3953
+Canaries	3954
+King Juan Carlos	3955
+Bida	3956
+Arab Emirates	3957
+Karl Samuda	3958
+Intelligence Operation	3959
+Meteorological Department	3960
+Dinesh Gunawardena	3961
+Recife	3962
+Algerie	3963
+Pricesmart Inc	3964
+Kirghiz	3965
+Armed Rebel	3966
+Anifah Aman	3967
+Iain Duncan Smith	3968
+Canary Islands	3969
+Micheal Martin	3970
+Bertie Ahern	3971
+Ram Naik	3972
+Drug Lord	3973
+Minist For Environment	3974
+Gun For Hire	3975
+Tokyo Sexwale	3976
+Leading News	3977
+Virgin Media	3978
+Maroc	3979
+An Giang	3980
+Bt Group	3981
+Corse	3982
+Minist Of Infrastructure	3983
+Prawit Wongsuwan	3984
+Norodom Sihamoni	3985
+Gulbuddin Hekmatyar	3986
+Pompeii	3987
+Lech Walesa	3988
+Seagate Technology	3989
+Liech	3990
+Altria Group	3991
+United State Of America	3992
+Moshe Yaalon	3993
+Democracy Watch	3994
+Ladoga	3995
+Potash Corporation Of Saskatchewan	3996
+Nihon	3997
+Satanism	3998
+Luis Alberto Moreno	3999
+Prag	4000
+Federated States Of Micronesia	4001
+Fire Brigade Official	4002
+Kurdistan Workers Party	4003
+China Southern Airlines	4004
+Agrium Inc	4005
+Nuwakot	4006
+Nosiviwe Mapisa Nqakula	4007
+Dodoma	4008
+Kilimanjaro	4009
+Baoding	4010
+Santeria	4011
+Commerzbank	4012
+Beacon Roofing Supply	4013
+Acholi	4014
+Pattani	4015
+Moroni	4016
+Noakhali	4017
+Emissary	4018
+Lietuvos	4019
+Chaldean Catholic Church	4020
+Minist Of Civil Aviation	4021
+National Endowment For Democracy	4022
+Jonathan Taylor	4023
+Foreign Terrorist Organization	4024
+Opposition Newspaper	4025
+Tearfund	4026
+Displaced Family	4027
+Vice Foreign Minister	4028
+Patent Office	4029
+Sunflower State	4030
+Jacques Chirac	4031
+Medan	4032
+Madeira	4033
+Harris Corporation	4034
+United Parcel Service	4035
+Wenzhou	4036
+Novosibirsk	4037
+Gartner Inc	4038
+Mondulkiri	4039
+Nazmul Huda	4040
+Oriya	4041
+Riau	4042
+Action Against Hunger	4043
+Cdi Corporation	4044
+Cote Divoire	4045
+Great Wall Of China	4046
+David Allen	4047
+Sergey Sobyanin	4048
+Genzyme Corporation	4049
+Changzhou	4050
+Zuni	4051
+Non Native	4052
+Charleroi	4053
+Alcatel Lucent	4054
+The Medicines Company	4055
+Berne	4056
+Nouakchott	4057
+Beckman Coulter	4058
+Bashir Ahmed	4059
+Revolutionary Movement	4060
+Armed Forces Revolutionary Council	4061
+Libreville	4062
+Trw Automotive	4063
+Persia	4064
+Okello Oryem	4065
+Midi	4066
+Elmar Mammadyarov	4067
+Ewa Kopacz	4068
+Nash Finch	4069
+Pampa Energia	4070
+Albemarle Corporation	4071
+Comscore	4072
+Kfir	4073
+Slum Dweller	4074
+Tyrol	4075
+Afganistan	4076
+Jainism	4077
+Inter Parliamentary Union	4078
+Hellas	4079
+Minist Of Public Health	4080
+Huntsman	4081
+Deng Alor Kuol	4082
+Yucatan Peninsula	4083
+Danny Faure	4084
+Minist For Higher Education	4085
+East African Community	4086
+Planned Parenthood Federation	4087
+Bandarban	4088
+Daqing	4089
+Dutch Court	4090
+Provisional Government	4091
+Foreign Correspondent	4092
+Pharmaceutical Firm	4093
+International Federation Of Journalists	4094
+Sankhuwasabha	4095
+Wakayama	4096
+Childfund	4097
+Supreme Council Of Ethnikoi Hellenes	4098
+Henrietta Fore	4099
+Canadian Solar Inc	4100
+Servicewomen	4101
+Sherwin Williams	4102
+Old Catholic Church	4103
+J. Crew Group	4104
+Stavanger	4105
+Nonthaburi	4106
+Amanullah Khan	4107
+James Smith	4108
+Sava	4109
+Transparency International	4110
+Anwar Ul Haq Ahady	4111
+Land Of Opportunity	4112
+China Christian Council	4113
+Texas Instruments	4114
+Asturian	4115
+Agilysys	4116
+Addameer	4117
+Public Committee Against Torture In Israel	4118
+Lim Boon Heng	4119
+Roosevelt Skerrit	4120
+Aga Khan Foundation	4121
+Waters Corporation	4122
+Goh Chok Tong	4123
+Wong Kan Seng	4124
+Armed Opposition Group	4125
+Ruhakana Rugunda	4126
+Narsingdi	4127
+Balearic Islands	4128
+Mike Moore	4129
+Banco Bilbao Vizcaya Argentaria	4130
+Samarkand	4131
+Islam Karimov	4132
+Hope Mwesigye	4133
+Marzieh Vahid Dastjerdi	4134
+Luxembourger	4135
+Agfeed Industries	4136
+Committee Of State	4137
+Yingli Green Energy Holding	4138
+Telekomunikasi Indonesia	4139
+Research In Motion	4140
+Sunopta	4141
+Liberal International	4142
+Usama Bin Laden	4143
+Minist For Telecommunication	4144
+House Of Prostitution	4145
+Cropper	4146
+Sergey Lavrov	4147
+Laisenia Qarase	4148
+Commonwealth Of Nations	4149
+Chief Of Defence Staff	4150
+Byblos	4151
+Elton Mangoma	4152
+Combat Ship	4153
+Eog Resources	4154
+Adivasi	4155
+Christopher Hill	4156
+Postal Department	4157
+Atwood Oceanics	4158
+Izmir	4159
+Nuri Al Maliki	4160
+Stoneridge Inc	4161
+Capital Senior Living Corporation	4162
+Minist For Religious Affairs	4163
+Basseterre	4164
+Defence For Children International	4165
+Alnylam Pharmaceutical	4166
+Agilent Technologies	4167
+American Institute In Taiwan	4168
+Loire Valley	4169
+United States Institute Of Peace	4170
+Sanatan Sanstha	4171
+National Board Of Revenue	4172
+Aken	4173
+Zhuang	4174
+Bruges	4175
+Environmental Defense	4176
+Bosniaks	4177
+Olusegun Obasanjo	4178
+Washington Mutual	4179
+Ntt Docomo	4180
+State Owned Media	4181
+Institute Of Noetic Sciences	4182
+Margaret Wilson	4183
+Denis Coderre	4184
+Advance Auto Parts	4185
+Rush Limbaugh	4186
+Alpha Kappa Alpha	4187
+Fifth Third Bancorp	4188
+Sucre	4189
+Medellin	4190
+Mercy Ships	4191
+Davao Region	4192
+Dril Quip	4193
+Belmopan	4194
+John Prescott	4195
+Chewa	4196
+Aftab Ahmed	4197
+Yukiya Amano	4198
+Little Sisters Of The Poor	4199
+Antarctic Treaty	4200
+Conservative Coalition	4201
+Sears Holdings	4202
+Union Representative	4203
+Canadian Pacific Railway	4204
+Dame Pearlette Louisy	4205
+Secretary Of Agriculture	4206
+Amirzai Sangin	4207
+Attica	4208
+Wire Service	4209
+Aerovironment	4210
+Matia Kasaija	4211
+Relief International	4212
+Refugees International	4213
+Rangamati	4214
+Arno	4215
+Vishakhapatnam	4216
+Abm Industries	4217
+Christian Missionaries	4218
+Inter American Development Bank	4219
+Moody Awori	4220
+National Wildlife Federation	4221
+Haruhiko Kuroda	4222
+Port Au Prince	4223
+Tayeb Louh	4224
+Arthur Andersen	4225
+Air Force Chief	4226
+Richard Gordon	4227
+Polyone Corporation	4228
+Amerisourcebergen	4229
+Encore Capital Group	4230
+Nubian	4231
+Fred Mitchell	4232
+Muslim Pilgrim	4233
+Kenny Anthony	4234
+The Uk	4235
+Suphan Buri	4236
+Hondo	4237
+Amazon Watch	4238
+Minist For Women	4239
+Ecuadorean	4240
+Forum For African Women Educationalists	4241
+Tractor Supply Company	4242
+Home Depot Inc	4243
+Martha Stewart Living	4244
+Mymensingh	4245
+Troops In Iraq	4246
+Demeke Mekonnen	4247
+Jilin	4248
+Naitasiri	4249
+Tailevu	4250
+Teck Resources Ltd	4251
+Alpha Timbo	4252
+Hoosier State	4253
+George P	4254
+El Alamein	4255
+Inchon	4256
+Arya Samaj	4257
+Karnali	4258
+Mormonism	4259
+Crown Prince Haakon	4260
+Arm Holdings	4261
+Khieu Samphan	4262
+Revolutionary United Front	4263
+Old Dominion	4264
+Mobster	4265
+Council Of State	4266
+Administrative Official	4267
+Mohamad Suleman Hidayat	4268
+Physicians For Social Responsibility	4269
+Kyaw Win	4270
+Nordea	4271
+Del Monte Foods	4272
+Twelver	4273
+Fidh	4274
+Buckeye Partners	4275
+Eternal City	4276
+Secret Agent	4277
+State Auditor General	4278
+International Terrorist	4279
+Wroclaw	4280
+Vaalco Energy	4281
+Concho Resources	4282
+Aboriginal Australians	4283
+Altaf Hussain	4284
+Peruano	4285
+Scorpio Tankers	4286
+Muscogee	4287
+Junior Chamber International	4288
+Drug Pusher	4289
+Antananarivo	4290
+John Baird	4291
+Comoros	4292
+Boyko Borissov	4293
+Td Bank	4294
+S. Subramaniam	4295
+Military Transport Plane	4296
+Herdsman	4297
+Bengali Hindu	4298
+Dong Thap	4299
+Braunschweig	4300
+Solukhumbu	4301
+Rotuma	4302
+Alma Ata	4303
+Invacare Corporation	4304
+General Practitioner	4305
+Khanh Hoa	4306
+Minist Of Petroleum	4307
+East Java	4308
+Kenneth Kaunda	4309
+Pitcairn	4310
+The Phillipines	4311
+Asian Human Rights Commission	4312
+Ciudad Juarez	4313
+Advantest Corporation	4314
+Yichang	4315
+Benno Ndulu	4316
+Global Policy Forum	4317
+Banke	4318
+Sooner State	4319
+Tanya Plibersek	4320
+Chea Chanto	4321
+Husain Haqqani	4322
+Metlife	4323
+Janakpur	4324
+Lumbini	4325
+Jaliya Wickramasuriya	4326
+Darmin Nasution	4327
+Namadi Sambo	4328
+Namosi	4329
+Rupandehi	4330
+Dammam	4331
+Ivan Gasparovic	4332
+Bambara	4333
+Hyogo	4334
+Mon State	4335
+West African Development Bank	4336
+Commercial Enterprise	4337
+Eaton Corporation	4338
+Muslim Radical	4339
+Dalia Grybauskaite	4340
+Casella Waste Systems	4341
+National Security Office	4342
+Mohamed Nazri Abdul Aziz	4343
+East New Britain	4344
+Vladimir Bozhko	4345
+Malusi Gigaba	4346
+Udon Thani	4347
+Balinese	4348
+Shahbaz Bhatti	4349
+Jail Guard	4350
+Ismaili	4351
+Malmo	4352
+Minist Of International Trade	4353
+Sotho	4354
+Enemy Combatant	4355
+Adolf Mwesige	4356
+Steelworker	4357
+Daniel Williams	4358
+Minist Of Security	4359
+Cesvi	4360
+Robert Gabriel Mugabe	4361
+Us Of A	4362
+Port Sudan	4363
+French Guiana	4364
+Opposition Senator	4365
+Separatist Movement	4366
+Javanese	4367
+Crimean Tatar	4368
+Altai	4369
+Kalahari	4370
+Centrafrique	4371
+Nord Kivu	4372
+Cattle Thief	4373
+Sam Kutesa	4374
+Ian Martin	4375
+Tetra Technologies Inc	4376
+Minist Of Livestock	4377
+Celanese Corporation	4378
+Jigme Thinley	4379
+Hsbc Holdings	4380
+Citrix Systems	4381
+Symantec Corporation	4382
+Hmong	4383
+Chief Editor	4384
+Mbeya	4385
+Minist Of Shipping	4386
+Galapagos	4387
+Manang	4388
+Fighter Bomber	4389
+International Rice Research Institute	4390
+Scripps Networks Interactive	4391
+Women For Women International	4392
+Guerrilla Force	4393
+Containership	4394
+Gia Lai	4395
+Kimberly Clark Corp	4396
+Viktor Yanukovych	4397
+Festus Mogae	4398
+Tabriz	4399
+Dahomey	4400
+Jambi	4401
+Ngor	4402
+Azeri	4403
+Minist For Labour	4404
+Igor Sechin	4405
+Alyaksandr Lukashenka	4406
+Marriot International	4407
+Miguel Mejia	4408
+Henrique Meirelles	4409
+Aruban	4410
+Hindu Priest	4411
+International Social Service	4412
+Peabody Energy Corp	4413
+Textron	4414
+Loei	4415
+Assyrian	4416
+Richard Ryan	4417
+Welshman	4418
+Zoroastrianism	4419
+Ladenburg Thalmann	4420
+Hbos	4421
+Constellation Brands Inc	4422
+Changsha	4423
+Episcopalian	4424
+Tahitian	4425
+Red Hat Inc	4426
+Ajit Singh	4427
+Congo Brazzaville	4428
+Moudud Ahmed	4429
+Gazipur	4430
+Military Justice	4431
+Stephen Lam	4432
+Meshed	4433
+Serengeti	4434
+Pskov	4435
+Black Liberation Army	4436
+Make A Wish Foundation	4437
+Civil Officer	4438
+Core Laboratories	4439
+High Ranking Officer	4440
+Brent Symonette	4441
+Xhosa	4442
+Conveyancer	4443
+Lubavitch	4444
+Organization Of Petroleum Exporting Countries	4445
+Sharia Court	4446
+Syrian Desert	4447
+Koln	4448
+D Company	4449
+Lashkar E Tayyiba	4450
+Natore	4451
+Mizo	4452
+Telus	4453
+George Chaponda	4454
+Mary Robinson	4455
+Arch Chemicals Inc	4456
+Zomba	4457
+Ecolab Inc	4458
+Kamba	4459
+Barbudans	4460
+International Human Rights Group	4461
+Diageo Plc	4462
+Attack Helicopter	4463
+Gamini Jayawickrema Perera	4464
+Arnhem	4465
+Ahmed Ouyahia	4466
+Adana	4467
+Transportation Worker	4468
+Books A Million Inc	4469
+Lawrence Gonzi	4470
+Statoil Asa	4471
+Diamond Offshore Drilling	4472
+Radioshack	4473
+Richard Webb	4474
+Rosen Plevneliev	4475
+Aflac	4476
+Ahmadis	4477
+National Capital Territory Of Delhi	4478
+Vivian Balakrishnan	4479
+American Psychological Association	4480
+Zanla	4481
+Unitarianism	4482
+Maria Fernanda Espinosa	4483
+Pascal Lamy	4484
+Bucuresti	4485
+Oneok Inc	4486
+Grand Canal	4487
+Medical Official	4488
+Namoi	4489
+Pandeli Majko	4490
+Public Health Institute	4491
+Corazon Aquino	4492
+Dexcom Inc	4493
+Vichy	4494
+Old Colony	4495
+Public Relations Society Of America	4496
+Life Time Fitness	4497
+Tawahka	4498
+Urals	4499
+Porto Alegre	4500
+Armed Insurgent	4501
+Kemerovo	4502
+Krispy Kreme	4503
+Urban Outfitters	4504
+Erna Solberg	4505
+Nilphamari	4506
+Southwestern Energy Company	4507
+American Water Works Association	4508
+Khagrachari	4509
+Russian Catholic Church	4510
+Shilluk	4511
+Equatorial Guinean	4512
+Mwanza	4513
+Rights International	4514
+Perks Ligoya	4515
+Nikola Gruevski	4516
+Mwai Kibaki	4517
+Zoroastrian	4518
+Chinanet Online Holdings	4519
+Show Me State	4520
+Nazarene Church	4521
+Susan Shabangu	4522
+Alur	4523
+Water Minist	4524
+Bill Barrett Corporation	4525
+United Emirates	4526
+Agnico Eagle Mines	4527
+Silvio Berlusconi	4528
+Kuan Chung	4529
+Ueli Maurer	4530
+Afghanastan	4531
+Swiss Helvetia Fund	4532
+Vonage	4533
+Joint Strike Fighter	4534
+Avista Corporation	4535
+Media Rights Group	4536
+Jens Stoltenberg	4537
+James Sutton	4538
+Picketer	4539
+Organisation For Security And Co Operation In Europe	4540
+Alexandria Real Estate Equities	4541
+Ship Finance International	4542
+Bakri Hassan Salih	4543
+Jaffa	4544
+Yucatan	4545
+Pen America	4546
+Slovakian	4547
+Abu Musab	4548
+Interim Leader	4549
+Sisters Of Loretto	4550
+Genf	4551
+Camillo Gonsalves	4552
+Kgalema Motlanthe	4553
+Vornado Realty Trust	4554
+Lodz	4555
+Zealand	4556
+Petrograd	4557
+World Uyghur Congress	4558
+Lifespring	4559
+Public Service Company Of Oklahoma	4560
+Brookdale Senior Living	4561
+International Maritime Organization	4562
+Christian Identity	4563
+Messianic Jews	4564
+Picardy	4565
+Breslau	4566
+Fairchild Semiconductor	4567
+Berber	4568
+Spokesman For The Opposition	4569
+Mckesson Corporation	4570
+Volunteer State	4571
+Minist For Rural Development	4572
+Salar	4573
+International Development Research Centre	4574
+Fukuoka	4575
+Dinajpur	4576
+Abdullatif Sener	4577
+Bulent Arinc	4578
+Hot Topic Inc	4579
+Kenia	4580
+Tony Brown	4581
+Urmia	4582
+Nation Of Islam	4583
+John Bryan	4584
+Human Rights First	4585
+War Correspondent	4586
+Ordo Templi Orientis	4587
+Michael Henry	4588
+Dlamini Zuma	4589
+Stavropol	4590
+Rostov On Don	4591
+Plovdiv	4592
+Mswati Iii	4593
+Loire	4594
+Himeji	4595
+David Dodge	4596
+Usvi	4597
+Aswan High Dam	4598
+Bagerhat	4599
+Clmv	4600
+Yusuf Kalla	4601
+Smolensk	4602
+Solomons	4603
+Worldwide Church Of God	4604
+Dhanbad	4605
+Teradata Corporation	4606
+Cadiz Inc	4607
+Volga	4608
+Suchinda Kraprayoon	4609
+Ratchaburi	4610
+State Councilor	4611
+Minist For Tourism	4612
+Chartres	4613
+Keppel Corporation	4614
+Taoyuan	4615
+Claus Hjort Frederiksen	4616
+Prince Norodom Sihanouk	4617
+Chaiyaphum	4618
+Insurgent Leader	4619
+Nguyen Thien Nhan	4620
+Thai Nguyen	4621
+Shaukat Aziz	4622
+Nghe An	4623
+Nabors Industries	4624
+Puglia	4625
+Krabi	4626
+Hadi Al Amiri	4627
+Sodom	4628
+Mukul Wasnik	4629
+Bill And Melinda Gates Foundation	4630
+Holly Energy	4631
+Mgm Resorts	4632
+Baglung	4633
+Yamana Gold	4634
+Judicature	4635
+Minist Of Electricity	4636
+Samut Prakan	4637
+Balaton	4638
+Daniel Arap Moi	4639
+Ni Vanuatu	4640
+Khotang	4641
+Rajendra Mahato	4642
+Surujrattan Rambachan	4643
+Abb Ltd	4644
+Institute Of International Finance	4645
+Susquehanna Bancshares	4646
+Omega Healthcare Investors Inc	4647
+Energy Transfer Equity	4648
+Sally Beauty Holdings	4649
+United Nations Commission For Refugees	4650
+Makwanpur	4651
+Wal Mart Stores	4652
+Mehmet Mehdi Eker	4653
+Le Luong Minh	4654
+Sunoco Logistics	4655
+Medical Social Worker	4656
+Newcastle Upon Tyne	4657
+Non Residents	4658
+Chumphon	4659
+Badulla	4660
+Kyushu	4661
+Leyden	4662
+Mordovia	4663
+Itron Inc	4664
+Waray	4665
+Kirghizstan	4666
+Strategic Service	4667
+Orthodox Church In America	4668
+Schweiz	4669
+Minist Of National Defence	4670
+Kolinda Grabar Kitarovic	4671
+Jordon	4672
+Khaled Nordin	4673
+Hausa Fulani	4674
+Koh Tsu Koon	4675
+Muslim Militant	4676
+Tsonga	4677
+Ruling Party Mp	4678
+Miyagi	4679
+Conman	4680
+Representative To The Un	4681
+Michelle Bachelet	4682
+Argos	4683
+Ankole	4684
+Kushtia	4685
+Farooq Sattar	4686
+Tharman Shanmugaratnam	4687
+Nuclear Threat Initiative	4688
+Thakurgaon	4689
+Hector Timerman	4690
+Church Of The Brethren	4691
+Civil Authority	4692
+Special Commission	4693
+Macedonian Orthodox Church	4694
+Bahadur Singh	4695
+Minist For Construction	4696
+Li Lanqing	4697
+Walter Mzembi	4698
+Anti Riot Police	4699
+Niagara River	4700
+Kathryn Dunn Tenpas	4701
+George Fernandes	4702
+Portia Simpson Miller	4703
+Livonia	4704
+Chiang Mai	4705
+Kharkov	4706
+Chun Doo Hwan	4707
+Protest Group	4708
+Slovenes	4709
+Valero Energy	4710
+Ronald Toppin	4711
+Association Of South East Asian Nations	4712
+Mimaropa	4713
+Sigma Gamma Rho	4714
+Roman Catholicism	4715
+Mulatto	4716
+Mongar	4717
+Furniture Maker	4718
+Deutschland	4719
+Krakow	4720
+Gamal Abdel Nasser	4721
+Leftist Party	4722
+National Lawyers Guild	4723
+Duala	4724
+Serial Murderer	4725
+World Association Of Newspapers	4726
+Kurigram	4727
+Saint Helena	4728
+Farooq Abdullah	4729
+Bromberg	4730
+Pilferer	4731
+Moses Wetangula	4732
+Progressive Judaism	4733
+Cakaudrove	4734
+Mudar Badran	4735
+Johan Norberg	4736
+Maluku	4737
+Minist Of Economy And Finance	4738
+Vano Merabishvili	4739
+Armed Band	4740
+Orthodox Church Of Jerusalem	4741
+Political Alliance	4742
+Kembo Mohadi	4743
+Obert Mpofu	4744
+Ham Lini	4745
+Zain	4746
+Patrick Mcloughlin	4747
+Prime Minster	4748
+Interim Government	4749
+National Democratic Institute For International Affairs	4750
+Ibrahim Babangida	4751
+Inter Service Intelligence	4752
+Auto Maker	4753
+Liberation Theology	4754
+Federal Supreme Court	4755
+Gujranwala	4756
+Laotian	4757
+Pernambuco	4758
+Cook Strait	4759
+Minist Of Construction	4760
+Jose Serrano	4761
+John Wood	4762
+Ignatius Chombo	4763
+Peter Kent	4764
+National Police Chief	4765
+Kumamoto	4766
+News Organisation	4767
+Belem	4768
+Gaston Browne	4769
+Tuareg	4770
+Yousaf Raza Gilani	4771
+Fuego	4772
+Call Girl	4773
+Minist For Disaster Management	4774
+Armed Separatist	4775
+Islamic Rebels	4776
+Jessica Alupo	4777
+Sierra Leon	4778
+Blackboard Inc	4779
+Mohammad Najibullah	4780
+Rhineland	4781
+Military Backed Government	4782
+Rastafarianism	4783
+Vasko Naumovski	4784
+Faisalabad	4785
+Daehan	4786
+Eli Yishai	4787
+Bill English	4788
+Omoto	4789
+Yitzhak Shamir	4790
+Industrias Bachoco	4791
+Janjaweed	4792
+Reims	4793
+Pulau Tikus	4794
+Andrew Lansley	4795
+Michael Collins	4796
+Sverige	4797
+Herman Van Rompuy	4798
+Shimane	4799
+Khandaker Mosharraf Hossain	4800
+Kenneth Clarke	4801
+Saptari	4802
+Surkhet	4803
+Carmike Cinemas	4804
+Mnlf	4805
+Renamo	4806
+Yisroel	4807
+Ratnapura	4808
+Broadcast Minist	4809
+Anshan	4810
+Security Patrol	4811
+Faridpur	4812
+News Magazine	4813
+Post And Telecommunications Minist	4814
+Ranil Wickremasinghe	4815
+Sultan Bin Saeed Al Mansouri	4816
+Army Deserter	4817
+Priscilla Misihairabwi Mushonga	4818
+Youcef Yousfi	4819
+Arctic Cat	4820
+Northstar Realty	4821
+Sisters Of Mercy	4822
+Minist Of Public Service	4823
+Bicol Region	4824
+Miyazaki	4825
+Minist Of Public Works	4826
+East Sepik	4827
+Shanta Kumar	4828
+Jumbo Jet	4829
+Power Secretary	4830
+Dennis Young	4831
+James Kabarebe	4832
+Ahmad Shabery Cheek	4833
+Narayani	4834
+Graduate Nurse	4835
+Abdur Razzak	4836
+Salauddin	4837
+Arara	4838
+Espoo	4839
+Housing And Public Works Minist	4840
+Jamestown Foundation	4841
+Jenny Shipley	4842
+Quakerism	4843
+Danielle Pletka	4844
+Wallis And Futuna	4845
+Sulawesi	4846
+Opposition Alliance	4847
+Melanesian	4848
+Erskine Sandiford	4849
+Le Havre	4850
+Czechia	4851
+Lingala	4852
+Pressman	4853
+Tabuk	4854
+Peacekeeping Troop	4855
+Czecho	4856
+Frank Anthony	4857
+Irish Republican Army	4858
+Abdoulaye Balde	4859
+Bandula Gunawardena	4860
+Barguna	4861
+Malcolm Fraser	4862
+Wu Bangguo	4863
+Buckeye State	4864
+Hanno Pevkur	4865
+North Atlantic Treaty Organization	4866
+Experiment In International Living	4867
+Prince Johnson	4868
+Tawian	4869
+Great Lakes State	4870
+Sanatorium	4871
+Ehime	4872
+Trond Giske	4873
+Common Market For Eastern And Southern Africa	4874
+Minist Of Mineral Resources	4875
+Nicholas Burns	4876
+Liuzhou	4877
+John Key	4878
+Dawoodi Bohra	4879
+Minist Of Human Development	4880
+Battleship	4881
+Nakhon Phanom	4882
+Axiata Group	4883
+Aide De Camp	4884
+Cape Verdean	4885
+Hunan	4886
+Tongan	4887
+Nuwara Eliya	4888
+Arnold Amet	4889
+Batticaloa	4890
+Deserter	4891
+Minist For Security	4892
+Bushmen	4893
+Federation Council	4894
+War Vessel	4895
+Pro Democracy Leader	4896
+Wan Gang	4897
+Expedia Inc	4898
+Fidel V. Ramos	4899
+Ma Kai	4900
+Teodoro Obiang Nguema Mbasogo	4901
+Satyam Computer Services	4902
+Hohhot	4903
+Sirimavo Bandaranaike	4904
+War Machine	4905
+Ulaanbaatar	4906
+International Alert	4907
+Minist Of Government	4908
+Abdulla Aripov	4909
+Adventist Development And Relief Agency	4910
+Cisco Systems	4911
+Ojibwe	4912
+Presentation Sisters	4913
+Novo Nordisk	4914
+Reserve Bank Governor	4915
+Un Resident	4916
+Silver State	4917
+Medecins Sans Frontieres	4918
+Mohammad Sarwar Danesh	4919
+Emomali Rahmon	4920
+Ibaraki	4921
+Pravin Gordhan	4922
+Muslim Rebel	4923
+Matale	4924
+Philemon Yang	4925
+Chua Jui Meng	4926
+Lobito	4927
+Quang Tri	4928
+Isar	4929
+Service For Peace	4930
+A. Schulman	4931
+Palembang	4932
+Cooperation Minist	4933
+Sudan Liberation Movement	4934
+Dong Nai	4935
+Vijay Nambiar	4936
+Helen Liddell	4937
+Gomel	4938
+Nimal Siripala De Silva	4939
+Magura	4940
+Satun	4941
+Keith Arnold	4942
+Celgene Corporation	4943
+Panchagarh	4944
+World Wide Fund For Nature	4945
+Manpower Minist	4946
+Peter Norman	4947
+Abn Amro	4948
+Awadhi	4949
+Canadian Imperial Bank Of Commerce	4950
+Drdgold Limited	4951
+Ayutthaya	4952
+Southwest Water Company	4953
+Asur	4954
+Randgold Resources	4955
+Tsirang	4956
+Tourer	4957
+Erik Solheim	4958
+Kim Dae Jung	4959
+Maritimes	4960
+Regis Corporation	4961
+Eelam	4962
+Valetta	4963
+Dili	4964
+Tangier	4965
+Education International	4966
+John Dalli	4967
+Plains All American Pipeline	4968
+Kwangju	4969
+Stateless Person	4970
+Abdullah Al Saud	4971
+Faroese	4972
+Maxcom	4973
+Orbital Sciences Corporation	4974
+Wallonia	4975
+Laurent Gbagbo	4976
+Kansai	4977
+Zarqa	4978
+Winti	4979
+Bengkulu	4980
+Thein Sein	4981
+David Klein	4982
+Cracker Barrel Old Country Store	4983
+Nanking	4984
+Palpa	4985
+Lemnos	4986
+Lietuva	4987
+Oil Group	4988
+Zacharie Perevet	4989
+Eric Pickles	4990
+Andrus Ansip	4991
+Minist Of Employment And Vocational Training	4992
+Kemet	4993
+Abbott Laboratories	4994
+Regeneron Pharmaceuticals	4995
+Container Vessel	4996
+Minist For Food	4997
+Elzbieta Bienkowska	4998
+International Chamber Of Commerce	4999
+Madang	5000
+Niugini	5001
+Acer Inc	5002
+Siyabonga Cwele	5003
+Danzig	5004
+Ngoni	5005
+Ryukyu	5006
+Yemenite	5007
+Swedenborgian	5008
+Leon Kass	5009
+Islamic Preacher	5010
+Taoist	5011
+Balochistan Liberation Army	5012
+Janat Mukwaya	5013
+Wipro Limited	5014
+Ali Akbar Salehi	5015
+Negev	5016
+Ternate	5017
+Center For Migration Studies	5018
+Jose Eduardo Dos Santos	5019
+Kitakyushu	5020
+Separatist Militant	5021
+Minist For Trade	5022
+Vesuvius	5023
+Vvips	5024
+Nuer	5025
+Religious Person	5026
+Hired Gun	5027
+Mount Kilimanjaro	5028
+Corporate Executive	5029
+Berkshire Hathaway Inc	5030
+Encana	5031
+Lutheran World Federation	5032
+Lois Browne Evans	5033
+Chins	5034
+Avx Corporation	5035
+Prapat Panyachatraksa	5036
+Tamil Tigers	5037
+Basdeo Panday	5038
+Italie	5039
+National Development Council	5040
+Moro National Liberation Front	5041
+Zarkasih	5042
+Mannar	5043
+Bujar Osmani	5044
+Usana Health Sciences	5045
+Education Development Center	5046
+Rory Brady	5047
+Warner Music Group	5048
+Ali Hasanov	5049
+European Free Trade Association	5050
+Mauritanie	5051
+Romani	5052
+Kinross Gold Corporation	5053
+Homero Arellano	5054
+California Pizza Kitchen	5055
+Lazio	5056
+Electronics Maker	5057
+Trace International	5058
+Jinkosolar	5059
+Mauri Pekkarinen	5060
+Anatolio Ndong Mba	5061
+Mandigo	5062
+American Correctional Association	5063
+Thuringia	5064
+Last Frontier	5065
+Brookings Fellow	5066
+Tata Communications	5067
+Public Security Bureau	5068
+Jose De Jesus	5069
+Neuberger Berman	5070
+Lear Corporation	5071
+Enbridge Energy	5072
+Fuzhou	5073
+Dinka	5074
+Bihari	5075
+Salvador Sanchez Ceren	5076
+Werner Enterprises	5077
+Cherbourg	5078
+Minist For Industry	5079
+Bgc Partners	5080
+Regional Representative	5081
+Liberal Catholic Church	5082
+Global Payments Inc	5083
+Tenet Healthcare	5084
+Health Care Reit	5085
+Masco Corp	5086
+Magellan Midstream Partners	5087
+Academy Of Breastfeeding Medicine	5088
+Representative Assembly	5089
+Chief Of Staff Of The Army	5090
+Colima	5091
+Pro Democracy Movement	5092
+Willis Group	5093
+Manyika	5094
+Kazakhs	5095
+Chipewyan	5096
+Peace Boat	5097
+Bruce Katz	5098
+Dept Of Agriculture	5099
+Esko Aho	5100
+Great Southern Bancorp	5101
+Tom Casey	5102
+Leonid Kravchuk	5103
+Belgique	5104
+Yrc Worldwide	5105
+Republic Of Congo	5106
+Moussa Faki	5107
+Target Corp	5108
+Tiruchirappalli	5109
+John Mutorwa	5110
+Minist Of Lands	5111
+Salvadorean	5112
+Stung Treng	5113
+Nadroga Navosa	5114
+John Agyekum Kufuor	5115
+Naledi Pandor	5116
+Cumana	5117
+Murrumbidgee	5118
+Kanu Agabi	5119
+Aloha State	5120
+Beira	5121
+Castries	5122
+World Health Assembly	5123
+Nxp Semiconductors	5124
+Hhgregg	5125
+Sandridge Energy	5126
+Corporate Watch	5127
+Chungcheong	5128
+Patrick Faber	5129
+Anabaptism	5130
+China Aid Association	5131
+Pacific Community	5132
+George Maxwell Richards	5133
+Child Foundation	5134
+Tuvalu	5135
+Armed Dissident	5136
+Kunlun	5137
+Stipe Mesic	5138
+Bassa	5139
+Dak Nong	5140
+Lithia Motors	5141
+Praha	5142
+Canadian National Railway	5143
+Time Warner Cable	5144
+Meles Zenawi	5145
+Stephen Lashley	5146
+Minist For Lands	5147
+Canadian Shield	5148
+Halab	5149
+Dhading	5150
+Taiyuan	5151
+Digambar	5152
+Hamad Bin Isa Al Khalifa	5153
+Capital Ship	5154
+Kwaku Afriyie	5155
+Minist For Livestock	5156
+Jamal Mohamed Hassan	5157
+Shahin Mustafayev	5158
+Rebel Base	5159
+Maximus Ongkili	5160
+Mukhisa Kituyi	5161
+Tc Pipelines	5162
+Robert Kocharyan	5163
+Worldwide Fund For Nature	5164
+Sioux Indian	5165
+Cubic Corporation	5166
+Sao Tome	5167
+Hage Geingob	5168
+Jumla	5169
+Christiania	5170
+Achham	5171
+Mestizo	5172
+Surin	5173
+Arequipa	5174
+Bac Lieu	5175
+Ocean State	5176
+Mahottari	5177
+Taichung	5178
+Whiting Petroleum	5179
+Minist Of Natural Resources And Environment	5180
+Ytl Corp	5181
+Sierra Wireless	5182
+Cyrpus	5183
+Nickey Iyambo	5184
+Tatarstan	5185
+Shamanism	5186
+Consultative Group On International Agricultural Research	5187
+Sigma Aldrich	5188
+Middleby Corporation	5189
+Sherpur	5190
+Riad Salameh	5191
+Pro Democracy Group	5192
+Acehnese	5193
+Wynn Resorts	5194
+Huntsman Corporation	5195
+Stanley Fischer	5196
+Thessaly	5197
+Clare Short	5198
+Kwilu	5199
+Ursula Von Der Leyen	5200
+Caci International	5201
+Provident Financial Services	5202
+David Johnston	5203
+Tourist Board	5204
+Yitzhak Herzog	5205
+Secretary Of Energy	5206
+Orenburg	5207
+Ryder System Inc	5208
+Hutu	5209
+Gyeongnam	5210
+Wachovia	5211
+Batna	5212
+Borgwarner	5213
+Build A Bear Workshop	5214
+Stmicroelectronics	5215
+Toyama	5216
+Jhapa	5217
+Lao Cai	5218
+Suzhou	5219
+Masorti Judaism	5220
+Chin State	5221
+Islamic Relief	5222
+Abaxis	5223
+Illegal Party	5224
+Hau Giang	5225
+Protestantism	5226
+New Z	5227
+Sapporo	5228
+The Princeton Review	5229
+Constitutional Council	5230
+Aiwan E Sadr	5231
+Jiko Luveni	5232
+Turkiye	5233
+Kilinochchi	5234
+Campbell Soup Company	5235
+Francis Maude	5236
+Kate Wilkinson	5237
+Dongguan	5238
+Valdis Dombrovskis	5239
+Kalutara	5240
+Ghassan Salameh	5241
+New Apostolic Church	5242
+Eriteria	5243
+Abu Al Naja	5244
+Montenegrins	5245
+Yen Bai	5246
+Darden Restaurants	5247
+Guadeloupian	5248
+Epirus	5249
+Liberal Judaism	5250
+Biomarin Pharmaceutical Inc	5251
+Wang Qishan	5252
+International Inner Wheel	5253
+Bello Usman	5254
+Express Inc	5255
+John Bruton	5256
+Trained Nurse	5257
+Circor International	5258
+Sima Samar	5259
+Kaunas	5260
+Organization For Economic Cooperation And Development	5261
+Laurent Fabius	5262
+Ndonga	5263
+Vertex Pharmaceuticals	5264
+Oesterreich	5265
+Cardinal Health Inc	5266
+Turky	5267
+Morgan Johansson	5268
+Lamjung	5269
+Center For Economic And Policy Research	5270
+Matara	5271
+Polland	5272
+Computer Maker	5273
+Juan Camilo Restrepo	5274
+Chesapeake Energy Corporation	5275
+Dominique De Villepin	5276
+Antakya	5277
+Survival International	5278
+Low Level Insurgency	5279
+Rocky Mountains	5280
+Tokai	5281
+Neenah Paper	5282
+La Leche League	5283
+Tsvetan Tsvetanov	5284
+Jennifer Smith	5285
+Gambier Islands	5286
+Rajesh Bhagwan	5287
+Sightsavers	5288
+Alloy Inc	5289
+Rona Ambrose	5290
+Jarden Corporation	5291
+Kursk	5292
+Rebel Delegation	5293
+Time Warner Inc	5294
+Sendai	5295
+Diplomatic Building	5296
+Durres	5297
+John Michuki	5298
+Ubon Ratchathani	5299
+Mcdermott International	5300
+Organization Of Eastern Caribbean States	5301
+Johann Schneider Ammann	5302
+Majority Party	5303
+Igor Shuvalov	5304
+Refugee Advocate	5305
+Ingushetia	5306
+Abdul Moyeen Khan	5307
+American Tower Corporation	5308
+Fidji	5309
+Isabelle Picco	5310
+Albert Ii	5311
+Trevor Mallard	5312
+Sanderson Farms	5313
+Calgon Carbon Corp	5314
+John Briceno	5315
+David Carter	5316
+Sousse	5317
+Financial Secretary	5318
+Geneve	5319
+Gascony	5320
+Rolandas Paksas	5321
+Criminal Barrister	5322
+Gabonese	5323
+Liberation Forces	5324
+Chechen Republic	5325
+An Tong Chun	5326
+Atmos Energy Corporation	5327
+Rockwell Automation	5328
+Ricardo Patino	5329
+Mackenzie River	5330
+Beaver State	5331
+Volunteers Of America	5332
+Intercontinental Hotels Group	5333
+Investment Commission	5334
+Arthrocare Corporation	5335
+Grupo Aeroportuario Del Pacifico	5336
+Edgar Rodriguez	5337
+Anti Graft Commission	5338
+Kb Home	5339
+International Federation Of Social Workers	5340
+Supertanker	5341
+Muhannad	5342
+Simbarashe Mumbengegwi	5343
+Palmetto State	5344
+Madura	5345
+American International Group Inc	5346
+Pleader	5347
+Indya	5348
+Interlaken	5349
+Vincent Karega	5350
+Yamanashi	5351
+Religious Court	5352
+Triggerman	5353
+Light Of The South	5354
+Shantou	5355
+Duke Energy Corp	5356
+Guiyang	5357
+Hermosillo	5358
+Kampot	5359
+Judith Collins	5360
+Savanne	5361
+Minist Of Rural Development	5362
+Electricity Authority	5363
+Steel Tycoon	5364
+Penny Wong	5365
+Filistin	5366
+Paquito Ochoa	5367
+Chs Inc	5368
+Palk Strait	5369
+Tabora	5370
+We The People Initiative	5371
+Ramakrishna Mission	5372
+Henry Schein Inc	5373
+Israil	5374
+Krahn	5375
+Vienne	5376
+Bac Ninh	5377
+Omnivision Technologies	5378
+Forger	5379
+Theresa Makone	5380
+Michael Finnegan	5381
+Portugal Telecom	5382
+Khin Maung	5383
+Braga	5384
+Jonathan Coleman	5385
+Ii Vi Incorporated	5386
+Vietnamese American	5387
+Irsa Inversiones Y Representaciones	5388
+Kjell Magne Bondevik	5389
+Old North State	5390
+Canara	5391
+Yaacob Ibrahim	5392
+Armenian Apostolic Church	5393
+Chipotle Mexican Grill	5394
+Robert Harris	5395
+Scotswoman	5396
+Viktor Chernomyrdin	5397
+Maumoon Abdul Gayoom	5398
+Nyan Win	5399
+Tajkistan	5400
+Sonia Gomez	5401
+Petr Pithart	5402
+Michael Lashley	5403
+Military Representative	5404
+Edward Lowassa	5405
+Zine El Abidine Ben Ali	5406
+Anna Kachikho	5407
+Eindhoven	5408
+Disciples Of Christ	5409
+Danau	5410
+Enersys	5411
+Cogo Group	5412
+Armed Citizens	5413
+Ali Sufi	5414
+Muong	5415
+Murray River	5416
+New York Community Bancorp	5417
+Neva River	5418
+Katmandu	5419
+Marc Ravalomanana	5420
+Malagasy	5421
+Navios Maritime	5422
+Cepheid	5423
+Northern Dynasty Minerals	5424
+Ndjamena	5425
+Agricultural Bank Of China	5426
+Caraga	5427
+Editor Of Newspaper	5428
+Charles Michel	5429
+Ingush	5430
+Pacific Islanders	5431
+Nils Muiznieks	5432
+Labarge Inc	5433
+Oil And Natural Gas Corporation	5434
+Orthofix International	5435
+Pdl Biopharma	5436
+Oomoto	5437
+Danaher Corporation	5438
+Techtronic Industries Co	5439
+Carlos Tavares	5440
+Tea Banh	5441
+Gem State	5442
+X Rite Incorporated	5443
+Malteser International	5444
+Manchu	5445
+Ulsan	5446
+Sonoco Products	5447
+Ball Corporation	5448
+Joel Gabbuza	5449
+Fundamentalist Christian	5450
+Tatars	5451
+Gamini Lokuge	5452
+Bretagne	5453
+Backward Castes	5454
+Giorgia Meloni	5455
+Raza Rabbani	5456
+Quaterra Resources Inc	5457
+Eastman Kodak Co	5458
+Temne	5459
+Arthur Li	5460
+Congo Democratic Republic	5461
+James Musoni	5462
+Toamasina	5463
+Calin Popescu Tariceanu	5464
+Hijaz	5465
+Kla Tencor	5466
+United Technologies Corporation	5467
+Ciena Corporation	5468
+Camtek	5469
+Anglogold Ashanti	5470
+Al Hawsawi	5471
+Marthinus Van Schalkwyk	5472
+Austrian Airlines	5473
+Bangui	5474
+Norwegian Refugee Council	5475
+Ngo Net	5476
+Treehouse Foods	5477
+Ncr Corporation	5478
+Akamai Technologies	5479
+Putnam Investments	5480
+Santals	5481
+Gaibandha	5482
+Bargainer	5483
+Trivandrum	5484
+Abdiweli Mohamed Ali	5485
+International Medical Corps	5486
+Rabbis For Human Rights	5487
+Hejaz	5488
+Zen Master	5489
+Costa Ricans	5490
+Sociedad Anonima	5491
+Unitarian Universalism	5492
+Cerner Corporation	5493
+Allegheny Technologies	5494
+Negroponte	5495
+Intersos	5496
+Lutheran World Relief	5497
+Anuradhapura	5498
+Janet Museveni	5499
+Institute Of International Education	5500
+Guarani	5501
+Save The Children Fund	5502
+Autoliv Inc	5503
+Equifax Inc	5504
+Petmed Express	5505
+Schools	5506
+Family Dollar Stores	5507
+Peter Thomson	5508
+Gail Teixeira	5509
+Applied Industrial Technologies	5510
+Zibo	5511
+Ashur	5512
+Gafisa	5513
+Marshallese	5514
+Battle Group	5515
+Lublin	5516
+Senate Of The Republic	5517
+Osman Saleh	5518
+Endeavour Silver Corp	5519
+Laboratory Corporation Of America	5520
+Cincinnati Bell Inc	5521
+Bluegrass State	5522
+Sardinian	5523
+Yellow River	5524
+Pon Radhakrishnan	5525
+Nci Building Systems	5526
+Gloria Macapagal Arroyo	5527
+Sardinia	5528
+Banco Bradesco	5529
+Moneragala	5530
+Mohamed Vi	5531
+Malietoa Tanumafili Ii	5532
+Li Bin	5533
+Naxi	5534
+Ktunaxa	5535
+Vilna	5536
+Mario Fernandez	5537
+Lexington Realty Trust	5538
+Robert Half International	5539
+Carlos Alberto Lopes	5540
+Mohawk Industries Inc	5541
+Sealed Air Corporation	5542
+Opposition Demonstrators	5543
+Irkutsk	5544
+Green Mountain State	5545
+Peter Dunne	5546
+International Game Technology	5547
+Vistaprint	5548
+Dominique Strauss Kahn	5549
+Soroptimist International	5550
+Chanthaburi	5551
+Antonio Martins Da Cruz	5552
+Ceska	5553
+Evangelical Christianity	5554
+City Of Bridges	5555
+Lexmark	5556
+Mu Sochua	5557
+Ilocos Region	5558
+British Petroleum	5559
+Utoni Nujoma	5560
+Luik	5561
+Jaswant Singh	5562
+The Williams Companies	5563
+Chuan Leekpai	5564
+Organization Of The Islamic Conference	5565
+Nihang	5566
+Visa Inc	5567
+Richard Sezibera	5568
+Civil Aviation Director General	5569
+Brown Forman	5570
+Siraj Fegessa	5571
+Corning Incorporated	5572
+Maffia	5573
+Brigand	5574
+Abdulsalami Abubakar	5575
+Polska	5576
+China Youth Development Foundation	5577
+Manasseh Sogavare	5578
+Magna International	5579
+Mueller Water Products	5580
+Michael Makuei Lueth	5581
+Venoco	5582
+Pablo Marin	5583
+Ion Geophysical Corporation	5584
+Panera Bread	5585
+Center For Reproductive Rights	5586
+Sisters Of St Joseph	5587
+Armed Insurgency	5588
+Exiled Leader	5589
+Sun Life Financial	5590
+Pratibha Patil	5591
+Naze	5592
+Ishrat Hussain	5593
+S. Samy Vellu	5594
+Basilicata	5595
+Abu Abdullah	5596
+Patrick Ho	5597
+Jaak Aaviksoo	5598
+Federal Chancellery	5599
+Sholapur	5600
+Bamar	5601
+Medical Properties Trust	5602
+Cabot Corporation	5603
+Aiyaz Sayed Khaiyum	5604
+Peach State	5605
+Daegu	5606
+Bhutani	5607
+Commander In Chief Of The Army	5608
+Daryl Vaz	5609
+Institute Of Development Studies	5610
+Minist For International Development	5611
+Lop Buri	5612
+Netherlands Antilles	5613
+Untied States	5614
+Eduardo Rodriguez	5615
+Cochabamba	5616
+Julian Fantino	5617
+Tangail	5618
+Micron Technology Inc	5619
+Nestor Kirchner	5620
+Anti Government Armed Group	5621
+Rais Yatim	5622
+Thongloun Sisoulit	5623
+Orlando Smith	5624
+Rolpa	5625
+Kwesi Nduom	5626
+Lake Tana	5627
+Law Offender	5628
+The Beloved Country	5629
+Soldier Of Fortune	5630
+Cognex Corporation	5631
+Minist Of The Attorney General	5632
+Pingtung County	5633
+External Relations Minist	5634
+Human Sciences Research Council	5635
+Jerzy Buzek	5636
+Asml Holding	5637
+Coherent Inc	5638
+Pegasystems	5639
+Gilbraltar	5640
+Kagawa	5641
+Batswana	5642
+Ian Khama	5643
+Aung Min	5644
+Administrative Unit	5645
+Nuance Communications Inc	5646
+Democratic Voice Of Burma	5647
+House Physician	5648
+Auvergne	5649
+Thakuri	5650
+Sasol Ltd	5651
+Jean Pierre Raffarin	5652
+Batak	5653
+Bin Chhin	5654
+Gran Tierra Energy	5655
+Lahu	5656
+Gints Jegermanis	5657
+Keystone State	5658
+Quimbanda	5659
+Impax Laboratories	5660
+Habib El Adly	5661
+Sandisk Corporation	5662
+Edna Molewa	5663
+Pamplemousses	5664
+Chelyabinsk	5665
+Zen Buddhist	5666
+Main Street Capital Corporation	5667
+Lascar	5668
+Brian Mikkelsen	5669
+Lao Pdr	5670
+Central Jail Of	5671
+Subsistence Farmer	5672
+Suleyman Demirel	5673
+Chabad Lubavitch	5674
+New Human Rights	5675
+Solingen	5676
+Stephen Hess	5677
+Avago Technologies	5678
+Clicksoftware	5679
+Joseph Borg	5680
+Toluca	5681
+Culiacan	5682
+Soldiers And Their Families	5683
+Narathiwat	5684
+Abdul Ali	5685
+Baotou	5686
+Tribal Rebel	5687
+Vlad Filat	5688
+Prison House	5689
+Wimal Weerawansa	5690
+Michele Alliot Marie	5691
+Economic Minist	5692
+Minist For Shipping	5693
+Algonquian	5694
+Chechenia	5695
+Ken Livingstone	5696
+Ruth Nankabirwa	5697
+Hamamatsu	5698
+Zonta International	5699
+Adventism	5700
+International Federation Of Red Cross And Red Crescent	5701
+Crh Plc	5702
+Association For Sustainable Human Development	5703
+Albert Pahimi Padacke	5704
+Wu Den Yih	5705
+Russland	5706
+Cao Bang	5707
+Academic Council On The United Nations System	5708
+Acuns	5709
+Dilxat Raxit	5710
+Phayao	5711
+Canadian Council For Refugees	5712
+Comores	5713
+Duesseldorf	5714
+Mohamed Ibn Chambas	5715
+Mari El	5716
+Entergy Mississippi	5717
+Cornhusker State	5718
+New Ireland	5719
+Latium	5720
+Lake Nasser	5721
+Minist For National Economy	5722
+Cmmb	5723
+Qadhafi	5724
+Christina Hoff Sommers	5725
+Tabare Vazquez	5726
+Mahamat Saleh Annadif	5727
+Martin Amidu	5728
+Islamic Rebel Group	5729
+Archimandrite	5730
+International Planned Parenthood Federation	5731
+U.S. Government	5732
+Coahuila	5733
+Myriad Genetics Inc	5734
+Campinas	5735
+Samuel Kamara	5736
+Sven Mikser	5737
+Dept Of Transportation	5738
+City Of Light	5739
+Csx Corporation	5740
+Orthodox Judaism	5741
+Uma Bharti	5742
+Vavuniya	5743
+Chen Lei	5744
+Organisation Of Eastern Caribbean States	5745
+Christian Missionary	5746
+Minist Of Social Affairs And Labor	5747
+Polo Ralph Lauren	5748
+Intergovernmental Panel On Climate Change	5749
+Namib Desert	5750
+Alabama Power Company	5751
+Mark Tully	5752
+National Security Chief	5753
+Rainforest Action Network	5754
+Physicians For Human Rights	5755
+International Press Institute	5756
+Tootsie Roll Industries	5757
+International Confederation Of Midwives	5758
+Safe Motherhood	5759
+Activision Blizzard	5760
+Cooper Companies Inc	5761
+Christian Community Church	5762
+Jorge Rodriguez	5763
+Peloponnese	5764
+Gen.	5765
+Juan Peron	5766
+Sm Energy Company	5767
+Gurbanguly Berdimukhamedov	5768
+Kampong Thom	5769
+Jason Kenney	5770
+Tujia	5771
+Unity Church	5772
+Sunsari	5773
+Secretary Of Civil	5774
+Pamela Gordon	5775
+George Saitoti	5776
+Tanger Factory Outlet	5777
+Vicente Fox Quesada	5778
+China National Offshore Oil Corp	5779
+Freundel Stuart	5780
+Khalid Sheikh Mohammed	5781
+Chubb Corporation	5782
+Linas Linkevicius	5783
+Baxter International Inc	5784
+Nizari	5785
+Chief Of Intelligence	5786
+Ha Giang	5787
+Chancellery	5788
+Smart Technologies Inc	5789
+Bourgogne	5790
+Gamestop Corp	5791
+Sung Kim	5792
+Wilmar International	5793
+John Gormley	5794
+Mass Opposition	5795
+Anant Geete	5796
+Noble Group Limited	5797
+Tswana	5798
+Sociedad Peruana De Derecho Ambiental	5799
+Minist For State	5800
+Dcp Midstream Partners	5801
+Civicus	5802
+Thanh Hoa	5803
+Minist For Energy	5804
+Singapura	5805
+Hindu Monk	5806
+Quanzhou	5807
+Opus Dei	5808
+Indigenous Farmer	5809
+Minist For Government	5810
+Leading Bank	5811
+Nordson Corp	5812
+Pakalitha Mosisili	5813
+Baster	5814
+Sharat Singh Bhandari	5815
+Ayanda Dlodlo	5816
+United Microelectronics Corporation	5817
+Kelebone Maope	5818
+Echostar Corporation	5819
+Amref	5820
+Mehmet Simsek	5821
+Government Commission	5822
+Nikola Dimitrov	5823
+Lg Display Co	5824
+Omar Zakhilwal	5825
+Greenlander	5826
+Minist For Public Works	5827
+Martin Dlamini	5828
+Steven Joyce	5829
+Cafod	5830
+Christian Solidarity Worldwide	5831
+Khaltmaa Battulga	5832
+Willbros Group	5833
+Imad Moustapha	5834
+Jyrki Katainen	5835
+Parker Hannifin	5836
+Resistance Army	5837
+Gaborone	5838
+Avery Dennison Corporation	5839
+Paramilitary Unit	5840
+Ferro Corporation	5841
+Gorman Rupp	5842
+Kittitian	5843
+Pelonomi Venson	5844
+Vaishnavism	5845
+Trondheim	5846
+Religious Affairs Bureau	5847
+Recep Akdag	5848
+Artois	5849
+Darchula	5850
+Mirek Topolanek	5851
+Intergovernmental Authority On Development	5852
+Viborg	5853
+Shahabuddin Ahmed	5854
+Water For People	5855
+Ryazan	5856
+Sule Lamido	5857
+Tar Heel State	5858
+Missionaries Of The Sacred Heart	5859
+Athenahealth	5860
+Duke Realty Corp	5861
+United Nations Commission For Human Rights	5862
+Bohuslav Sobotka	5863
+Thorbjorn Jagland	5864
+Editorialist	5865
+Emc Corporation	5866
+Student Demonstrator	5867
+Harry Fritz	5868
+Washington Post Company	5869
+Nucor Corporation	5870
+Peter Phillips	5871
+Michael Mcdowell	5872
+Renaissancere	5873
+Reprobate	5874
+Jose Ramon Machado Ventura	5875
+Michael Barnett	5876
+Society Of Jesus	5877
+Alkermes	5878
+C. Boyden Gray	5879
+Act Alliance	5880
+Kaman Corporation	5881
+Rockwell Collins Inc	5882
+Mizuho Financial Group	5883
+Court Justice	5884
+Cephalon Inc	5885
+David Satter	5886
+James Soong	5887
+Marcolino Moco	5888
+Ichiro Fujisaki	5889
+Vivekananda Kendra	5890
+Government Lawmaker	5891
+Gafsa	5892
+Lake Constance	5893
+Lokendra Bahadur Chand	5894
+Desmond Tutu	5895
+Spree Killer	5896
+Alexandre Padilha	5897
+Investigative Commission	5898
+Peter Garrett	5899
+Cenovus Energy Inc	5900
+Myint Maung	5901
+Aetna Inc	5902
+Nsaba Buturo	5903
+Ulan Bator	5904
+Cgi Group	5905
+Minority Rights Group	5906
+Diamondrock Hospitality Company	5907
+Oppenheimer Holdings	5908
+Jean Bertrand Aristide	5909
+Syriac Catholic Church	5910
+International Business Machines Corporation	5911
+D.C.	5912
+Un Secretariat	5913
+Philipine	5914
+Cbs Corporation	5915
+Us Ecology Inc	5916
+Restoration Movement	5917
+Minist Of Economic Affairs And Finance	5918
+Gilead Sciences Inc	5919
+Rodney Hide	5920
+Armed Rebel Group	5921
+Meechai Ruchupan	5922
+Kapampangan	5923
+Ewart Brown	5924
+Americo Liberians	5925
+Ethnic Tamil	5926
+Rastafarian	5927
+Chavalit Yongchaiyudh	5928
+Hammarskjold	5929
+Kishinev	5930
+Vail Resorts Inc	5931
+Saint Kitts	5932
+Pulau Tioman	5933
+Amado Boudou	5934
+Christian Priest	5935
+Dreamworks Animation	5936
+Kennedy Wilson Holdings	5937
+Becton Dickinson And Co	5938
+Massawa	5939
+Lawyers Without Borders	5940
+Humla	5941
+Dailekh	5942
+Dhanusa	5943
+Jorge Rafael Videla	5944
+Acores	5945
+Anand Ramlogan	5946
+Jola	5947
+War Prisoner	5948
+Africa Action	5949
+Joy Ogwu	5950
+Seyhan	5951
+Srilanka	5952
+Errol Barrow	5953
+Quang Ngai	5954
+Pathum Thani	5955
+Siraha	5956
+Minist For The Treasury	5957
+Teekay Tankers	5958
+Jean Asselborn	5959
+Ambassador For A	5960
+Abu Al Walid	5961
+Magway	5962
+Left Wing Coalition	5963
+S. B. Navinna	5964
+Sukhbaatar	5965
+Sudan Liberation Army	5966
+Arthur J. Gallagher	5967
+Cai International	5968
+Republic Of Croatia	5969
+Rashid Meredov	5970
+Raymond Joseph	5971
+Gampaha	5972
+Burkina	5973
+Muslim Saint	5974
+Guerrilla Leadership	5975
+Ali Abdallah	5976
+Jamalpur	5977
+Minist For Works	5978
+Jean Ping	5979
+Osterreich	5980
+Tempur Pedic	5981
+Arawak	5982
+Yancheng	5983
+Gerry Ritz	5984
+International Association For Research In Income And Wealth	5985
+Us Airways	5986
+Upsala	5987
+Kanto	5988
+Resident Physician	5989
+Santiago De Chile	5990
+Alan Garcia	5991
+Obeah	5992
+Natural Resources Defence Council	5993
+Graham Packaging	5994
+Equality State	5995
+Sergei Stanishev	5996
+Kirov	5997
+World Federation Of Trade Unions	5998
+Calvary Chapel	5999
+Religious Sisters Of Mercy	6000
+Nadine Morano	6001
+Zonta	6002
+Horst Kohler	6003
+Association Of International Educators	6004
+George Mccarthy	6005
+Standex International	6006
+Sanusi Lamido Sanusi	6007
+Yuriy Boyko	6008
+Newmont Mining Corporation	6009
+Elvin Penner	6010
+Nantou County	6011
+Apostolic Churches	6012
+Basia	6013
+Akan	6014
+Underground Resistance	6015
+Hierarch	6016
+Gildan Activewear	6017
+Vulcan Materials Co	6018
+Nuba	6019
+Dutch East Indies	6020
+Jajarkot	6021
+Zainal Abidin	6022
+Zhou Xiaochuan	6023
+Kadavu	6024
+International Sikh Youth Federation	6025
+Transdigm Group	6026
+Association For Supervision And Curriculum Development	6027
+Coup Leader	6028
+Aquitaine	6029
+John Boyce	6030
+Owens Illinois	6031
+Won Sei Hoon	6032
+Uttaradit	6033
+Vodou	6034
+Holy Man	6035
+Richard Sealy	6036
+Mohamed Abdullahi Mohamed Farmajo	6037
+Informatica Corporation	6038
+Malefactor	6039
+Albert Reynolds	6040
+Logitech	6041
+Verifone Systems	6042
+Vili	6043
+Private Armies	6044
+Minangkabau	6045
+Enbridge Inc	6046
+Mendicant	6047
+Alberto Fernandez	6048
+Iyad Allawi	6049
+Pro Independence Activist	6050
+Nizhny Novgorod	6051
+Word Of Life Church	6052
+Tien Giang	6053
+John Nkomo	6054
+Bhojpur	6055
+Nyoro	6056
+Agitated Students	6057
+The Progressive Corporation	6058
+B Desh	6059
+Bdesh	6060
+Omdurman	6061
+Volga River	6062
+Meherpur	6063
+Wafd Party	6064
+Narail	6065
+Kien Giang	6066
+Chagatai	6067
+Guerilla Leader	6068
+Qwest Communications International Inc	6069
+John Yoo	6070
+Koh Kong	6071
+Orchids Paper	6072
+Aiesec	6073
+Sime Darby Berhad	6074
+Sakhalin	6075
+Swiss Canton	6076
+Tlingit	6077
+Mary Mcaleese	6078
+Hess Corporation	6079
+Yakutia	6080
+Belarussian	6081
+United Reformed Church	6082
+Baptist Churches	6083
+St. Kitts And Nevis	6084
+John Tsang Chun Wah	6085
+National Council Of Negro Women	6086
+Ismail Haniya	6087
+Students And Professor	6088
+Praia	6089
+Minist For Infrastructure	6090
+Afrikaners	6091
+Adriel Brathwaite	6092
+German Vargas Lleras	6093
+Kingdom Of Jordan	6094
+Kratie	6095
+Preah Vihear	6096
+Western Union Company	6097
+Gaspar Vega	6098
+Lai Chau	6099
+Devon Energy Corporation	6100
+Yang Jing	6101
+Toliara	6102
+Changchun	6103
+Kampong Cham	6104
+Caritas Internationalis	6105
+Minist Of Budget	6106
+David Parirenyatwa	6107
+Edgar Savisaar	6108
+Klaipeda	6109
+Queretaro	6110
+Songkhla	6111
+Pax Christi International	6112
+Mohammad Reza Rahimi	6113
+Muslim Separatist Rebel	6114
+Explorers Club	6115
+Kinh	6116
+Tamil Eelam	6117
+Extra Space Storage	6118
+Imangali Tasmagambetov	6119
+Forrester Research Inc	6120
+Castilla	6121
+Ostrava	6122
+Oiler	6123
+Iaap	6124
+Rita Fan	6125
+Jean Chretien	6126
+Traian Basescu	6127
+Open Joint Stock Company	6128
+Hassanal Bolkiah	6129
+Binh Phuoc	6130
+Stigmatines	6131
+World Organization Against Torture	6132
+International Federation Of Human Rights	6133
+International Federation Of Women Lawyers	6134
+Ancient Church Of The East	6135
+Welfare Worker	6136
+Irishwoman	6137
+Intuitive Surgical Inc	6138
+Christopher Tufton	6139
+Ahmet Davutoglu	6140
+Bijan Namdar Zanganeh	6141
+Stanislau Shushkevich	6142
+Gugile Nkwinti	6143
+Tommy Remengesau	6144
+Suisse	6145
+Guido Westerwelle	6146
+Congress Of Racial Equality	6147
+Luxemberg	6148
+The Gabelli Global	6149
+Watts Water Technologies	6150
+Athos	6151
+Peloponnesus	6152
+Astara	6153
+Ayaan Hirsi Ali	6154
+Abadan	6155
+Prachuap Khiri Khan	6156
+Moustapha Niasse	6157
+Dimash	6158
+Eire	6159
+Minist Of Textiles	6160
+Wilfried Martens	6161
+Karelia	6162
+Abdou Kolley	6163
+Steadroy Benjamin	6164
+Lester Bird	6165
+St. Georges	6166
+Barnes Group	6167
+Bordello	6168
+National Gendarmerie	6169
+Ivanhoe Mines	6170
+Carlos Osorio	6171
+Privatization Commission	6172
+Ecpat	6173
+Opposition Daily	6174
+Mongo	6175
+Andorra	6176
+Husbandman	6177
+Lee Teng Hui	6178
+Palatinate	6179
+Ahmed Ben Bella	6180
+Yilan County	6181
+Chen Shui Bian	6182
+Coalition Of Opposition Parties	6183
+Minist Of Ngos	6184
+East Cape	6185
+Lions Clubs International	6186
+Vishva Hindu Parishad	6187
+Ribbon International	6188
+New Life Fellowship	6189
+Apogee Enterprises	6190
+Rostock	6191
+Bill Graham	6192
+Christian Noyer	6193
+Genco Shipping	6194
+United Nations Secretariat	6195
+Punakha	6196
+Serhiy Lyovochkin	6197
+Mande	6198
+Us Initiative	6199
+Nick Smith	6200
+Manitowoc Company	6201
+Stipendiary Magistrate	6202
+Isaias Afewerki	6203
+Mazatlan	6204
+Opposition Journalist	6205
+Books For Africa	6206
+Regnum Christi	6207
+Persepolis	6208
+Bob Evans Farms	6209
+Lulua	6210
+Marist Brothers	6211
+Missioner	6212
+Anote Tong	6213
+Malaita	6214
+Takeo	6215
+Xinca	6216
+Cape Colony	6217
+Susan E. Rice	6218
+Steven Hayward	6219
+Rapti	6220
+Ivanovo	6221
+Saitama	6222
+Aar Corp	6223
+Bruxelles	6224
+Nhep Bunchin	6225
+Omnicom Group	6226
+Minist Of External Relations	6227
+Krakatau	6228
+Mia Mottley	6229
+Canon Inc	6230
+Felix Okot Ogong	6231
+Washington Real Estate Investment Trust	6232
+Guinee	6233
+Arab Organization For Human Rights	6234
+Ingram Micro Inc	6235
+Anzio	6236
+Leader In Exile	6237
+Transvaal	6238
+Reynolds American Inc	6239
+Tohoku	6240
+Alfred Sant	6241
+Mannheim	6242
+Jeff Radebe	6243
+Minist Of Domestic Trade	6244
+Cummins Inc	6245
+Arcelor Mittal	6246
+Emarati	6247
+Artur Rasizade	6248
+Ali Insanov	6249
+Dom Mintoff	6250
+Cordaid	6251
+Beliz	6252
+Victor Gbeho	6253
+Cristina Fernandez De Kirchner	6254
+Thule	6255
+Quang Ninh	6256
+Insurgence	6257
+Nakhon Pathom	6258
+Hla Tun	6259
+Yves Mersch	6260
+Ashland Inc	6261
+David Waddington	6262
+Lezgins	6263
+Avars	6264
+Redr	6265
+Jacobs Engineering Group	6266
+Veeco Instruments	6267
+Mustapa Mohamed	6268
+Juan Valdes	6269
+Narco Trafficker	6270
+Kosti Manibe Ngai	6271
+Mahinda Samarasinghe	6272
+Curtiss Wright Corp	6273
+Hain Celestial Group	6274
+Andrei Kobyakov	6275
+Marists	6276
+Patrice Trovoada	6277
+Xianyang	6278
+Syed Yousaf Raza Gillani	6279
+Zahir Tanin	6280
+Guangxi Zhuang	6281
+Policewomen	6282
+Qiang	6283
+Carl Xvi Gustaf	6284
+Gill Marcus	6285
+Acronym Institute For Disarmament Diplomacy	6286
+Rundi	6287
+Nikolay Mladenov	6288
+Federated Premier Municipal Income Fund	6289
+Tamilnet	6290
+Paramilitary Police	6291
+Ironwood Pharmaceutical	6292
+Hilson Baptiste	6293
+Myanma	6294
+Agnosticism	6295
+Truong Chinh	6296
+Maritime Provinces	6297
+Desmond Bannister	6298
+Supervalu Inc	6299
+China Eastern Airlines	6300
+Bruderhof	6301
+Buddhist Priest	6302
+Vishay Intertechnology	6303
+Republic Of South Sudan	6304
+Cathouse	6305
+Martiniquan	6306
+Universal Display Corporation	6307
+French Guianese	6308
+Jundallah	6309
+Medecins Du Monde	6310
+Ruling Junta	6311
+Internet Society	6312
+Sein Win	6313
+United States Steel Corporation	6314
+Carmax Inc	6315
+Hit Squad	6316
+Belo Horizonte	6317
+Tanintharyi	6318
+General Of The Army	6319
+Kampuchea	6320
+Minist Of Hydrocarbons	6321
+Louis Straker	6322
+Lampung	6323
+Jarmo Viinanen	6324
+Peter Wittig	6325
+Sanitarium	6326
+Mangosuthu Buthelezi	6327
+Lien Chan	6328
+Stefan Ingves	6329
+Equity Residential	6330
+Human Rights Society	6331
+Raptor Pharmaceutical	6332
+Caiman Islands	6333
+Hawkeye State	6334
+Cloud Peak Energy	6335
+Calpine Corporation	6336
+Cal Maine Foods	6337
+Minist For National Defence	6338
+Naval Destroyer	6339
+Chief Justice Of The Supreme Court	6340
+Ur Energy Inc	6341
+Tocantins	6342
+Andrew George	6343
+Robert Zoellick	6344
+Midi Pyrenees	6345
+Syed Naveed Qamar	6346
+Saraburi	6347
+Westport Innovations Inc	6348
+Multi National Corporation	6349
+Exelon Corporation	6350
+John Benjamin	6351
+Flowserve Corporation	6352
+Weekend Warrior	6353
+Africa America Institute	6354
+Carter Center	6355
+Fiserv Inc	6356
+Treasury Chief	6357
+Gas Corp	6358
+Ron Kirk	6359
+Yazidism	6360
+Takingitglobal	6361
+Bernard Dompok	6362
+Ayman Nour	6363
+The Brethren	6364
+Maracaibo	6365
+Anti Slavery International	6366
+Human Rights Leader	6367
+Bal Krishna Khand	6368
+Grand Port	6369
+Ethiopian Orthodox	6370
+Ainu	6371
+Donville Inniss	6372
+Minist For Regional Development	6373
+Combat Troops	6374
+Vitamin Shoppe	6375
+Microsemi Corp	6376
+John Carter	6377
+Church World Service	6378
+Argies	6379
+Pinnacle West Capital	6380
+Ulyanovsk	6381
+International Centre For Integrated Mountain Development	6382
+Vitor Constancio	6383
+Ebay Inc	6384
+Lomwe	6385
+Valentina Matviyenko	6386
+Gurbanguly Berdimuhamedow	6387
+Bingu Wa Mutharika	6388
+Lars Lokke Rasmussen	6389
+Sea Robber	6390
+Kishore Mahbubani	6391
+Mahanagar Telephone Nigam	6392
+Illinois Tool Works	6393
+Bon Ton Stores	6394
+Oshkosh Corporation	6395
+Thai Binh	6396
+International Telecommunications Union	6397
+Combat Jet	6398
+Wabash National	6399
+Grand Canyon State	6400
+Abraham Abraham	6401
+Campania	6402
+Roh Tae Woo	6403
+Fluor Corporation	6404
+Kbr Inc	6405
+Gravenhage	6406
+Khin Maung Win	6407
+Phetchaburi	6408
+Ali Bongo Ondimba	6409
+Gurbanguly Berdymukhammedov	6410
+Pratibha Devisingh Patil	6411
+Nguyen Van Giau	6412
+Aalborg	6413
+Martin Marietta Materials	6414
+Louis Michel	6415
+Energizer Holdings	6416
+Radmila Sekerinska	6417
+Minist For Economic Affairs	6418
+Rex Hunt	6419
+Eastern Highlands	6420
+Daniel Inouye	6421
+Mettler Toledo	6422
+Kiraitu Murungi	6423
+United Republic Of Tanzania	6424
+Humanistic Judaism	6425
+International Olive Council	6426
+Court Of Auditors	6427
+Student Dissident	6428
+Southern Peru Copper Corp	6429
+Jardine Matheson	6430
+Mako Surgical Corp	6431
+Brunn	6432
+Ben Bernanke	6433
+Alex Larsen	6434
+Elizabeth Arden	6435
+Altay	6436
+Piedmont Natural Gas	6437
+Muslim Aid	6438
+Tarabulus	6439
+Mahayana Buddhism	6440
+Nyiragongo	6441
+Sicilia	6442
+Porto Rico	6443
+Massoud Barzani	6444
+The Hunger Project	6445
+Ceylonese	6446
+Cracow	6447
+Inter American Press Association	6448
+Congo Republic	6449
+Vladimir Naumov	6450
+Dolby Laboratories	6451
+Hudson Pacific Properties	6452
+The Body Of Christ	6453
+Institute Of Internal Auditors	6454
+Msci Inc	6455
+Burkino Faso	6456
+Luminex Corporation	6457
+Callon Petroleum Company	6458
+Hirohito	6459
+La Z Boy	6460
+Oracle Corp	6461
+Ahmadabad	6462
+Evaristo Carvalho	6463
+Burhanuddin Rabbani	6464
+Abdelkader Messahel	6465
+Oil Corp	6466
+Bamileke	6467
+Sally Satel	6468
+Kaiser Aluminum	6469
+Genesco Inc	6470
+Samuel Ofosu Ampofo	6471
+Ms Nepal	6472
+Joaquim Chissano	6473
+Armando Guebuza	6474
+Pago Pago	6475
+Mellanox Technologies	6476
+Zaw Min	6477
+Krakatoa	6478
+Frederick Kagan	6479
+Eastman Chemical Co	6480
+Minist For Irrigation	6481
+Ukraina	6482
+Military Authority	6483
+Donald Kaberuka	6484
+Cheniere Energy Partners	6485
+Opko Health Inc	6486
+Friesland	6487
+Peter Munya	6488
+Sanofi Aventis	6489
+Cutera Inc	6490
+Atmel Corporation	6491
+Nguru	6492
+Sprint Nextel	6493
+Jose Ramos Horta	6494
+Timorese	6495
+Flir Systems	6496
+Tyco International	6497
+Striking Nurse	6498
+Society Of Mary	6499
+Issa Tchiroma Bakary	6500
+Bank For International Settlements	6501
+Marvell Technology Group	6502
+Manjack	6503
+Dilip Barua	6504
+Taiwan Semiconductor Manufacturing Co	6505
+Amr Moussa	6506
+Investors Bancorp	6507
+Harald V	6508
+Quechua	6509
+Adamu Bello	6510
+Ansar Al Islam	6511
+Human Rights Foundation Of Turkey	6512
+Actuant Corporation	6513
+Khon Kaen	6514
+Minist For Textiles	6515
+Phillipine	6516
+South Asian Association	6517
+Prince Juan Carlos	6518
+Aachen	6519
+Chungbuk	6520
+Hindu Hardliner	6521
+Frank Savage	6522
+Nana Effah Apenteng	6523
+Company Union	6524
+Seretse Khama Ian Khama	6525
+Unidentified Forces	6526
+Thein Swe	6527
+Insurgent Movement	6528
+American Arab	6529
+Verisign Inc	6530
+Angiotech Pharmaceutical	6531
+Jhenaidah	6532
+American Eagle Outfitters	6533
+Huizhou	6534
+Col.	6535
+Sayam	6536
+Damara	6537
+Exide Technologies	6538
+Teleflex Inc	6539
+Muslim Rebel Group	6540
+Ramon Puerta	6541
+Sarpang	6542
+Sadiq Al Mahdi	6543
+Bio Rad Laboratories	6544
+Fernando Chui Sai On	6545
+Pan African Parliament	6546
+Ppl Corporation	6547
+Eccp	6548
+Nathan Guy	6549
+St Christopher And Nevis	6550
+Dhahran	6551
+International Sociological Association	6552
+Samia Suluhu	6553
+Tarja Halonen	6554
+Faustin Archange Touadera	6555
+Donald Tsang Yam Kuen	6556
+Vimpelcom	6557
+Kyaw Myint	6558
+Sakha	6559
+Discover Financial Services	6560
+Catholic Missionaries	6561
+Moorish Science Temple Of America	6562
+Bokeo	6563
+Giulio Andreotti	6564
+Economic Cooperation Organization	6565
+Eastern Desert	6566
+Boeotia	6567
+Tsingtao	6568
+Zhanjiang	6569
+Romain Schneider	6570
+Cemac	6571
+Dell Inc	6572
+Acco Brands Corporation	6573
+Religious Society Of Friends	6574
+Moskva	6575
+Borinquen	6576
+United States Of Mexico	6577
+Carnival Plc	6578
+Michel Rocard	6579
+Cree Inc	6580
+Dexia	6581
+Aymara	6582
+Ens.	6583
+Ambassador To A	6584
+David Coltart	6585
+Choice Hotels International	6586
+Association For Progressive Communications	6587
+Thessalonica	6588
+Sandra Kalniete	6589
+Faisal Al Fayez	6590
+Minist Of Territorial Administration	6591
+Amtrust Financial Services	6592
+Salehuddin Ahmed	6593
+Minist For Electricity	6594
+Minist Of Welfare	6595
+Mannin	6596
+Travelers Companies Inc	6597
+Ruling Alliance	6598
+Ted Frank	6599
+Investment Technology Group Inc	6600
+Bank Of New York Mellon Corp	6601
+Agung Laksono	6602
+Alassane Ouattara	6603
+Adrian Nastase	6604
+Military Reserve	6605
+Obaku	6606
+Cp Rail	6607
+Freedom To Marry	6608
+Surinamese	6609
+World Ort	6610
+Western Digital Corporation	6611
+Kerbala	6612
+Geo Group Inc	6613
+Chatham Lodging Trust	6614
+Pultegroup	6615
+Murrumbidgee River	6616
+Great Australian Bight	6617
+Boris Gryzlov	6618
+Leonid Kuchma	6619
+Federal National Council	6620
+Mazar I Sharif	6621
+Armed Riot Police	6622
+Susilo Bambang Yudhoyono	6623
+Niobrara	6624
+Unilever Nv	6625
+Armenian Relief Society	6626
+Geoffrey Palmer	6627
+Pe Than	6628
+Westar Energy	6629
+Arkhangai	6630
+Paramilitary Organization	6631
+Joseph Zen	6632
+Armstrong World Industries	6633
+Fouad Siniora	6634
+Privacy International	6635
+Moise Lida Kouassi	6636
+Yekaterinburg	6637
+Honshu	6638
+Bbva Banco Frances	6639
+Dora Siliya	6640
+Musa Mohammed	6641
+Switz	6642
+National Foreign Trade Council	6643
+United States Virgin Islands	6644
+Spirit Aerosystems	6645
+Pnm Resources Inc	6646
+Dino Patti Djalal	6647
+Kraft Foods Inc	6648
+Mgt Capital Investments	6649
+Hanesbrands Inc	6650
+Ramco Gershenson	6651
+Rossiyskaya	6652
+Kyaw Shwe	6653
+Fidelity National Financial	6654
+Carlos Gutierrez	6655
+Ninh Thuan	6656
+Ticino	6657
+Solomon Islander	6658
+Mexicanos	6659
+Japan Red Army	6660
+Ethan Allen Interiors	6661
+Puerto Rica	6662
+Minist Of Disaster Management	6663
+Arkhangelsk	6664
+Severstal	6665
+Bureau Of Special Operations	6666
+Hifikepunye Pohamba	6667
+Minist Of National Economy	6668
+Academy For Educational Development	6669
+Equitorial Guinea	6670
+Franklin Resources	6671
+Center For Sustainable Development	6672
+Lm Ericsson	6673
+Azam Khan Swati	6674
+Lualaba	6675
+Molwyn Joseph	6676
+Oblates Of Mary Immaculate	6677
+Shikoku	6678
+Acorn Energy	6679
+Total System Services	6680
+Alamo Group	6681
+Allscripts Healthcare Solutions	6682
+Freemasonry	6683
+Chaparhar	6684
+Servants Of Mary	6685
+Satkhira	6686
+National Bank Of Greece	6687
+Jiang Zemin	6688
+Chinese Wall	6689
+Penske Automotive	6690
+Rodney Williams	6691
+Sorbs	6692
+Cigna Corporation	6693
+Aveo Pharmaceuticals	6694
+Ukrain	6695
+Yunlin County	6696
+Hwanghae	6697
+Porter Bancorp	6698
+Curitiba	6699
+Sagaing	6700
+Central Election Committee	6701
+Guillaume Soro	6702
+Zulkifli Hasan	6703
+United Nations Food And Agriculture Organization	6704
+Pine Tree State	6705
+Cyberoptics Corporation	6706
+Scotts Miracle Gro	6707
+Joseph Owona	6708
+Mount Olympus	6709
+Brendan Smith	6710
+Amazon Indian	6711
+Uzbekiston	6712
+Alliance Healthcare Services	6713
+Suiza	6714
+Karamojong	6715
+Swiss Italian	6716
+Tutor Perini Corporation	6717
+Saudia Arabia	6718
+Conservative Christianity	6719
+Bruce Golding	6720
+Gay And Lesbian Alliance Against Defamation	6721
+Operation Mercy	6722
+Lalit Mansingh	6723
+Opposition Political Party	6724
+Nahua	6725
+Fumihiro Joyu	6726
+Lakshadweep	6727
+Aung Thein	6728
+Jean Kambanda	6729
+Chai Nat	6730
+Aum Shinrikyo	6731
+Levy Mwanawasa	6732
+Azande	6733
+Civil Aviation Department	6734
+Minist Of Cities	6735
+Miyegombo Enkhbold	6736
+Cursillo Movement	6737
+Zulkifli Bin Hir	6738
+Dardanelles	6739
+Bunge Limited	6740
+Yuriy Trutnev	6741
+Etats Unis	6742
+Bateke	6743
+Villahermosa	6744
+Regal Beloit	6745
+Tirol	6746
+Bala Mohammed	6747
+Jailbird	6748
+Min Thein	6749
+Spx Corporation	6750
+Maryknoll Fathers And Brothers	6751
+Separatist Guerrilla	6752
+China Communications Construction Co	6753
+Inoke Kubuabola	6754
+Venda	6755
+Mayotte	6756
+Mohamed Hussein Tantawi	6757
+Eagle Bulk Shipping Inc	6758
+Mohajirs	6759
+Nasik	6760
+Military Machine	6761
+Lisa Shoman	6762
+Colville Young	6763
+Aum Supreme Truth	6764
+Dadra And Nagar Haveli	6765
+Schweitzer Mauduit International	6766
+Modine Manufacturing Company	6767
+Olav V	6768
+Clayton Williams	6769
+Mohamed Latheef	6770
+Insurgent Organization	6771
+Netrakona	6772
+Syda Bumba	6773
+Fmc Corporation	6774
+Arab Maghreb Union	6775
+Cheryl Gillan	6776
+International Trade Union Confederation	6777
+Information And Culture Minist	6778
+David Kemp	6779
+Turkish Investment Fund	6780
+John Duncan	6781
+Saint Lucian	6782
+Order Of Saint Augustine	6783
+Bakri Hassan Saleh	6784
+Aleut	6785
+Wolfgang Ischinger	6786
+Bristow Group Inc	6787
+Jstor	6788
+Francisco Rodriguez	6789
+Phillippines	6790
+Louisiana Purchase	6791
+Anura Priyadarshana Yapa	6792
+Guntis Ulmanis	6793
+Classic Zen	6794
+Lennox International	6795
+Samut Sakhon	6796
+The Gymboree	6797
+Lars Loekke Rasmussen	6798
+Minendra Rijal	6799
+Haverty Furniture	6800
+Tajik Republic	6801
+Prem Tinsulanonda	6802
+Saura	6803
+Bolzano	6804
+Hambali	6805
+Broadcom Corp	6806
+Jean Oghassabian	6807
+Ramechhap	6808
+Stephen Kalonzo Musyoka	6809
+Newell Rubbermaid	6810
+John Pundari	6811
+Compania Cervecerias Unidas	6812
+Glenn Stevens	6813
+Kapilvastu	6814
+Amos Wako	6815
+Tsina	6816
+Danny Alexander	6817
+Cabo Verde	6818
+Bpw International	6819
+Cabinetmaker	6820
+Celebes	6821
+Barotse	6822
+Mohammed Ouzzine	6823
+Gobi Desert	6824
+Anerood Jugnauth	6825
+Tibor Navracsics	6826
+Giuliano Amato	6827
+Oriental Orthodox	6828
+Centene Corporation	6829
+Al Qahira	6830
+Tochigi	6831
+Hans Modrow	6832
+Student Opposition	6833
+Zawahiri	6834
+Antonio Vargas	6835
+Minist Of Communication And Information Technology	6836
+Marquesas Islands	6837
+Swissland	6838
+Clear Channel Outdoor Holdings	6839
+Ossetians	6840
+Wolof	6841
+Murli Manohar Joshi	6842
+Inder Kumar Gujral	6843
+Lech Kaczynski	6844
+Moldavia	6845
+Gerhard Schroeder	6846
+Wellcare Group	6847
+Tuamotu Archipelago	6848
+Khlysts	6849
+Ken Lipenga	6850
+Organization Of African Unity	6851
+Ion Sturza	6852
+Ancient Order Of Druids	6853
+Thaksin Shinawatra	6854
+Parker Drilling	6855
+Alcoa Inc	6856
+Loretto Community	6857
+Univest Corporation Of Pennsylvania	6858
+Helmut Schmidt	6859
+Equador	6860
+Jafar Hassan	6861
+Vilasrao Deshmukh	6862
+Derek Mitchell	6863
+Fiabci	6864
+Christian Clergymen	6865
+Rainbow Family	6866
+Arif Hussain	6867
+Militant Wing	6868
+Taleb Rifai	6869
+Tariana Turia	6870
+Hsinchu County	6871
+Enrique Ona	6872
+Cotopaxi	6873
+Evraz	6874
+Cts Corporation	6875
+Kayin State	6876
+Ha Tinh	6877
+Barbadan	6878
+Mutula Kilonzo	6879
+Nguyen Tan Dung	6880
+Rapa Nui	6881
+Societas Rosicruciana	6882
+Anthroposophy	6883
+David Mathieson	6884
+Zayd Saidov	6885
+Alounkeo Kittikhoun	6886
+Isle Of Mann	6887
+U Thant	6888
+Joseph Made	6889
+Felix Mutati	6890
+Old Dominion State	6891
+Old Line State	6892
+Trygve Lie	6893
+Augusto Santos Silva	6894
+Espana	6895
+Magnolia State	6896
+International Publishers Association	6897
+Kanchanpur	6898
+Mount Rushmore State	6899
+Pelican State	6900
+North Star State	6901
+Centennial State	6902
+Land Of Enchantment	6903
+Okayama	6904
+United Nations Monitor	6905
+Sakon Nakhon	6906
+Validus Holdings	6907
+Thebes	6908
+Salyan	6909
+Rackspace Hosting	6910
+World Hunger Year	6911
+Antwerpen	6912
+Gannett Co	6913
+International Diabetes Federation	6914
+Disaster Management Minist	6915
+Chan Heng Chee	6916
+Marie Stopes International	6917
+Kema Chikwe	6918
+Wolverine World Wide	6919
+Aegina	6920
+Iridium Communications	6921
+Mikhail Myasnikovich	6922
+Kenneth Cole Productions	6923
+Jual Oram	6924
+Essex Property Trust	6925
+Intertanko	6926
+Dutch Antilles	6927
+Tallin	6928
+Cagayan Valley	6929
+Daur	6930
+Timor Lorosae	6931
+Cvr Energy Inc	6932
+Phichit	6933
+Hery Rajaonarimampianina	6934
+Acorda Therapeutics	6935
+Praxair Inc	6936
+New Tang Dynasty	6937
+Chunghwa Telecom	6938
+Kellogg Company	6939
+Archpriest	6940
+Ousman Sonko	6941
+Vladimir Voronin	6942
+Institute For Human Rights And Development In Africa	6943
+Fernando Henrique Cardoso	6944
+Cyclades	6945
+Kamet	6946
+Comerica Inc	6947
+Murphy Oil Corp	6948
+Alfredo Cristiani	6949
+Cadence Design Systems	6950
+John Manley	6951
+Feed The Children	6952
+Tarawa Atoll	6953
+Ampara	6954
+Kirgizstan	6955
+Oryol	6956
+Terrorist Insurgent	6957
+Gilles Tonelli	6958
+Patterson Uti	6959
+Kaloleni	6960
+Bonete	6961
+Jewish Renewal	6962
+Peter Mafany Musonge	6963
+Mahamoud Ali Youssouf	6964
+Bay Of Naples	6965
+Suzlon Energy	6966
+Adm.	6967
+Brian Lenihan	6968
+Jenny Macklin	6969
+Weingarten Realty	6970
+First Solar Inc	6971
+Dean Baker	6972
+Telecom Consultant	6973
+Tangshan	6974
+Peter Hollingworth	6975
+Shankar Pokhrel	6976
+Royal Government	6977
+Horace Chang	6978
+Amn Healthcare Services	6979
+Uma Kanta Chaudhary	6980
+New Gold Inc	6981
+Gunma	6982
+Dongxiang	6983
+Minist For Internal Affairs	6984
+International Water Management Institute	6985
+Kite Realty	6986
+Helpage International	6987
+Perrigo Company	6988
+Heng Samrin	6989
+Veolia Environnement	6990
+Roumania	6991
+Rudyard Spencer	6992
+Azerbaidjan	6993
+Abdullah Gul	6994
+Catholic Missionary	6995
+Ebrahim Patel	6996
+David Kilgour	6997
+Nakhon Nayok	6998
+He Yong	6999
+Autonomous Region Of Bougainville	7000
+Pervez Sheikh	7001
+Petrit Vasili	7002
+Caretaker Administration	7003
+Lim Hng Kiang	7004
+Molise	7005
+Michel Pharaon	7006
+Presbyterianism	7007
+Kyaw Tin	7008
+World Blind Union	7009
+China Construction Bank	7010
+International Association Of Drilling Contractors	7011
+Proshika	7012
+Bar Harbor Bankshares	7013
+Bancolombia	7014
+Adige	7015
+The Aes Corporation	7016
+Faeroese	7017
+European Chemical Industry Council	7018
+Fernando Collor De Mello	7019
+Minist For Veterans Affairs	7020
+Rainforest Alliance	7021
+Cit Group Inc	7022
+Jose Eduardo Cardozo	7023
+Namur	7024
+Li Peng	7025
+Virnetx Holding	7026
+Gurbanguly Berdimuhammedov	7027
+Inupiat	7028
+Jozef Oleksy	7029
+Florencio Abad	7030
+Rhone River	7031
+Kokani	7032
+Webster Financial Corp	7033
+World Business Council For Sustainable Development	7034
+Weifang	7035
+Boliva	7036
+Israelim	7037
+Martin Elia Lomuro	7038
+Array Biopharma Inc	7039
+Hsn Inc	7040
+Fred Goodwin	7041
+Unification Church	7042
+Morrocan	7043
+Hoshyar Zebari	7044
+Carlos Costa	7045
+International Bar Association	7046
+Norbert Roettgen	7047
+Sierra Bancorp	7048
+School Sisters Of Notre Dame	7049
+Yukon River	7050
+Chief Of State	7051
+Department Of Protocol	7052
+Illegal Movement	7053
+Sheikh Hamid	7054
+Cincinnati Financial Corporation	7055
+Harvard Bioscience Inc	7056
+Halozyme Therapeutics Inc	7057
+Harbans Singh	7058
+Gary Gray	7059
+Shinhan Financial Group	7060
+Ali Kamara	7061
+Consistory	7062
+Sindhuli	7063
+Foreign Owned Vessel	7064
+Haiphong	7065
+Minist For Economy	7066
+Tesla Motors	7067
+Liguria	7068
+Cheesecake Factory	7069
+Chuadanga	7070
+International Association For Volunteer Effort	7071
+Save The Children International	7072
+Harry Clinton	7073
+Naiqama Lalabalavu	7074
+Manuel Esquivel	7075
+Habibollah Bitaraf	7076
+Seychellois	7077
+Futuna Island	7078
+Apeldoorn	7079
+Jean Claude Trichet	7080
+Secretariate	7081
+Heraldo Munoz	7082
+Lutheran Immigration And Refugee Service	7083
+Japan Peace Boat	7084
+International Real Estate Federation	7085
+Ashford Hospitality Trust	7086
+Concur Technologies Inc	7087
+Irak	7088
+John Pombe Joseph Magufuli	7089
+Harte Hanks	7090
+Millicom International	7091
+International War Crimes Tribunal	7092
+Dharubaaruge	7093
+Worker Organization	7094
+Agco Corporation	7095
+The Female Health Company	7096
+Thong Khon	7097
+Cibt Education Group	7098
+Wilson Tuckey	7099
+Mariano Rajoy Brey	7100
+Nelly Jerez	7101
+Yeongdong	7102
+U Tin Win	7103
+Mead Johnson	7104
+Luiz Inacio Da Silva	7105
+Vanguard Natural Resources	7106
+Helen Of Troy Limited	7107
+Border Patrol Unit	7108
+Eqt Corporation	7109
+Assured Guaranty Ltd	7110
+Insurgent Force	7111
+Nicolas Schmit	7112
+Yukio Edano	7113
+Soldiery	7114
+Jean Pierre Roth	7115
+Webmd Health	7116
+Bicolano	7117
+Sao Bernardo Do Campo	7118
+Kiwanis International	7119
+Falkland Islander	7120
+Gorky	7121
+Hoodoo	7122
+Ing Group	7123
+Prince Alois	7124
+Carmelo Mifsud Bonnici	7125
+Dacca	7126
+Francisco Flores	7127
+Vector Group Ltd	7128
+Hubert Hughes	7129
+Rajbari	7130
+Health Volunteers Overseas	7131
+Robert White	7132
+Tarek Mitri	7133
+Virgin Islander	7134
+Alep	7135
+Anna Lindh	7136
+Orient Express Hotel	7137
+Bashkortostan	7138
+San Marinese	7139
+Rockwood Holdings	7140
+Randy Norton	7141
+Ile De France	7142
+Lamphun	7143
+Dahna	7144
+Pentecostalism	7145
+Minist For Youth And Sport	7146
+Michael Werikhe Kafabusa	7147
+Hissene Habre	7148
+Anastase Murekezi	7149
+Pampas	7150
+Norman Chan Tak Lam	7151
+John Tamihere	7152
+Cypress Semiconductor Corporation	7153
+Affghanistan	7154
+Puttalam	7155
+National Council Of Women Of Canada	7156
+Zhang Ping	7157
+Kamal Nath	7158
+Sadlers	7159
+Michael Gene	7160
+Tunesia	7161
+Rukum	7162
+James Bovard	7163
+Potentate	7164
+Danmark	7165
+Rene Montero	7166
+Meron Reuben	7167
+Esther Byer Suckoo	7168
+Linear Technology Corp	7169
+Howard Cooke	7170
+Lisu	7171
+Brahmos Aerospace	7172
+Medair	7173
+Sir Lanka	7174
+International Institute For Sustainable Development	7175
+Nong Khai	7176
+Noranda Aluminum	7177
+Jiri Paroubek	7178
+Universal Postal Union	7179
+Fayez Tarawneh	7180
+Association Of World Citizens	7181
+Ranong	7182
+Askar Zhumagaliyev	7183
+Insulet Corporation	7184
+Papel	7185
+Eden Martinez	7186
+Chachoengsao	7187
+Diana Shipping Inc	7188
+Lu Lay Sreng	7189
+Ousman Jammeh	7190
+Conmed Corporation	7191
+Ali Habib	7192
+Dan Quayle	7193
+Graham Corporation	7194
+Regency Centers Corp	7195
+Albert Del Rosario	7196
+Minist Of Planning And Development	7197
+Sa Kaeo	7198
+Crispus Kiyonga	7199
+Protocol Department	7200
+Sergey Ivanov	7201
+Tropenbos International	7202
+Thomas Mayr Harting	7203
+Abid Sharifov	7204
+Namdhari	7205
+Yuriy Serheyev	7206
+Convergys Corporation	7207
+Pema Gyamtsho	7208
+Population Services International	7209
+Signet Jewelers Limited	7210
+Huron Consulting Group	7211
+Korea Telecom	7212
+Iamgold Corp	7213
+Prosperity Theology	7214
+Muqdisho	7215
+Dolores Balderamos Garcia	7216
+Oasis Petroleum	7217
+Sali Berisha	7218
+Milne Bay	7219
+Straya	7220
+Prologis	7221
+Korea Electric Power Corp	7222
+Baganda	7223
+Luta	7224
+Jacek Rostowski	7225
+Piemonte	7226
+Steelman	7227
+Air Force Commander In Chief	7228
+Elizabeth Ii	7229
+Hackett Group	7230
+Africare	7231
+Seeland	7232
+Michael Spindelegger	7233
+Council Of Judges	7234
+Progress Software Corporation	7235
+Amedisys	7236
+Shore Patrol	7237
+Lydie Polfer	7238
+Ambika Soni	7239
+Sabesp	7240
+Exco Resources	7241
+Sterling Bancorp	7242
+Hannah Tetteh	7243
+Resmed Inc	7244
+Qandahar	7245
+Interfaith Center On Corporate Responsibility	7246
+Cook Islander	7247
+Gastar Exploration	7248
+Weyco Group	7249
+United Dominion Realty Trust	7250
+Donald Mackay	7251
+Guerilla Army	7252
+Brethren In Christ	7253
+Yamoussoukro	7254
+Nakhon Sawan	7255
+Dte Energy Company	7256
+Carlos Mendoza	7257
+Adrienne Clarkson	7258
+Portugues	7259
+Barquisimeto	7260
+Minist Of Post And Telecommunication	7261
+Embotelladora Andina	7262
+Tree Hugger	7263
+Korea South	7264
+Mari Alkatiri	7265
+War Child Canada	7266
+Larcenist	7267
+Guerilla Force	7268
+Soloman Islands	7269
+Bookman	7270
+Front For The Liberation	7271
+Surendra Pandey	7272
+Socialist International	7273
+Continental Airlines	7274
+Nuernberg	7275
+Ha Nam	7276
+Arthur Mutambara	7277
+Park National Corporation	7278
+Third World Network	7279
+Karel Schwarzenberg	7280
+First Marblehead Corporation	7281
+Lyonpo Yeshey Zimba	7282
+Idriss Deby	7283
+Bashar Al Jafari	7284
+Nangolo Mbumba	7285
+Embassy In H	7286
+Guahan	7287
+Sverdlovsk	7288
+Wicca	7289
+Orion Marine Group	7290
+Companhia Brasileira De Distribuicao	7291
+Amerco	7292
+Zte Corp	7293
+Nabih Shuqum	7294
+Faruk Logoglu	7295
+Covidien Plc	7296
+Rebel Separatist	7297
+Jining	7298
+Tokelau	7299
+Cobalt International Energy	7300
+China Merchants Holdings	7301
+Ted Turner	7302
+Tra Vinh	7303
+Pravind Jugnauth	7304
+Praesidium	7305
+Kairat Kelimbetov	7306
+Tennant Company	7307
+Achinese	7308
+Nords	7309
+Resolute Energy Corp	7310
+Aspen Insurance	7311
+Yves Leterme	7312
+House Of Councillors	7313
+Aragonese	7314
+Delek Us Holdings	7315
+Michal Kovac	7316
+Biglari Holdings	7317
+William Lukuvi	7318
+Communion And Liberation	7319
+Family Health International	7320
+Trimble Navigation	7321
+Ousted Premier	7322
+Orbotech Ltd	7323
+World League For Freedom And Democracy	7324
+Roger Mcdermott	7325
+Staples Inc	7326
+Safta	7327
+Nijeriya	7328
+Brian Donnelly	7329
+East Timorese	7330
+Sauli Niinisto	7331
+Khakassia	7332
+Taian	7333
+Awais Ahmad Khan Leghari	7334
+Kaushal Kishor	7335
+Minist Of Mining And Energy	7336
+Daniel Silva	7337
+Edison James	7338
+Agnes Kalibata	7339
+Paramilitary Organisation	7340
+Overseas Development Institute	7341
+Rawanda	7342
+Jail Bird	7343
+Olin Corporation	7344
+Nalchik	7345
+Muslim Missionary	7346
+Africa Confidential	7347
+Union Of South American Nations	7348
+Francois Bozize	7349
+Carlisle Companies Incorporated	7350
+Sunstone Hotel Investors	7351
+Francisco Madeira	7352
+Ismail Omar Guelleh	7353
+Mahamat Allahou Taher	7354
+Laszlo Molnar	7355
+Windward Coast	7356
+Peterburg	7357
+Coventry Health Care	7358
+Scott Jenkins	7359
+Tampico	7360
+Caymans	7361
+Qian Qichen	7362
+Unocal	7363
+Soc Trang	7364
+Valhi Inc	7365
+Minist Of Veterans Affairs	7366
+Ingvar Carlsson	7367
+Surinam	7368
+Moses Ali	7369
+Perng Fai Nan	7370
+Teekay Shipping	7371
+Wamalwa Kijana	7372
+Jairam Ramesh	7373
+Samdech Hun Sen	7374
+Austerlitz	7375
+Paul Klebnikov	7376
+Wabco Holdings	7377
+Capital One Financial Corporation	7378
+Morgans Hotel Group	7379
+Moussa Traore	7380
+Mamadou Tandja	7381
+Mosiuoa Lekota	7382
+Ahmat Mahamat Bachir	7383
+Bac Giang	7384
+Minist For The Interior	7385
+Barry Faure	7386
+Trashigang	7387
+Lisa Raitt	7388
+Minist Of Reconstruction	7389
+Yeshey Zimba	7390
+Sfax	7391
+Seato	7392
+Gurns	7393
+Aleksander Kwasniewski	7394
+Salva Kiir Mayardit	7395
+Sithembiso Nyoni	7396
+Ballard Power Systems	7397
+Maroko	7398
+Press Photographer	7399
+Brian Cowen	7400
+Government Employer	7401
+Great Britian	7402
+Mikhail Lesin	7403
+Makhdoom Ali Khan	7404
+Nzer	7405
+Center For International Policy	7406
+Rupiah Banda	7407
+Abdoulaye Wade	7408
+International Association Of Women Judges	7409
+Worldwide Marriage	7410
+Femsa	7411
+Hipc	7412
+Sinica	7413
+Denbury Resources Inc	7414
+Linyi	7415
+Kanuri	7416
+Energy Income And Growth Fund	7417
+Augustinians	7418
+Philippine Long Distance Telephone Company	7419
+Fire Warden	7420
+Ciudad Bolivar	7421
+National Revolutionary Organization	7422
+Kypros	7423
+Omsk	7424
+Vong Soth	7425
+Cae Inc	7426
+Valdas Adamkus	7427
+Trocaire	7428
+Citic Group	7429
+Benny Allan	7430
+Mehmet Zafer Caglayan	7431
+Murad Ebrahim	7432
+Minist For Presidential Affairs	7433
+Metalurgica Gerdau	7434
+Speedway Motorsports	7435
+Palestina	7436
+Naogaon	7437
+Eduardo Montealegre	7438
+Jemaah Islamiyah	7439
+Liuga Faumuina	7440
+Sushil Kumar Shinde	7441
+Nanda Devi	7442
+Tuivakano	7443
+Muhammad Vi	7444
+Kola Peninsula	7445
+Elias Jaua	7446
+Dish Network Corp	7447
+Makira Ulawa	7448
+Celadon Group	7449
+Nuristani	7450
+Gorden Moyo	7451
+Rustam Inoyatov	7452
+Jerry Gana	7453
+Lozi	7454
+Khentii	7455
+Mahamadou Issoufou	7456
+Shariah Court	7457
+Kamphaeng Phet	7458
+Union Carbide	7459
+Slovensko	7460
+Organisation For Security And Cooperation In Europe	7461
+Dimashq	7462
+Population Council	7463
+Plzen	7464
+Mulao	7465
+Najib Balala	7466
+Signature Bank	7467
+Than Shwe	7468
+Noble Group Ltd	7469
+Helsinki Foundation For Human Rights	7470
+Anniken Huitfeldt	7471
+Voronezh	7472
+Sam Nujoma	7473
+Saara Kuugongelwa	7474
+China Lodging Group	7475
+Chinese Patriotic Catholic Association	7476
+Pall Corporation	7477
+Order Of Friars Preachers	7478
+Joyce Mujuru	7479
+Bce Inc	7480
+Adobe Systems	7481
+Green Mountain Coffee Roasters	7482
+Romano Prodi	7483
+Insurgent Leadership	7484
+Chubu	7485
+Hasan Hasanov	7486
+Michael Novak	7487
+Tyson Foods Inc	7488
+Jakks Pacific	7489
+Sukhothai	7490
+Assembly Of The Union	7491
+Rpc Inc	7492
+Puertorico	7493
+Drug Runners	7494
+International Work Group For Indigenous Affairs	7495
+Congregationalist	7496
+Cistercians	7497
+Economic And Social Commission For Asia And The Pacific	7498
+Transport And Communication Minist	7499
+Stipendiary	7500
+Ali Saad	7501
+Supreme Court Chief Justice Reynato Puno	7502
+Mark Mcclellan	7503
+Annaly Capital Management	7504
+China Life Insurance Company	7505
+Aol Inc	7506
+Jane Goodall Institute	7507
+Sisters Of The Holy Names Of Jesus And Mary	7508
+Najd	7509
+Luxemborg	7510
+Insula	7511
+Ralph Fiennes	7512
+Compugen	7513
+Revlon Inc	7514
+Aupsc	7515
+Stephenson King	7516
+Pirojpur	7517
+Argentinan	7518
+Neven Mimica	7519
+Ahmad Tejan Kabbah	7520
+Watson Pharmaceuticals	7521
+Jpan	7522
+Entergy Arkansas	7523
+Women And Children Affairs Minist	7524
+Vaira Vike Freiberga	7525
+Americares	7526
+Montagnard	7527
+Maxim Integrated Products Inc	7528
+Lashkar E Tayyaba	7529
+Willy Lam	7530
+Office Of The High Commission	7531
+Gregory Mankiw	7532
+States Of America	7533
+Panchthar	7534
+Dhawalagiri	7535
+Buri Ram	7536
+Bardiya	7537
+Hemispherx Biopharma	7538
+Plymouth Brethren	7539
+Dadeldhura	7540
+Mukhtar Kul Mukhammed	7541
+Donets Basin	7542
+Cape York Peninsula	7543
+Chiloe	7544
+Ekajuk	7545
+Ieremia Tabai	7546
+Nurnberg	7547
+Centre For Democracy And Development	7548
+Maxlinear	7549
+Khabarovsk	7550
+Mosotho	7551
+Datuk Seri Abdullah Ahmad Badawi	7552
+Armenian Catholic Church	7553
+Krishna Prasad Bhattarai	7554
+General Dynamics Corporation	7555
+Kb Financial Group	7556
+Xilinx Inc	7557
+Minist For Communication	7558
+Federico Franco	7559
+Phu Tho	7560
+Jang Song Thaek	7561
+Mines Official	7562
+Sunpower Corporation	7563
+Nandcoomar Bodha	7564
+Affymetrix	7565
+Phatthalung	7566
+Monster Worldwide Inc	7567
+Samtse	7568
+Videocon Industries	7569
+Minist Of European Affairs	7570
+European Environmental Bureau	7571
+Nauruan	7572
+Raila Amolo Odinga	7573
+Uranium Energy Corp	7574
+Haratin	7575
+Adetokumbo Kayode	7576
+Cumberland Pharmaceuticals Inc	7577
+Filip Dimitrov	7578
+Bangka Belitung	7579
+Hollysys Automation	7580
+Ahmed Abdou	7581
+Kostas Karamanlis	7582
+Dipuo Peters	7583
+Nci Inc	7584
+Rebel Armies	7585
+Portland General Electric	7586
+Good Shepherd Sisters	7587
+New Zeland	7588
+Biocryst Pharmaceuticals	7589
+Gibraltarian	7590
+Ruhr Valley	7591
+Marianna Shchetkina	7592
+Mgic Investment Corporation	7593
+Fibria Celulose	7594
+Apache Corporation	7595
+Akaba	7596
+Us Virgin Island	7597
+Ruth Dyson	7598
+Dominic Republic	7599
+Las Tortugas	7600
+Neurocrine Biosciences Inc	7601
+Allegheny Energy	7602
+John Seneviratne	7603
+Noah Wekesa	7604
+Teekay Offshore	7605
+Longwei Petroleum Investment Holding	7606
+Iberiabank	7607
+Ezcorp Inc	7608
+Natural Gas Services Group Inc	7609
+Elvis Ngolle Ngolle	7610
+Aeterna Zentaris	7611
+Kumara Welgama	7612
+Orion Energy Systems	7613
+Community Of Sahel Saharan States	7614
+Modern Orthodoxy	7615
+Ventas Inc	7616
+Doukhobors	7617
+Songhai	7618
+Valley National Bancorp	7619
+Dannish	7620
+Carlos Vargas	7621
+Peter Coleman	7622
+Callidus Software	7623
+Rakam Chemjong	7624
+Gerry Byrne	7625
+Service Corporation International	7626
+Dickie Bradley	7627
+George Young	7628
+Choiseul	7629
+Dame Sian Elias	7630
+Luzon Strait	7631
+Trevor Walker	7632
+Morroco	7633
+Pierre Mauroy	7634
+Ningxia Hui	7635
+Mayors For Peace	7636
+International Peace Bureau	7637
+Sims Metal Management	7638
+Jean Baptiste Bagaza	7639
+Best Buy Co	7640
+Acadia Realty Trust	7641
+Icici Bank Limited	7642
+Helvetica	7643
+Roza Otunbayeva	7644
+Jamiruddin Sircar	7645
+Abulfaz Garayev	7646
+Cna Financial Corporation	7647
+Education Realty Trust	7648
+Harley Davidson Inc	7649
+Fushun	7650
+Ethiopian Churches	7651
+Church Of North India	7652
+Pericom Semiconductor	7653
+Elyor Ganiyev	7654
+Ana Palacio	7655
+Khalid Bin Muhammad Al Atiyah	7656
+Mejico	7657
+Majlinda Bregu	7658
+Lawgiver	7659
+Magahi	7660
+Hoang Trung Hai	7661
+Formosa Plastics	7662
+Kaluga	7663
+Air Products And Chemicals Inc	7664
+Juniper Networks Inc	7665
+Phh Corp	7666
+Yafo	7667
+John Compton	7668
+Bektashi	7669
+Fula	7670
+Public Library Of Science	7671
+Minata Samate Cessouma	7672
+Renato Brunetta	7673
+Mahmoud Mohieldin	7674
+Fenno	7675
+Sysco Corp	7676
+Terrorist Group Leader	7677
+Outlawed Party	7678
+Lindsay Corporation	7679
+Minist Of National Education	7680
+Cardiovascular Systems Inc	7681
+Radical Leftist Group	7682
+Nick Minchin	7683
+Eldorado Gold Corp	7684
+Tripuri	7685
+Lawrence Walker	7686
+Sathya Sai Baba	7687
+Mytilene	7688
+Kirk Kerkorian	7689
+Marina Silva	7690

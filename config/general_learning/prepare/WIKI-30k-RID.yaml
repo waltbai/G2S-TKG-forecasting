@@ -1,0 +1,14 @@
+# Paths
+dataset_dir: data
+dataset: WIKI
+prepare_dir: processed
+partition: train
+
+# Process options
+history_strategy: hop
+history_length: 50
+map_strategy: RID
+time: session
+entity: false
+relation: false
+max_samples: 30000

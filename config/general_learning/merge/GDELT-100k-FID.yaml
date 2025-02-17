@@ -1,0 +1,11 @@
+### model
+model_name_or_path: models/llama3_8b
+adapter_name_or_path: outputs/GL-GDELT-100k-FID
+template: empty
+finetuning_type: lora
+
+### export
+export_dir: models/GL-GDELT-100k-FID
+export_size: 5
+export_device: cpu
+export_legacy_format: false
