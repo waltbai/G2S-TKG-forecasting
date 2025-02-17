@@ -13,17 +13,17 @@ class PromptConstructor:
             self,
             query: Query,
             tkg: TKG,
-            map_strategy: str = "global",
+            map_strategy: str = "GID",
             time_strategy: str = "global",
             map_entity: bool = True,
             map_relation: bool = True,
     ):
         # Name2id mapping
-        if map_strategy == "global":
+        if map_strategy == "GID":
             self._mapping_global(query, tkg)
-        elif map_strategy == "session":
+        elif map_strategy == "FID":
             self._mapping_session(query, tkg)
-        elif map_strategy == "random":
+        elif map_strategy == "RID":
             self._mapping_random(query, tkg)
         else:
             raise ValueError(f"Unknown map_strategy: {map_strategy}")

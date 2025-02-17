@@ -1,0 +1,23 @@
+### model
+model_name_or_path: models/llama3_8b
+infer_backend: huggingface
+
+### method
+stage: sft
+finetuning_type: lora
+lora_target: all
+
+### dataset
+dataset_dir: processed
+dataset: ICEWS14,ICEWS18,YAGO
+template: empty
+cutoff_len: 1024
+preprocessing_num_workers: 8
+
+# Process options
+history_strategy: hop
+history_length: 50
+map_strategy: RID
+time: session
+entity: true
+relation: true

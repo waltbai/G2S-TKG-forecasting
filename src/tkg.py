@@ -130,7 +130,7 @@ class TKG:
     def find_history(
             self,
             query: Query,
-            strategy: str = "rule",
+            strategy: str = "hop",
             history_length: int = 50,
     ):
         """

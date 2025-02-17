@@ -133,13 +133,11 @@ def main():
                 adapter_paths.append(os.path.join(adapter_base_path, d))
     else:
         # Evaluate certain checkpoint
-        adapter_path = os.path.join(
+        finetuning_args.checkpoint = finetuning_args.checkpoint.split(",")
+        adapter_paths = [os.path.join(
             model_args.adapter_name_or_path[0],
-            f"checkpoint-{finetuning_args.checkpoint}",
-        )
-        if not os.path.exists(adapter_path):
-            raise ValueError(f"'{adapter_path}' not found!")
-        adapter_paths = [adapter_path]
+            f"checkpoint-{ckpt}",
+        ) for ckpt in finetuning_args.checkpoint]
     adapter_paths = sorted(adapter_paths)
 
     # Load tokenizer and model

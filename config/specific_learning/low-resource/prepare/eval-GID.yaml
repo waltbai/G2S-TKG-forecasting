@@ -1,0 +1,13 @@
+# Paths
+dataset_dir: data
+dataset: ICEWS14
+prepare_dir: processed
+partition: valid,test
+
+# Process options
+history_strategy: hop
+history_length: 50
+map_strategy: GID
+time: session
+entity: true
+relation: true

@@ -21,7 +21,7 @@ class DataArguments(hparams.DataArguments):
     history_length: int = 30
     entity: bool = False
     relation: bool = False
-    map_strategy: str = "global"
+    map_strategy: str = "GID"
     time: str = "global"
     partition: str = "all"
 
@@ -64,7 +64,7 @@ class FinetuningArguments(hparams.FinetuningArguments):
     """
     Finetuning argument class.
     """
-    checkpoint: int = None
+    checkpoint: str = None
 
 
 _PREPARE_ARGS = [DataArguments]

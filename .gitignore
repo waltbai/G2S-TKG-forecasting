@@ -139,6 +139,6 @@ temp/
 .vscode/
 
 # Processed files
-prepare/
 output/
 models/
+processed/
