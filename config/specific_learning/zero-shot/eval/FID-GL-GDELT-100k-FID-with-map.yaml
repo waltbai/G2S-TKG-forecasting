@@ -8,7 +8,7 @@ finetuning_type: lora
 lora_target: all
 
 ### dataset
-dataset_dir: processed
+prepare_dir: processed
 dataset: ICEWS14,ICEWS18
 template: empty
 cutoff_len: 1024
