@@ -5,10 +5,10 @@ This is the official code for paper: "G2S: A General-to-Specific Learning Framew
 - 4 A800 (80G) GPUs
 - cuda==12.2
 - python==3.11
-- llama_factory==0.9.1.dev0
+- llama_factory>=0.9.1
 
 ## Usage
-**[Optional]** Create virtual environment:  
+*[Optional]* Create virtual environment:  
 ```shell
 conda create -n g2s python=3.11
 ```
@@ -22,6 +22,9 @@ Run unit tests to ensure each module works:
 ```shell
 python -m unittest discover tests
 ```
+
+**Notice**: We found that the old version llama3 performs better than current version in our performance.
+The main difference is the tokenizer. Please use the provided old version tokenizer `llama3_tokenizer/` to reproduce the results.
 
 ### General Learning Stage
 Data preparation:
@@ -42,7 +45,7 @@ Data preparation:
 bash scripts/specific_learning/standard/prepare.sh
 ```
 
-Run training and evaluation:
+Run training and evaluation with GID strategy on ICEWS14 dataset:
 ```shell
 bash scripts/specific_learning/run-ICEWS14-GID.sh
 ```
@@ -53,7 +56,7 @@ Data preparation:
 bash scripts/specific_learning/zero-shot/prepare.sh
 ```
 
-Run evaluation:
+Run evaluation for model with FID strategy trained on both GDELT and WIKI in the general learning stage:
 ```shell
 bash scripts/specific_learning/zero-shot/run-FID-GL-GDELT-WIKI-130k-RID.sh
 ```
@@ -64,7 +67,7 @@ Data preparation:
 bash scripts/specific_learning/low-resource/prepare.sh
 ```
 
-Run training and evaluation:
+Run training and evaluation with FID strategy on the earliest 5% training facts of ICEWS14:
 ```shell
 bash scripts/specific_learning/low-resource/run-ICEWS14-05-FID.sh
 ```
