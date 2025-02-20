@@ -43,10 +43,10 @@ def main():
                 continue
 
             # Construct queries
+            random.seed(RANDOM_SEED)
             logger.info(f"Construct queries.")
             queries = tkg.construct_queries(part)
             if data_args.max_samples is not None:
-                random.seed(RANDOM_SEED)
                 queries = random.choices(queries, k=data_args.max_samples)
             logger.info(f"Construct {len(queries)} {dataset} {part} queries.")
 
