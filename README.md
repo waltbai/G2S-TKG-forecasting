@@ -23,7 +23,7 @@ Run unit tests to ensure each module works:
 python -m unittest discover tests
 ```
 
-**Notice**: We found that the old version llama3 performs better than current version in our performance.
+**Notice**: We found that the old version llama3 performs better than current version in our experiments.
 The main difference is the tokenizer. Please use the provided old version tokenizer `llama3_tokenizer/` to reproduce the results.
 
 ### General Learning Stage
