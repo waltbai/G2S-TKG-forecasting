@@ -1,5 +1,5 @@
 # G2S-tkg-forecasting
-This is the official code for paper: "G2S: A General-to-Specific Learning Framework for Temporal Knowledge Graph Forecasting with Large Language Models".
+This is the official code for paper: "G2S: A General-to-Specific Learning Framework for Temporal Knowledge Graph Forecasting with Large Language Models", ACL 2025 Findings.
 
 ## Develop platform
 - 4 A800 (80G) GPUs
